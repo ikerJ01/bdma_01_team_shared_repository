@@ -1,0 +1,248 @@
+---
+title: "Data Preprocessing"
+author: "Miguel Albertí Pons &Iker González Cuellar"
+date: "07-11-22"
+output:
+  html_document: default
+---
+
+```{=html}
+<style type="text/css">
+.main-container {
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+```
+
+------------------------------------------------------------------------
+
+```{r message=FALSE}
+?
+
+setwd('D:/iCloud/iCloudDrive/Master Big Data/Data Analytics - Teoria_Practica/_r_exercises/3-DataPreprocessing')
+
+BcnPisos = read.delim("_repository/bcn_pisos.txt")
+```
+
+#### **1. Let's play a bit with pipes. Using the pipeline operator perform the following operations:**
+
+##### **a) Compute the squared root of the squared of any number.**
+
+```{r}
+
+x = 32 %>% .^2 %>% sqrt
+print(x)
+```
+
+##### **b) Sample 1000 individuals from a normal distribution (mean = 5 , sd = 3 ), standardize the sample (subtract the mean and divide by the standard deviation, i.e., scale) and compute the max value.**
+
+```{r}
+standard_sample_function = function(sample){
+  (sample - mean(sample))/sd(sample)
+  }
+rnorm(n=10000,mean=5,sd=3) %>% standard_sample_function() %>% max()
+
+```
+
+##### **c) Same as b) but plotting**
+
+```{r}
+
+x = rnorm(n= 1000, mean = 5, sd = 3) %T>% hist(., probability = T, breaks = 50, col = '#48BF84') 
+
+curve(dnorm(x,5,3), col = '#D65F65', add = T)
+
+```
+
+#### **2. With the pisos dataset and using an only pipeline, compute the following transformations:**
+
+##### **a) Drop the duplicated individuals and compute the mean value of the fats ("Valor") by district ("Dist").**
+
+```{r}
+BcnPisosMeanbyDist = BcnPisos %>% unique() %>% group_by(Dist) %>% 
+  summarise(valor_medio = mean(Valor), pisos_count_dist = n())
+
+print(BcnPisosMeanbyDist)
+```
+
+##### **b) Drop the duplicated individuals, get the numeric features of the dataset and standardize it.**
+
+```{r}
+stdzBcnPisos = BcnPisos %>% unique() %>% select_if(., is.numeric) %>%
+  mutate_all(~(scale(.) %>% as.vector))
+
+head(stdzBcnPisos,30)
+```
+
+##### **c) Drop the duplicated individuals, add a new factor to the dataset "Greater than is mean"with values (Y,N) indicating if the Value ("Valor") of the at is greater or not than the mean of the flats in the district.**
+
+```{r}
+
+BcnPisosUniqueMeans = BcnPisos %>% unique(.) %>% left_join(., BcnPisosMeanbyDist, by = 'Dist') %>% mutate("Greater than is mean" = if_else(Valor > valor_medio, "Yes", "No"))
+
+head(BcnPisosUniqueMeans,50)
+```
+
+#### **3. Finally, you are asked to do a complete transformation of the pisos dataset.**
+
+#### **We want to analyse and visualize some general features of the districts of the city, characterizing a sample of flats.**
+
+#### **To ease this analysis you are asked to create a new dataset containing one individual for each district and containing the following variables:**
+
+##### **a) Propose R code for the transformation of this dataset. You are free to use any technique explained during the course (and others) but the use of some pipes will be valued positively (7 points).**
+
+Para este apartado hemos propuesto dos códigos diferentes de R:
+
+**Propuesta 1**: Aborda el problema a través de transformaciones de la tabla Bcn Pisos: normaliza y categoriza las variables de acuerdo al listado solicitado, divide la tabla normalizada en dos partes para sus respectivos cálculos (mean y count) y por último, crea el resumen de variables utilizando la función pivot y join.
+
+**Propuesta 2:** Aborda el problema de forma directa y eficiente a través de una función utilizando los comandos de goup_by y summirise.
+
+Desde nuestro punto de vista, la propuesta 1 permite una mayor flexibilidad en cuanto a la transformación, cálculo y visualización de las variables, sin embargo, esta opción es menos eficiente en tiempos de ejecución por las transformaciones y joins que se realiza en el proceso.
+
+La propuesta 2, es más eficiente en tiempos de ejecución (de acuerdo a los tiempos del sistema) ya que utiliza funciones específicas para la creación de la tabla solicitada sin realizar diversas transformaciones ni joins los cuales penalizan el rendimiento.
+
+***\# Código Propuesta 1:***
+
+```{r message=FALSE}
+library(reshape2)
+library(tidyr)
+start_time <- Sys.time()
+
+# CODIFICACIÓN BIG IF PARA ETIQUETAR LAS VARIABLES EN SUB_VARIABLES DE ACUERDO AL LISTADO SOLICITADO
+
+bigIf = function (x) {
+  if_else(x$variable == "Valor", "Valor", 
+          if_else(x$variable == "Superf", "Superf", 
+                  if_else((x$variable == "Dorm" & x$value == 1), "1 Dorm", 
+                          if_else((x$variable == "Dorm" & x$value == 2), "2 Dorm",
+                                  if_else((x$variable == "Dorm" & x$value == 3), "3 Dorm",
+                                          if_else((x$variable == "Dorm" & x$value == 4), "4 Dorm",
+                                                  if_else((x$variable == "Dorm" & x$value == 5), "5 Dorm",
+                                                          if_else((x$variable == "Ascens" & x$value == "SI"), "AscS",
+                                                                  if_else((x$variable == "Ascens" & x$value == "NO"), "AscN",
+                                                                          if_else((x$variable == "Planta" & x$value == "Atic"), "Atics",
+                                                                                  if_else((x$variable == "Planta" & x$value == "Planta"), "Plantas",
+                                                                                          if_else((x$variable == "Planta" & x$value == "Bajos"), "Bajos",
+                                                                                                  if_else((x$variable == "Edat" & as.integer(x$value) <= 10), "Nous",
+                                                                                                          if_else((x$variable == "Edat" & as.integer(x$value) >= 11 & as.integer(x$value) <= 20), "SemiNous",
+                                                                                                                  if_else((x$variable == "Edat" & as.integer(x$value) >= 21 & as.integer(x$value) <= 50), "Vells",
+                                                                                                                          if_else((x$variable == "Edat" & as.integer(x$value) >= 51), "MoltVells",
+                                                                                                                                  "0 Unused Variables"
+                                                                          ))))))))))))))))
+
+}
+
+# TRANSFORMACIÓN PASO 1:
+
+BcnPisosTransform = BcnPisos[,c(1:3,5,7:8,11)] %>% unique(.) %>% melt(., id.vars = "Dist") %>% mutate("sub_variable" = suppressWarnings(bigIf(.)))             # se ignoran los warning arrojados por la función del BIG IF, puesto que se ha validado previamente la tabla y no se ha introducido ningún NA en el data frame trás su aplicación.
+
+# TRANSFORMACIÓN PASO 2:
+
+BcnPisosToMean = BcnPisosTransform[BcnPisosTransform$sub_variable == c("Valor","Superf"),] %>% .[,c(1,3,4)] %>% transform(., value = as.numeric(value)) %>% pivot_wider(names_from = sub_variable, values_from = value, values_fn = mean)
+
+
+BcnPisosToCount = BcnPisosTransform[!(BcnPisosTransform$sub_variable %in% c("Valor","Superf")),] %>% .[,c(1,4)] %>% mutate("countObs" = 1) %>% pivot_wider(names_from = sub_variable, values_from = countObs, values_fn = sum, values_fill = 0, names_sort = T)
+
+# TRANSFORMACIÓN PASO 3:
+
+P1_BcnPisoSummary = full_join(BcnPisosToMean, BcnPisosToCount, by = "Dist")
+
+
+print(P1_BcnPisoSummary)
+
+end_time <- Sys.time()
+
+cat("P1 -> Code chunk running time of :", end_time - start_time)
+
+```
+
+***\# Código Propuesta 2:***
+
+```{r message=FALSE}
+start_time <- Sys.time()
+
+get_new_data_frame = function(sample){
+  new_data__frame = sample %>% group_by(Dist) %>% 
+    summarise(mean_valor = mean(Valor),
+              un_dorm = sum(Dorm == 1),
+              dos_dorm = sum(Dorm == 2),
+              tres_dorm = sum(Dorm == 3),
+              cuatro_dorm = sum(Dorm == 4),
+              cinco_dorm = sum(Dorm == 5),
+              with_ascens = sum(Ascens == "SI"),
+              without_ascens = sum(Ascens == "NO"),
+              num_atic = sum(Planta == "Atic"),
+              num_planta = sum(Planta == "Planta"),
+              num_bajos = sum(Planta == "Bajos"),
+              num_nous = sum(Edat <= 10),
+              num_semi_nous = sum(Edat >= 11 & Edat <= 20),
+              num_vells = sum(Edat >= 21 & Edat <= 50),
+              num_molt_vells = sum(Edat >= 51),
+              mean_superf = mean(Superf),
+              )
+  return(new_data__frame)
+}
+
+P2_BcnPisoSummary = BcnPisos %>% unique(.) %>% get_new_data_frame
+
+print(P2_BcnPisoSummary)
+
+end_time <- Sys.time()
+
+cat("P2 -> Code chunk running time of :", end_time - start_time)
+```
+
+##### **b) Propose nice visualizations of this new dataset (3 points)**
+
+```{r}
+
+library(ggplot2)
+
+colorPalett = c("#99E47E", "#48BF84", "#439775", "#3C7A80", "#D65F65")
+
+# Line Chart: Valor Medio Pisos
+
+ValorChart = ggplot(P2_BcnPisoSummary, aes(y = format(as.numeric(mean_valor),scientific=F), x = Dist, group = 1)) + geom_line(color = "#D65F65", linewidth = 1) + geom_point(color = "#48BF84", size = 5) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("Media valor pisos por barrio") + labs(y = "Ptas", x = " Distrito") + scale_fill_manual(values=colorPalett)
+
+print(ValorChart)
+
+
+# Line Chart: Superficie m2 Media Pisos
+
+SuperfChart = ggplot(P2_BcnPisoSummary, aes(y = format(as.numeric(mean_superf),scientific=F), x = Dist, group = 1)) + geom_line(color = "#D65F65", linewidth = 1) + geom_point(color = "#48BF84", size = 5) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("Media superficie m2 pisos por barrio") + labs(y = "m2", x = " Distrito") + scale_fill_manual(values=colorPalett)
+
+print(SuperfChart)
+
+# Stacked Bar Chart: Ascensor si/no
+
+AsencChart = BcnPisosTransform[BcnPisosTransform$variable == "Ascens",] %>% mutate("nObs" = 1) %>% ggplot(., aes(fill = sub_variable , y = nObs, x = Dist)) +
+  geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("Total Pisos por Barrio con y sin ascensor") + labs(y = "Count nObs", x = " Distrito") + scale_fill_manual(values=colorPalett)
+
+print(AsencChart)
+
+# Stacked Bar Chart: Número de Dormitorios
+
+DormChart = BcnPisosTransform[BcnPisosTransform$variable == "Dorm",] %>% mutate("nObs" = 1) %>% ggplot(., aes(fill = sub_variable , y = nObs, x = Dist)) +
+  geom_bar(position = "fill", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("Proporción de número de habitaciones por barrio") + labs(y = "% nObs", x = " Distrito") + scale_fill_manual(values=colorPalett)
+
+print(DormChart)
+
+# Stacked Bar Chart: Edades Pisos
+
+EdadChart = BcnPisosTransform[BcnPisosTransform$variable == "Edat",] %>% mutate("nObs" = 1) %>% ggplot(., aes(fill = sub_variable , y = nObs, x = Dist)) +
+  geom_bar(position = "fill", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("Proporción edad pisos por barrio") + labs(y = "% nObs", x = " Distrito") + scale_fill_manual(values=colorPalett)
+
+print(EdadChart)
+
+# Stacked Bar Chart: Planta Pisos
+
+PlantaChart = BcnPisosTransform[BcnPisosTransform$variable == "Planta",] %>% mutate("nObs" = 1) %>% ggplot(., aes(fill = sub_variable , y = nObs, x = Dist)) +
+  geom_bar(position = "fill", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("Proporción tipo de planta por barrio") + labs(y = "% nObs", x = " Distrito") + scale_fill_manual(values=colorPalett)
+
+print(PlantaChart)
+
+
+
+```

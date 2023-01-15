@@ -1,0 +1,79 @@
+---
+title: "Linear Regression"
+author: "Miguel Albertí Pons &Iker González Cuellar"
+date: "09-01-23"
+output:
+  html_document:
+    df_print: paged
+
+<style type="text/css">
+.main-container {
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+---
+
+## Ejercicio 1
+
+**Read the data, create 4 univariate time series (IPC index, Monthly variation of IPC index, Yearly**
+
+**variation of IPC index, Variation of IPC index from the begining of the year) and one 4-dimesional**
+
+**time series as the union of the previous 4 (use ts.union). Plot the 4-dim time series.**
+
+```{r}
+
+
+```
+
+## Ejercicio 2
+
+**Answer the following questions: i. Which series have a seasonal pattern? ii. Which series are stationary?**
+
+```{r}
+
+```
+
+## Ejercicio 3
+
+**Compute the lag 12 differences of the IPC time series (using function diff). Then plot the union of 3**
+
+**time series: IPC, its lag 12 differences, and the series containing yearly variation of IPC index we read**
+
+**from file INE_IPC.csv. Do you think that yearly variation of IPC index is stationary in variance?**
+
+```{r}
+
+```
+
+## Ejercicio 4
+
+**Compute the Inflation as Inflation \<- 100\*diff(IPC,lag=12)/lag(IPC,k=-12).**
+
+**• Is Inflation of class ts?**
+
+**• Why do you think Inflation is so similar to the yearly variation of IPC index?**
+
+```{r}
+
+```
+
+## Ejercicio 5
+
+**Compute and plot the Autocorrelation Functions (ACFs) of the following time series:**
+
+**• The 4 we read from file INE_IPC.csv.**
+
+**• The inflation time series.**
+
+**• The IPC series after having taken consecutively differences with lags 1 (regular difference) and 12**
+
+**(seasonal difference). Plot this series previously: diff( diff(IPC,lag=1), lag=12). Do you think it**
+
+**is stationary?**
+
+```{r}
+
+```

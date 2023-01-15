@@ -1,0 +1,74 @@
+"BcnAnnualIncome.Codi_Barri","BcnAnnualIncome.Nom_Barri","BcnAnnualIncome.Nom_Districte","BcnAnnualIncome.Import_Renda_Bruta_EUR"
+"1",2,"el Gòtic","Ciutat Vella",16390.3333333333
+"2",1,"el Raval","Ciutat Vella",11778.5238095238
+"3",3,"la Barceloneta","Ciutat Vella",15094.2727272727
+"4",4,"Sant Pere, Santa Caterina i la Ribera","Ciutat Vella",17332.0769230769
+"5",5,"el Fort Pienc","Eixample",21988.95
+"6",8,"l'Antiga Esquerra de l'Eixample","Eixample",27051.1538461538
+"7",7,"la Dreta de l'Eixample","Eixample",30201.6551724138
+"8",9,"la Nova Esquerra de l'Eixample","Eixample",24607.675
+"9",6,"la Sagrada Família","Eixample",21533.0882352941
+"10",10,"Sant Antoni","Eixample",21295.625
+"11",32,"el Camp d'en Grassot i Gràcia Nova","Gràcia",24012.12
+"12",29,"el Coll","Gràcia",19587
+"13",30,"la Salut","Gràcia",24441
+"14",28,"Vallcarca i els Penitents","Gràcia",25468.0909090909
+"15",31,"Vila de Gràcia","Gràcia",22723.1944444444
+"16",34,"Can Baró","Horta-Guinardó",18668.5714285714
+"17",33,"el Baix Guinardó","Horta-Guinardó",20589.0526315789
+"18",37,"el Carmel","Horta-Guinardó",13893.7727272727
+"19",35,"el Guinardó","Horta-Guinardó",19672.4
+"20",43,"Horta","Horta-Guinardó",19099.1428571429
+"21",42,"la Clota","Horta-Guinardó",17457
+"22",36,"la Font d'en Fargues","Horta-Guinardó",24175.5714285714
+"23",38,"la Teixonera","Horta-Guinardó",15303.125
+"24",41,"la Vall d'Hebron","Horta-Guinardó",21226.5
+"25",40,"Montbau","Horta-Guinardó",18287.75
+"26",39,"Sant Genís dels Agudells","Horta-Guinardó",16368.6
+"27",20,"la Maternitat i Sant Ramon","Les Corts",25425.2
+"28",19,"les Corts","Les Corts",28655.4285714286
+"29",21,"Pedralbes","Les Corts",41666.7142857143
+"30",47,"Can Peguera","Nou Barris",11609
+"31",49,"Canyelles","Nou Barris",16819.2
+"32",55,"Ciutat Meridiana","Nou Barris",9556.33333333333
+"33",46,"el Turó de la Peira","Nou Barris",13154.6
+"34",48,"la Guineueta","Nou Barris",17648.7272727273
+"35",52,"la Prosperitat","Nou Barris",14375.65
+"36",53,"la Trinitat Nova","Nou Barris",10941.4
+"37",50,"les Roquetes","Nou Barris",11673.6
+"38",45,"Porta","Nou Barris",15702.6666666667
+"39",54,"Torre Baró","Nou Barris",10289
+"40",56,"Vallbona","Nou Barris",10844
+"41",51,"Verdun","Nou Barris",12623.125
+"42",44,"Vilapicina i la Torre Llobeta","Nou Barris",17959.5263157895
+"43",58,"Baró de Viver","Sant Andreu",10581.5
+"44",59,"el Bon Pastor","Sant Andreu",14390.1428571429
+"45",62,"el Congrés i els Indians","Sant Andreu",18420.5555555556
+"46",61,"la Sagrera","Sant Andreu",18411
+"47",57,"la Trinitat Vella","Sant Andreu",11180.4
+"48",63,"Navas","Sant Andreu",18949.3076923077
+"49",60,"Sant Andreu","Sant Andreu",19974.4102564103
+"50",64,"Camp de l'Arpa del Clot","Sant Martí",19523.68
+"51",69,"Diagonal Mar i el Front Marítim del Poblenou","Sant Martí",24135.2857142857
+"52",70,"el Besòs i el Maresme","Sant Martí",12460.0769230769
+"53",65,"el Clot","Sant Martí",19270.4705882353
+"54",66,"el Parc i la Llacuna del Poblenou","Sant Martí",20808.2222222222
+"55",68,"el Poblenou","Sant Martí",21094.05
+"56",73,"la Verneda i la Pau","Sant Martí",15612.1428571429
+"57",67,"la Vila Olímpica del Poblenou","Sant Martí",31853.2
+"58",71,"Provençals del Poblenou","Sant Martí",18016.5833333333
+"59",72,"Sant Martí de Provençals","Sant Martí",17247.8333333333
+"60",11,"el Poble Sec","Sants-Montjuïc",15334.6666666667
+"61",15,"Hostafrancs","Sants-Montjuïc",18579
+"62",16,"la Bordeta","Sants-Montjuïc",18703.9230769231
+"63",14,"la Font de la Guatlla","Sants-Montjuïc",19289.2857142857
+"64",13,"la Marina de Port","Sants-Montjuïc",15332.5294117647
+"65",12,"la Marina del Prat Vermell","Sants-Montjuïc",11988
+"66",18,"Sants","Sants-Montjuïc",20532
+"67",17,"Sants - Badal","Sants-Montjuïc",17918.25
+"68",27,"el Putget i Farró","Sarrià-Sant Gervasi",29500.8421052632
+"69",24,"les Tres Torres","Sarrià-Sant Gervasi",44188.9090909091
+"70",26,"Sant Gervasi - Galvany","Sarrià-Sant Gervasi",39419.3225806452
+"71",25,"Sant Gervasi - la Bonanova","Sarrià-Sant Gervasi",38214.7777777778
+"72",23,"Sarrià","Sarrià-Sant Gervasi",37919.8125
+"73",22,"Vallvidrera, el Tibidabo i les Planes","Sarrià-Sant Gervasi",30409.6666666667

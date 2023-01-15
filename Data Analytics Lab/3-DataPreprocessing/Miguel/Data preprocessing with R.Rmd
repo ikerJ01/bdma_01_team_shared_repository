@@ -1,0 +1,122 @@
+---
+title: "Data preprocessing"
+author: "Miguel Albertí Pons"
+date: "05-11-22"
+output:
+  html_document: default
+---
+
+```{r}
+# import de las librerias necesarias 
+library(dplyr)
+```
+
+------------------------------------------------------------------------
+
+## Ejercicio 1
+
+**Let's play a bit with pipes. Using the pipeline operator perform the following operations:**
+
+Compute the squared root of the squared of any number.
+------------------------------------------------------------------------
+
+```{r}
+number = 5
+number^2 %>% sqrt() 
+```
+------------------------------------------------------------------------
+
+Sample 1000 individuals from a normal distribution (mean = 5 ,sd = 3), 
+standardize the sample (subtract the mean and divide by the standard 
+deviation, i.e., scale) and compute the max value.
+------------------------------------------------------------------------
+
+```{r}
+
+standard_sample_function = function(sample){
+  (sample - mean(sample))/sd(sample)
+  }
+rnorm(n=10000,mean=5,sd=3) %>% standard_sample_function() %>% max()
+          
+```
+------------------------------------------------------------------------
+Same as b) but plotting the density function before computing the max value.
+------------------------------------------------------------------------
+```{r}
+# Falta el max
+rnorm(n=10000,mean=5,sd=3) %>% standard_sample_function() %>% 
+  hist(., freq = FALSE)
+
+```
+------------------------------------------------------------------------
+
+## Ejercicio 2
+
+**With the pisos dataset and using an only pipeline, compute the follo-wing transformations:**
+
+------------------------------------------------------------------------
+```{r}
+
+library(readr)
+pisos_bcn = read.delim("bcn_pisos.txt")
+
+```
+------------------------------------------------------------------------
+Drop the duplicated individuals and compute the mean value of the flats 
+("Valor") by district ("Dist").
+------------------------------------------------------------------------
+```{r}
+pisos_bcn %>% unique() %>% group_by(Dist) %>% 
+  summarise(mean = mean(Valor), n = n())
+```
+------------------------------------------------------------------------
+Drop the duplicated individuals, get the numeric features of the dataset and 
+standardize it.
+------------------------------------------------------------------------
+```{r}
+pisos_bcn %>% unique() %>% select_if(., is.numeric) %>%
+  mutate_all(~(scale(.) %>% as.vector))
+```
+------------------------------------------------------------------------
+Drop the duplicated individuals, add a new factor to the dataset "Greater than 
+is mean"with values (Y,N) indicating if the Value ("Valor") of the flat is 
+greater or not than the mean of the flats in the district.
+------------------------------------------------------------------------
+
+## Ejercicio 3
+
+Finally, you are asked to do a complete transformation of the pisos
+dataset. We want to analyse and visualize some general features of the
+districts of the city, characterizing a sample of flats. To ease this analy-
+sis you are asked to create a new dataset containing one individual for
+each district and containing the following variables:
+Propose R code for the transformation of this dataset. You are
+free to use any technique explained during the course (and others)
+but the use of some pipes will be valued positively.
+------------------------------------------------------------------------
+
+```{r}
+get_new_data_frame = function(sample){
+  new_data__frame = sample %>% group_by(Dist) %>% 
+    summarise(mean_valor = mean(Valor),
+              un_cinc_dorm = sum(Dorm >= 1 & Dorm <= 5),
+              with_ascens = sum(Ascens == "SI"),
+              without_ascens = sum(Ascens == "NO"),
+              num_atic = sum(Planta == "Atic"),
+              num_planta = sum(Planta == "Planta"),
+              num_planta = sum(Planta == "Bajos"),
+              num_nous = sum(Edat < 10),
+              num_semi_nous = sum(Edat < 11 & Edat < 20),
+              num_vells = sum(Edat > 21 & Edat < 50),
+              num_molt_vells = sum(Edat > 51),
+              mean_superf = mean(Superf),
+              )
+  return(new_data__frame)
+}
+
+pisos_bcn %>% get_new_data_frame()
+```
+------------------------------------------------------------------------
+
+Propose nice visualizations of this new dataset (3 points).
+------------------------------------------------------------------------

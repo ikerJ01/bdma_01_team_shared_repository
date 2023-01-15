@@ -1,0 +1,219 @@
+---
+title: "Data Preprocessing"
+author: "Miguel Albertí Pons &Iker González Cuellar"
+date: "07-11-22"
+output:
+  html_document: default
+  
+  <style type="text/css">
+.main-container {
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+---
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(magrittr)
+```
+
+#### **1. Enumere cuales son les elementos clave de una prueba de hipótesis y su significado**
+
+-   Hipotesis nula
+
+-   Hipotesis alternativa
+
+-   P-Value
+
+-   Mediana
+
+-   Varianza
+
+-   Distribución de referencia para H0
+
+#### **2. Un elemento clave en toda prueba de hipótesis es la distribución de referencia del estadístico de la prueba. Diga de que maneras podemos conocer (o aproximar) la distribución de referencia para la prueba de hipótesis de querer ver si una media de una muestra es igual o no a un cierto valor nominal. Especifique como obtendría o cual sería esta distribución de referencia.**
+
+A través de un historico de datos, o en caso de no tener acceso a dicho historico, see puede aproximar utilizando una muestra aleatoria calculando su respectiva media y desviación estandar que se utilizar como parametros de referencia poblacional y con ellos se obtendrá una distribucion de referencia aproximada para realizar la comparativa.
+
+#### **3. Un amigo me ofrece un piso por valor de 8MPts. Dejando de lado todos los otros factores intervinientes en la decisión de compra de un piso y solo teniendo en cuenta su precio, puedo considerar que se trata de una buena ocasión para comprar?. Que suposiciones necesito hacer para resolver el problema. (Para resolver esta pregunta utilice los datos utilizados en la clase, disponibles en el fichero: preu_3hab.r).**
+
+-   Se debe asumir que el precio es la única referencia a tomar en cuenta en la decisión sin importar las características de los pisos (tamaño, habitaciones, ubicación, superficie, etc).
+
+-   Los datos históricos de precios son representativos del mercado y son asimétricos siguiendo una distribución normal.
+
+```{r}
+
+PreciosPisos = c(7.80, 12.60, 15.96, 12.75, 13.50, 8.25, 8.25, 15.05, 13.83, 20.61, 16.46, 18.00, 15.40, 16.25, 13.39, 25.99, 16.64, 11.03, 16.28, 23.40, 14.81, 17.60, 20.21, 18.04, 18.70, 11.10, 15.60, 8.83, 15.05, 16.15, 15.00, 11.10, 21.08, 28.66, 21.25, 20.47, 25.53, 10.89, 15.01, 11.78, 14.82, 12.17, 14.56, 16.96, 15.50, 14.43, 14.43, 12.71, 31.66, 15.75, 15.75, 11.69, 14.52, 17.35, 22.57, 20.00, 13.80, 13.68, 12.61, 19.00, 24.61, 16.80, 16.72, 23.95, 16.11, 19.41, 13.99, 16.48, 13.20, 13.47, 13.63, 14.76, 16.93, 31.31, 12.81, 21.81, 20.82, 35.77, 15.54, 12.62, 13.91, 21.18, 13.72, 12.00, 19.89, 16.46, 32.70, 22.73, 15.51, 16.26, 28.70, 18.90, 25.75, 16.89, 13.99, 13.99, 28.22, 20.79, 16.81, 20.25, 22.31, 24.03, 15.65, 27.28, 12.60, 17.55, 25.60, 29.44, 27.44, 24.00, 30.10, 10.14, 11.31, 11.20, 15.73, 16.90, 25.40, 18.56, 17.55, 21.75, 21.68, 24.60, 46.32, 42.12, 21.70, 21.42, 22.31, 31.35, 10.00, 10.92, 15.72, 17.10, 15.39, 14.79, 14.11, 14.36, 14.53, 15.11, 18.00, 12.08, 12.53, 17.32, 23.96, 22.60, 6.21, 14.54, 16.59, 16.59, 18.26, 19.42, 10.66, 16.01, 16.14, 16.00, 10.15, 16.46, 16.20, 14.28, 12.10, 8.40, 11.10, 7.52, 13.44, 12.48, 14.72, 8.58, 14.87, 14.35, 13.12, 15.40, 15.00, 15.91, 15.20, 14.51, 22.36, 29.29, 22.70, 10.06, 13.89, 14.24, 17.64, 14.62, 16.23, 14.60, 15.99, 13.65, 15.69, 22.44, 7.14, 6.76, 11.02, 10.65, 12.00, 12.96, 10.71, 11.38, 12.63, 11.11, 11.50, 15.61, 14.80, 15.50, 14.51, 14.95, 13.57, 14.80, 11.84, 13.87, 14.43, 16.83, 14.43, 21.12, 22.62, 12.75, 13.92, 11.05, 10.56, 13.32, 22.75, 12.68, 17.75)
+
+stripchart(round(PreciosPisos), method = "stack", offset = 0.4, at = 0, pch = 20, col = "steelblue", main = "prices of a 3room apart in l’Eixample", xlab = "Data Values", axes = T)
+
+
+numPisosMenorPrecioOfertado = PreciosPisos<=8
+
+p_val = sum(PreciosPisos<=8)/length(PreciosPisos)
+cat("Media:", mean(PreciosPisos), "\nSD:", sd(PreciosPisos), "\np-val:",p_val)
+
+
+
+```
+
+Tomando en cuenta la distribución de referencia sobre los precios en el eixample, con una media de 16.81 MPts y el p-value calculado de 0.036199 se determina que existen 8 pisos con valor igual o menor al ofertado por el amigo, por lo cual se determina que el precio ofertado de 8.45 MPts es una buena ocacion de compra ya que solo en un 3.62% de las veces se encontrará un piso con un precio igual o menor al ofertado.
+
+#### **4. Sabemos que la media de los precios de los pisos (de 3 habitaciones) en l'Eixample es de (µ=) 16.81 y su desviación tipo es de (=) 5.91. Suponiendo que la muestra obtenida en el ejercicio 1 (7.80, 12.60, 15.96, 13.50, 8.25, 31.29, 16.46) es aleatoria. ¿Podemos asegurar de que se trata de una muestra de pisos de l'Eixample?**
+
+H0: la muestra no corresponde a una muestra de pisos del Eixample
+
+H1: la muestra corresponde a una muestra de pisos del Eixample
+
+```{r}
+mu0 = 16.81
+std0 = 5.91
+
+x4 = c(7.80, 12.60, 15.96, 13.50, 8.25, 31.29, 16.46)
+m4 = mean(x4)
+stdev4 = sd(x4)
+
+
+t4 = sqrt(length(x4))*(mu0 - m4)/stdev4
+pt(t4, df=length(x4)-1)
+
+#stripchart(round(x4), method = "stack", offset = 0.4, at = 0, pch = 20, col = "steelblue", main = "Sample reference distribution", xlab = "Data Values", axes = T)
+
+#curve(dnorm(x, mean= mu0, sd= std0), col="darkblue", lwd=2, add=TRUE, yaxt="n")
+
+
+t4
+```
+
+```{r}
+mu_eixample = 16.81
+sigma_eixample = 5.91
+
+random_sample = c(7.80, 12.60, 15.96, 13.50, 8.25, 31.29, 16.46)
+
+number_random_sample = length(random_sample)
+mean_random_sample = mean(random_sample)
+s_random_sample = sd(random_sample)
+
+mean_random_sample
+
+t <- sqrt(number_random_sample)*(mu_eixample - mean_random_sample)/s_random_sample
+
+pt(t, df=(number_random_sample-1))
+```
+
+#### **5. El siguiente año, los precios de una muestra aleatoria de pisos de 3hab. en l'Eixample han sido 13.57 14.80 22.36 29.29 22.70. Puedo afirmar de que no ha habido cambio de precio entre los dos años?**
+
+H0: La media entre ambas muestras no ha cambiado
+
+H1: La media entre ambas muestras han cambiado
+
+```{r}
+sigma_comm = std0
+
+x5 = c(13.57, 14.80, 22.36, 29.29, 22.70)
+
+m5 = mean(x5)
+
+z5 = (m5 - m4) / (sigma_comm*sqrt((1/7)+(1/5)))
+pnorm(z5, lower.tail = F)
+
+
+```
+
+```{r}
+x5 = c(13.57, 14.80, 22.36, 29.29, 22.70)
+
+n5 = length(x5)
+m5 = mean(x5)
+stdev5 = sd(x5)
+var5 = var(x5)
+
+n4 = length(x4)
+var4 = var(x4)
+
+s2_pool =  (((n4 - 1)*var4) + ((n5-1)*var5)) / (n4 + n5 - 2)
+s_pool = sqrt(s2_pool)
+
+t5 = (m5 - m4) / (s_pool*sqrt((1/n4)+(1/n5)))
+pt(t5, df = (n4+n5-2), lower.tail = F)
+```
+
+```{r}
+random_sample_year_1 = x4
+mean_sample_year_1 = mean(random_sample_year_1)
+n1 = length(random_sample_year_1)
+
+random_sample_year_2 = x5
+mean_sample_year_2 = mean(random_sample_year_2)
+n2 = length(random_sample_year_2)
+
+# t_test
+ms2_pool = (((n1-1)*var(random_sample_year_1)) + ((n2-1)*var(random_sample_year_2))) / (n1+n2-2)
+ms_pool = sqrt(ms2_pool)
+
+
+t <- (mean_sample_year_2 - mean_sample_year_1)/(ms_pool*sqrt((1/n1)+(1/n2)))
+pt(t, df=(n1+n2-2), lower.tail=F)
+```
+
+#### **6. Calcular el p_valor en para la misma prueba del problema anterior, usando el método de permutaciones.**
+
+#### **7. Sabemos que la probabilidad de compra de un producto en el canal internet es de 0.02. En un mes se han conectado 2300 visitantes, de los cuales 94 han comprado nuestro producto, puedo pensar que ha habido un incremento en la probabilidad de compra por internet?**
+
+H0: No hay un incremento en la probabilidad de compra
+
+H1: Hay un incremento en la probabilidad de compra
+
+```{r}
+n = 2300
+x = 94
+p_true = 0.02
+p_hat = x/n
+
+std7 = sqrt(p_true*(1-p_true)/n)
+z7 = (p_hat - p_true)/std7
+
+pnorm(z7, lower.tail = F)
+pnorm(p_hat, mean = p_true, sd = std7, lower.tail = F)
+```
+
+Realizando una comparación de proporciones, obtenemos un P-value muy bajo rechazando H0, lo cual sugiere que hay un incremento significativo en la probabilidad de compra.
+
+#### **8. Por otro lado, en el mismo mes de la pregunta anterior se ha lanzado una campaña de márqueting directo con un target preseleccionado de 1000 clientes potenciales, obteniendo una respuesta positiva, esto es la compra del producto, en 56 casos. ¿Podemos afirmar que la tasa de respuesta obtenida en el target preseleccionado es mejor que la obtenida por internet?.**
+
+```{r}
+n1 = 2300
+p1_hat = 94 / n1
+
+n2 = 1000
+p2_hat = 56 / n2
+
+list(p1_hat, p2_hat)
+
+z = (p1_hat - p2_hat)/sqrt((p1_hat*(1-p1_hat)/n1) + (p2_hat*(1-p2_hat)/n2))
+
+
+pv <-pnorm(z,lower.tail=F)
+list(zval=z, pval=pv)
+```
+
+```{r}
+
+n2 = 2300
+p2_hat = 94 / n2
+
+n1 = 1000
+p1_hat = 56 / n1
+
+list(p1_hat, p2_hat)
+
+z = (p1_hat - p2_hat)/sqrt((p1_hat*(1-p1_hat)/n1) + (p2_hat*(1-p2_hat)/n2))
+
+
+pv <-pnorm(z,lower.tail=F)
+list(zval=z, pval=pv)
+```

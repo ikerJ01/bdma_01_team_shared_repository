@@ -1,0 +1,1753 @@
+Any,Trimestre,Codi_Districte,Nom_Districte,Codi_Barri,Nom_Barri,Preu_mitja_habitatge,Valor
+2019,1,1,Ciutat Vella,1,el Raval,Total. Milers d'euros,236.7
+2019,1,1,Ciutat Vella,2,el Barri Gòtic,Total. Milers d'euros,411.7
+2019,1,1,Ciutat Vella,3,la Barceloneta,Total. Milers d'euros,215.6
+2019,1,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Total. Milers d'euros,306
+2019,1,2,Eixample,5,el Fort Pienc,Total. Milers d'euros,582.2
+2019,1,2,Eixample,6,la Sagrada Família,Total. Milers d'euros,297.2
+2019,1,2,Eixample,7,la Dreta de l'Eixample,Total. Milers d'euros,475.3
+2019,1,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Total. Milers d'euros,396.3
+2019,1,2,Eixample,9,la Nova Esquerra de l'Eixample,Total. Milers d'euros,342.2
+2019,1,2,Eixample,10,Sant Antoni,Total. Milers d'euros,356.7
+2019,1,3,Sants-Montjuïc,11,el Poble Sec,Total. Milers d'euros,324.7
+2019,1,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Total. Milers d'euros,NA
+2019,1,3,Sants-Montjuïc,13,la Marina de Port,Total. Milers d'euros,191.2
+2019,1,3,Sants-Montjuïc,14,la Font de la Guatlla,Total. Milers d'euros,247.7
+2019,1,3,Sants-Montjuïc,15,Hostafrancs,Total. Milers d'euros,210.6
+2019,1,3,Sants-Montjuïc,16,la Bordeta,Total. Milers d'euros,188.6
+2019,1,3,Sants-Montjuïc,17,Sants - Badal,Total. Milers d'euros,248
+2019,1,3,Sants-Montjuïc,18,Sants,Total. Milers d'euros,290.6
+2019,1,4,Les Corts,19,les Corts,Total. Milers d'euros,411.6
+2019,1,4,Les Corts,20,la Maternitat i Sant Ramon,Total. Milers d'euros,410.5
+2019,1,4,Les Corts,21,Pedralbes,Total. Milers d'euros,1011.8
+2019,1,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Total. Milers d'euros,380.6
+2019,1,5,Sarrià-Sant Gervasi,23,Sarrià,Total. Milers d'euros,734.1
+2019,1,5,Sarrià-Sant Gervasi,24,les Tres Torres,Total. Milers d'euros,853.2
+2019,1,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Total. Milers d'euros,747.4
+2019,1,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Total. Milers d'euros,637
+2019,1,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Total. Milers d'euros,448.6
+2019,1,6,Gràcia,28,Vallcarca i els Penitents,Total. Milers d'euros,273.1
+2019,1,6,Gràcia,29,el Coll,Total. Milers d'euros,194.4
+2019,1,6,Gràcia,30,la Salut,Total. Milers d'euros,379.6
+2019,1,6,Gràcia,31,la Vila de Gràcia,Total. Milers d'euros,468.5
+2019,1,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Total. Milers d'euros,340.5
+2019,1,7,Horta-Guinardó,33,el Baix Guinardó,Total. Milers d'euros,280.3
+2019,1,7,Horta-Guinardó,34,Can Baró,Total. Milers d'euros,252.2
+2019,1,7,Horta-Guinardó,35,el Guinardó,Total. Milers d'euros,262.8
+2019,1,7,Horta-Guinardó,36,la Font d'en Fargues,Total. Milers d'euros,202.6
+2019,1,7,Horta-Guinardó,37,el Carmel,Total. Milers d'euros,255.6
+2019,1,7,Horta-Guinardó,38,la Teixonera,Total. Milers d'euros,147.1
+2019,1,7,Horta-Guinardó,39,Sant Genís dels Agudells,Total. Milers d'euros,170.9
+2019,1,7,Horta-Guinardó,40,Montbau,Total. Milers d'euros,159.9
+2019,1,7,Horta-Guinardó,41,la Vall d'Hebron,Total. Milers d'euros,222.3
+2019,1,7,Horta-Guinardó,42,la Clota,Total. Milers d'euros,170
+2019,1,7,Horta-Guinardó,43,Horta,Total. Milers d'euros,266.9
+2019,1,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Total. Milers d'euros,229.1
+2019,1,8,Nou Barris,45,Porta,Total. Milers d'euros,179.7
+2019,1,8,Nou Barris,46,el Turó de la Peira,Total. Milers d'euros,145.2
+2019,1,8,Nou Barris,47,Can Peguera,Total. Milers d'euros,NA
+2019,1,8,Nou Barris,48,la Guineueta,Total. Milers d'euros,194.9
+2019,1,8,Nou Barris,49,Canyelles,Total. Milers d'euros,150
+2019,1,8,Nou Barris,50,les Roquetes,Total. Milers d'euros,156.7
+2019,1,8,Nou Barris,51,Verdun,Total. Milers d'euros,148.2
+2019,1,8,Nou Barris,52,la Prosperitat,Total. Milers d'euros,150.6
+2019,1,8,Nou Barris,53,la Trinitat Nova,Total. Milers d'euros,80
+2019,1,8,Nou Barris,54,Torre Baró,Total. Milers d'euros,NA
+2019,1,8,Nou Barris,55,Ciutat Meridiana,Total. Milers d'euros,95.2
+2019,1,8,Nou Barris,56,Vallbona,Total. Milers d'euros,NA
+2019,1,9,Sant Andreu,57,la Trinitat Vella,Total. Milers d'euros,154.7
+2019,1,9,Sant Andreu,58,Baró de Viver,Total. Milers d'euros,NA
+2019,1,9,Sant Andreu,59,el Bon Pastor,Total. Milers d'euros,146.6
+2019,1,9,Sant Andreu,60,Sant Andreu,Total. Milers d'euros,251.7
+2019,1,9,Sant Andreu,61,la Sagrera,Total. Milers d'euros,240.4
+2019,1,9,Sant Andreu,62,el Congrés i els Indians,Total. Milers d'euros,251.9
+2019,1,9,Sant Andreu,63,Navas,Total. Milers d'euros,379.2
+2019,1,10,Sant Martí,64,el Camp de l'Arpa del Clot,Total. Milers d'euros,319.5
+2019,1,10,Sant Martí,65,el Clot,Total. Milers d'euros,342.1
+2019,1,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Total. Milers d'euros,259.2
+2019,1,10,Sant Martí,67,la Vila Olímpica del Poblenou,Total. Milers d'euros,538
+2019,1,10,Sant Martí,68,el Poblenou,Total. Milers d'euros,399.3
+2019,1,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Total. Milers d'euros,486.2
+2019,1,10,Sant Martí,70,el Besòs i el Maresme,Total. Milers d'euros,303.4
+2019,1,10,Sant Martí,71,Provençals del Poblenou,Total. Milers d'euros,369.2
+2019,1,10,Sant Martí,72,Sant Martí de Provençals,Total. Milers d'euros,299.7
+2019,1,10,Sant Martí,73,la Verneda i la Pau,Total. Milers d'euros,167
+2019,1,1,Ciutat Vella,1,el Raval,Nou. Milers d'euros,379.5
+2019,1,1,Ciutat Vella,2,el Barri Gòtic,Nou. Milers d'euros,556.4
+2019,1,1,Ciutat Vella,3,la Barceloneta,Nou. Milers d'euros,NA
+2019,1,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Nou. Milers d'euros,520.5
+2019,1,2,Eixample,5,el Fort Pienc,Nou. Milers d'euros,4687.5
+2019,1,2,Eixample,6,la Sagrada Família,Nou. Milers d'euros,NA
+2019,1,2,Eixample,7,la Dreta de l'Eixample,Nou. Milers d'euros,424.4
+2019,1,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Nou. Milers d'euros,283
+2019,1,2,Eixample,9,la Nova Esquerra de l'Eixample,Nou. Milers d'euros,NA
+2019,1,2,Eixample,10,Sant Antoni,Nou. Milers d'euros,NA
+2019,1,3,Sants-Montjuïc,11,el Poble Sec,Nou. Milers d'euros,NA
+2019,1,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Nou. Milers d'euros,NA
+2019,1,3,Sants-Montjuïc,13,la Marina de Port,Nou. Milers d'euros,NA
+2019,1,3,Sants-Montjuïc,14,la Font de la Guatlla,Nou. Milers d'euros,NA
+2019,1,3,Sants-Montjuïc,15,Hostafrancs,Nou. Milers d'euros,191.9
+2019,1,3,Sants-Montjuïc,16,la Bordeta,Nou. Milers d'euros,NA
+2019,1,3,Sants-Montjuïc,17,Sants - Badal,Nou. Milers d'euros,NA
+2019,1,3,Sants-Montjuïc,18,Sants,Nou. Milers d'euros,NA
+2019,1,4,Les Corts,19,les Corts,Nou. Milers d'euros,522.1
+2019,1,4,Les Corts,20,la Maternitat i Sant Ramon,Nou. Milers d'euros,NA
+2019,1,4,Les Corts,21,Pedralbes,Nou. Milers d'euros,NA
+2019,1,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Nou. Milers d'euros,NA
+2019,1,5,Sarrià-Sant Gervasi,23,Sarrià,Nou. Milers d'euros,NA
+2019,1,5,Sarrià-Sant Gervasi,24,les Tres Torres,Nou. Milers d'euros,NA
+2019,1,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Nou. Milers d'euros,416.5
+2019,1,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Nou. Milers d'euros,862.1
+2019,1,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Nou. Milers d'euros,431
+2019,1,6,Gràcia,28,Vallcarca i els Penitents,Nou. Milers d'euros,205.5
+2019,1,6,Gràcia,29,el Coll,Nou. Milers d'euros,108.8
+2019,1,6,Gràcia,30,la Salut,Nou. Milers d'euros,NA
+2019,1,6,Gràcia,31,la Vila de Gràcia,Nou. Milers d'euros,437.7
+2019,1,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Nou. Milers d'euros,NA
+2019,1,7,Horta-Guinardó,33,el Baix Guinardó,Nou. Milers d'euros,NA
+2019,1,7,Horta-Guinardó,34,Can Baró,Nou. Milers d'euros,NA
+2019,1,7,Horta-Guinardó,35,el Guinardó,Nou. Milers d'euros,NA
+2019,1,7,Horta-Guinardó,36,la Font d'en Fargues,Nou. Milers d'euros,NA
+2019,1,7,Horta-Guinardó,37,el Carmel,Nou. Milers d'euros,319.2
+2019,1,7,Horta-Guinardó,38,la Teixonera,Nou. Milers d'euros,136.4
+2019,1,7,Horta-Guinardó,39,Sant Genís dels Agudells,Nou. Milers d'euros,NA
+2019,1,7,Horta-Guinardó,40,Montbau,Nou. Milers d'euros,NA
+2019,1,7,Horta-Guinardó,41,la Vall d'Hebron,Nou. Milers d'euros,NA
+2019,1,7,Horta-Guinardó,42,la Clota,Nou. Milers d'euros,170
+2019,1,7,Horta-Guinardó,43,Horta,Nou. Milers d'euros,261
+2019,1,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,45,Porta,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,46,el Turó de la Peira,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,47,Can Peguera,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,48,la Guineueta,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,49,Canyelles,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,50,les Roquetes,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,51,Verdun,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,52,la Prosperitat,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,53,la Trinitat Nova,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,54,Torre Baró,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,55,Ciutat Meridiana,Nou. Milers d'euros,NA
+2019,1,8,Nou Barris,56,Vallbona,Nou. Milers d'euros,NA
+2019,1,9,Sant Andreu,57,la Trinitat Vella,Nou. Milers d'euros,NA
+2019,1,9,Sant Andreu,58,Baró de Viver,Nou. Milers d'euros,NA
+2019,1,9,Sant Andreu,59,el Bon Pastor,Nou. Milers d'euros,NA
+2019,1,9,Sant Andreu,60,Sant Andreu,Nou. Milers d'euros,325.1
+2019,1,9,Sant Andreu,61,la Sagrera,Nou. Milers d'euros,NA
+2019,1,9,Sant Andreu,62,el Congrés i els Indians,Nou. Milers d'euros,NA
+2019,1,9,Sant Andreu,63,Navas,Nou. Milers d'euros,NA
+2019,1,10,Sant Martí,64,el Camp de l'Arpa del Clot,Nou. Milers d'euros,446.5
+2019,1,10,Sant Martí,65,el Clot,Nou. Milers d'euros,278.3
+2019,1,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Nou. Milers d'euros,NA
+2019,1,10,Sant Martí,67,la Vila Olímpica del Poblenou,Nou. Milers d'euros,NA
+2019,1,10,Sant Martí,68,el Poblenou,Nou. Milers d'euros,504.5
+2019,1,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Nou. Milers d'euros,NA
+2019,1,10,Sant Martí,70,el Besòs i el Maresme,Nou. Milers d'euros,438.7
+2019,1,10,Sant Martí,71,Provençals del Poblenou,Nou. Milers d'euros,NA
+2019,1,10,Sant Martí,72,Sant Martí de Provençals,Nou. Milers d'euros,296.1
+2019,1,10,Sant Martí,73,la Verneda i la Pau,Nou. Milers d'euros,162.2
+2019,1,1,Ciutat Vella,1,el Raval,Usat. Milers d'euros,228.9
+2019,1,1,Ciutat Vella,2,el Barri Gòtic,Usat. Milers d'euros,341.4
+2019,1,1,Ciutat Vella,3,la Barceloneta,Usat. Milers d'euros,222
+2019,1,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Usat. Milers d'euros,293.6
+2019,1,2,Eixample,5,el Fort Pienc,Usat. Milers d'euros,391.3
+2019,1,2,Eixample,6,la Sagrada Família,Usat. Milers d'euros,297.2
+2019,1,2,Eixample,7,la Dreta de l'Eixample,Usat. Milers d'euros,492.3
+2019,1,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Usat. Milers d'euros,407
+2019,1,2,Eixample,9,la Nova Esquerra de l'Eixample,Usat. Milers d'euros,349.6
+2019,1,2,Eixample,10,Sant Antoni,Usat. Milers d'euros,356.7
+2019,1,3,Sants-Montjuïc,11,el Poble Sec,Usat. Milers d'euros,324.7
+2019,1,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Usat. Milers d'euros,NA
+2019,1,3,Sants-Montjuïc,13,la Marina de Port,Usat. Milers d'euros,197.2
+2019,1,3,Sants-Montjuïc,14,la Font de la Guatlla,Usat. Milers d'euros,247.7
+2019,1,3,Sants-Montjuïc,15,Hostafrancs,Usat. Milers d'euros,214.5
+2019,1,3,Sants-Montjuïc,16,la Bordeta,Usat. Milers d'euros,188.6
+2019,1,3,Sants-Montjuïc,17,Sants - Badal,Usat. Milers d'euros,239.6
+2019,1,3,Sants-Montjuïc,18,Sants,Usat. Milers d'euros,290.6
+2019,1,4,Les Corts,19,les Corts,Usat. Milers d'euros,397
+2019,1,4,Les Corts,20,la Maternitat i Sant Ramon,Usat. Milers d'euros,410.5
+2019,1,4,Les Corts,21,Pedralbes,Usat. Milers d'euros,1016
+2019,1,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Usat. Milers d'euros,380.6
+2019,1,5,Sarrià-Sant Gervasi,23,Sarrià,Usat. Milers d'euros,747.3
+2019,1,5,Sarrià-Sant Gervasi,24,les Tres Torres,Usat. Milers d'euros,853.2
+2019,1,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Usat. Milers d'euros,794.6
+2019,1,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Usat. Milers d'euros,553.6
+2019,1,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Usat. Milers d'euros,452.6
+2019,1,6,Gràcia,28,Vallcarca i els Penitents,Usat. Milers d'euros,289
+2019,1,6,Gràcia,29,el Coll,Usat. Milers d'euros,228.6
+2019,1,6,Gràcia,30,la Salut,Usat. Milers d'euros,379.6
+2019,1,6,Gràcia,31,la Vila de Gràcia,Usat. Milers d'euros,470.2
+2019,1,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Usat. Milers d'euros,340.5
+2019,1,7,Horta-Guinardó,33,el Baix Guinardó,Usat. Milers d'euros,280.3
+2019,1,7,Horta-Guinardó,34,Can Baró,Usat. Milers d'euros,252.2
+2019,1,7,Horta-Guinardó,35,el Guinardó,Usat. Milers d'euros,262.8
+2019,1,7,Horta-Guinardó,36,la Font d'en Fargues,Usat. Milers d'euros,205.1
+2019,1,7,Horta-Guinardó,37,el Carmel,Usat. Milers d'euros,232
+2019,1,7,Horta-Guinardó,38,la Teixonera,Usat. Milers d'euros,153.3
+2019,1,7,Horta-Guinardó,39,Sant Genís dels Agudells,Usat. Milers d'euros,170.9
+2019,1,7,Horta-Guinardó,40,Montbau,Usat. Milers d'euros,167.3
+2019,1,7,Horta-Guinardó,41,la Vall d'Hebron,Usat. Milers d'euros,222.3
+2019,1,7,Horta-Guinardó,42,la Clota,Usat. Milers d'euros,NA
+2019,1,7,Horta-Guinardó,43,Horta,Usat. Milers d'euros,268.8
+2019,1,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Usat. Milers d'euros,229.1
+2019,1,8,Nou Barris,45,Porta,Usat. Milers d'euros,179.7
+2019,1,8,Nou Barris,46,el Turó de la Peira,Usat. Milers d'euros,147
+2019,1,8,Nou Barris,47,Can Peguera,Usat. Milers d'euros,NA
+2019,1,8,Nou Barris,48,la Guineueta,Usat. Milers d'euros,194.9
+2019,1,8,Nou Barris,49,Canyelles,Usat. Milers d'euros,150
+2019,1,8,Nou Barris,50,les Roquetes,Usat. Milers d'euros,156.7
+2019,1,8,Nou Barris,51,Verdun,Usat. Milers d'euros,148.2
+2019,1,8,Nou Barris,52,la Prosperitat,Usat. Milers d'euros,150.6
+2019,1,8,Nou Barris,53,la Trinitat Nova,Usat. Milers d'euros,80
+2019,1,8,Nou Barris,54,Torre Baró,Usat. Milers d'euros,NA
+2019,1,8,Nou Barris,55,Ciutat Meridiana,Usat. Milers d'euros,95.2
+2019,1,8,Nou Barris,56,Vallbona,Usat. Milers d'euros,NA
+2019,1,9,Sant Andreu,57,la Trinitat Vella,Usat. Milers d'euros,154.7
+2019,1,9,Sant Andreu,58,Baró de Viver,Usat. Milers d'euros,NA
+2019,1,9,Sant Andreu,59,el Bon Pastor,Usat. Milers d'euros,148.1
+2019,1,9,Sant Andreu,60,Sant Andreu,Usat. Milers d'euros,213.1
+2019,1,9,Sant Andreu,61,la Sagrera,Usat. Milers d'euros,240.4
+2019,1,9,Sant Andreu,62,el Congrés i els Indians,Usat. Milers d'euros,256.7
+2019,1,9,Sant Andreu,63,Navas,Usat. Milers d'euros,379.2
+2019,1,10,Sant Martí,64,el Camp de l'Arpa del Clot,Usat. Milers d'euros,311
+2019,1,10,Sant Martí,65,el Clot,Usat. Milers d'euros,343.9
+2019,1,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Usat. Milers d'euros,259.2
+2019,1,10,Sant Martí,67,la Vila Olímpica del Poblenou,Usat. Milers d'euros,538
+2019,1,10,Sant Martí,68,el Poblenou,Usat. Milers d'euros,363.4
+2019,1,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Usat. Milers d'euros,486.2
+2019,1,10,Sant Martí,70,el Besòs i el Maresme,Usat. Milers d'euros,238.3
+2019,1,10,Sant Martí,71,Provençals del Poblenou,Usat. Milers d'euros,389.7
+2019,1,10,Sant Martí,72,Sant Martí de Provençals,Usat. Milers d'euros,302.3
+2019,1,10,Sant Martí,73,la Verneda i la Pau,Usat. Milers d'euros,167.9
+2019,1,1,Ciutat Vella,1,el Raval,Total. Euros/m2 construït,3775.1
+2019,1,1,Ciutat Vella,2,el Barri Gòtic,Total. Euros/m2 construït,4885.9
+2019,1,1,Ciutat Vella,3,la Barceloneta,Total. Euros/m2 construït,5079.5
+2019,1,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Total. Euros/m2 construït,4682.5
+2019,1,2,Eixample,5,el Fort Pienc,Total. Euros/m2 construït,4919.3
+2019,1,2,Eixample,6,la Sagrada Família,Total. Euros/m2 construït,4379.3
+2019,1,2,Eixample,7,la Dreta de l'Eixample,Total. Euros/m2 construït,4819.8
+2019,1,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Total. Euros/m2 construït,4262.4
+2019,1,2,Eixample,9,la Nova Esquerra de l'Eixample,Total. Euros/m2 construït,4620.8
+2019,1,2,Eixample,10,Sant Antoni,Total. Euros/m2 construït,4459.3
+2019,1,3,Sants-Montjuïc,11,el Poble Sec,Total. Euros/m2 construït,4563.2
+2019,1,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Total. Euros/m2 construït,NA
+2019,1,3,Sants-Montjuïc,13,la Marina de Port,Total. Euros/m2 construït,2823.7
+2019,1,3,Sants-Montjuïc,14,la Font de la Guatlla,Total. Euros/m2 construït,3906.2
+2019,1,3,Sants-Montjuïc,15,Hostafrancs,Total. Euros/m2 construït,3277.2
+2019,1,3,Sants-Montjuïc,16,la Bordeta,Total. Euros/m2 construït,2898.4
+2019,1,3,Sants-Montjuïc,17,Sants - Badal,Total. Euros/m2 construït,3225.3
+2019,1,3,Sants-Montjuïc,18,Sants,Total. Euros/m2 construït,3681.2
+2019,1,4,Les Corts,19,les Corts,Total. Euros/m2 construït,4910.9
+2019,1,4,Les Corts,20,la Maternitat i Sant Ramon,Total. Euros/m2 construït,4551.1
+2019,1,4,Les Corts,21,Pedralbes,Total. Euros/m2 construït,6089.9
+2019,1,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Total. Euros/m2 construït,4614.6
+2019,1,5,Sarrià-Sant Gervasi,23,Sarrià,Total. Euros/m2 construït,6360.8
+2019,1,5,Sarrià-Sant Gervasi,24,les Tres Torres,Total. Euros/m2 construït,6191.4
+2019,1,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Total. Euros/m2 construït,5570.8
+2019,1,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Total. Euros/m2 construït,5488.3
+2019,1,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Total. Euros/m2 construït,4505.1
+2019,1,6,Gràcia,28,Vallcarca i els Penitents,Total. Euros/m2 construït,3511.5
+2019,1,6,Gràcia,29,el Coll,Total. Euros/m2 construït,2667.9
+2019,1,6,Gràcia,30,la Salut,Total. Euros/m2 construït,4314.3
+2019,1,6,Gràcia,31,la Vila de Gràcia,Total. Euros/m2 construït,5242.1
+2019,1,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Total. Euros/m2 construït,4254
+2019,1,7,Horta-Guinardó,33,el Baix Guinardó,Total. Euros/m2 construït,3915.2
+2019,1,7,Horta-Guinardó,34,Can Baró,Total. Euros/m2 construït,3575.2
+2019,1,7,Horta-Guinardó,35,el Guinardó,Total. Euros/m2 construït,3307.8
+2019,1,7,Horta-Guinardó,36,la Font d'en Fargues,Total. Euros/m2 construït,2383.2
+2019,1,7,Horta-Guinardó,37,el Carmel,Total. Euros/m2 construït,3179.1
+2019,1,7,Horta-Guinardó,38,la Teixonera,Total. Euros/m2 construït,2299.2
+2019,1,7,Horta-Guinardó,39,Sant Genís dels Agudells,Total. Euros/m2 construït,2392.7
+2019,1,7,Horta-Guinardó,40,Montbau,Total. Euros/m2 construït,2324.6
+2019,1,7,Horta-Guinardó,41,la Vall d'Hebron,Total. Euros/m2 construït,4268.2
+2019,1,7,Horta-Guinardó,42,la Clota,Total. Euros/m2 construït,2912.3
+2019,1,7,Horta-Guinardó,43,Horta,Total. Euros/m2 construït,3420.2
+2019,1,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Total. Euros/m2 construït,3592.9
+2019,1,8,Nou Barris,45,Porta,Total. Euros/m2 construït,2762.8
+2019,1,8,Nou Barris,46,el Turó de la Peira,Total. Euros/m2 construït,2218.1
+2019,1,8,Nou Barris,47,Can Peguera,Total. Euros/m2 construït,NA
+2019,1,8,Nou Barris,48,la Guineueta,Total. Euros/m2 construït,2779
+2019,1,8,Nou Barris,49,Canyelles,Total. Euros/m2 construït,2112.7
+2019,1,8,Nou Barris,50,les Roquetes,Total. Euros/m2 construït,2811.6
+2019,1,8,Nou Barris,51,Verdun,Total. Euros/m2 construït,2298
+2019,1,8,Nou Barris,52,la Prosperitat,Total. Euros/m2 construït,2155.3
+2019,1,8,Nou Barris,53,la Trinitat Nova,Total. Euros/m2 construït,1568.6
+2019,1,8,Nou Barris,54,Torre Baró,Total. Euros/m2 construït,NA
+2019,1,8,Nou Barris,55,Ciutat Meridiana,Total. Euros/m2 construït,1533.1
+2019,1,8,Nou Barris,56,Vallbona,Total. Euros/m2 construït,NA
+2019,1,9,Sant Andreu,57,la Trinitat Vella,Total. Euros/m2 construït,2440.8
+2019,1,9,Sant Andreu,58,Baró de Viver,Total. Euros/m2 construït,NA
+2019,1,9,Sant Andreu,59,el Bon Pastor,Total. Euros/m2 construït,2180.3
+2019,1,9,Sant Andreu,60,Sant Andreu,Total. Euros/m2 construït,3269.7
+2019,1,9,Sant Andreu,61,la Sagrera,Total. Euros/m2 construït,3561.6
+2019,1,9,Sant Andreu,62,el Congrés i els Indians,Total. Euros/m2 construït,3390.9
+2019,1,9,Sant Andreu,63,Navas,Total. Euros/m2 construït,4505.9
+2019,1,10,Sant Martí,64,el Camp de l'Arpa del Clot,Total. Euros/m2 construït,3925.5
+2019,1,10,Sant Martí,65,el Clot,Total. Euros/m2 construït,4152.6
+2019,1,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Total. Euros/m2 construït,4062.2
+2019,1,10,Sant Martí,67,la Vila Olímpica del Poblenou,Total. Euros/m2 construït,5485.5
+2019,1,10,Sant Martí,68,el Poblenou,Total. Euros/m2 construït,4374.9
+2019,1,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Total. Euros/m2 construït,4519.9
+2019,1,10,Sant Martí,70,el Besòs i el Maresme,Total. Euros/m2 construït,3693.1
+2019,1,10,Sant Martí,71,Provençals del Poblenou,Total. Euros/m2 construït,4521.6
+2019,1,10,Sant Martí,72,Sant Martí de Provençals,Total. Euros/m2 construït,4119
+2019,1,10,Sant Martí,73,la Verneda i la Pau,Total. Euros/m2 construït,2504.5
+2019,1,1,Ciutat Vella,1,el Raval,Nou. Euros/m2 construït,6523.6
+2019,1,1,Ciutat Vella,2,el Barri Gòtic,Nou. Euros/m2 construït,5767.8
+2019,1,1,Ciutat Vella,3,la Barceloneta,Nou. Euros/m2 construït,NA
+2019,1,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Nou. Euros/m2 construït,5191.1
+2019,1,2,Eixample,5,el Fort Pienc,Nou. Euros/m2 construït,15275.8
+2019,1,2,Eixample,6,la Sagrada Família,Nou. Euros/m2 construït,NA
+2019,1,2,Eixample,7,la Dreta de l'Eixample,Nou. Euros/m2 construït,5088.9
+2019,1,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Nou. Euros/m2 construït,3932
+2019,1,2,Eixample,9,la Nova Esquerra de l'Eixample,Nou. Euros/m2 construït,NA
+2019,1,2,Eixample,10,Sant Antoni,Nou. Euros/m2 construït,NA
+2019,1,3,Sants-Montjuïc,11,el Poble Sec,Nou. Euros/m2 construït,NA
+2019,1,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Nou. Euros/m2 construït,NA
+2019,1,3,Sants-Montjuïc,13,la Marina de Port,Nou. Euros/m2 construït,NA
+2019,1,3,Sants-Montjuïc,14,la Font de la Guatlla,Nou. Euros/m2 construït,NA
+2019,1,3,Sants-Montjuïc,15,Hostafrancs,Nou. Euros/m2 construït,3601.3
+2019,1,3,Sants-Montjuïc,16,la Bordeta,Nou. Euros/m2 construït,NA
+2019,1,3,Sants-Montjuïc,17,Sants - Badal,Nou. Euros/m2 construït,NA
+2019,1,3,Sants-Montjuïc,18,Sants,Nou. Euros/m2 construït,NA
+2019,1,4,Les Corts,19,les Corts,Nou. Euros/m2 construït,6116.1
+2019,1,4,Les Corts,20,la Maternitat i Sant Ramon,Nou. Euros/m2 construït,NA
+2019,1,4,Les Corts,21,Pedralbes,Nou. Euros/m2 construït,NA
+2019,1,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Nou. Euros/m2 construït,NA
+2019,1,5,Sarrià-Sant Gervasi,23,Sarrià,Nou. Euros/m2 construït,NA
+2019,1,5,Sarrià-Sant Gervasi,24,les Tres Torres,Nou. Euros/m2 construït,NA
+2019,1,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Nou. Euros/m2 construït,4899.7
+2019,1,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Nou. Euros/m2 construït,6843.5
+2019,1,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Nou. Euros/m2 construït,4514.2
+2019,1,6,Gràcia,28,Vallcarca i els Penitents,Nou. Euros/m2 construït,3973.1
+2019,1,6,Gràcia,29,el Coll,Nou. Euros/m2 construït,1942
+2019,1,6,Gràcia,30,la Salut,Nou. Euros/m2 construït,NA
+2019,1,6,Gràcia,31,la Vila de Gràcia,Nou. Euros/m2 construït,4731.5
+2019,1,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Nou. Euros/m2 construït,NA
+2019,1,7,Horta-Guinardó,33,el Baix Guinardó,Nou. Euros/m2 construït,NA
+2019,1,7,Horta-Guinardó,34,Can Baró,Nou. Euros/m2 construït,NA
+2019,1,7,Horta-Guinardó,35,el Guinardó,Nou. Euros/m2 construït,NA
+2019,1,7,Horta-Guinardó,36,la Font d'en Fargues,Nou. Euros/m2 construït,NA
+2019,1,7,Horta-Guinardó,37,el Carmel,Nou. Euros/m2 construït,4298.3
+2019,1,7,Horta-Guinardó,38,la Teixonera,Nou. Euros/m2 construït,2231.5
+2019,1,7,Horta-Guinardó,39,Sant Genís dels Agudells,Nou. Euros/m2 construït,NA
+2019,1,7,Horta-Guinardó,40,Montbau,Nou. Euros/m2 construït,NA
+2019,1,7,Horta-Guinardó,41,la Vall d'Hebron,Nou. Euros/m2 construït,NA
+2019,1,7,Horta-Guinardó,42,la Clota,Nou. Euros/m2 construït,2912.3
+2019,1,7,Horta-Guinardó,43,Horta,Nou. Euros/m2 construït,3752.7
+2019,1,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,45,Porta,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,46,el Turó de la Peira,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,47,Can Peguera,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,48,la Guineueta,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,49,Canyelles,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,50,les Roquetes,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,51,Verdun,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,52,la Prosperitat,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,53,la Trinitat Nova,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,54,Torre Baró,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,55,Ciutat Meridiana,Nou. Euros/m2 construït,NA
+2019,1,8,Nou Barris,56,Vallbona,Nou. Euros/m2 construït,NA
+2019,1,9,Sant Andreu,57,la Trinitat Vella,Nou. Euros/m2 construït,NA
+2019,1,9,Sant Andreu,58,Baró de Viver,Nou. Euros/m2 construït,NA
+2019,1,9,Sant Andreu,59,el Bon Pastor,Nou. Euros/m2 construït,NA
+2019,1,9,Sant Andreu,60,Sant Andreu,Nou. Euros/m2 construït,3897
+2019,1,9,Sant Andreu,61,la Sagrera,Nou. Euros/m2 construït,NA
+2019,1,9,Sant Andreu,62,el Congrés i els Indians,Nou. Euros/m2 construït,NA
+2019,1,9,Sant Andreu,63,Navas,Nou. Euros/m2 construït,NA
+2019,1,10,Sant Martí,64,el Camp de l'Arpa del Clot,Nou. Euros/m2 construït,4534.6
+2019,1,10,Sant Martí,65,el Clot,Nou. Euros/m2 construït,4866.1
+2019,1,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Nou. Euros/m2 construït,NA
+2019,1,10,Sant Martí,67,la Vila Olímpica del Poblenou,Nou. Euros/m2 construït,NA
+2019,1,10,Sant Martí,68,el Poblenou,Nou. Euros/m2 construït,4413.2
+2019,1,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Nou. Euros/m2 construït,NA
+2019,1,10,Sant Martí,70,el Besòs i el Maresme,Nou. Euros/m2 construït,4260.3
+2019,1,10,Sant Martí,71,Provençals del Poblenou,Nou. Euros/m2 construït,NA
+2019,1,10,Sant Martí,72,Sant Martí de Provençals,Nou. Euros/m2 construït,4833.3
+2019,1,10,Sant Martí,73,la Verneda i la Pau,Nou. Euros/m2 construït,2683.3
+2019,1,1,Ciutat Vella,1,el Raval,Usat. Euros/m2 construït,3625.8
+2019,1,1,Ciutat Vella,2,el Barri Gòtic,Usat. Euros/m2 construït,4457.5
+2019,1,1,Ciutat Vella,3,la Barceloneta,Usat. Euros/m2 construït,5154.2
+2019,1,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Usat. Euros/m2 construït,4653.2
+2019,1,2,Eixample,5,el Fort Pienc,Usat. Euros/m2 construït,4437.6
+2019,1,2,Eixample,6,la Sagrada Família,Usat. Euros/m2 construït,4379.3
+2019,1,2,Eixample,7,la Dreta de l'Eixample,Usat. Euros/m2 construït,4730.1
+2019,1,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Usat. Euros/m2 construït,4293.6
+2019,1,2,Eixample,9,la Nova Esquerra de l'Eixample,Usat. Euros/m2 construït,4694
+2019,1,2,Eixample,10,Sant Antoni,Usat. Euros/m2 construït,4459.3
+2019,1,3,Sants-Montjuïc,11,el Poble Sec,Usat. Euros/m2 construït,4563.2
+2019,1,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Usat. Euros/m2 construït,NA
+2019,1,3,Sants-Montjuïc,13,la Marina de Port,Usat. Euros/m2 construït,2894.3
+2019,1,3,Sants-Montjuïc,14,la Font de la Guatlla,Usat. Euros/m2 construït,3906.2
+2019,1,3,Sants-Montjuïc,15,Hostafrancs,Usat. Euros/m2 construït,3209.6
+2019,1,3,Sants-Montjuïc,16,la Bordeta,Usat. Euros/m2 construït,2898.4
+2019,1,3,Sants-Montjuïc,17,Sants - Badal,Usat. Euros/m2 construït,3077.4
+2019,1,3,Sants-Montjuïc,18,Sants,Usat. Euros/m2 construït,3681.2
+2019,1,4,Les Corts,19,les Corts,Usat. Euros/m2 construït,4752.3
+2019,1,4,Les Corts,20,la Maternitat i Sant Ramon,Usat. Euros/m2 construït,4551.1
+2019,1,4,Les Corts,21,Pedralbes,Usat. Euros/m2 construït,6064.2
+2019,1,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Usat. Euros/m2 construït,4614.6
+2019,1,5,Sarrià-Sant Gervasi,23,Sarrià,Usat. Euros/m2 construït,6404.8
+2019,1,5,Sarrià-Sant Gervasi,24,les Tres Torres,Usat. Euros/m2 construït,6191.4
+2019,1,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Usat. Euros/m2 construït,5666.7
+2019,1,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Usat. Euros/m2 construït,4986.4
+2019,1,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Usat. Euros/m2 construït,4503.1
+2019,1,6,Gràcia,28,Vallcarca i els Penitents,Usat. Euros/m2 construït,3402.8
+2019,1,6,Gràcia,29,el Coll,Usat. Euros/m2 construït,2958.2
+2019,1,6,Gràcia,30,la Salut,Usat. Euros/m2 construït,4314.3
+2019,1,6,Gràcia,31,la Vila de Gràcia,Usat. Euros/m2 construït,5270
+2019,1,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Usat. Euros/m2 construït,4254
+2019,1,7,Horta-Guinardó,33,el Baix Guinardó,Usat. Euros/m2 construït,3915.2
+2019,1,7,Horta-Guinardó,34,Can Baró,Usat. Euros/m2 construït,3575.2
+2019,1,7,Horta-Guinardó,35,el Guinardó,Usat. Euros/m2 construït,3307.8
+2019,1,7,Horta-Guinardó,36,la Font d'en Fargues,Usat. Euros/m2 construït,2410.5
+2019,1,7,Horta-Guinardó,37,el Carmel,Usat. Euros/m2 construït,2764.6
+2019,1,7,Horta-Guinardó,38,la Teixonera,Usat. Euros/m2 construït,2337.9
+2019,1,7,Horta-Guinardó,39,Sant Genís dels Agudells,Usat. Euros/m2 construït,2392.7
+2019,1,7,Horta-Guinardó,40,Montbau,Usat. Euros/m2 construït,2399.3
+2019,1,7,Horta-Guinardó,41,la Vall d'Hebron,Usat. Euros/m2 construït,4268.2
+2019,1,7,Horta-Guinardó,42,la Clota,Usat. Euros/m2 construït,NA
+2019,1,7,Horta-Guinardó,43,Horta,Usat. Euros/m2 construït,3309.4
+2019,1,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Usat. Euros/m2 construït,3592.9
+2019,1,8,Nou Barris,45,Porta,Usat. Euros/m2 construït,2762.8
+2019,1,8,Nou Barris,46,el Turó de la Peira,Usat. Euros/m2 construït,2322.2
+2019,1,8,Nou Barris,47,Can Peguera,Usat. Euros/m2 construït,NA
+2019,1,8,Nou Barris,48,la Guineueta,Usat. Euros/m2 construït,2779
+2019,1,8,Nou Barris,49,Canyelles,Usat. Euros/m2 construït,2112.7
+2019,1,8,Nou Barris,50,les Roquetes,Usat. Euros/m2 construït,2811.6
+2019,1,8,Nou Barris,51,Verdun,Usat. Euros/m2 construït,2298
+2019,1,8,Nou Barris,52,la Prosperitat,Usat. Euros/m2 construït,2155.3
+2019,1,8,Nou Barris,53,la Trinitat Nova,Usat. Euros/m2 construït,1568.6
+2019,1,8,Nou Barris,54,Torre Baró,Usat. Euros/m2 construït,NA
+2019,1,8,Nou Barris,55,Ciutat Meridiana,Usat. Euros/m2 construït,1533.1
+2019,1,8,Nou Barris,56,Vallbona,Usat. Euros/m2 construït,NA
+2019,1,9,Sant Andreu,57,la Trinitat Vella,Usat. Euros/m2 construït,2440.8
+2019,1,9,Sant Andreu,58,Baró de Viver,Usat. Euros/m2 construït,NA
+2019,1,9,Sant Andreu,59,el Bon Pastor,Usat. Euros/m2 construït,2213.8
+2019,1,9,Sant Andreu,60,Sant Andreu,Usat. Euros/m2 construït,2940.4
+2019,1,9,Sant Andreu,61,la Sagrera,Usat. Euros/m2 construït,3561.6
+2019,1,9,Sant Andreu,62,el Congrés i els Indians,Usat. Euros/m2 construït,3394.9
+2019,1,9,Sant Andreu,63,Navas,Usat. Euros/m2 construït,4505.9
+2019,1,10,Sant Martí,64,el Camp de l'Arpa del Clot,Usat. Euros/m2 construït,3884.9
+2019,1,10,Sant Martí,65,el Clot,Usat. Euros/m2 construït,4132.6
+2019,1,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Usat. Euros/m2 construït,4062.2
+2019,1,10,Sant Martí,67,la Vila Olímpica del Poblenou,Usat. Euros/m2 construït,5485.5
+2019,1,10,Sant Martí,68,el Poblenou,Usat. Euros/m2 construït,4361.8
+2019,1,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Usat. Euros/m2 construït,4519.9
+2019,1,10,Sant Martí,70,el Besòs i el Maresme,Usat. Euros/m2 construït,3420.3
+2019,1,10,Sant Martí,71,Provençals del Poblenou,Usat. Euros/m2 construït,4969.2
+2019,1,10,Sant Martí,72,Sant Martí de Provençals,Usat. Euros/m2 construït,3597
+2019,1,10,Sant Martí,73,la Verneda i la Pau,Usat. Euros/m2 construït,2471
+2019,2,1,Ciutat Vella,1,el Raval,Total. Milers d'euros,208.9
+2019,2,1,Ciutat Vella,2,el Barri Gòtic,Total. Milers d'euros,434.5
+2019,2,1,Ciutat Vella,3,la Barceloneta,Total. Milers d'euros,218.8
+2019,2,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Total. Milers d'euros,266.3
+2019,2,2,Eixample,5,el Fort Pienc,Total. Milers d'euros,845.8
+2019,2,2,Eixample,6,la Sagrada Família,Total. Milers d'euros,255.9
+2019,2,2,Eixample,7,la Dreta de l'Eixample,Total. Milers d'euros,584.6
+2019,2,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Total. Milers d'euros,492.9
+2019,2,2,Eixample,9,la Nova Esquerra de l'Eixample,Total. Milers d'euros,293.2
+2019,2,2,Eixample,10,Sant Antoni,Total. Milers d'euros,310.9
+2019,2,3,Sants-Montjuïc,11,el Poble Sec,Total. Milers d'euros,269.6
+2019,2,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Total. Milers d'euros,NA
+2019,2,3,Sants-Montjuïc,13,la Marina de Port,Total. Milers d'euros,182.7
+2019,2,3,Sants-Montjuïc,14,la Font de la Guatlla,Total. Milers d'euros,385.5
+2019,2,3,Sants-Montjuïc,15,Hostafrancs,Total. Milers d'euros,422
+2019,2,3,Sants-Montjuïc,16,la Bordeta,Total. Milers d'euros,200.7
+2019,2,3,Sants-Montjuïc,17,Sants - Badal,Total. Milers d'euros,245
+2019,2,3,Sants-Montjuïc,18,Sants,Total. Milers d'euros,273
+2019,2,4,Les Corts,19,les Corts,Total. Milers d'euros,433.8
+2019,2,4,Les Corts,20,la Maternitat i Sant Ramon,Total. Milers d'euros,357
+2019,2,4,Les Corts,21,Pedralbes,Total. Milers d'euros,1018.4
+2019,2,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Total. Milers d'euros,543
+2019,2,5,Sarrià-Sant Gervasi,23,Sarrià,Total. Milers d'euros,859.2
+2019,2,5,Sarrià-Sant Gervasi,24,les Tres Torres,Total. Milers d'euros,743.2
+2019,2,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Total. Milers d'euros,645.8
+2019,2,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Total. Milers d'euros,716.1
+2019,2,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Total. Milers d'euros,473.6
+2019,2,6,Gràcia,28,Vallcarca i els Penitents,Total. Milers d'euros,313.9
+2019,2,6,Gràcia,29,el Coll,Total. Milers d'euros,153.8
+2019,2,6,Gràcia,30,la Salut,Total. Milers d'euros,366.3
+2019,2,6,Gràcia,31,la Vila de Gràcia,Total. Milers d'euros,380
+2019,2,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Total. Milers d'euros,384.1
+2019,2,7,Horta-Guinardó,33,el Baix Guinardó,Total. Milers d'euros,274.2
+2019,2,7,Horta-Guinardó,34,Can Baró,Total. Milers d'euros,208.7
+2019,2,7,Horta-Guinardó,35,el Guinardó,Total. Milers d'euros,243
+2019,2,7,Horta-Guinardó,36,la Font d'en Fargues,Total. Milers d'euros,286.3
+2019,2,7,Horta-Guinardó,37,el Carmel,Total. Milers d'euros,173.6
+2019,2,7,Horta-Guinardó,38,la Teixonera,Total. Milers d'euros,147.5
+2019,2,7,Horta-Guinardó,39,Sant Genís dels Agudells,Total. Milers d'euros,172.7
+2019,2,7,Horta-Guinardó,40,Montbau,Total. Milers d'euros,159.9
+2019,2,7,Horta-Guinardó,41,la Vall d'Hebron,Total. Milers d'euros,242.5
+2019,2,7,Horta-Guinardó,42,la Clota,Total. Milers d'euros,NA
+2019,2,7,Horta-Guinardó,43,Horta,Total. Milers d'euros,206.1
+2019,2,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Total. Milers d'euros,182.5
+2019,2,8,Nou Barris,45,Porta,Total. Milers d'euros,169
+2019,2,8,Nou Barris,46,el Turó de la Peira,Total. Milers d'euros,137.3
+2019,2,8,Nou Barris,47,Can Peguera,Total. Milers d'euros,NA
+2019,2,8,Nou Barris,48,la Guineueta,Total. Milers d'euros,198.6
+2019,2,8,Nou Barris,49,Canyelles,Total. Milers d'euros,190.7
+2019,2,8,Nou Barris,50,les Roquetes,Total. Milers d'euros,120.9
+2019,2,8,Nou Barris,51,Verdun,Total. Milers d'euros,127.3
+2019,2,8,Nou Barris,52,la Prosperitat,Total. Milers d'euros,124.1
+2019,2,8,Nou Barris,53,la Trinitat Nova,Total. Milers d'euros,90.8
+2019,2,8,Nou Barris,54,Torre Baró,Total. Milers d'euros,NA
+2019,2,8,Nou Barris,55,Ciutat Meridiana,Total. Milers d'euros,90.7
+2019,2,8,Nou Barris,56,Vallbona,Total. Milers d'euros,99.9
+2019,2,9,Sant Andreu,57,la Trinitat Vella,Total. Milers d'euros,237.2
+2019,2,9,Sant Andreu,58,Baró de Viver,Total. Milers d'euros,NA
+2019,2,9,Sant Andreu,59,el Bon Pastor,Total. Milers d'euros,145.6
+2019,2,9,Sant Andreu,60,Sant Andreu,Total. Milers d'euros,244.6
+2019,2,9,Sant Andreu,61,la Sagrera,Total. Milers d'euros,293.5
+2019,2,9,Sant Andreu,62,el Congrés i els Indians,Total. Milers d'euros,217.3
+2019,2,9,Sant Andreu,63,Navas,Total. Milers d'euros,371.9
+2019,2,10,Sant Martí,64,el Camp de l'Arpa del Clot,Total. Milers d'euros,323.7
+2019,2,10,Sant Martí,65,el Clot,Total. Milers d'euros,379.4
+2019,2,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Total. Milers d'euros,280.8
+2019,2,10,Sant Martí,67,la Vila Olímpica del Poblenou,Total. Milers d'euros,553.3
+2019,2,10,Sant Martí,68,el Poblenou,Total. Milers d'euros,306.8
+2019,2,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Total. Milers d'euros,806.8
+2019,2,10,Sant Martí,70,el Besòs i el Maresme,Total. Milers d'euros,375.8
+2019,2,10,Sant Martí,71,Provençals del Poblenou,Total. Milers d'euros,324.7
+2019,2,10,Sant Martí,72,Sant Martí de Provençals,Total. Milers d'euros,261.5
+2019,2,10,Sant Martí,73,la Verneda i la Pau,Total. Milers d'euros,168.3
+2019,2,1,Ciutat Vella,1,el Raval,Nou. Milers d'euros,338.2
+2019,2,1,Ciutat Vella,2,el Barri Gòtic,Nou. Milers d'euros,617.1
+2019,2,1,Ciutat Vella,3,la Barceloneta,Nou. Milers d'euros,NA
+2019,2,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Nou. Milers d'euros,401.3
+2019,2,2,Eixample,5,el Fort Pienc,Nou. Milers d'euros,2039.7
+2019,2,2,Eixample,6,la Sagrada Família,Nou. Milers d'euros,NA
+2019,2,2,Eixample,7,la Dreta de l'Eixample,Nou. Milers d'euros,805.8
+2019,2,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Nou. Milers d'euros,NA
+2019,2,2,Eixample,9,la Nova Esquerra de l'Eixample,Nou. Milers d'euros,247.5
+2019,2,2,Eixample,10,Sant Antoni,Nou. Milers d'euros,NA
+2019,2,3,Sants-Montjuïc,11,el Poble Sec,Nou. Milers d'euros,176.7
+2019,2,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Nou. Milers d'euros,NA
+2019,2,3,Sants-Montjuïc,13,la Marina de Port,Nou. Milers d'euros,NA
+2019,2,3,Sants-Montjuïc,14,la Font de la Guatlla,Nou. Milers d'euros,NA
+2019,2,3,Sants-Montjuïc,15,Hostafrancs,Nou. Milers d'euros,NA
+2019,2,3,Sants-Montjuïc,16,la Bordeta,Nou. Milers d'euros,NA
+2019,2,3,Sants-Montjuïc,17,Sants - Badal,Nou. Milers d'euros,NA
+2019,2,3,Sants-Montjuïc,18,Sants,Nou. Milers d'euros,NA
+2019,2,4,Les Corts,19,les Corts,Nou. Milers d'euros,575.8
+2019,2,4,Les Corts,20,la Maternitat i Sant Ramon,Nou. Milers d'euros,NA
+2019,2,4,Les Corts,21,Pedralbes,Nou. Milers d'euros,NA
+2019,2,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Nou. Milers d'euros,NA
+2019,2,5,Sarrià-Sant Gervasi,23,Sarrià,Nou. Milers d'euros,NA
+2019,2,5,Sarrià-Sant Gervasi,24,les Tres Torres,Nou. Milers d'euros,NA
+2019,2,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Nou. Milers d'euros,719.6
+2019,2,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Nou. Milers d'euros,531.3
+2019,2,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Nou. Milers d'euros,307.5
+2019,2,6,Gràcia,28,Vallcarca i els Penitents,Nou. Milers d'euros,290
+2019,2,6,Gràcia,29,el Coll,Nou. Milers d'euros,NA
+2019,2,6,Gràcia,30,la Salut,Nou. Milers d'euros,NA
+2019,2,6,Gràcia,31,la Vila de Gràcia,Nou. Milers d'euros,285.3
+2019,2,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Nou. Milers d'euros,NA
+2019,2,7,Horta-Guinardó,33,el Baix Guinardó,Nou. Milers d'euros,NA
+2019,2,7,Horta-Guinardó,34,Can Baró,Nou. Milers d'euros,NA
+2019,2,7,Horta-Guinardó,35,el Guinardó,Nou. Milers d'euros,320
+2019,2,7,Horta-Guinardó,36,la Font d'en Fargues,Nou. Milers d'euros,NA
+2019,2,7,Horta-Guinardó,37,el Carmel,Nou. Milers d'euros,234.6
+2019,2,7,Horta-Guinardó,38,la Teixonera,Nou. Milers d'euros,172.8
+2019,2,7,Horta-Guinardó,39,Sant Genís dels Agudells,Nou. Milers d'euros,195.4
+2019,2,7,Horta-Guinardó,40,Montbau,Nou. Milers d'euros,165
+2019,2,7,Horta-Guinardó,41,la Vall d'Hebron,Nou. Milers d'euros,191.7
+2019,2,7,Horta-Guinardó,42,la Clota,Nou. Milers d'euros,NA
+2019,2,7,Horta-Guinardó,43,Horta,Nou. Milers d'euros,200.7
+2019,2,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,45,Porta,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,46,el Turó de la Peira,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,47,Can Peguera,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,48,la Guineueta,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,49,Canyelles,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,50,les Roquetes,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,51,Verdun,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,52,la Prosperitat,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,53,la Trinitat Nova,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,54,Torre Baró,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,55,Ciutat Meridiana,Nou. Milers d'euros,NA
+2019,2,8,Nou Barris,56,Vallbona,Nou. Milers d'euros,NA
+2019,2,9,Sant Andreu,57,la Trinitat Vella,Nou. Milers d'euros,NA
+2019,2,9,Sant Andreu,58,Baró de Viver,Nou. Milers d'euros,NA
+2019,2,9,Sant Andreu,59,el Bon Pastor,Nou. Milers d'euros,NA
+2019,2,9,Sant Andreu,60,Sant Andreu,Nou. Milers d'euros,325.3
+2019,2,9,Sant Andreu,61,la Sagrera,Nou. Milers d'euros,NA
+2019,2,9,Sant Andreu,62,el Congrés i els Indians,Nou. Milers d'euros,NA
+2019,2,9,Sant Andreu,63,Navas,Nou. Milers d'euros,NA
+2019,2,10,Sant Martí,64,el Camp de l'Arpa del Clot,Nou. Milers d'euros,411.5
+2019,2,10,Sant Martí,65,el Clot,Nou. Milers d'euros,301.8
+2019,2,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Nou. Milers d'euros,NA
+2019,2,10,Sant Martí,67,la Vila Olímpica del Poblenou,Nou. Milers d'euros,NA
+2019,2,10,Sant Martí,68,el Poblenou,Nou. Milers d'euros,NA
+2019,2,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Nou. Milers d'euros,NA
+2019,2,10,Sant Martí,70,el Besòs i el Maresme,Nou. Milers d'euros,480.1
+2019,2,10,Sant Martí,71,Provençals del Poblenou,Nou. Milers d'euros,NA
+2019,2,10,Sant Martí,72,Sant Martí de Provençals,Nou. Milers d'euros,NA
+2019,2,10,Sant Martí,73,la Verneda i la Pau,Nou. Milers d'euros,NA
+2019,2,1,Ciutat Vella,1,el Raval,Usat. Milers d'euros,202.8
+2019,2,1,Ciutat Vella,2,el Barri Gòtic,Usat. Milers d'euros,394.3
+2019,2,1,Ciutat Vella,3,la Barceloneta,Usat. Milers d'euros,221.8
+2019,2,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Usat. Milers d'euros,248.7
+2019,2,2,Eixample,5,el Fort Pienc,Usat. Milers d'euros,520.2
+2019,2,2,Eixample,6,la Sagrada Família,Usat. Milers d'euros,255.9
+2019,2,2,Eixample,7,la Dreta de l'Eixample,Usat. Milers d'euros,568.6
+2019,2,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Usat. Milers d'euros,492.6
+2019,2,2,Eixample,9,la Nova Esquerra de l'Eixample,Usat. Milers d'euros,299.2
+2019,2,2,Eixample,10,Sant Antoni,Usat. Milers d'euros,310.9
+2019,2,3,Sants-Montjuïc,11,el Poble Sec,Usat. Milers d'euros,285.1
+2019,2,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Usat. Milers d'euros,NA
+2019,2,3,Sants-Montjuïc,13,la Marina de Port,Usat. Milers d'euros,182.7
+2019,2,3,Sants-Montjuïc,14,la Font de la Guatlla,Usat. Milers d'euros,385.5
+2019,2,3,Sants-Montjuïc,15,Hostafrancs,Usat. Milers d'euros,366.8
+2019,2,3,Sants-Montjuïc,16,la Bordeta,Usat. Milers d'euros,200.7
+2019,2,3,Sants-Montjuïc,17,Sants - Badal,Usat. Milers d'euros,245
+2019,2,3,Sants-Montjuïc,18,Sants,Usat. Milers d'euros,273
+2019,2,4,Les Corts,19,les Corts,Usat. Milers d'euros,416.1
+2019,2,4,Les Corts,20,la Maternitat i Sant Ramon,Usat. Milers d'euros,357
+2019,2,4,Les Corts,21,Pedralbes,Usat. Milers d'euros,1000.1
+2019,2,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Usat. Milers d'euros,543
+2019,2,5,Sarrià-Sant Gervasi,23,Sarrià,Usat. Milers d'euros,860.3
+2019,2,5,Sarrià-Sant Gervasi,24,les Tres Torres,Usat. Milers d'euros,743.2
+2019,2,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Usat. Milers d'euros,621.2
+2019,2,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Usat. Milers d'euros,762.3
+2019,2,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Usat. Milers d'euros,479.6
+2019,2,6,Gràcia,28,Vallcarca i els Penitents,Usat. Milers d'euros,316
+2019,2,6,Gràcia,29,el Coll,Usat. Milers d'euros,130.5
+2019,2,6,Gràcia,30,la Salut,Usat. Milers d'euros,362.4
+2019,2,6,Gràcia,31,la Vila de Gràcia,Usat. Milers d'euros,386.4
+2019,2,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Usat. Milers d'euros,384.1
+2019,2,7,Horta-Guinardó,33,el Baix Guinardó,Usat. Milers d'euros,274.2
+2019,2,7,Horta-Guinardó,34,Can Baró,Usat. Milers d'euros,208.7
+2019,2,7,Horta-Guinardó,35,el Guinardó,Usat. Milers d'euros,238.2
+2019,2,7,Horta-Guinardó,36,la Font d'en Fargues,Usat. Milers d'euros,291
+2019,2,7,Horta-Guinardó,37,el Carmel,Usat. Milers d'euros,149.8
+2019,2,7,Horta-Guinardó,38,la Teixonera,Usat. Milers d'euros,142.7
+2019,2,7,Horta-Guinardó,39,Sant Genís dels Agudells,Usat. Milers d'euros,156.4
+2019,2,7,Horta-Guinardó,40,Montbau,Usat. Milers d'euros,157.3
+2019,2,7,Horta-Guinardó,41,la Vall d'Hebron,Usat. Milers d'euros,273.1
+2019,2,7,Horta-Guinardó,42,la Clota,Usat. Milers d'euros,NA
+2019,2,7,Horta-Guinardó,43,Horta,Usat. Milers d'euros,207.7
+2019,2,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Usat. Milers d'euros,182.5
+2019,2,8,Nou Barris,45,Porta,Usat. Milers d'euros,169
+2019,2,8,Nou Barris,46,el Turó de la Peira,Usat. Milers d'euros,137.3
+2019,2,8,Nou Barris,47,Can Peguera,Usat. Milers d'euros,NA
+2019,2,8,Nou Barris,48,la Guineueta,Usat. Milers d'euros,204.2
+2019,2,8,Nou Barris,49,Canyelles,Usat. Milers d'euros,190.7
+2019,2,8,Nou Barris,50,les Roquetes,Usat. Milers d'euros,120.9
+2019,2,8,Nou Barris,51,Verdun,Usat. Milers d'euros,127.3
+2019,2,8,Nou Barris,52,la Prosperitat,Usat. Milers d'euros,124.1
+2019,2,8,Nou Barris,53,la Trinitat Nova,Usat. Milers d'euros,90.8
+2019,2,8,Nou Barris,54,Torre Baró,Usat. Milers d'euros,NA
+2019,2,8,Nou Barris,55,Ciutat Meridiana,Usat. Milers d'euros,90.7
+2019,2,8,Nou Barris,56,Vallbona,Usat. Milers d'euros,99.9
+2019,2,9,Sant Andreu,57,la Trinitat Vella,Usat. Milers d'euros,237.2
+2019,2,9,Sant Andreu,58,Baró de Viver,Usat. Milers d'euros,NA
+2019,2,9,Sant Andreu,59,el Bon Pastor,Usat. Milers d'euros,146.2
+2019,2,9,Sant Andreu,60,Sant Andreu,Usat. Milers d'euros,210.8
+2019,2,9,Sant Andreu,61,la Sagrera,Usat. Milers d'euros,293.5
+2019,2,9,Sant Andreu,62,el Congrés i els Indians,Usat. Milers d'euros,217.3
+2019,2,9,Sant Andreu,63,Navas,Usat. Milers d'euros,371.9
+2019,2,10,Sant Martí,64,el Camp de l'Arpa del Clot,Usat. Milers d'euros,309
+2019,2,10,Sant Martí,65,el Clot,Usat. Milers d'euros,383
+2019,2,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Usat. Milers d'euros,280.8
+2019,2,10,Sant Martí,67,la Vila Olímpica del Poblenou,Usat. Milers d'euros,553.3
+2019,2,10,Sant Martí,68,el Poblenou,Usat. Milers d'euros,288.2
+2019,2,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Usat. Milers d'euros,806.8
+2019,2,10,Sant Martí,70,el Besòs i el Maresme,Usat. Milers d'euros,234.7
+2019,2,10,Sant Martí,71,Provençals del Poblenou,Usat. Milers d'euros,334.5
+2019,2,10,Sant Martí,72,Sant Martí de Provençals,Usat. Milers d'euros,257.9
+2019,2,10,Sant Martí,73,la Verneda i la Pau,Usat. Milers d'euros,169.5
+2019,2,1,Ciutat Vella,1,el Raval,Total. Euros/m2 construït,3838.4
+2019,2,1,Ciutat Vella,2,el Barri Gòtic,Total. Euros/m2 construït,5630.7
+2019,2,1,Ciutat Vella,3,la Barceloneta,Total. Euros/m2 construït,4556.1
+2019,2,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Total. Euros/m2 construït,4032.7
+2019,2,2,Eixample,5,el Fort Pienc,Total. Euros/m2 construït,6345
+2019,2,2,Eixample,6,la Sagrada Família,Total. Euros/m2 construït,4414.2
+2019,2,2,Eixample,7,la Dreta de l'Eixample,Total. Euros/m2 construït,5554
+2019,2,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Total. Euros/m2 construït,5013.7
+2019,2,2,Eixample,9,la Nova Esquerra de l'Eixample,Total. Euros/m2 construït,4198.2
+2019,2,2,Eixample,10,Sant Antoni,Total. Euros/m2 construït,4223.3
+2019,2,3,Sants-Montjuïc,11,el Poble Sec,Total. Euros/m2 construït,4003.6
+2019,2,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Total. Euros/m2 construït,NA
+2019,2,3,Sants-Montjuïc,13,la Marina de Port,Total. Euros/m2 construït,2832.1
+2019,2,3,Sants-Montjuïc,14,la Font de la Guatlla,Total. Euros/m2 construït,4566.6
+2019,2,3,Sants-Montjuïc,15,Hostafrancs,Total. Euros/m2 construït,4492.7
+2019,2,3,Sants-Montjuïc,16,la Bordeta,Total. Euros/m2 construït,3285.5
+2019,2,3,Sants-Montjuïc,17,Sants - Badal,Total. Euros/m2 construït,3325.2
+2019,2,3,Sants-Montjuïc,18,Sants,Total. Euros/m2 construït,3730.4
+2019,2,4,Les Corts,19,les Corts,Total. Euros/m2 construït,4874.5
+2019,2,4,Les Corts,20,la Maternitat i Sant Ramon,Total. Euros/m2 construït,4028.6
+2019,2,4,Les Corts,21,Pedralbes,Total. Euros/m2 construït,6651.1
+2019,2,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Total. Euros/m2 construït,4600.1
+2019,2,5,Sarrià-Sant Gervasi,23,Sarrià,Total. Euros/m2 construït,6311.1
+2019,2,5,Sarrià-Sant Gervasi,24,les Tres Torres,Total. Euros/m2 construït,5203.3
+2019,2,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Total. Euros/m2 construït,5725.6
+2019,2,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Total. Euros/m2 construït,5335.2
+2019,2,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Total. Euros/m2 construït,4842.1
+2019,2,6,Gràcia,28,Vallcarca i els Penitents,Total. Euros/m2 construït,3516.4
+2019,2,6,Gràcia,29,el Coll,Total. Euros/m2 construït,2331.4
+2019,2,6,Gràcia,30,la Salut,Total. Euros/m2 construït,4467.3
+2019,2,6,Gràcia,31,la Vila de Gràcia,Total. Euros/m2 construït,4835.5
+2019,2,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Total. Euros/m2 construït,4274.5
+2019,2,7,Horta-Guinardó,33,el Baix Guinardó,Total. Euros/m2 construït,3803.3
+2019,2,7,Horta-Guinardó,34,Can Baró,Total. Euros/m2 construït,3293.6
+2019,2,7,Horta-Guinardó,35,el Guinardó,Total. Euros/m2 construït,3347.7
+2019,2,7,Horta-Guinardó,36,la Font d'en Fargues,Total. Euros/m2 construït,3407.9
+2019,2,7,Horta-Guinardó,37,el Carmel,Total. Euros/m2 construït,2638.9
+2019,2,7,Horta-Guinardó,38,la Teixonera,Total. Euros/m2 construït,2405.4
+2019,2,7,Horta-Guinardó,39,Sant Genís dels Agudells,Total. Euros/m2 construït,2266.7
+2019,2,7,Horta-Guinardó,40,Montbau,Total. Euros/m2 construït,2694.2
+2019,2,7,Horta-Guinardó,41,la Vall d'Hebron,Total. Euros/m2 construït,3664.6
+2019,2,7,Horta-Guinardó,42,la Clota,Total. Euros/m2 construït,NA
+2019,2,7,Horta-Guinardó,43,Horta,Total. Euros/m2 construït,2936.6
+2019,2,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Total. Euros/m2 construït,2669.2
+2019,2,8,Nou Barris,45,Porta,Total. Euros/m2 construït,2949.6
+2019,2,8,Nou Barris,46,el Turó de la Peira,Total. Euros/m2 construït,2062.6
+2019,2,8,Nou Barris,47,Can Peguera,Total. Euros/m2 construït,NA
+2019,2,8,Nou Barris,48,la Guineueta,Total. Euros/m2 construït,2716.3
+2019,2,8,Nou Barris,49,Canyelles,Total. Euros/m2 construït,2493.5
+2019,2,8,Nou Barris,50,les Roquetes,Total. Euros/m2 construït,2351.9
+2019,2,8,Nou Barris,51,Verdun,Total. Euros/m2 construït,2200.4
+2019,2,8,Nou Barris,52,la Prosperitat,Total. Euros/m2 construït,1954.1
+2019,2,8,Nou Barris,53,la Trinitat Nova,Total. Euros/m2 construït,1847.2
+2019,2,8,Nou Barris,54,Torre Baró,Total. Euros/m2 construït,NA
+2019,2,8,Nou Barris,55,Ciutat Meridiana,Total. Euros/m2 construït,1584.1
+2019,2,8,Nou Barris,56,Vallbona,Total. Euros/m2 construït,1152.8
+2019,2,9,Sant Andreu,57,la Trinitat Vella,Total. Euros/m2 construït,3265.5
+2019,2,9,Sant Andreu,58,Baró de Viver,Total. Euros/m2 construït,NA
+2019,2,9,Sant Andreu,59,el Bon Pastor,Total. Euros/m2 construït,2045.7
+2019,2,9,Sant Andreu,60,Sant Andreu,Total. Euros/m2 construït,3380.4
+2019,2,9,Sant Andreu,61,la Sagrera,Total. Euros/m2 construït,3854.7
+2019,2,9,Sant Andreu,62,el Congrés i els Indians,Total. Euros/m2 construït,2804.6
+2019,2,9,Sant Andreu,63,Navas,Total. Euros/m2 construït,4168.4
+2019,2,10,Sant Martí,64,el Camp de l'Arpa del Clot,Total. Euros/m2 construït,4116
+2019,2,10,Sant Martí,65,el Clot,Total. Euros/m2 construït,4393.2
+2019,2,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Total. Euros/m2 construït,4040.7
+2019,2,10,Sant Martí,67,la Vila Olímpica del Poblenou,Total. Euros/m2 construït,4893.9
+2019,2,10,Sant Martí,68,el Poblenou,Total. Euros/m2 construït,4514.8
+2019,2,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Total. Euros/m2 construït,7084.1
+2019,2,10,Sant Martí,70,el Besòs i el Maresme,Total. Euros/m2 construït,3877
+2019,2,10,Sant Martí,71,Provençals del Poblenou,Total. Euros/m2 construït,4335.5
+2019,2,10,Sant Martí,72,Sant Martí de Provençals,Total. Euros/m2 construït,3443
+2019,2,10,Sant Martí,73,la Verneda i la Pau,Total. Euros/m2 construït,2488.7
+2019,2,1,Ciutat Vella,1,el Raval,Nou. Euros/m2 construït,6927.4
+2019,2,1,Ciutat Vella,2,el Barri Gòtic,Nou. Euros/m2 construït,7267.3
+2019,2,1,Ciutat Vella,3,la Barceloneta,Nou. Euros/m2 construït,NA
+2019,2,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Nou. Euros/m2 construït,4022.3
+2019,2,2,Eixample,5,el Fort Pienc,Nou. Euros/m2 construït,10523.9
+2019,2,2,Eixample,6,la Sagrada Família,Nou. Euros/m2 construït,NA
+2019,2,2,Eixample,7,la Dreta de l'Eixample,Nou. Euros/m2 construït,6386.1
+2019,2,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Nou. Euros/m2 construït,NA
+2019,2,2,Eixample,9,la Nova Esquerra de l'Eixample,Nou. Euros/m2 construït,3929.2
+2019,2,2,Eixample,10,Sant Antoni,Nou. Euros/m2 construït,NA
+2019,2,3,Sants-Montjuïc,11,el Poble Sec,Nou. Euros/m2 construït,2194.2
+2019,2,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Nou. Euros/m2 construït,NA
+2019,2,3,Sants-Montjuïc,13,la Marina de Port,Nou. Euros/m2 construït,NA
+2019,2,3,Sants-Montjuïc,14,la Font de la Guatlla,Nou. Euros/m2 construït,NA
+2019,2,3,Sants-Montjuïc,15,Hostafrancs,Nou. Euros/m2 construït,NA
+2019,2,3,Sants-Montjuïc,16,la Bordeta,Nou. Euros/m2 construït,NA
+2019,2,3,Sants-Montjuïc,17,Sants - Badal,Nou. Euros/m2 construït,NA
+2019,2,3,Sants-Montjuïc,18,Sants,Nou. Euros/m2 construït,NA
+2019,2,4,Les Corts,19,les Corts,Nou. Euros/m2 construït,5906.8
+2019,2,4,Les Corts,20,la Maternitat i Sant Ramon,Nou. Euros/m2 construït,NA
+2019,2,4,Les Corts,21,Pedralbes,Nou. Euros/m2 construït,NA
+2019,2,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Nou. Euros/m2 construït,NA
+2019,2,5,Sarrià-Sant Gervasi,23,Sarrià,Nou. Euros/m2 construït,NA
+2019,2,5,Sarrià-Sant Gervasi,24,les Tres Torres,Nou. Euros/m2 construït,NA
+2019,2,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Nou. Euros/m2 construït,6985.5
+2019,2,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Nou. Euros/m2 construït,5396
+2019,2,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Nou. Euros/m2 construït,3854.5
+2019,2,6,Gràcia,28,Vallcarca i els Penitents,Nou. Euros/m2 construït,5445.6
+2019,2,6,Gràcia,29,el Coll,Nou. Euros/m2 construït,NA
+2019,2,6,Gràcia,30,la Salut,Nou. Euros/m2 construït,NA
+2019,2,6,Gràcia,31,la Vila de Gràcia,Nou. Euros/m2 construït,3335.9
+2019,2,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Nou. Euros/m2 construït,NA
+2019,2,7,Horta-Guinardó,33,el Baix Guinardó,Nou. Euros/m2 construït,NA
+2019,2,7,Horta-Guinardó,34,Can Baró,Nou. Euros/m2 construït,NA
+2019,2,7,Horta-Guinardó,35,el Guinardó,Nou. Euros/m2 construït,3932.4
+2019,2,7,Horta-Guinardó,36,la Font d'en Fargues,Nou. Euros/m2 construït,NA
+2019,2,7,Horta-Guinardó,37,el Carmel,Nou. Euros/m2 construït,2988.6
+2019,2,7,Horta-Guinardó,38,la Teixonera,Nou. Euros/m2 construït,2699.8
+2019,2,7,Horta-Guinardó,39,Sant Genís dels Agudells,Nou. Euros/m2 construït,2246.5
+2019,2,7,Horta-Guinardó,40,Montbau,Nou. Euros/m2 construït,2716.4
+2019,2,7,Horta-Guinardó,41,la Vall d'Hebron,Nou. Euros/m2 construït,3431.3
+2019,2,7,Horta-Guinardó,42,la Clota,Nou. Euros/m2 construït,NA
+2019,2,7,Horta-Guinardó,43,Horta,Nou. Euros/m2 construït,2779
+2019,2,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,45,Porta,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,46,el Turó de la Peira,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,47,Can Peguera,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,48,la Guineueta,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,49,Canyelles,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,50,les Roquetes,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,51,Verdun,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,52,la Prosperitat,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,53,la Trinitat Nova,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,54,Torre Baró,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,55,Ciutat Meridiana,Nou. Euros/m2 construït,NA
+2019,2,8,Nou Barris,56,Vallbona,Nou. Euros/m2 construït,NA
+2019,2,9,Sant Andreu,57,la Trinitat Vella,Nou. Euros/m2 construït,NA
+2019,2,9,Sant Andreu,58,Baró de Viver,Nou. Euros/m2 construït,NA
+2019,2,9,Sant Andreu,59,el Bon Pastor,Nou. Euros/m2 construït,NA
+2019,2,9,Sant Andreu,60,Sant Andreu,Nou. Euros/m2 construït,4194.2
+2019,2,9,Sant Andreu,61,la Sagrera,Nou. Euros/m2 construït,NA
+2019,2,9,Sant Andreu,62,el Congrés i els Indians,Nou. Euros/m2 construït,NA
+2019,2,9,Sant Andreu,63,Navas,Nou. Euros/m2 construït,NA
+2019,2,10,Sant Martí,64,el Camp de l'Arpa del Clot,Nou. Euros/m2 construït,4263.1
+2019,2,10,Sant Martí,65,el Clot,Nou. Euros/m2 construït,4482
+2019,2,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Nou. Euros/m2 construït,NA
+2019,2,10,Sant Martí,67,la Vila Olímpica del Poblenou,Nou. Euros/m2 construït,NA
+2019,2,10,Sant Martí,68,el Poblenou,Nou. Euros/m2 construït,NA
+2019,2,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Nou. Euros/m2 construït,NA
+2019,2,10,Sant Martí,70,el Besòs i el Maresme,Nou. Euros/m2 construït,4309.5
+2019,2,10,Sant Martí,71,Provençals del Poblenou,Nou. Euros/m2 construït,NA
+2019,2,10,Sant Martí,72,Sant Martí de Provençals,Nou. Euros/m2 construït,NA
+2019,2,10,Sant Martí,73,la Verneda i la Pau,Nou. Euros/m2 construït,NA
+2019,2,1,Ciutat Vella,1,el Raval,Usat. Euros/m2 construït,3693.6
+2019,2,1,Ciutat Vella,2,el Barri Gòtic,Usat. Euros/m2 construït,5270.7
+2019,2,1,Ciutat Vella,3,la Barceloneta,Usat. Euros/m2 construït,4549.5
+2019,2,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Usat. Euros/m2 construït,4034
+2019,2,2,Eixample,5,el Fort Pienc,Usat. Euros/m2 construït,5205.3
+2019,2,2,Eixample,6,la Sagrada Família,Usat. Euros/m2 construït,4414.2
+2019,2,2,Eixample,7,la Dreta de l'Eixample,Usat. Euros/m2 construït,5493.8
+2019,2,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Usat. Euros/m2 construït,5026.5
+2019,2,2,Eixample,9,la Nova Esquerra de l'Eixample,Usat. Euros/m2 construït,4234.1
+2019,2,2,Eixample,10,Sant Antoni,Usat. Euros/m2 construït,4223.3
+2019,2,3,Sants-Montjuïc,11,el Poble Sec,Usat. Euros/m2 construït,4305.2
+2019,2,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Usat. Euros/m2 construït,NA
+2019,2,3,Sants-Montjuïc,13,la Marina de Port,Usat. Euros/m2 construït,2832.1
+2019,2,3,Sants-Montjuïc,14,la Font de la Guatlla,Usat. Euros/m2 construït,4566.6
+2019,2,3,Sants-Montjuïc,15,Hostafrancs,Usat. Euros/m2 construït,4057
+2019,2,3,Sants-Montjuïc,16,la Bordeta,Usat. Euros/m2 construït,3285.5
+2019,2,3,Sants-Montjuïc,17,Sants - Badal,Usat. Euros/m2 construït,3325.2
+2019,2,3,Sants-Montjuïc,18,Sants,Usat. Euros/m2 construït,3730.4
+2019,2,4,Les Corts,19,les Corts,Usat. Euros/m2 construït,4745.5
+2019,2,4,Les Corts,20,la Maternitat i Sant Ramon,Usat. Euros/m2 construït,4028.6
+2019,2,4,Les Corts,21,Pedralbes,Usat. Euros/m2 construït,6640.1
+2019,2,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Usat. Euros/m2 construït,4600.1
+2019,2,5,Sarrià-Sant Gervasi,23,Sarrià,Usat. Euros/m2 construït,6235.3
+2019,2,5,Sarrià-Sant Gervasi,24,les Tres Torres,Usat. Euros/m2 construït,5203.3
+2019,2,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Usat. Euros/m2 construït,5305.6
+2019,2,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Usat. Euros/m2 construït,5320
+2019,2,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Usat. Euros/m2 construït,4877.4
+2019,2,6,Gràcia,28,Vallcarca i els Penitents,Usat. Euros/m2 construït,3348.7
+2019,2,6,Gràcia,29,el Coll,Usat. Euros/m2 construït,2204.3
+2019,2,6,Gràcia,30,la Salut,Usat. Euros/m2 construït,4387.3
+2019,2,6,Gràcia,31,la Vila de Gràcia,Usat. Euros/m2 construït,4937.7
+2019,2,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Usat. Euros/m2 construït,4274.5
+2019,2,7,Horta-Guinardó,33,el Baix Guinardó,Usat. Euros/m2 construït,3803.3
+2019,2,7,Horta-Guinardó,34,Can Baró,Usat. Euros/m2 construït,3293.6
+2019,2,7,Horta-Guinardó,35,el Guinardó,Usat. Euros/m2 construït,3311.2
+2019,2,7,Horta-Guinardó,36,la Font d'en Fargues,Usat. Euros/m2 construït,3445.7
+2019,2,7,Horta-Guinardó,37,el Carmel,Usat. Euros/m2 construït,2502.9
+2019,2,7,Horta-Guinardó,38,la Teixonera,Usat. Euros/m2 construït,2349.4
+2019,2,7,Horta-Guinardó,39,Sant Genís dels Agudells,Usat. Euros/m2 construït,2281.1
+2019,2,7,Horta-Guinardó,40,Montbau,Usat. Euros/m2 construït,2683.1
+2019,2,7,Horta-Guinardó,41,la Vall d'Hebron,Usat. Euros/m2 construït,3804.6
+2019,2,7,Horta-Guinardó,42,la Clota,Usat. Euros/m2 construït,NA
+2019,2,7,Horta-Guinardó,43,Horta,Usat. Euros/m2 construït,2985.5
+2019,2,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Usat. Euros/m2 construït,2669.2
+2019,2,8,Nou Barris,45,Porta,Usat. Euros/m2 construït,2949.6
+2019,2,8,Nou Barris,46,el Turó de la Peira,Usat. Euros/m2 construït,2062.6
+2019,2,8,Nou Barris,47,Can Peguera,Usat. Euros/m2 construït,NA
+2019,2,8,Nou Barris,48,la Guineueta,Usat. Euros/m2 construït,2737
+2019,2,8,Nou Barris,49,Canyelles,Usat. Euros/m2 construït,2493.5
+2019,2,8,Nou Barris,50,les Roquetes,Usat. Euros/m2 construït,2351.9
+2019,2,8,Nou Barris,51,Verdun,Usat. Euros/m2 construït,2200.4
+2019,2,8,Nou Barris,52,la Prosperitat,Usat. Euros/m2 construït,1954.1
+2019,2,8,Nou Barris,53,la Trinitat Nova,Usat. Euros/m2 construït,1847.2
+2019,2,8,Nou Barris,54,Torre Baró,Usat. Euros/m2 construït,NA
+2019,2,8,Nou Barris,55,Ciutat Meridiana,Usat. Euros/m2 construït,1584.1
+2019,2,8,Nou Barris,56,Vallbona,Usat. Euros/m2 construït,1152.8
+2019,2,9,Sant Andreu,57,la Trinitat Vella,Usat. Euros/m2 construït,3265.5
+2019,2,9,Sant Andreu,58,Baró de Viver,Usat. Euros/m2 construït,NA
+2019,2,9,Sant Andreu,59,el Bon Pastor,Usat. Euros/m2 construït,2070.9
+2019,2,9,Sant Andreu,60,Sant Andreu,Usat. Euros/m2 construït,3039.7
+2019,2,9,Sant Andreu,61,la Sagrera,Usat. Euros/m2 construït,3854.7
+2019,2,9,Sant Andreu,62,el Congrés i els Indians,Usat. Euros/m2 construït,2804.6
+2019,2,9,Sant Andreu,63,Navas,Usat. Euros/m2 construït,4168.4
+2019,2,10,Sant Martí,64,el Camp de l'Arpa del Clot,Usat. Euros/m2 construït,4091.3
+2019,2,10,Sant Martí,65,el Clot,Usat. Euros/m2 construït,4389
+2019,2,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Usat. Euros/m2 construït,4040.7
+2019,2,10,Sant Martí,67,la Vila Olímpica del Poblenou,Usat. Euros/m2 construït,4893.9
+2019,2,10,Sant Martí,68,el Poblenou,Usat. Euros/m2 construït,4435.5
+2019,2,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Usat. Euros/m2 construït,7084.1
+2019,2,10,Sant Martí,70,el Besòs i el Maresme,Usat. Euros/m2 construït,3291.9
+2019,2,10,Sant Martí,71,Provençals del Poblenou,Usat. Euros/m2 construït,3997.8
+2019,2,10,Sant Martí,72,Sant Martí de Provençals,Usat. Euros/m2 construït,3408.6
+2019,2,10,Sant Martí,73,la Verneda i la Pau,Usat. Euros/m2 construït,2500.3
+2019,3,1,Ciutat Vella,1,el Raval,Total. Milers d'euros,190.3
+2019,3,1,Ciutat Vella,2,el Barri Gòtic,Total. Milers d'euros,375.9
+2019,3,1,Ciutat Vella,3,la Barceloneta,Total. Milers d'euros,195.3
+2019,3,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Total. Milers d'euros,335.1
+2019,3,2,Eixample,5,el Fort Pienc,Total. Milers d'euros,320.7
+2019,3,2,Eixample,6,la Sagrada Família,Total. Milers d'euros,276.7
+2019,3,2,Eixample,7,la Dreta de l'Eixample,Total. Milers d'euros,573
+2019,3,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Total. Milers d'euros,436.8
+2019,3,2,Eixample,9,la Nova Esquerra de l'Eixample,Total. Milers d'euros,342.2
+2019,3,2,Eixample,10,Sant Antoni,Total. Milers d'euros,354.7
+2019,3,3,Sants-Montjuïc,11,el Poble Sec,Total. Milers d'euros,231.5
+2019,3,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Total. Milers d'euros,121
+2019,3,3,Sants-Montjuïc,13,la Marina de Port,Total. Milers d'euros,196.3
+2019,3,3,Sants-Montjuïc,14,la Font de la Guatlla,Total. Milers d'euros,258.8
+2019,3,3,Sants-Montjuïc,15,Hostafrancs,Total. Milers d'euros,394.2
+2019,3,3,Sants-Montjuïc,16,la Bordeta,Total. Milers d'euros,216.7
+2019,3,3,Sants-Montjuïc,17,Sants - Badal,Total. Milers d'euros,241.1
+2019,3,3,Sants-Montjuïc,18,Sants,Total. Milers d'euros,250.5
+2019,3,4,Les Corts,19,les Corts,Total. Milers d'euros,355.3
+2019,3,4,Les Corts,20,la Maternitat i Sant Ramon,Total. Milers d'euros,384
+2019,3,4,Les Corts,21,Pedralbes,Total. Milers d'euros,899.2
+2019,3,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Total. Milers d'euros,373.8
+2019,3,5,Sarrià-Sant Gervasi,23,Sarrià,Total. Milers d'euros,693.2
+2019,3,5,Sarrià-Sant Gervasi,24,les Tres Torres,Total. Milers d'euros,722.9
+2019,3,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Total. Milers d'euros,701.4
+2019,3,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Total. Milers d'euros,655
+2019,3,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Total. Milers d'euros,505.1
+2019,3,6,Gràcia,28,Vallcarca i els Penitents,Total. Milers d'euros,375.7
+2019,3,6,Gràcia,29,el Coll,Total. Milers d'euros,213
+2019,3,6,Gràcia,30,la Salut,Total. Milers d'euros,358
+2019,3,6,Gràcia,31,la Vila de Gràcia,Total. Milers d'euros,378.4
+2019,3,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Total. Milers d'euros,321.7
+2019,3,7,Horta-Guinardó,33,el Baix Guinardó,Total. Milers d'euros,338.8
+2019,3,7,Horta-Guinardó,34,Can Baró,Total. Milers d'euros,175.1
+2019,3,7,Horta-Guinardó,35,el Guinardó,Total. Milers d'euros,243.1
+2019,3,7,Horta-Guinardó,36,la Font d'en Fargues,Total. Milers d'euros,239.9
+2019,3,7,Horta-Guinardó,37,el Carmel,Total. Milers d'euros,151
+2019,3,7,Horta-Guinardó,38,la Teixonera,Total. Milers d'euros,155.9
+2019,3,7,Horta-Guinardó,39,Sant Genís dels Agudells,Total. Milers d'euros,151
+2019,3,7,Horta-Guinardó,40,Montbau,Total. Milers d'euros,188
+2019,3,7,Horta-Guinardó,41,la Vall d'Hebron,Total. Milers d'euros,170.6
+2019,3,7,Horta-Guinardó,42,la Clota,Total. Milers d'euros,NA
+2019,3,7,Horta-Guinardó,43,Horta,Total. Milers d'euros,230.5
+2019,3,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Total. Milers d'euros,212.2
+2019,3,8,Nou Barris,45,Porta,Total. Milers d'euros,188.6
+2019,3,8,Nou Barris,46,el Turó de la Peira,Total. Milers d'euros,139.3
+2019,3,8,Nou Barris,47,Can Peguera,Total. Milers d'euros,NA
+2019,3,8,Nou Barris,48,la Guineueta,Total. Milers d'euros,257.4
+2019,3,8,Nou Barris,49,Canyelles,Total. Milers d'euros,170
+2019,3,8,Nou Barris,50,les Roquetes,Total. Milers d'euros,223.5
+2019,3,8,Nou Barris,51,Verdun,Total. Milers d'euros,133.8
+2019,3,8,Nou Barris,52,la Prosperitat,Total. Milers d'euros,151.6
+2019,3,8,Nou Barris,53,la Trinitat Nova,Total. Milers d'euros,91.3
+2019,3,8,Nou Barris,54,Torre Baró,Total. Milers d'euros,151
+2019,3,8,Nou Barris,55,Ciutat Meridiana,Total. Milers d'euros,71.4
+2019,3,8,Nou Barris,56,Vallbona,Total. Milers d'euros,NA
+2019,3,9,Sant Andreu,57,la Trinitat Vella,Total. Milers d'euros,317.2
+2019,3,9,Sant Andreu,58,Baró de Viver,Total. Milers d'euros,NA
+2019,3,9,Sant Andreu,59,el Bon Pastor,Total. Milers d'euros,189.1
+2019,3,9,Sant Andreu,60,Sant Andreu,Total. Milers d'euros,269.1
+2019,3,9,Sant Andreu,61,la Sagrera,Total. Milers d'euros,271.6
+2019,3,9,Sant Andreu,62,el Congrés i els Indians,Total. Milers d'euros,241.9
+2019,3,9,Sant Andreu,63,Navas,Total. Milers d'euros,443.6
+2019,3,10,Sant Martí,64,el Camp de l'Arpa del Clot,Total. Milers d'euros,338.3
+2019,3,10,Sant Martí,65,el Clot,Total. Milers d'euros,322.9
+2019,3,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Total. Milers d'euros,208.2
+2019,3,10,Sant Martí,67,la Vila Olímpica del Poblenou,Total. Milers d'euros,NA
+2019,3,10,Sant Martí,68,el Poblenou,Total. Milers d'euros,342
+2019,3,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Total. Milers d'euros,551.8
+2019,3,10,Sant Martí,70,el Besòs i el Maresme,Total. Milers d'euros,307.8
+2019,3,10,Sant Martí,71,Provençals del Poblenou,Total. Milers d'euros,497.5
+2019,3,10,Sant Martí,72,Sant Martí de Provençals,Total. Milers d'euros,354
+2019,3,10,Sant Martí,73,la Verneda i la Pau,Total. Milers d'euros,179.5
+2019,3,1,Ciutat Vella,1,el Raval,Nou. Milers d'euros,NA
+2019,3,1,Ciutat Vella,2,el Barri Gòtic,Nou. Milers d'euros,348.1
+2019,3,1,Ciutat Vella,3,la Barceloneta,Nou. Milers d'euros,NA
+2019,3,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Nou. Milers d'euros,403.8
+2019,3,2,Eixample,5,el Fort Pienc,Nou. Milers d'euros,NA
+2019,3,2,Eixample,6,la Sagrada Família,Nou. Milers d'euros,NA
+2019,3,2,Eixample,7,la Dreta de l'Eixample,Nou. Milers d'euros,1095.3
+2019,3,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Nou. Milers d'euros,291.5
+2019,3,2,Eixample,9,la Nova Esquerra de l'Eixample,Nou. Milers d'euros,NA
+2019,3,2,Eixample,10,Sant Antoni,Nou. Milers d'euros,NA
+2019,3,3,Sants-Montjuïc,11,el Poble Sec,Nou. Milers d'euros,NA
+2019,3,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Nou. Milers d'euros,NA
+2019,3,3,Sants-Montjuïc,13,la Marina de Port,Nou. Milers d'euros,NA
+2019,3,3,Sants-Montjuïc,14,la Font de la Guatlla,Nou. Milers d'euros,NA
+2019,3,3,Sants-Montjuïc,15,Hostafrancs,Nou. Milers d'euros,383
+2019,3,3,Sants-Montjuïc,16,la Bordeta,Nou. Milers d'euros,NA
+2019,3,3,Sants-Montjuïc,17,Sants - Badal,Nou. Milers d'euros,NA
+2019,3,3,Sants-Montjuïc,18,Sants,Nou. Milers d'euros,NA
+2019,3,4,Les Corts,19,les Corts,Nou. Milers d'euros,1176
+2019,3,4,Les Corts,20,la Maternitat i Sant Ramon,Nou. Milers d'euros,NA
+2019,3,4,Les Corts,21,Pedralbes,Nou. Milers d'euros,NA
+2019,3,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Nou. Milers d'euros,NA
+2019,3,5,Sarrià-Sant Gervasi,23,Sarrià,Nou. Milers d'euros,NA
+2019,3,5,Sarrià-Sant Gervasi,24,les Tres Torres,Nou. Milers d'euros,NA
+2019,3,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Nou. Milers d'euros,793
+2019,3,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Nou. Milers d'euros,523.3
+2019,3,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Nou. Milers d'euros,570.4
+2019,3,6,Gràcia,28,Vallcarca i els Penitents,Nou. Milers d'euros,NA
+2019,3,6,Gràcia,29,el Coll,Nou. Milers d'euros,NA
+2019,3,6,Gràcia,30,la Salut,Nou. Milers d'euros,597.5
+2019,3,6,Gràcia,31,la Vila de Gràcia,Nou. Milers d'euros,397
+2019,3,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Nou. Milers d'euros,NA
+2019,3,7,Horta-Guinardó,33,el Baix Guinardó,Nou. Milers d'euros,NA
+2019,3,7,Horta-Guinardó,34,Can Baró,Nou. Milers d'euros,NA
+2019,3,7,Horta-Guinardó,35,el Guinardó,Nou. Milers d'euros,256.3
+2019,3,7,Horta-Guinardó,36,la Font d'en Fargues,Nou. Milers d'euros,NA
+2019,3,7,Horta-Guinardó,37,el Carmel,Nou. Milers d'euros,171.6
+2019,3,7,Horta-Guinardó,38,la Teixonera,Nou. Milers d'euros,108.5
+2019,3,7,Horta-Guinardó,39,Sant Genís dels Agudells,Nou. Milers d'euros,231.1
+2019,3,7,Horta-Guinardó,40,Montbau,Nou. Milers d'euros,146.4
+2019,3,7,Horta-Guinardó,41,la Vall d'Hebron,Nou. Milers d'euros,216.1
+2019,3,7,Horta-Guinardó,42,la Clota,Nou. Milers d'euros,NA
+2019,3,7,Horta-Guinardó,43,Horta,Nou. Milers d'euros,285.9
+2019,3,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Nou. Milers d'euros,NA
+2019,3,8,Nou Barris,45,Porta,Nou. Milers d'euros,NA
+2019,3,8,Nou Barris,46,el Turó de la Peira,Nou. Milers d'euros,NA
+2019,3,8,Nou Barris,47,Can Peguera,Nou. Milers d'euros,NA
+2019,3,8,Nou Barris,48,la Guineueta,Nou. Milers d'euros,342.8
+2019,3,8,Nou Barris,49,Canyelles,Nou. Milers d'euros,NA
+2019,3,8,Nou Barris,50,les Roquetes,Nou. Milers d'euros,NA
+2019,3,8,Nou Barris,51,Verdun,Nou. Milers d'euros,NA
+2019,3,8,Nou Barris,52,la Prosperitat,Nou. Milers d'euros,NA
+2019,3,8,Nou Barris,53,la Trinitat Nova,Nou. Milers d'euros,NA
+2019,3,8,Nou Barris,54,Torre Baró,Nou. Milers d'euros,NA
+2019,3,8,Nou Barris,55,Ciutat Meridiana,Nou. Milers d'euros,NA
+2019,3,8,Nou Barris,56,Vallbona,Nou. Milers d'euros,NA
+2019,3,9,Sant Andreu,57,la Trinitat Vella,Nou. Milers d'euros,NA
+2019,3,9,Sant Andreu,58,Baró de Viver,Nou. Milers d'euros,NA
+2019,3,9,Sant Andreu,59,el Bon Pastor,Nou. Milers d'euros,NA
+2019,3,9,Sant Andreu,60,Sant Andreu,Nou. Milers d'euros,406
+2019,3,9,Sant Andreu,61,la Sagrera,Nou. Milers d'euros,NA
+2019,3,9,Sant Andreu,62,el Congrés i els Indians,Nou. Milers d'euros,NA
+2019,3,9,Sant Andreu,63,Navas,Nou. Milers d'euros,NA
+2019,3,10,Sant Martí,64,el Camp de l'Arpa del Clot,Nou. Milers d'euros,527.7
+2019,3,10,Sant Martí,65,el Clot,Nou. Milers d'euros,NA
+2019,3,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Nou. Milers d'euros,NA
+2019,3,10,Sant Martí,67,la Vila Olímpica del Poblenou,Nou. Milers d'euros,NA
+2019,3,10,Sant Martí,68,el Poblenou,Nou. Milers d'euros,602.5
+2019,3,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Nou. Milers d'euros,NA
+2019,3,10,Sant Martí,70,el Besòs i el Maresme,Nou. Milers d'euros,461.3
+2019,3,10,Sant Martí,71,Provençals del Poblenou,Nou. Milers d'euros,NA
+2019,3,10,Sant Martí,72,Sant Martí de Provençals,Nou. Milers d'euros,NA
+2019,3,10,Sant Martí,73,la Verneda i la Pau,Nou. Milers d'euros,159.7
+2019,3,1,Ciutat Vella,1,el Raval,Usat. Milers d'euros,190.3
+2019,3,1,Ciutat Vella,2,el Barri Gòtic,Usat. Milers d'euros,386.2
+2019,3,1,Ciutat Vella,3,la Barceloneta,Usat. Milers d'euros,197.7
+2019,3,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Usat. Milers d'euros,332.6
+2019,3,2,Eixample,5,el Fort Pienc,Usat. Milers d'euros,320.7
+2019,3,2,Eixample,6,la Sagrada Família,Usat. Milers d'euros,276.7
+2019,3,2,Eixample,7,la Dreta de l'Eixample,Usat. Milers d'euros,543
+2019,3,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Usat. Milers d'euros,456.2
+2019,3,2,Eixample,9,la Nova Esquerra de l'Eixample,Usat. Milers d'euros,348.4
+2019,3,2,Eixample,10,Sant Antoni,Usat. Milers d'euros,373.4
+2019,3,3,Sants-Montjuïc,11,el Poble Sec,Usat. Milers d'euros,230.1
+2019,3,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Usat. Milers d'euros,121
+2019,3,3,Sants-Montjuïc,13,la Marina de Port,Usat. Milers d'euros,196.3
+2019,3,3,Sants-Montjuïc,14,la Font de la Guatlla,Usat. Milers d'euros,256.9
+2019,3,3,Sants-Montjuïc,15,Hostafrancs,Usat. Milers d'euros,395.2
+2019,3,3,Sants-Montjuïc,16,la Bordeta,Usat. Milers d'euros,216.7
+2019,3,3,Sants-Montjuïc,17,Sants - Badal,Usat. Milers d'euros,241.1
+2019,3,3,Sants-Montjuïc,18,Sants,Usat. Milers d'euros,250.5
+2019,3,4,Les Corts,19,les Corts,Usat. Milers d'euros,342.5
+2019,3,4,Les Corts,20,la Maternitat i Sant Ramon,Usat. Milers d'euros,384
+2019,3,4,Les Corts,21,Pedralbes,Usat. Milers d'euros,899.2
+2019,3,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Usat. Milers d'euros,373.8
+2019,3,5,Sarrià-Sant Gervasi,23,Sarrià,Usat. Milers d'euros,703.7
+2019,3,5,Sarrià-Sant Gervasi,24,les Tres Torres,Usat. Milers d'euros,722.9
+2019,3,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Usat. Milers d'euros,683.1
+2019,3,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Usat. Milers d'euros,687.9
+2019,3,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Usat. Milers d'euros,496.1
+2019,3,6,Gràcia,28,Vallcarca i els Penitents,Usat. Milers d'euros,380.5
+2019,3,6,Gràcia,29,el Coll,Usat. Milers d'euros,217.7
+2019,3,6,Gràcia,30,la Salut,Usat. Milers d'euros,334.8
+2019,3,6,Gràcia,31,la Vila de Gràcia,Usat. Milers d'euros,373.8
+2019,3,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Usat. Milers d'euros,321.8
+2019,3,7,Horta-Guinardó,33,el Baix Guinardó,Usat. Milers d'euros,338.8
+2019,3,7,Horta-Guinardó,34,Can Baró,Usat. Milers d'euros,175.1
+2019,3,7,Horta-Guinardó,35,el Guinardó,Usat. Milers d'euros,241.8
+2019,3,7,Horta-Guinardó,36,la Font d'en Fargues,Usat. Milers d'euros,239.9
+2019,3,7,Horta-Guinardó,37,el Carmel,Usat. Milers d'euros,141.6
+2019,3,7,Horta-Guinardó,38,la Teixonera,Usat. Milers d'euros,174.8
+2019,3,7,Horta-Guinardó,39,Sant Genís dels Agudells,Usat. Milers d'euros,110.9
+2019,3,7,Horta-Guinardó,40,Montbau,Usat. Milers d'euros,208.8
+2019,3,7,Horta-Guinardó,41,la Vall d'Hebron,Usat. Milers d'euros,NA
+2019,3,7,Horta-Guinardó,42,la Clota,Usat. Milers d'euros,NA
+2019,3,7,Horta-Guinardó,43,Horta,Usat. Milers d'euros,216
+2019,3,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Usat. Milers d'euros,212.2
+2019,3,8,Nou Barris,45,Porta,Usat. Milers d'euros,184.3
+2019,3,8,Nou Barris,46,el Turó de la Peira,Usat. Milers d'euros,139.3
+2019,3,8,Nou Barris,47,Can Peguera,Usat. Milers d'euros,NA
+2019,3,8,Nou Barris,48,la Guineueta,Usat. Milers d'euros,225.4
+2019,3,8,Nou Barris,49,Canyelles,Usat. Milers d'euros,170
+2019,3,8,Nou Barris,50,les Roquetes,Usat. Milers d'euros,223.5
+2019,3,8,Nou Barris,51,Verdun,Usat. Milers d'euros,133.8
+2019,3,8,Nou Barris,52,la Prosperitat,Usat. Milers d'euros,151.6
+2019,3,8,Nou Barris,53,la Trinitat Nova,Usat. Milers d'euros,91.3
+2019,3,8,Nou Barris,54,Torre Baró,Usat. Milers d'euros,151
+2019,3,8,Nou Barris,55,Ciutat Meridiana,Usat. Milers d'euros,71.4
+2019,3,8,Nou Barris,56,Vallbona,Usat. Milers d'euros,NA
+2019,3,9,Sant Andreu,57,la Trinitat Vella,Usat. Milers d'euros,317.2
+2019,3,9,Sant Andreu,58,Baró de Viver,Usat. Milers d'euros,NA
+2019,3,9,Sant Andreu,59,el Bon Pastor,Usat. Milers d'euros,189.1
+2019,3,9,Sant Andreu,60,Sant Andreu,Usat. Milers d'euros,254.4
+2019,3,9,Sant Andreu,61,la Sagrera,Usat. Milers d'euros,271.6
+2019,3,9,Sant Andreu,62,el Congrés i els Indians,Usat. Milers d'euros,241.9
+2019,3,9,Sant Andreu,63,Navas,Usat. Milers d'euros,444.4
+2019,3,10,Sant Martí,64,el Camp de l'Arpa del Clot,Usat. Milers d'euros,323
+2019,3,10,Sant Martí,65,el Clot,Usat. Milers d'euros,322.9
+2019,3,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Usat. Milers d'euros,208.2
+2019,3,10,Sant Martí,67,la Vila Olímpica del Poblenou,Usat. Milers d'euros,NA
+2019,3,10,Sant Martí,68,el Poblenou,Usat. Milers d'euros,313
+2019,3,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Usat. Milers d'euros,551.8
+2019,3,10,Sant Martí,70,el Besòs i el Maresme,Usat. Milers d'euros,204.4
+2019,3,10,Sant Martí,71,Provençals del Poblenou,Usat. Milers d'euros,742.5
+2019,3,10,Sant Martí,72,Sant Martí de Provençals,Usat. Milers d'euros,354
+2019,3,10,Sant Martí,73,la Verneda i la Pau,Usat. Milers d'euros,180.9
+2019,3,1,Ciutat Vella,1,el Raval,Total. Euros/m2 construït,3390.3
+2019,3,1,Ciutat Vella,2,el Barri Gòtic,Total. Euros/m2 construït,4517.2
+2019,3,1,Ciutat Vella,3,la Barceloneta,Total. Euros/m2 construït,4844.8
+2019,3,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Total. Euros/m2 construït,4636.2
+2019,3,2,Eixample,5,el Fort Pienc,Total. Euros/m2 construït,3704.5
+2019,3,2,Eixample,6,la Sagrada Família,Total. Euros/m2 construït,3665.2
+2019,3,2,Eixample,7,la Dreta de l'Eixample,Total. Euros/m2 construït,5128.6
+2019,3,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Total. Euros/m2 construït,4974.3
+2019,3,2,Eixample,9,la Nova Esquerra de l'Eixample,Total. Euros/m2 construït,4279.8
+2019,3,2,Eixample,10,Sant Antoni,Total. Euros/m2 construït,4038.1
+2019,3,3,Sants-Montjuïc,11,el Poble Sec,Total. Euros/m2 construït,3946.4
+2019,3,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Total. Euros/m2 construït,1920.6
+2019,3,3,Sants-Montjuïc,13,la Marina de Port,Total. Euros/m2 construït,3209.6
+2019,3,3,Sants-Montjuïc,14,la Font de la Guatlla,Total. Euros/m2 construït,3974.7
+2019,3,3,Sants-Montjuïc,15,Hostafrancs,Total. Euros/m2 construït,4642.7
+2019,3,3,Sants-Montjuïc,16,la Bordeta,Total. Euros/m2 construït,3448.9
+2019,3,3,Sants-Montjuïc,17,Sants - Badal,Total. Euros/m2 construït,4340.7
+2019,3,3,Sants-Montjuïc,18,Sants,Total. Euros/m2 construït,3773
+2019,3,4,Les Corts,19,les Corts,Total. Euros/m2 construït,4375.8
+2019,3,4,Les Corts,20,la Maternitat i Sant Ramon,Total. Euros/m2 construït,4154.5
+2019,3,4,Les Corts,21,Pedralbes,Total. Euros/m2 construït,6260.7
+2019,3,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Total. Euros/m2 construït,4371.9
+2019,3,5,Sarrià-Sant Gervasi,23,Sarrià,Total. Euros/m2 construït,5397.5
+2019,3,5,Sarrià-Sant Gervasi,24,les Tres Torres,Total. Euros/m2 construït,5700.2
+2019,3,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Total. Euros/m2 construït,6111.9
+2019,3,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Total. Euros/m2 construït,5924
+2019,3,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Total. Euros/m2 construït,4561.5
+2019,3,6,Gràcia,28,Vallcarca i els Penitents,Total. Euros/m2 construït,3904
+2019,3,6,Gràcia,29,el Coll,Total. Euros/m2 construït,2975.9
+2019,3,6,Gràcia,30,la Salut,Total. Euros/m2 construït,5101
+2019,3,6,Gràcia,31,la Vila de Gràcia,Total. Euros/m2 construït,5240.5
+2019,3,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Total. Euros/m2 construït,4647.6
+2019,3,7,Horta-Guinardó,33,el Baix Guinardó,Total. Euros/m2 construït,4556.6
+2019,3,7,Horta-Guinardó,34,Can Baró,Total. Euros/m2 construït,2770.7
+2019,3,7,Horta-Guinardó,35,el Guinardó,Total. Euros/m2 construït,3400
+2019,3,7,Horta-Guinardó,36,la Font d'en Fargues,Total. Euros/m2 construït,4646.4
+2019,3,7,Horta-Guinardó,37,el Carmel,Total. Euros/m2 construït,2305.3
+2019,3,7,Horta-Guinardó,38,la Teixonera,Total. Euros/m2 construït,2410.2
+2019,3,7,Horta-Guinardó,39,Sant Genís dels Agudells,Total. Euros/m2 construït,2233
+2019,3,7,Horta-Guinardó,40,Montbau,Total. Euros/m2 construït,2862.7
+2019,3,7,Horta-Guinardó,41,la Vall d'Hebron,Total. Euros/m2 construït,3378.1
+2019,3,7,Horta-Guinardó,42,la Clota,Total. Euros/m2 construït,NA
+2019,3,7,Horta-Guinardó,43,Horta,Total. Euros/m2 construït,3260
+2019,3,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Total. Euros/m2 construït,3043.3
+2019,3,8,Nou Barris,45,Porta,Total. Euros/m2 construït,2960.8
+2019,3,8,Nou Barris,46,el Turó de la Peira,Total. Euros/m2 construït,2528.7
+2019,3,8,Nou Barris,47,Can Peguera,Total. Euros/m2 construït,NA
+2019,3,8,Nou Barris,48,la Guineueta,Total. Euros/m2 construït,3483.2
+2019,3,8,Nou Barris,49,Canyelles,Total. Euros/m2 construït,2464.1
+2019,3,8,Nou Barris,50,les Roquetes,Total. Euros/m2 construït,2634.7
+2019,3,8,Nou Barris,51,Verdun,Total. Euros/m2 construït,2338.9
+2019,3,8,Nou Barris,52,la Prosperitat,Total. Euros/m2 construït,2770
+2019,3,8,Nou Barris,53,la Trinitat Nova,Total. Euros/m2 construït,1758.6
+2019,3,8,Nou Barris,54,Torre Baró,Total. Euros/m2 construït,2805.5
+2019,3,8,Nou Barris,55,Ciutat Meridiana,Total. Euros/m2 construït,1235.7
+2019,3,8,Nou Barris,56,Vallbona,Total. Euros/m2 construït,NA
+2019,3,9,Sant Andreu,57,la Trinitat Vella,Total. Euros/m2 construït,3798.9
+2019,3,9,Sant Andreu,58,Baró de Viver,Total. Euros/m2 construït,NA
+2019,3,9,Sant Andreu,59,el Bon Pastor,Total. Euros/m2 construït,2427.6
+2019,3,9,Sant Andreu,60,Sant Andreu,Total. Euros/m2 construït,3093.9
+2019,3,9,Sant Andreu,61,la Sagrera,Total. Euros/m2 construït,3749.4
+2019,3,9,Sant Andreu,62,el Congrés i els Indians,Total. Euros/m2 construït,3603.8
+2019,3,9,Sant Andreu,63,Navas,Total. Euros/m2 construït,4593.1
+2019,3,10,Sant Martí,64,el Camp de l'Arpa del Clot,Total. Euros/m2 construït,4149
+2019,3,10,Sant Martí,65,el Clot,Total. Euros/m2 construït,4030.5
+2019,3,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Total. Euros/m2 construït,3820.5
+2019,3,10,Sant Martí,67,la Vila Olímpica del Poblenou,Total. Euros/m2 construït,6464.5
+2019,3,10,Sant Martí,68,el Poblenou,Total. Euros/m2 construït,4638.2
+2019,3,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Total. Euros/m2 construït,5712
+2019,3,10,Sant Martí,70,el Besòs i el Maresme,Total. Euros/m2 construït,3615.2
+2019,3,10,Sant Martí,71,Provençals del Poblenou,Total. Euros/m2 construït,5841.1
+2019,3,10,Sant Martí,72,Sant Martí de Provençals,Total. Euros/m2 construït,3837.7
+2019,3,10,Sant Martí,73,la Verneda i la Pau,Total. Euros/m2 construït,2496.3
+2019,3,1,Ciutat Vella,1,el Raval,Nou. Euros/m2 construït,NA
+2019,3,1,Ciutat Vella,2,el Barri Gòtic,Nou. Euros/m2 construït,5079.2
+2019,3,1,Ciutat Vella,3,la Barceloneta,Nou. Euros/m2 construït,NA
+2019,3,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Nou. Euros/m2 construït,4365.4
+2019,3,2,Eixample,5,el Fort Pienc,Nou. Euros/m2 construït,NA
+2019,3,2,Eixample,6,la Sagrada Família,Nou. Euros/m2 construït,NA
+2019,3,2,Eixample,7,la Dreta de l'Eixample,Nou. Euros/m2 construït,7050.6
+2019,3,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Nou. Euros/m2 construït,3125.6
+2019,3,2,Eixample,9,la Nova Esquerra de l'Eixample,Nou. Euros/m2 construït,NA
+2019,3,2,Eixample,10,Sant Antoni,Nou. Euros/m2 construït,NA
+2019,3,3,Sants-Montjuïc,11,el Poble Sec,Nou. Euros/m2 construït,NA
+2019,3,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Nou. Euros/m2 construït,NA
+2019,3,3,Sants-Montjuïc,13,la Marina de Port,Nou. Euros/m2 construït,NA
+2019,3,3,Sants-Montjuïc,14,la Font de la Guatlla,Nou. Euros/m2 construït,NA
+2019,3,3,Sants-Montjuïc,15,Hostafrancs,Nou. Euros/m2 construït,5716.4
+2019,3,3,Sants-Montjuïc,16,la Bordeta,Nou. Euros/m2 construït,NA
+2019,3,3,Sants-Montjuïc,17,Sants - Badal,Nou. Euros/m2 construït,NA
+2019,3,3,Sants-Montjuïc,18,Sants,Nou. Euros/m2 construït,NA
+2019,3,4,Les Corts,19,les Corts,Nou. Euros/m2 construït,9719
+2019,3,4,Les Corts,20,la Maternitat i Sant Ramon,Nou. Euros/m2 construït,NA
+2019,3,4,Les Corts,21,Pedralbes,Nou. Euros/m2 construït,NA
+2019,3,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Nou. Euros/m2 construït,NA
+2019,3,5,Sarrià-Sant Gervasi,23,Sarrià,Nou. Euros/m2 construït,NA
+2019,3,5,Sarrià-Sant Gervasi,24,les Tres Torres,Nou. Euros/m2 construït,NA
+2019,3,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Nou. Euros/m2 construït,6658.5
+2019,3,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Nou. Euros/m2 construït,6709
+2019,3,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Nou. Euros/m2 construït,5343.3
+2019,3,6,Gràcia,28,Vallcarca i els Penitents,Nou. Euros/m2 construït,NA
+2019,3,6,Gràcia,29,el Coll,Nou. Euros/m2 construït,NA
+2019,3,6,Gràcia,30,la Salut,Nou. Euros/m2 construït,7171
+2019,3,6,Gràcia,31,la Vila de Gràcia,Nou. Euros/m2 construït,5145.7
+2019,3,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Nou. Euros/m2 construït,NA
+2019,3,7,Horta-Guinardó,33,el Baix Guinardó,Nou. Euros/m2 construït,NA
+2019,3,7,Horta-Guinardó,34,Can Baró,Nou. Euros/m2 construït,NA
+2019,3,7,Horta-Guinardó,35,el Guinardó,Nou. Euros/m2 construït,4771.9
+2019,3,7,Horta-Guinardó,36,la Font d'en Fargues,Nou. Euros/m2 construït,NA
+2019,3,7,Horta-Guinardó,37,el Carmel,Nou. Euros/m2 construït,2418
+2019,3,7,Horta-Guinardó,38,la Teixonera,Nou. Euros/m2 construït,1955.1
+2019,3,7,Horta-Guinardó,39,Sant Genís dels Agudells,Nou. Euros/m2 construït,2826.1
+2019,3,7,Horta-Guinardó,40,Montbau,Nou. Euros/m2 construït,2728.5
+2019,3,7,Horta-Guinardó,41,la Vall d'Hebron,Nou. Euros/m2 construït,4409.8
+2019,3,7,Horta-Guinardó,42,la Clota,Nou. Euros/m2 construït,NA
+2019,3,7,Horta-Guinardó,43,Horta,Nou. Euros/m2 construït,3869.2
+2019,3,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Nou. Euros/m2 construït,NA
+2019,3,8,Nou Barris,45,Porta,Nou. Euros/m2 construït,NA
+2019,3,8,Nou Barris,46,el Turó de la Peira,Nou. Euros/m2 construït,NA
+2019,3,8,Nou Barris,47,Can Peguera,Nou. Euros/m2 construït,NA
+2019,3,8,Nou Barris,48,la Guineueta,Nou. Euros/m2 construït,5066.1
+2019,3,8,Nou Barris,49,Canyelles,Nou. Euros/m2 construït,NA
+2019,3,8,Nou Barris,50,les Roquetes,Nou. Euros/m2 construït,NA
+2019,3,8,Nou Barris,51,Verdun,Nou. Euros/m2 construït,NA
+2019,3,8,Nou Barris,52,la Prosperitat,Nou. Euros/m2 construït,NA
+2019,3,8,Nou Barris,53,la Trinitat Nova,Nou. Euros/m2 construït,NA
+2019,3,8,Nou Barris,54,Torre Baró,Nou. Euros/m2 construït,NA
+2019,3,8,Nou Barris,55,Ciutat Meridiana,Nou. Euros/m2 construït,NA
+2019,3,8,Nou Barris,56,Vallbona,Nou. Euros/m2 construït,NA
+2019,3,9,Sant Andreu,57,la Trinitat Vella,Nou. Euros/m2 construït,NA
+2019,3,9,Sant Andreu,58,Baró de Viver,Nou. Euros/m2 construït,NA
+2019,3,9,Sant Andreu,59,el Bon Pastor,Nou. Euros/m2 construït,NA
+2019,3,9,Sant Andreu,60,Sant Andreu,Nou. Euros/m2 construït,4469.6
+2019,3,9,Sant Andreu,61,la Sagrera,Nou. Euros/m2 construït,NA
+2019,3,9,Sant Andreu,62,el Congrés i els Indians,Nou. Euros/m2 construït,NA
+2019,3,9,Sant Andreu,63,Navas,Nou. Euros/m2 construït,NA
+2019,3,10,Sant Martí,64,el Camp de l'Arpa del Clot,Nou. Euros/m2 construït,4475.4
+2019,3,10,Sant Martí,65,el Clot,Nou. Euros/m2 construït,NA
+2019,3,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Nou. Euros/m2 construït,NA
+2019,3,10,Sant Martí,67,la Vila Olímpica del Poblenou,Nou. Euros/m2 construït,NA
+2019,3,10,Sant Martí,68,el Poblenou,Nou. Euros/m2 construït,5290.2
+2019,3,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Nou. Euros/m2 construït,NA
+2019,3,10,Sant Martí,70,el Besòs i el Maresme,Nou. Euros/m2 construït,4697.6
+2019,3,10,Sant Martí,71,Provençals del Poblenou,Nou. Euros/m2 construït,NA
+2019,3,10,Sant Martí,72,Sant Martí de Provençals,Nou. Euros/m2 construït,NA
+2019,3,10,Sant Martí,73,la Verneda i la Pau,Nou. Euros/m2 construït,2835.9
+2019,3,1,Ciutat Vella,1,el Raval,Usat. Euros/m2 construït,3390.3
+2019,3,1,Ciutat Vella,2,el Barri Gòtic,Usat. Euros/m2 construït,4308.5
+2019,3,1,Ciutat Vella,3,la Barceloneta,Usat. Euros/m2 construït,4871
+2019,3,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Usat. Euros/m2 construït,4646
+2019,3,2,Eixample,5,el Fort Pienc,Usat. Euros/m2 construït,3704.5
+2019,3,2,Eixample,6,la Sagrada Família,Usat. Euros/m2 construït,3665.2
+2019,3,2,Eixample,7,la Dreta de l'Eixample,Usat. Euros/m2 construït,5018.1
+2019,3,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Usat. Euros/m2 construït,5220.8
+2019,3,2,Eixample,9,la Nova Esquerra de l'Eixample,Usat. Euros/m2 construït,4317.1
+2019,3,2,Eixample,10,Sant Antoni,Usat. Euros/m2 construït,4135
+2019,3,3,Sants-Montjuïc,11,el Poble Sec,Usat. Euros/m2 construït,3957.4
+2019,3,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Usat. Euros/m2 construït,1920.6
+2019,3,3,Sants-Montjuïc,13,la Marina de Port,Usat. Euros/m2 construït,3209.6
+2019,3,3,Sants-Montjuïc,14,la Font de la Guatlla,Usat. Euros/m2 construït,4021.8
+2019,3,3,Sants-Montjuïc,15,Hostafrancs,Usat. Euros/m2 construït,4553.2
+2019,3,3,Sants-Montjuïc,16,la Bordeta,Usat. Euros/m2 construït,3448.9
+2019,3,3,Sants-Montjuïc,17,Sants - Badal,Usat. Euros/m2 construït,4340.7
+2019,3,3,Sants-Montjuïc,18,Sants,Usat. Euros/m2 construït,3773
+2019,3,4,Les Corts,19,les Corts,Usat. Euros/m2 construït,4292.3
+2019,3,4,Les Corts,20,la Maternitat i Sant Ramon,Usat. Euros/m2 construït,4154.5
+2019,3,4,Les Corts,21,Pedralbes,Usat. Euros/m2 construït,6260.7
+2019,3,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Usat. Euros/m2 construït,4371.9
+2019,3,5,Sarrià-Sant Gervasi,23,Sarrià,Usat. Euros/m2 construït,5460.6
+2019,3,5,Sarrià-Sant Gervasi,24,les Tres Torres,Usat. Euros/m2 construït,5700.2
+2019,3,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Usat. Euros/m2 construït,6002.5
+2019,3,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Usat. Euros/m2 construït,5727.8
+2019,3,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Usat. Euros/m2 construït,4453.7
+2019,3,6,Gràcia,28,Vallcarca i els Penitents,Usat. Euros/m2 construït,3873.8
+2019,3,6,Gràcia,29,el Coll,Usat. Euros/m2 construït,3040.5
+2019,3,6,Gràcia,30,la Salut,Usat. Euros/m2 construït,4900.7
+2019,3,6,Gràcia,31,la Vila de Gràcia,Usat. Euros/m2 construït,5264.2
+2019,3,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Usat. Euros/m2 construït,4612.2
+2019,3,7,Horta-Guinardó,33,el Baix Guinardó,Usat. Euros/m2 construït,4556.6
+2019,3,7,Horta-Guinardó,34,Can Baró,Usat. Euros/m2 construït,2770.7
+2019,3,7,Horta-Guinardó,35,el Guinardó,Usat. Euros/m2 construït,3266.2
+2019,3,7,Horta-Guinardó,36,la Font d'en Fargues,Usat. Euros/m2 construït,4646.4
+2019,3,7,Horta-Guinardó,37,el Carmel,Usat. Euros/m2 construït,2253.6
+2019,3,7,Horta-Guinardó,38,la Teixonera,Usat. Euros/m2 construït,2592.2
+2019,3,7,Horta-Guinardó,39,Sant Genís dels Agudells,Usat. Euros/m2 construït,1936.4
+2019,3,7,Horta-Guinardó,40,Montbau,Usat. Euros/m2 construït,2929.8
+2019,3,7,Horta-Guinardó,41,la Vall d'Hebron,Usat. Euros/m2 construït,NA
+2019,3,7,Horta-Guinardó,42,la Clota,Usat. Euros/m2 construït,NA
+2019,3,7,Horta-Guinardó,43,Horta,Usat. Euros/m2 construït,3101.1
+2019,3,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Usat. Euros/m2 construït,3043.3
+2019,3,8,Nou Barris,45,Porta,Usat. Euros/m2 construït,2966.6
+2019,3,8,Nou Barris,46,el Turó de la Peira,Usat. Euros/m2 construït,2528.7
+2019,3,8,Nou Barris,47,Can Peguera,Usat. Euros/m2 construït,NA
+2019,3,8,Nou Barris,48,la Guineueta,Usat. Euros/m2 construït,2889.6
+2019,3,8,Nou Barris,49,Canyelles,Usat. Euros/m2 construït,2464.1
+2019,3,8,Nou Barris,50,les Roquetes,Usat. Euros/m2 construït,2634.7
+2019,3,8,Nou Barris,51,Verdun,Usat. Euros/m2 construït,2338.9
+2019,3,8,Nou Barris,52,la Prosperitat,Usat. Euros/m2 construït,2770
+2019,3,8,Nou Barris,53,la Trinitat Nova,Usat. Euros/m2 construït,1758.6
+2019,3,8,Nou Barris,54,Torre Baró,Usat. Euros/m2 construït,2805.5
+2019,3,8,Nou Barris,55,Ciutat Meridiana,Usat. Euros/m2 construït,1235.7
+2019,3,8,Nou Barris,56,Vallbona,Usat. Euros/m2 construït,NA
+2019,3,9,Sant Andreu,57,la Trinitat Vella,Usat. Euros/m2 construït,3798.9
+2019,3,9,Sant Andreu,58,Baró de Viver,Usat. Euros/m2 construït,NA
+2019,3,9,Sant Andreu,59,el Bon Pastor,Usat. Euros/m2 construït,2427.6
+2019,3,9,Sant Andreu,60,Sant Andreu,Usat. Euros/m2 construït,2946.5
+2019,3,9,Sant Andreu,61,la Sagrera,Usat. Euros/m2 construït,3749.4
+2019,3,9,Sant Andreu,62,el Congrés i els Indians,Usat. Euros/m2 construït,3603.8
+2019,3,9,Sant Andreu,63,Navas,Usat. Euros/m2 construït,4618
+2019,3,10,Sant Martí,64,el Camp de l'Arpa del Clot,Usat. Euros/m2 construït,4122.8
+2019,3,10,Sant Martí,65,el Clot,Usat. Euros/m2 construït,4030.5
+2019,3,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Usat. Euros/m2 construït,3820.5
+2019,3,10,Sant Martí,67,la Vila Olímpica del Poblenou,Usat. Euros/m2 construït,NA
+2019,3,10,Sant Martí,68,el Poblenou,Usat. Euros/m2 construït,4565.8
+2019,3,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Usat. Euros/m2 construït,5712
+2019,3,10,Sant Martí,70,el Besòs i el Maresme,Usat. Euros/m2 construït,2886.6
+2019,3,10,Sant Martí,71,Provençals del Poblenou,Usat. Euros/m2 construït,8124.1
+2019,3,10,Sant Martí,72,Sant Martí de Provençals,Usat. Euros/m2 construït,3837.7
+2019,3,10,Sant Martí,73,la Verneda i la Pau,Usat. Euros/m2 construït,2472.7
+2019,4,1,Ciutat Vella,1,el Raval,Total. Milers d'euros,191
+2019,4,1,Ciutat Vella,2,el Barri Gòtic,Total. Milers d'euros,455.6
+2019,4,1,Ciutat Vella,3,la Barceloneta,Total. Milers d'euros,268.8
+2019,4,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Total. Milers d'euros,336.8
+2019,4,2,Eixample,5,el Fort Pienc,Total. Milers d'euros,473.2
+2019,4,2,Eixample,6,la Sagrada Família,Total. Milers d'euros,286.1
+2019,4,2,Eixample,7,la Dreta de l'Eixample,Total. Milers d'euros,497.6
+2019,4,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Total. Milers d'euros,504.3
+2019,4,2,Eixample,9,la Nova Esquerra de l'Eixample,Total. Milers d'euros,296.8
+2019,4,2,Eixample,10,Sant Antoni,Total. Milers d'euros,313.4
+2019,4,3,Sants-Montjuïc,11,el Poble Sec,Total. Milers d'euros,309.9
+2019,4,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Total. Milers d'euros,NA
+2019,4,3,Sants-Montjuïc,13,la Marina de Port,Total. Milers d'euros,170
+2019,4,3,Sants-Montjuïc,14,la Font de la Guatlla,Total. Milers d'euros,277.3
+2019,4,3,Sants-Montjuïc,15,Hostafrancs,Total. Milers d'euros,252.9
+2019,4,3,Sants-Montjuïc,16,la Bordeta,Total. Milers d'euros,173.8
+2019,4,3,Sants-Montjuïc,17,Sants - Badal,Total. Milers d'euros,239.8
+2019,4,3,Sants-Montjuïc,18,Sants,Total. Milers d'euros,266
+2019,4,4,Les Corts,19,les Corts,Total. Milers d'euros,379.4
+2019,4,4,Les Corts,20,la Maternitat i Sant Ramon,Total. Milers d'euros,335.6
+2019,4,4,Les Corts,21,Pedralbes,Total. Milers d'euros,1534.2
+2019,4,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Total. Milers d'euros,619.5
+2019,4,5,Sarrià-Sant Gervasi,23,Sarrià,Total. Milers d'euros,540.7
+2019,4,5,Sarrià-Sant Gervasi,24,les Tres Torres,Total. Milers d'euros,919.2
+2019,4,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Total. Milers d'euros,535.9
+2019,4,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Total. Milers d'euros,607.8
+2019,4,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Total. Milers d'euros,473.4
+2019,4,6,Gràcia,28,Vallcarca i els Penitents,Total. Milers d'euros,367.1
+2019,4,6,Gràcia,29,el Coll,Total. Milers d'euros,205.6
+2019,4,6,Gràcia,30,la Salut,Total. Milers d'euros,323.2
+2019,4,6,Gràcia,31,la Vila de Gràcia,Total. Milers d'euros,516.1
+2019,4,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Total. Milers d'euros,459.7
+2019,4,7,Horta-Guinardó,33,el Baix Guinardó,Total. Milers d'euros,219.8
+2019,4,7,Horta-Guinardó,34,Can Baró,Total. Milers d'euros,223
+2019,4,7,Horta-Guinardó,35,el Guinardó,Total. Milers d'euros,218.8
+2019,4,7,Horta-Guinardó,36,la Font d'en Fargues,Total. Milers d'euros,336.4
+2019,4,7,Horta-Guinardó,37,el Carmel,Total. Milers d'euros,191.7
+2019,4,7,Horta-Guinardó,38,la Teixonera,Total. Milers d'euros,274.6
+2019,4,7,Horta-Guinardó,39,Sant Genís dels Agudells,Total. Milers d'euros,253.5
+2019,4,7,Horta-Guinardó,40,Montbau,Total. Milers d'euros,150
+2019,4,7,Horta-Guinardó,41,la Vall d'Hebron,Total. Milers d'euros,170
+2019,4,7,Horta-Guinardó,42,la Clota,Total. Milers d'euros,NA
+2019,4,7,Horta-Guinardó,43,Horta,Total. Milers d'euros,277.5
+2019,4,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Total. Milers d'euros,191.3
+2019,4,8,Nou Barris,45,Porta,Total. Milers d'euros,171.7
+2019,4,8,Nou Barris,46,el Turó de la Peira,Total. Milers d'euros,187.3
+2019,4,8,Nou Barris,47,Can Peguera,Total. Milers d'euros,NA
+2019,4,8,Nou Barris,48,la Guineueta,Total. Milers d'euros,199.7
+2019,4,8,Nou Barris,49,Canyelles,Total. Milers d'euros,170
+2019,4,8,Nou Barris,50,les Roquetes,Total. Milers d'euros,193.2
+2019,4,8,Nou Barris,51,Verdun,Total. Milers d'euros,192.5
+2019,4,8,Nou Barris,52,la Prosperitat,Total. Milers d'euros,126
+2019,4,8,Nou Barris,53,la Trinitat Nova,Total. Milers d'euros,76.5
+2019,4,8,Nou Barris,54,Torre Baró,Total. Milers d'euros,NA
+2019,4,8,Nou Barris,55,Ciutat Meridiana,Total. Milers d'euros,91
+2019,4,8,Nou Barris,56,Vallbona,Total. Milers d'euros,140
+2019,4,9,Sant Andreu,57,la Trinitat Vella,Total. Milers d'euros,233
+2019,4,9,Sant Andreu,58,Baró de Viver,Total. Milers d'euros,NA
+2019,4,9,Sant Andreu,59,el Bon Pastor,Total. Milers d'euros,155.8
+2019,4,9,Sant Andreu,60,Sant Andreu,Total. Milers d'euros,245.7
+2019,4,9,Sant Andreu,61,la Sagrera,Total. Milers d'euros,258.1
+2019,4,9,Sant Andreu,62,el Congrés i els Indians,Total. Milers d'euros,231.3
+2019,4,9,Sant Andreu,63,Navas,Total. Milers d'euros,370.4
+2019,4,10,Sant Martí,64,el Camp de l'Arpa del Clot,Total. Milers d'euros,295.9
+2019,4,10,Sant Martí,65,el Clot,Total. Milers d'euros,347.3
+2019,4,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Total. Milers d'euros,197.9
+2019,4,10,Sant Martí,67,la Vila Olímpica del Poblenou,Total. Milers d'euros,541.7
+2019,4,10,Sant Martí,68,el Poblenou,Total. Milers d'euros,401.2
+2019,4,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Total. Milers d'euros,491.5
+2019,4,10,Sant Martí,70,el Besòs i el Maresme,Total. Milers d'euros,253.4
+2019,4,10,Sant Martí,71,Provençals del Poblenou,Total. Milers d'euros,174
+2019,4,10,Sant Martí,72,Sant Martí de Provençals,Total. Milers d'euros,266.3
+2019,4,10,Sant Martí,73,la Verneda i la Pau,Total. Milers d'euros,174.5
+2019,4,1,Ciutat Vella,1,el Raval,Nou. Milers d'euros,NA
+2019,4,1,Ciutat Vella,2,el Barri Gòtic,Nou. Milers d'euros,946.3
+2019,4,1,Ciutat Vella,3,la Barceloneta,Nou. Milers d'euros,210.7
+2019,4,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Nou. Milers d'euros,570.7
+2019,4,2,Eixample,5,el Fort Pienc,Nou. Milers d'euros,NA
+2019,4,2,Eixample,6,la Sagrada Família,Nou. Milers d'euros,NA
+2019,4,2,Eixample,7,la Dreta de l'Eixample,Nou. Milers d'euros,229.9
+2019,4,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Nou. Milers d'euros,996.7
+2019,4,2,Eixample,9,la Nova Esquerra de l'Eixample,Nou. Milers d'euros,NA
+2019,4,2,Eixample,10,Sant Antoni,Nou. Milers d'euros,NA
+2019,4,3,Sants-Montjuïc,11,el Poble Sec,Nou. Milers d'euros,NA
+2019,4,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Nou. Milers d'euros,NA
+2019,4,3,Sants-Montjuïc,13,la Marina de Port,Nou. Milers d'euros,NA
+2019,4,3,Sants-Montjuïc,14,la Font de la Guatlla,Nou. Milers d'euros,NA
+2019,4,3,Sants-Montjuïc,15,Hostafrancs,Nou. Milers d'euros,105
+2019,4,3,Sants-Montjuïc,16,la Bordeta,Nou. Milers d'euros,NA
+2019,4,3,Sants-Montjuïc,17,Sants - Badal,Nou. Milers d'euros,NA
+2019,4,3,Sants-Montjuïc,18,Sants,Nou. Milers d'euros,275.8
+2019,4,4,Les Corts,19,les Corts,Nou. Milers d'euros,466.2
+2019,4,4,Les Corts,20,la Maternitat i Sant Ramon,Nou. Milers d'euros,NA
+2019,4,4,Les Corts,21,Pedralbes,Nou. Milers d'euros,3001.5
+2019,4,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Nou. Milers d'euros,NA
+2019,4,5,Sarrià-Sant Gervasi,23,Sarrià,Nou. Milers d'euros,NA
+2019,4,5,Sarrià-Sant Gervasi,24,les Tres Torres,Nou. Milers d'euros,NA
+2019,4,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Nou. Milers d'euros,513.8
+2019,4,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Nou. Milers d'euros,715.5
+2019,4,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Nou. Milers d'euros,763.8
+2019,4,6,Gràcia,28,Vallcarca i els Penitents,Nou. Milers d'euros,387.3
+2019,4,6,Gràcia,29,el Coll,Nou. Milers d'euros,268.4
+2019,4,6,Gràcia,30,la Salut,Nou. Milers d'euros,NA
+2019,4,6,Gràcia,31,la Vila de Gràcia,Nou. Milers d'euros,436.4
+2019,4,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Nou. Milers d'euros,NA
+2019,4,7,Horta-Guinardó,33,el Baix Guinardó,Nou. Milers d'euros,NA
+2019,4,7,Horta-Guinardó,34,Can Baró,Nou. Milers d'euros,NA
+2019,4,7,Horta-Guinardó,35,el Guinardó,Nou. Milers d'euros,NA
+2019,4,7,Horta-Guinardó,36,la Font d'en Fargues,Nou. Milers d'euros,NA
+2019,4,7,Horta-Guinardó,37,el Carmel,Nou. Milers d'euros,231.5
+2019,4,7,Horta-Guinardó,38,la Teixonera,Nou. Milers d'euros,315
+2019,4,7,Horta-Guinardó,39,Sant Genís dels Agudells,Nou. Milers d'euros,125
+2019,4,7,Horta-Guinardó,40,Montbau,Nou. Milers d'euros,141
+2019,4,7,Horta-Guinardó,41,la Vall d'Hebron,Nou. Milers d'euros,NA
+2019,4,7,Horta-Guinardó,42,la Clota,Nou. Milers d'euros,NA
+2019,4,7,Horta-Guinardó,43,Horta,Nou. Milers d'euros,271.4
+2019,4,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Nou. Milers d'euros,NA
+2019,4,8,Nou Barris,45,Porta,Nou. Milers d'euros,NA
+2019,4,8,Nou Barris,46,el Turó de la Peira,Nou. Milers d'euros,NA
+2019,4,8,Nou Barris,47,Can Peguera,Nou. Milers d'euros,NA
+2019,4,8,Nou Barris,48,la Guineueta,Nou. Milers d'euros,NA
+2019,4,8,Nou Barris,49,Canyelles,Nou. Milers d'euros,NA
+2019,4,8,Nou Barris,50,les Roquetes,Nou. Milers d'euros,NA
+2019,4,8,Nou Barris,51,Verdun,Nou. Milers d'euros,278.5
+2019,4,8,Nou Barris,52,la Prosperitat,Nou. Milers d'euros,NA
+2019,4,8,Nou Barris,53,la Trinitat Nova,Nou. Milers d'euros,NA
+2019,4,8,Nou Barris,54,Torre Baró,Nou. Milers d'euros,NA
+2019,4,8,Nou Barris,55,Ciutat Meridiana,Nou. Milers d'euros,NA
+2019,4,8,Nou Barris,56,Vallbona,Nou. Milers d'euros,NA
+2019,4,9,Sant Andreu,57,la Trinitat Vella,Nou. Milers d'euros,NA
+2019,4,9,Sant Andreu,58,Baró de Viver,Nou. Milers d'euros,NA
+2019,4,9,Sant Andreu,59,el Bon Pastor,Nou. Milers d'euros,NA
+2019,4,9,Sant Andreu,60,Sant Andreu,Nou. Milers d'euros,359.8
+2019,4,9,Sant Andreu,61,la Sagrera,Nou. Milers d'euros,NA
+2019,4,9,Sant Andreu,62,el Congrés i els Indians,Nou. Milers d'euros,NA
+2019,4,9,Sant Andreu,63,Navas,Nou. Milers d'euros,NA
+2019,4,10,Sant Martí,64,el Camp de l'Arpa del Clot,Nou. Milers d'euros,454.6
+2019,4,10,Sant Martí,65,el Clot,Nou. Milers d'euros,389.3
+2019,4,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Nou. Milers d'euros,NA
+2019,4,10,Sant Martí,67,la Vila Olímpica del Poblenou,Nou. Milers d'euros,NA
+2019,4,10,Sant Martí,68,el Poblenou,Nou. Milers d'euros,393.5
+2019,4,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Nou. Milers d'euros,NA
+2019,4,10,Sant Martí,70,el Besòs i el Maresme,Nou. Milers d'euros,480.6
+2019,4,10,Sant Martí,71,Provençals del Poblenou,Nou. Milers d'euros,NA
+2019,4,10,Sant Martí,72,Sant Martí de Provençals,Nou. Milers d'euros,NA
+2019,4,10,Sant Martí,73,la Verneda i la Pau,Nou. Milers d'euros,178
+2019,4,1,Ciutat Vella,1,el Raval,Usat. Milers d'euros,186.3
+2019,4,1,Ciutat Vella,2,el Barri Gòtic,Usat. Milers d'euros,392.3
+2019,4,1,Ciutat Vella,3,la Barceloneta,Usat. Milers d'euros,276.1
+2019,4,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Usat. Milers d'euros,323.8
+2019,4,2,Eixample,5,el Fort Pienc,Usat. Milers d'euros,432.8
+2019,4,2,Eixample,6,la Sagrada Família,Usat. Milers d'euros,286.1
+2019,4,2,Eixample,7,la Dreta de l'Eixample,Usat. Milers d'euros,519.1
+2019,4,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Usat. Milers d'euros,373.9
+2019,4,2,Eixample,9,la Nova Esquerra de l'Eixample,Usat. Milers d'euros,302.8
+2019,4,2,Eixample,10,Sant Antoni,Usat. Milers d'euros,313.4
+2019,4,3,Sants-Montjuïc,11,el Poble Sec,Usat. Milers d'euros,309.9
+2019,4,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Usat. Milers d'euros,NA
+2019,4,3,Sants-Montjuïc,13,la Marina de Port,Usat. Milers d'euros,170
+2019,4,3,Sants-Montjuïc,14,la Font de la Guatlla,Usat. Milers d'euros,277.3
+2019,4,3,Sants-Montjuïc,15,Hostafrancs,Usat. Milers d'euros,258.8
+2019,4,3,Sants-Montjuïc,16,la Bordeta,Usat. Milers d'euros,173.8
+2019,4,3,Sants-Montjuïc,17,Sants - Badal,Usat. Milers d'euros,244.7
+2019,4,3,Sants-Montjuïc,18,Sants,Usat. Milers d'euros,264.4
+2019,4,4,Les Corts,19,les Corts,Usat. Milers d'euros,371.3
+2019,4,4,Les Corts,20,la Maternitat i Sant Ramon,Usat. Milers d'euros,335.6
+2019,4,4,Les Corts,21,Pedralbes,Usat. Milers d'euros,678.2
+2019,4,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Usat. Milers d'euros,619.5
+2019,4,5,Sarrià-Sant Gervasi,23,Sarrià,Usat. Milers d'euros,497.4
+2019,4,5,Sarrià-Sant Gervasi,24,les Tres Torres,Usat. Milers d'euros,919.2
+2019,4,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Usat. Milers d'euros,539.5
+2019,4,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Usat. Milers d'euros,580.8
+2019,4,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Usat. Milers d'euros,428.7
+2019,4,6,Gràcia,28,Vallcarca i els Penitents,Usat. Milers d'euros,357
+2019,4,6,Gràcia,29,el Coll,Usat. Milers d'euros,178.7
+2019,4,6,Gràcia,30,la Salut,Usat. Milers d'euros,323.2
+2019,4,6,Gràcia,31,la Vila de Gràcia,Usat. Milers d'euros,520.8
+2019,4,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Usat. Milers d'euros,452.3
+2019,4,7,Horta-Guinardó,33,el Baix Guinardó,Usat. Milers d'euros,219.8
+2019,4,7,Horta-Guinardó,34,Can Baró,Usat. Milers d'euros,223
+2019,4,7,Horta-Guinardó,35,el Guinardó,Usat. Milers d'euros,218.8
+2019,4,7,Horta-Guinardó,36,la Font d'en Fargues,Usat. Milers d'euros,336.4
+2019,4,7,Horta-Guinardó,37,el Carmel,Usat. Milers d'euros,180
+2019,4,7,Horta-Guinardó,38,la Teixonera,Usat. Milers d'euros,211.1
+2019,4,7,Horta-Guinardó,39,Sant Genís dels Agudells,Usat. Milers d'euros,279.2
+2019,4,7,Horta-Guinardó,40,Montbau,Usat. Milers d'euros,NA
+2019,4,7,Horta-Guinardó,41,la Vall d'Hebron,Usat. Milers d'euros,170
+2019,4,7,Horta-Guinardó,42,la Clota,Usat. Milers d'euros,NA
+2019,4,7,Horta-Guinardó,43,Horta,Usat. Milers d'euros,279.1
+2019,4,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Usat. Milers d'euros,191.3
+2019,4,8,Nou Barris,45,Porta,Usat. Milers d'euros,169.4
+2019,4,8,Nou Barris,46,el Turó de la Peira,Usat. Milers d'euros,187.3
+2019,4,8,Nou Barris,47,Can Peguera,Usat. Milers d'euros,NA
+2019,4,8,Nou Barris,48,la Guineueta,Usat. Milers d'euros,199.7
+2019,4,8,Nou Barris,49,Canyelles,Usat. Milers d'euros,170
+2019,4,8,Nou Barris,50,les Roquetes,Usat. Milers d'euros,193.2
+2019,4,8,Nou Barris,51,Verdun,Usat. Milers d'euros,149.5
+2019,4,8,Nou Barris,52,la Prosperitat,Usat. Milers d'euros,126
+2019,4,8,Nou Barris,53,la Trinitat Nova,Usat. Milers d'euros,76.5
+2019,4,8,Nou Barris,54,Torre Baró,Usat. Milers d'euros,NA
+2019,4,8,Nou Barris,55,Ciutat Meridiana,Usat. Milers d'euros,91
+2019,4,8,Nou Barris,56,Vallbona,Usat. Milers d'euros,140
+2019,4,9,Sant Andreu,57,la Trinitat Vella,Usat. Milers d'euros,233
+2019,4,9,Sant Andreu,58,Baró de Viver,Usat. Milers d'euros,NA
+2019,4,9,Sant Andreu,59,el Bon Pastor,Usat. Milers d'euros,159.4
+2019,4,9,Sant Andreu,60,Sant Andreu,Usat. Milers d'euros,214.6
+2019,4,9,Sant Andreu,61,la Sagrera,Usat. Milers d'euros,258.1
+2019,4,9,Sant Andreu,62,el Congrés i els Indians,Usat. Milers d'euros,231.3
+2019,4,9,Sant Andreu,63,Navas,Usat. Milers d'euros,374.9
+2019,4,10,Sant Martí,64,el Camp de l'Arpa del Clot,Usat. Milers d'euros,279.6
+2019,4,10,Sant Martí,65,el Clot,Usat. Milers d'euros,345.3
+2019,4,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Usat. Milers d'euros,198.9
+2019,4,10,Sant Martí,67,la Vila Olímpica del Poblenou,Usat. Milers d'euros,541.7
+2019,4,10,Sant Martí,68,el Poblenou,Usat. Milers d'euros,402
+2019,4,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Usat. Milers d'euros,491.5
+2019,4,10,Sant Martí,70,el Besòs i el Maresme,Usat. Milers d'euros,218.4
+2019,4,10,Sant Martí,71,Provençals del Poblenou,Usat. Milers d'euros,NA
+2019,4,10,Sant Martí,72,Sant Martí de Provençals,Usat. Milers d'euros,266.3
+2019,4,10,Sant Martí,73,la Verneda i la Pau,Usat. Milers d'euros,174.2
+2019,4,1,Ciutat Vella,1,el Raval,Total. Euros/m2 construït,3241.4
+2019,4,1,Ciutat Vella,2,el Barri Gòtic,Total. Euros/m2 construït,5234.2
+2019,4,1,Ciutat Vella,3,la Barceloneta,Total. Euros/m2 construït,5055.6
+2019,4,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Total. Euros/m2 construït,4327.7
+2019,4,2,Eixample,5,el Fort Pienc,Total. Euros/m2 construït,4817.3
+2019,4,2,Eixample,6,la Sagrada Família,Total. Euros/m2 construït,4507.8
+2019,4,2,Eixample,7,la Dreta de l'Eixample,Total. Euros/m2 construït,4573.4
+2019,4,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Total. Euros/m2 construït,5338
+2019,4,2,Eixample,9,la Nova Esquerra de l'Eixample,Total. Euros/m2 construït,4145.6
+2019,4,2,Eixample,10,Sant Antoni,Total. Euros/m2 construït,4378.1
+2019,4,3,Sants-Montjuïc,11,el Poble Sec,Total. Euros/m2 construït,4863.9
+2019,4,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Total. Euros/m2 construït,NA
+2019,4,3,Sants-Montjuïc,13,la Marina de Port,Total. Euros/m2 construït,2734.1
+2019,4,3,Sants-Montjuïc,14,la Font de la Guatlla,Total. Euros/m2 construït,3954.4
+2019,4,3,Sants-Montjuïc,15,Hostafrancs,Total. Euros/m2 construït,3468.7
+2019,4,3,Sants-Montjuïc,16,la Bordeta,Total. Euros/m2 construït,2816.3
+2019,4,3,Sants-Montjuïc,17,Sants - Badal,Total. Euros/m2 construït,3753.8
+2019,4,3,Sants-Montjuïc,18,Sants,Total. Euros/m2 construït,3769.1
+2019,4,4,Les Corts,19,les Corts,Total. Euros/m2 construït,4585.8
+2019,4,4,Les Corts,20,la Maternitat i Sant Ramon,Total. Euros/m2 construït,4119.2
+2019,4,4,Les Corts,21,Pedralbes,Total. Euros/m2 construït,9175.8
+2019,4,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Total. Euros/m2 construït,6487
+2019,4,5,Sarrià-Sant Gervasi,23,Sarrià,Total. Euros/m2 construït,5469.7
+2019,4,5,Sarrià-Sant Gervasi,24,les Tres Torres,Total. Euros/m2 construït,5618.2
+2019,4,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Total. Euros/m2 construït,4771.8
+2019,4,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Total. Euros/m2 construït,5216.5
+2019,4,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Total. Euros/m2 construït,4831.8
+2019,4,6,Gràcia,28,Vallcarca i els Penitents,Total. Euros/m2 construït,4279.2
+2019,4,6,Gràcia,29,el Coll,Total. Euros/m2 construït,2934.1
+2019,4,6,Gràcia,30,la Salut,Total. Euros/m2 construït,4455.1
+2019,4,6,Gràcia,31,la Vila de Gràcia,Total. Euros/m2 construït,5531.1
+2019,4,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Total. Euros/m2 construït,5007.4
+2019,4,7,Horta-Guinardó,33,el Baix Guinardó,Total. Euros/m2 construït,3450.7
+2019,4,7,Horta-Guinardó,34,Can Baró,Total. Euros/m2 construït,3032.4
+2019,4,7,Horta-Guinardó,35,el Guinardó,Total. Euros/m2 construït,3469.6
+2019,4,7,Horta-Guinardó,36,la Font d'en Fargues,Total. Euros/m2 construït,3476.4
+2019,4,7,Horta-Guinardó,37,el Carmel,Total. Euros/m2 construït,2782
+2019,4,7,Horta-Guinardó,38,la Teixonera,Total. Euros/m2 construït,3666.1
+2019,4,7,Horta-Guinardó,39,Sant Genís dels Agudells,Total. Euros/m2 construït,2626.7
+2019,4,7,Horta-Guinardó,40,Montbau,Total. Euros/m2 construït,2680.5
+2019,4,7,Horta-Guinardó,41,la Vall d'Hebron,Total. Euros/m2 construït,3469.4
+2019,4,7,Horta-Guinardó,42,la Clota,Total. Euros/m2 construït,NA
+2019,4,7,Horta-Guinardó,43,Horta,Total. Euros/m2 construït,3305.9
+2019,4,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Total. Euros/m2 construït,2944.6
+2019,4,8,Nou Barris,45,Porta,Total. Euros/m2 construït,2685.1
+2019,4,8,Nou Barris,46,el Turó de la Peira,Total. Euros/m2 construït,2313.1
+2019,4,8,Nou Barris,47,Can Peguera,Total. Euros/m2 construït,NA
+2019,4,8,Nou Barris,48,la Guineueta,Total. Euros/m2 construït,2864.4
+2019,4,8,Nou Barris,49,Canyelles,Total. Euros/m2 construït,2098.8
+2019,4,8,Nou Barris,50,les Roquetes,Total. Euros/m2 construït,3265.9
+2019,4,8,Nou Barris,51,Verdun,Total. Euros/m2 construït,2889.5
+2019,4,8,Nou Barris,52,la Prosperitat,Total. Euros/m2 construït,2833.3
+2019,4,8,Nou Barris,53,la Trinitat Nova,Total. Euros/m2 construït,1533.2
+2019,4,8,Nou Barris,54,Torre Baró,Total. Euros/m2 construït,NA
+2019,4,8,Nou Barris,55,Ciutat Meridiana,Total. Euros/m2 construït,1531.2
+2019,4,8,Nou Barris,56,Vallbona,Total. Euros/m2 construït,1891.9
+2019,4,9,Sant Andreu,57,la Trinitat Vella,Total. Euros/m2 construït,3216.3
+2019,4,9,Sant Andreu,58,Baró de Viver,Total. Euros/m2 construït,NA
+2019,4,9,Sant Andreu,59,el Bon Pastor,Total. Euros/m2 construït,2452.4
+2019,4,9,Sant Andreu,60,Sant Andreu,Total. Euros/m2 construït,3553.7
+2019,4,9,Sant Andreu,61,la Sagrera,Total. Euros/m2 construït,3380.5
+2019,4,9,Sant Andreu,62,el Congrés i els Indians,Total. Euros/m2 construït,3146.7
+2019,4,9,Sant Andreu,63,Navas,Total. Euros/m2 construït,4158
+2019,4,10,Sant Martí,64,el Camp de l'Arpa del Clot,Total. Euros/m2 construït,3785.7
+2019,4,10,Sant Martí,65,el Clot,Total. Euros/m2 construït,4176.7
+2019,4,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Total. Euros/m2 construït,3577.5
+2019,4,10,Sant Martí,67,la Vila Olímpica del Poblenou,Total. Euros/m2 construït,4908.5
+2019,4,10,Sant Martí,68,el Poblenou,Total. Euros/m2 construït,4831
+2019,4,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Total. Euros/m2 construït,5778.6
+2019,4,10,Sant Martí,70,el Besòs i el Maresme,Total. Euros/m2 construït,3257.3
+2019,4,10,Sant Martí,71,Provençals del Poblenou,Total. Euros/m2 construït,2683.2
+2019,4,10,Sant Martí,72,Sant Martí de Provençals,Total. Euros/m2 construït,3555.6
+2019,4,10,Sant Martí,73,la Verneda i la Pau,Total. Euros/m2 construït,2415.8
+2019,4,1,Ciutat Vella,1,el Raval,Nou. Euros/m2 construït,NA
+2019,4,1,Ciutat Vella,2,el Barri Gòtic,Nou. Euros/m2 construït,5904.1
+2019,4,1,Ciutat Vella,3,la Barceloneta,Nou. Euros/m2 construït,5052.3
+2019,4,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Nou. Euros/m2 construït,5231
+2019,4,2,Eixample,5,el Fort Pienc,Nou. Euros/m2 construït,NA
+2019,4,2,Eixample,6,la Sagrada Família,Nou. Euros/m2 construït,NA
+2019,4,2,Eixample,7,la Dreta de l'Eixample,Nou. Euros/m2 construït,2936.5
+2019,4,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Nou. Euros/m2 construït,8580.3
+2019,4,2,Eixample,9,la Nova Esquerra de l'Eixample,Nou. Euros/m2 construït,NA
+2019,4,2,Eixample,10,Sant Antoni,Nou. Euros/m2 construït,NA
+2019,4,3,Sants-Montjuïc,11,el Poble Sec,Nou. Euros/m2 construït,NA
+2019,4,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Nou. Euros/m2 construït,NA
+2019,4,3,Sants-Montjuïc,13,la Marina de Port,Nou. Euros/m2 construït,NA
+2019,4,3,Sants-Montjuïc,14,la Font de la Guatlla,Nou. Euros/m2 construït,NA
+2019,4,3,Sants-Montjuïc,15,Hostafrancs,Nou. Euros/m2 construït,760.9
+2019,4,3,Sants-Montjuïc,16,la Bordeta,Nou. Euros/m2 construït,NA
+2019,4,3,Sants-Montjuïc,17,Sants - Badal,Nou. Euros/m2 construït,NA
+2019,4,3,Sants-Montjuïc,18,Sants,Nou. Euros/m2 construït,3739
+2019,4,4,Les Corts,19,les Corts,Nou. Euros/m2 construït,5541.6
+2019,4,4,Les Corts,20,la Maternitat i Sant Ramon,Nou. Euros/m2 construït,NA
+2019,4,4,Les Corts,21,Pedralbes,Nou. Euros/m2 construït,14880.2
+2019,4,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Nou. Euros/m2 construït,NA
+2019,4,5,Sarrià-Sant Gervasi,23,Sarrià,Nou. Euros/m2 construït,NA
+2019,4,5,Sarrià-Sant Gervasi,24,les Tres Torres,Nou. Euros/m2 construït,NA
+2019,4,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Nou. Euros/m2 construït,5700
+2019,4,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Nou. Euros/m2 construït,5051.5
+2019,4,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Nou. Euros/m2 construït,6274.3
+2019,4,6,Gràcia,28,Vallcarca i els Penitents,Nou. Euros/m2 construït,3717.6
+2019,4,6,Gràcia,29,el Coll,Nou. Euros/m2 construït,2952.9
+2019,4,6,Gràcia,30,la Salut,Nou. Euros/m2 construït,NA
+2019,4,6,Gràcia,31,la Vila de Gràcia,Nou. Euros/m2 construït,5763.8
+2019,4,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Nou. Euros/m2 construït,NA
+2019,4,7,Horta-Guinardó,33,el Baix Guinardó,Nou. Euros/m2 construït,NA
+2019,4,7,Horta-Guinardó,34,Can Baró,Nou. Euros/m2 construït,NA
+2019,4,7,Horta-Guinardó,35,el Guinardó,Nou. Euros/m2 construït,NA
+2019,4,7,Horta-Guinardó,36,la Font d'en Fargues,Nou. Euros/m2 construït,NA
+2019,4,7,Horta-Guinardó,37,el Carmel,Nou. Euros/m2 construït,3132.5
+2019,4,7,Horta-Guinardó,38,la Teixonera,Nou. Euros/m2 construït,3923.3
+2019,4,7,Horta-Guinardó,39,Sant Genís dels Agudells,Nou. Euros/m2 construït,1806.6
+2019,4,7,Horta-Guinardó,40,Montbau,Nou. Euros/m2 construït,2568.6
+2019,4,7,Horta-Guinardó,41,la Vall d'Hebron,Nou. Euros/m2 construït,NA
+2019,4,7,Horta-Guinardó,42,la Clota,Nou. Euros/m2 construït,NA
+2019,4,7,Horta-Guinardó,43,Horta,Nou. Euros/m2 construït,3659.1
+2019,4,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Nou. Euros/m2 construït,NA
+2019,4,8,Nou Barris,45,Porta,Nou. Euros/m2 construït,NA
+2019,4,8,Nou Barris,46,el Turó de la Peira,Nou. Euros/m2 construït,NA
+2019,4,8,Nou Barris,47,Can Peguera,Nou. Euros/m2 construït,NA
+2019,4,8,Nou Barris,48,la Guineueta,Nou. Euros/m2 construït,NA
+2019,4,8,Nou Barris,49,Canyelles,Nou. Euros/m2 construït,NA
+2019,4,8,Nou Barris,50,les Roquetes,Nou. Euros/m2 construït,NA
+2019,4,8,Nou Barris,51,Verdun,Nou. Euros/m2 construït,3276.3
+2019,4,8,Nou Barris,52,la Prosperitat,Nou. Euros/m2 construït,NA
+2019,4,8,Nou Barris,53,la Trinitat Nova,Nou. Euros/m2 construït,NA
+2019,4,8,Nou Barris,54,Torre Baró,Nou. Euros/m2 construït,NA
+2019,4,8,Nou Barris,55,Ciutat Meridiana,Nou. Euros/m2 construït,NA
+2019,4,8,Nou Barris,56,Vallbona,Nou. Euros/m2 construït,NA
+2019,4,9,Sant Andreu,57,la Trinitat Vella,Nou. Euros/m2 construït,NA
+2019,4,9,Sant Andreu,58,Baró de Viver,Nou. Euros/m2 construït,NA
+2019,4,9,Sant Andreu,59,el Bon Pastor,Nou. Euros/m2 construït,NA
+2019,4,9,Sant Andreu,60,Sant Andreu,Nou. Euros/m2 construït,4654.2
+2019,4,9,Sant Andreu,61,la Sagrera,Nou. Euros/m2 construït,NA
+2019,4,9,Sant Andreu,62,el Congrés i els Indians,Nou. Euros/m2 construït,NA
+2019,4,9,Sant Andreu,63,Navas,Nou. Euros/m2 construït,NA
+2019,4,10,Sant Martí,64,el Camp de l'Arpa del Clot,Nou. Euros/m2 construït,4591.3
+2019,4,10,Sant Martí,65,el Clot,Nou. Euros/m2 construït,4338.6
+2019,4,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Nou. Euros/m2 construït,NA
+2019,4,10,Sant Martí,67,la Vila Olímpica del Poblenou,Nou. Euros/m2 construït,NA
+2019,4,10,Sant Martí,68,el Poblenou,Nou. Euros/m2 construït,6316.5
+2019,4,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Nou. Euros/m2 construït,NA
+2019,4,10,Sant Martí,70,el Besòs i el Maresme,Nou. Euros/m2 construït,4728.9
+2019,4,10,Sant Martí,71,Provençals del Poblenou,Nou. Euros/m2 construït,NA
+2019,4,10,Sant Martí,72,Sant Martí de Provençals,Nou. Euros/m2 construït,NA
+2019,4,10,Sant Martí,73,la Verneda i la Pau,Nou. Euros/m2 construït,2892.6
+2019,4,1,Ciutat Vella,1,el Raval,Usat. Euros/m2 construït,3155.1
+2019,4,1,Ciutat Vella,2,el Barri Gòtic,Usat. Euros/m2 construït,5147.8
+2019,4,1,Ciutat Vella,3,la Barceloneta,Usat. Euros/m2 construït,5056
+2019,4,1,Ciutat Vella,4,"Sant Pere, Santa Caterina i la Ribera",Usat. Euros/m2 construït,4277.5
+2019,4,2,Eixample,5,el Fort Pienc,Usat. Euros/m2 construït,4628.1
+2019,4,2,Eixample,6,la Sagrada Família,Usat. Euros/m2 construït,4507.8
+2019,4,2,Eixample,7,la Dreta de l'Eixample,Usat. Euros/m2 construït,4705.1
+2019,4,2,Eixample,8,l'Antiga Esquerra de l'Eixample,Usat. Euros/m2 construït,4479.8
+2019,4,2,Eixample,9,la Nova Esquerra de l'Eixample,Usat. Euros/m2 construït,4067.4
+2019,4,2,Eixample,10,Sant Antoni,Usat. Euros/m2 construït,4378.1
+2019,4,3,Sants-Montjuïc,11,el Poble Sec,Usat. Euros/m2 construït,4863.9
+2019,4,3,Sants-Montjuïc,12,la Marina del Prat Vermell,Usat. Euros/m2 construït,NA
+2019,4,3,Sants-Montjuïc,13,la Marina de Port,Usat. Euros/m2 construït,2734.1
+2019,4,3,Sants-Montjuïc,14,la Font de la Guatlla,Usat. Euros/m2 construït,3954.4
+2019,4,3,Sants-Montjuïc,15,Hostafrancs,Usat. Euros/m2 construït,3577
+2019,4,3,Sants-Montjuïc,16,la Bordeta,Usat. Euros/m2 construït,2816.3
+2019,4,3,Sants-Montjuïc,17,Sants - Badal,Usat. Euros/m2 construït,3781.9
+2019,4,3,Sants-Montjuïc,18,Sants,Usat. Euros/m2 construït,3773.9
+2019,4,4,Les Corts,19,les Corts,Usat. Euros/m2 construït,4496.6
+2019,4,4,Les Corts,20,la Maternitat i Sant Ramon,Usat. Euros/m2 construït,4119.2
+2019,4,4,Les Corts,21,Pedralbes,Usat. Euros/m2 construït,5848.3
+2019,4,5,Sarrià-Sant Gervasi,22,"Vallvidrera, el Tibidabo i les Planes",Usat. Euros/m2 construït,6487
+2019,4,5,Sarrià-Sant Gervasi,23,Sarrià,Usat. Euros/m2 construït,5384.4
+2019,4,5,Sarrià-Sant Gervasi,24,les Tres Torres,Usat. Euros/m2 construït,5618.2
+2019,4,5,Sarrià-Sant Gervasi,25,Sant Gervasi - la Bonanova,Usat. Euros/m2 construït,4623.3
+2019,4,5,Sarrià-Sant Gervasi,26,Sant Gervasi - Galvany,Usat. Euros/m2 construït,5257.8
+2019,4,5,Sarrià-Sant Gervasi,27,el Putxet i el Farró,Usat. Euros/m2 construït,4609.8
+2019,4,6,Gràcia,28,Vallcarca i els Penitents,Usat. Euros/m2 construït,4560
+2019,4,6,Gràcia,29,el Coll,Usat. Euros/m2 construït,2926
+2019,4,6,Gràcia,30,la Salut,Usat. Euros/m2 construït,4455.1
+2019,4,6,Gràcia,31,la Vila de Gràcia,Usat. Euros/m2 construït,5517.5
+2019,4,6,Gràcia,32,el Camp d'en Grassot i Gràcia Nova,Usat. Euros/m2 construït,5026.8
+2019,4,7,Horta-Guinardó,33,el Baix Guinardó,Usat. Euros/m2 construït,3450.7
+2019,4,7,Horta-Guinardó,34,Can Baró,Usat. Euros/m2 construït,3032.4
+2019,4,7,Horta-Guinardó,35,el Guinardó,Usat. Euros/m2 construït,3469.6
+2019,4,7,Horta-Guinardó,36,la Font d'en Fargues,Usat. Euros/m2 construït,3476.4
+2019,4,7,Horta-Guinardó,37,el Carmel,Usat. Euros/m2 construït,2678.3
+2019,4,7,Horta-Guinardó,38,la Teixonera,Usat. Euros/m2 construït,3262
+2019,4,7,Horta-Guinardó,39,Sant Genís dels Agudells,Usat. Euros/m2 construït,2790.8
+2019,4,7,Horta-Guinardó,40,Montbau,Usat. Euros/m2 construït,NA
+2019,4,7,Horta-Guinardó,41,la Vall d'Hebron,Usat. Euros/m2 construït,3469.4
+2019,4,7,Horta-Guinardó,42,la Clota,Usat. Euros/m2 construït,NA
+2019,4,7,Horta-Guinardó,43,Horta,Usat. Euros/m2 construït,3217.7
+2019,4,8,Nou Barris,44,Vilapicina i la Torre Llobeta,Usat. Euros/m2 construït,2944.6
+2019,4,8,Nou Barris,45,Porta,Usat. Euros/m2 construït,2655.3
+2019,4,8,Nou Barris,46,el Turó de la Peira,Usat. Euros/m2 construït,2313.1
+2019,4,8,Nou Barris,47,Can Peguera,Usat. Euros/m2 construït,NA
+2019,4,8,Nou Barris,48,la Guineueta,Usat. Euros/m2 construït,2864.4
+2019,4,8,Nou Barris,49,Canyelles,Usat. Euros/m2 construït,2098.8
+2019,4,8,Nou Barris,50,les Roquetes,Usat. Euros/m2 construït,3265.9
+2019,4,8,Nou Barris,51,Verdun,Usat. Euros/m2 construït,2696
+2019,4,8,Nou Barris,52,la Prosperitat,Usat. Euros/m2 construït,2833.3
+2019,4,8,Nou Barris,53,la Trinitat Nova,Usat. Euros/m2 construït,1533.2
+2019,4,8,Nou Barris,54,Torre Baró,Usat. Euros/m2 construït,NA
+2019,4,8,Nou Barris,55,Ciutat Meridiana,Usat. Euros/m2 construït,1531.2
+2019,4,8,Nou Barris,56,Vallbona,Usat. Euros/m2 construït,1891.9
+2019,4,9,Sant Andreu,57,la Trinitat Vella,Usat. Euros/m2 construït,3216.3
+2019,4,9,Sant Andreu,58,Baró de Viver,Usat. Euros/m2 construït,NA
+2019,4,9,Sant Andreu,59,el Bon Pastor,Usat. Euros/m2 construït,2526.3
+2019,4,9,Sant Andreu,60,Sant Andreu,Usat. Euros/m2 construït,3253.5
+2019,4,9,Sant Andreu,61,la Sagrera,Usat. Euros/m2 construït,3380.5
+2019,4,9,Sant Andreu,62,el Congrés i els Indians,Usat. Euros/m2 construït,3146.7
+2019,4,9,Sant Andreu,63,Navas,Usat. Euros/m2 construït,4188.2
+2019,4,10,Sant Martí,64,el Camp de l'Arpa del Clot,Usat. Euros/m2 construït,3702.7
+2019,4,10,Sant Martí,65,el Clot,Usat. Euros/m2 construït,4168.7
+2019,4,10,Sant Martí,66,el Parc i la Llacuna del Poblenou,Usat. Euros/m2 construït,3633.4
+2019,4,10,Sant Martí,67,la Vila Olímpica del Poblenou,Usat. Euros/m2 construït,4908.5
+2019,4,10,Sant Martí,68,el Poblenou,Usat. Euros/m2 construït,4682.5
+2019,4,10,Sant Martí,69,Diagonal Mar i el Front Marítim del Poblenou,Usat. Euros/m2 construït,5778.6
+2019,4,10,Sant Martí,70,el Besòs i el Maresme,Usat. Euros/m2 construït,3030.9
+2019,4,10,Sant Martí,71,Provençals del Poblenou,Usat. Euros/m2 construït,NA
+2019,4,10,Sant Martí,72,Sant Martí de Provençals,Usat. Euros/m2 construït,3555.6
+2019,4,10,Sant Martí,73,la Verneda i la Pau,Usat. Euros/m2 construït,2376.1

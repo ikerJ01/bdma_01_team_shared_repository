@@ -1,0 +1,232 @@
+---
+title: "Sesión 1: Estadistica Básica"
+author: "Miguel Albertí Pons & Iker González Cuellar"
+date: "05-11-22"
+output:
+  html_document: default
+---
+
+```{=html}
+<style type="text/css">
+.main-container {
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+```
+
+------------------------------------------------------------------------
+
+```{r}
+library(DescTools)
+library(dplyr)
+library(magrittr)
+setwd('D:/iCloud/iCloudDrive/Master Big Data/Data Analytics - Teoria_Practica/_r_exercises/2-ExerciseIntroStatistics')
+
+```
+
+#### **1. Calcular la media, la mediana, la desviación tipo, el primer cuartil, el tercer cuartil, el rango intercuartílico y dibujar el correspondiente boxplot, de la siguiente muestra de precios de pisos (de 3 habitaciones): 7.80, 12.60, 15.96, 13.50, 8.25, 31.29, 16.46**
+
+```{r}
+PreciosPisos = data.frame('precio' = c(7.80, 12.60, 15.96, 13.50, 8.25, 31.29, 16.46))
+
+cat("Estadisticas descriptivas:\n",
+"media:", mean(PreciosPisos$precio),"\n", 
+"mediana:",median(PreciosPisos$precio),"\n",
+"Desviación Tipo:", sd(PreciosPisos$precio),"\n",
+"Q1:", summary(PreciosPisos$precio)[2],"\n",
+"Q3:", summary(PreciosPisos$precio)[5],"\n",
+"IQR:", summary(PreciosPisos$precio)[5] - summary(PreciosPisos$precio)[2],"\n")
+
+```
+
+```{r}
+boxplot(PreciosPisos$precio, horizontal=T, col = "#83F7AF", xlab = "Precio", ylab = T)
+```
+
+#### **2. Diga que razones le parecen convincentes para justificar que la media de una muestra escogida al azar es un estimador más fiable que la media de una muestra de expertos.**
+
+-   La media de una muestra *escogida al azar*, será siempre un estimador fiable cuando la muestra sea seleccionada de forma aleatoria cumpliendo los criterios de independencia y deversidad de la muestra en cuestión ya que de esta forma se permite tener un cierto grado de control sobre el margen de error.
+
+-   La media de una muestra seleccionada *por expertos* introduce sesgo ya que la muestra no es seleccionada de forma aleatoria, sino por un criterio pre-definido hacia un grupo específico anulando la posibilidad de controlar los margenes de error por el bias del experto resultando en una muestra no representativa.
+
+#### **3. Suponga la variable aleatoria "tiempo que tardo en ir de mi casa al trabajo" y diferencie factores sistemáticos y factores aleatorios intervinientes en su medición.**
+
+Sí en el día a día vuelvo a casa en bicicleta désde la universidad y quiero saber cuanto tiempo tardo, tendré que tener en cuenta diferentes factores:
+
+[*Factores sistemáticos:*]{.underline}
+
+-   Disponibilidad de bicicletas (usuarios bicing)
+
+-   Hora de salida
+
+-   Semaforos en la ruta hacia el destino
+
+-   Distancia a recorrer al trabajo según la ruta
+
+[*Factores aleatorios:*]{.underline}
+
+-   Alteraciones viales como por ejemplo cortes de calles por razones externas (e.g manifestaciones, reparaciones, etc)
+
+-   Condiciones climaticas
+
+-   Accidente ocacionados por 3eras personas
+
+-   Averías por condiciones externas
+
+#### **4. Cuando podemos asegurar que el mecanismo generador de una variable aleatoria se aproxima a una distribución gaussiana.**
+
+Se puede asegurar que el mecanismo generador de una variable aleatoria se aproxima a una distribución gaussiana cuando el ruido de la muestra tiene una cantidad considerable de factores irrelevantes y que todos estos factores irrelevantes tengan un nivel de importancia similar.
+
+#### **5. Lea el fichero "BCN_pisos.txt". Efectúe un summary de las variables leídas. Detecte si en el fichero proporcionado hay registros duplicados y elimínelos. Los datos proporcionados son reales. ¿Porque cree que existen registros duplicados?.**
+
+```{r}
+BcnPisos = read.delim("_2ex_repository/bcn_pisos.txt")
+
+summary(BcnPisos)
+
+#Evaluación de duplicados
+duplicateEval = data.frame(duplicated(BcnPisos))
+duplicateEval %>% group_by(duplicateEval$duplicated.BcnPisos) %>% summarise(counts=n())
+
+
+# Eliminar Duplicados
+BcnPisosUnique = unique(BcnPisos)
+count(BcnPisosUnique)
+```
+
+Existen registros duplicados por que un piso puede ser promocionado por más de una agencia inmobiliaria.
+
+#### **6. Represente gráficamente la distribución de cada variable del fichero: histograma o función de densidad para las variables continuas o diagrama de barras para las variables categóricas.**
+
+```{r}
+x = BcnPisos$Valor
+histValor = hist(x, breaks = 15, col="#7ceff7", xlab = "Valor", main = "Valor Pisos BCN")
+xfit = seq(min(x), max(x), length(x))
+yfit = dnorm(xfit, mean = mean(x), sd = sd(x))
+yfit = yfit*diff(histValor$mids[1:2])*length(x)
+
+lines(xfit, yfit, col="#f25767", lwd="2")
+
+######
+
+x = BcnPisos$Superf
+histSuperf = hist(x, breaks = 20, col="#79ed98", xlab = "Superficie", main = "Superficie Pisos BCN")
+
+######
+
+x = BcnPisos$Dorm
+histSuperf = hist(x, breaks = 5, col="#e1ed79", xlab = "Dormitorios", main = "Dormitorios Pisos BCN")
+
+######
+
+x = BcnPisos$Banys
+histSuperf = hist(x, breaks = 5, col="#8f7af5", xlab = "Baños", main = "Baños Pisos BCN")
+
+######
+
+x = BcnPisos$Edat
+histSuperf = hist(x, breaks = 18, col="#e86161", xlab = "Edad", main = "Edad Pisos BCN")
+
+######
+
+x = BcnPisos$ValSol
+histSuperf = hist(x, breaks = 30, col="#c675c7", xlab = "Valor Suelo", main = "Valor Suelo Pisos BCN")
+
+xfit = seq(min(x), max(x), length(x))
+yfit = dnorm(xfit, mean = mean(x), sd = sd(x))
+yfit = yfit*diff(histValor$mids[1:2])*length(x)
+
+lines(xfit, yfit, col="#f25767", lwd="2")
+```
+
+```{r}
+y = table(BcnPisos$Estat)
+barplot(y, col = "#7ceff7", main = "Estado")
+
+######
+
+y = table(BcnPisos$Planta)
+barplot(y, col = "#79ed98", main = "Planta")
+
+######
+
+y = table(BcnPisos$Dist)
+barplot(y, col = "#e1ed79", main = "Distrito")
+
+######
+
+y = table(BcnPisos$Tipus)
+barplot(y, col = "#8f7af5", main = "Tipo")
+
+######
+
+y = table(BcnPisos$ExtInt)
+barplot(y, col = "#e86161", main = "Exterior / Interior")
+
+######
+
+y = table(BcnPisos$Reforma)
+barplot(y, col = "#c675c7", main = "Reforma")
+```
+
+#### **7. Identifique si existe algún piso que podemos considerar "outlier" (para ello solo tenga en cuenta las variables continuas). Elimínelo del data frame.**
+
+```{r}
+BcnPisosOutliers = BcnPisos[,c(1:5,9)]  # Keep only continuous variables
+
+outlier.scores = LOF(scale(BcnPisosOutliers), k=5) # Apply LOF to continuous variables
+
+outliers = order(outlier.scores, decreasing = T)[1:10]  # Keep only top 10 Outliers
+
+cbind(outlier.scores[outliers], BcnPisos[outliers,]) # Adding Outlier Score to dataframe
+
+BcnPisosNoOutliers = filter(BcnPisos, !row_number() %in% outliers) # Removing top 10 outliers
+
+```
+
+#### **8. Efectúe un diagrama bivariante (plot) entre el "Valor de los pisos" y su "Superficie". Calcule la covariancia y la correlación entre ambas variables.**
+
+```{r}
+# Scatter plot entre variables valor y superficie con descarte de los top 10 outliers
+
+plot(BcnPisosNoOutliers$Valor, BcnPisosNoOutliers$Superf, col = '#fca062')
+
+```
+
+```{r}
+cat("Covariance:",cov(BcnPisosNoOutliers$Valor, BcnPisosNoOutliers$Superf), "\nCorrelation:", cor(BcnPisosNoOutliers$Valor, BcnPisosNoOutliers$Superf))
+
+```
+
+Dada la correlación de 0.8862507 es muy próxima a 1, se puede determinar que existe una fuerte correlación entre el **Valor** del piso y su **Superficie**.
+
+#### **9. Calcule la asociación entre el "Valor de los pisos" y el "Distrito".**
+
+```{r}
+oneway.test(BcnPisosNoOutliers$Valor ~ BcnPisosNoOutliers$Dist, var.equal = T)
+```
+
+Al obtener un valor F mucho mayor a 1, sugiere que existe una relación entre las variables ***Valor*** y ***Distrito***. Tomando en cuenta el valor F y p-value (el cual es cercano a cero y menor que 0.01) podemos concluir que las variables son dependientes aceptando h1 y rechazando h0.
+
+#### **10. Calcule la asociación entre el "Distrito" y el "Estado de la vivienda".**
+
+```{r}
+
+DistVsEstat = table(BcnPisosNoOutliers$Dist, BcnPisosNoOutliers$Estat)
+
+xSquared = chisq.test(DistVsEstat)
+
+print(xSquared)
+
+```
+
+```{r}
+
+criticalValue = qchisq(0.99, df = xSquared$parameter)
+
+cat("Es Chi Cuadrado mayor que el valor critico?:", xSquared$statistic > criticalValue)
+```
+
+Dado que el chi-cuadrado es mayor que el critical value, podemos rechazar h0 y aceptar h1 ya que sugiere una correlación entre **Distrito** y **Estado de la vivienda** reforzado por un p-value próximo a cero y menor que 0.01.
