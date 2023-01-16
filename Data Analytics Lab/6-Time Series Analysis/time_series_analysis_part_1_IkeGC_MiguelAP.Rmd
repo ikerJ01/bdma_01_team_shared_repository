@@ -19,6 +19,8 @@ config
 
 ```{r}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+
 path.data.0 = "D:/iCloud/iCloudDrive/Master Big Data/_shared_repository/bdma_01_team_shared_repository/Data Analytics Lab/6-Time Series Analysis/_repository/"
 ```
 
