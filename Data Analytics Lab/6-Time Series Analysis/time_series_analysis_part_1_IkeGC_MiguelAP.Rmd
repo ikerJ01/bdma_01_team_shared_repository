@@ -15,6 +15,12 @@ output:
 </style>
 ---
 
+```{r}
+library(dplyr)
+library(reshape2)
+library(magrittr)
+```
+
 ## Ejercicio 1
 
 **Read the data, create 4 univariate time series (IPC index, Monthly variation of IPC index, Yearly**
@@ -24,11 +30,21 @@ output:
 **time series as the union of the previous 4 (use ts.union). Plot the 4-dim time series.**
 
 ```{r}
-ipcData = read.csv("_repository/INE_IPC.csv", sep = ",")
+ipcDataRaw = read.csv("_repository/INE_IPC.csv", sep = ",")
 
-ipcIndex.ts = ts(ipcData[1,2]) 
+ipcFullTable = ipcDataRaw[6:19,]
+ipcFullTable.ts = ts(ipcFullTable)
 
-plot(ipcIndex.ts, ylab="",main="IPC Index")
+# IPC INDEX Transformación
+----------------------------------
+ipcIndex = ipcDataRaw[c(6,7),1:196]
+names(ipcIndex) = ipcIndex[1,]
+ipcIndex = ipcIndex[-1,] %>% rename(id = 1) %>% melt(., id = "id") %>% rename(date = 2, index = 3) %>% .[,2:3]
+ipcIndex_2.ts = ts(ipcIndex[2]) 
+
+
+
+plot(ipcIndex_2.ts, ylab="",main="IPC Index")
 ```
 
 ## Ejercicio 2
