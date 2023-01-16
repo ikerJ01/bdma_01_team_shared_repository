@@ -15,15 +15,6 @@ output:
 </style>
 ---
 
-config
-
-```{r}
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(echo = TRUE)
-
-path.data.0 = "D:/iCloud/iCloudDrive/Master Big Data/_shared_repository/bdma_01_team_shared_repository/Data Analytics Lab/6-Time Series Analysis/_repository/"
-```
-
 ## Ejercicio 1
 
 **Read the data, create 4 univariate time series (IPC index, Monthly variation of IPC index, Yearly**
@@ -33,7 +24,7 @@ path.data.0 = "D:/iCloud/iCloudDrive/Master Big Data/_shared_repository/bdma_01_
 **time series as the union of the previous 4 (use ts.union). Plot the 4-dim time series.**
 
 ```{r}
-ipcData = read.csv("D:/iCloud/iCloudDrive/Master Big Data/_shared_repository/bdma_01_team_shared_repository/Data Analytics Lab/6-Time Series Analysis/_repository/INE_IPC.csv", sep = ",")
+ipcData = read.csv("_repository/INE_IPC.csv", sep = ",")
 
 ipcIndex.ts = ts(ipcData[1,2]) 
 
