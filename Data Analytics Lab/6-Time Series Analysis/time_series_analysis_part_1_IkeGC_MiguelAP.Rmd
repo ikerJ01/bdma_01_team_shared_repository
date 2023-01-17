@@ -148,5 +148,8 @@ acf(IPCmonthVariation.ts, lag = 12)
 acf(IPCyearVariation.ts, lag = 12)
 acf(IPCVariationBegining.ts, lag = 12)
 
+# Inflation 
+acf(na.omit(Inflation), lag = 12, main ="Inflacion")
+
 
 ```
