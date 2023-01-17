@@ -116,20 +116,20 @@ plot(ts.union(ipcLag12.ts, ipcIndex.ts, IPCyearVariation.ts),  ylab="", main = "
 **• Why do you think Inflation is so similar to the yearly variation of IPC index?**
 
 ```{r}
-divisor = na.omit(lag(ipcIndex,k=-12))
-dim(divisor)
 
+divisor = lag(ipcIndex,k=-12)
+length(divisor)
+dividendo = 100*diff(ipcIndex.ts,lag=12)
+length(dividendo) 
 
-dividendo = 100*diff(ipcIndex,lag=12)
-dim(dividendo)
-df_dividendo = data.frame(dividendo)
-dim(df_dividendo)
-
-
-Inflation = dividendo/divisor
+Inflation <- dividendo/divisor[1:183,2] #esto creo que es una chapuza divisor[1:183,2]
 plot(Inflation, ylab="",main="Inflation")
 
 ```
+
+El IPC nos indica de una cesta de consumo concreta y cerrada de bienes y servicios qué es lo que sucede con los precios (si suben o bajan) de un mes a otro, y no indica los precios en sí mismos. En cambio la inflación es la subida o bajada de los precios de una economía. Se puede ver que estan fuertemente relacionadas y por tanto es lógico que tengan la misma variación.
+
+La inflación es una serie temporal, ya que, son datos recogidos en determinados momentos del tiempo y ordenados cronologicamente.
 
 ## Ejercicio 5
 
@@ -139,12 +139,14 @@ plot(Inflation, ylab="",main="Inflation")
 
 **• The inflation time series.**
 
-**• The IPC series after having taken consecutively differences with lags 1 (regular difference) and 12**
-
-**(seasonal difference). Plot this series previously: diff( diff(IPC,lag=1), lag=12). Do you think it**
-
-**is stationary?**
+**• The IPC series after having taken consecutively differences with lags 1 (regular difference) and 12 (seasonal difference). Plot this series previously: diff( diff(IPC,lag=1), lag=12). Do you think it is stationary?**
 
 ```{r}
+#4 we read from file INE_IPC
+acf(ipcIndex.ts, lag = 12)
+acf(IPCmonthVariation.ts, lag = 12)
+acf(IPCyearVariation.ts, lag = 12)
+acf(IPCVariationBegining.ts, lag = 12)
+
 
 ```
