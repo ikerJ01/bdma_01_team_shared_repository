@@ -87,11 +87,15 @@ plot(ts.union(ipcIndex.ts, IPCmonthVariation.ts, IPCyearVariation.ts, IPCVariati
 
 ## Ejercicio 2
 
-**Answer the following questions: i. Which series have a seasonal pattern? ii. Which series are stationary?**
+**Answer the following questions:**
 
-```{r}
+-   **Which series have a seasonal pattern?**
 
-```
+    Un patrón estacional se puede encontrar en aquellas series que se ven afectadas por factores como el día de la semana o la estación del año. Por ejemplo, el número de turistas que van a Mallorca, si viésemos una gráfica, veríamos que año tras año en verano se alcanzan los picos más altos y en inviernos los más bajos.
+
+-   **Which series are stationary?**
+
+    Las series estacionarias son aquellas que no varían con el tiempo, es decir, su **media** **y** **varianza** **no cambian con el tiempo**. Un ejemplo sería la variación de la población de linces, a lo largo de los años el número de linces aumenta hasta el punto donde ya no hay comida suficiente para todos, en este punto, los individuos de linces empiezan a disminuir hasta que vuelve a ver suficiente alimento y la población vuelve a aumentar. Los momentos donde estos cambios ocurrirán son impredecibles, esto hace que sea una serie estacionaria.
 
 ## Ejercicio 3
 
@@ -112,8 +116,19 @@ plot(ts.union(ipcLag12.ts, ipcIndex.ts, IPCyearVariation.ts),  ylab="", main = "
 **• Why do you think Inflation is so similar to the yearly variation of IPC index?**
 
 ```{r}
+divisor = na.omit(lag(ipcIndex,k=-12))
+dim(divisor)
 
-Inflation = 100*diff(ipcIndex,lag=12)/lag(ipcIndex,k=-12)
+
+dividendo = 100*diff(ipcIndex,lag=12)
+dim(dividendo)
+df_dividendo = data.frame(dividendo)
+dim(df_dividendo)
+
+
+Inflation = dividendo/divisor
+plot(Inflation, ylab="",main="Inflation")
+
 ```
 
 ## Ejercicio 5
