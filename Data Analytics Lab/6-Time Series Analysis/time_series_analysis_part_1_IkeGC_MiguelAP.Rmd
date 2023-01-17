@@ -43,7 +43,7 @@ ipcDataRaw = read.csv("_repository/INE_IPC.csv", sep = ",")
 table_range = 1:196
 ipcIndex = ipcDataRaw[c(6,7),table_range]
 names(ipcIndex) = ipcIndex[1,]
-ipcIndex = ipcIndex[-1,] %>% rename(id = 1) %>% melt(., id = "id") %>% rename(date = 2, index = 3) %>% .[,2:3]
+ipcIndex = ipcIndex[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3]
 ipcIndex.ts = ts(ipcIndex[2], frequency = 16)
 
 # Monthly variation of IPC index Transformación
@@ -51,7 +51,7 @@ ipcIndex.ts = ts(ipcIndex[2], frequency = 16)
 table_range = 197:390
 IPCmonthVariation = ipcDataRaw[c(6,7),table_range]
 names(IPCmonthVariation) = IPCmonthVariation[1,]
-IPCmonthVariation = IPCmonthVariation[-1,] %>% rename(id = 1) %>% melt(., id = "id") %>% rename(date = 2, index = 3) %>% .[,2:3]
+IPCmonthVariation = IPCmonthVariation[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3]
 IPCmonthVariation.ts = ts(IPCmonthVariation[2], frequency = 16)
 
 # Yearly variation of IPC index Transformación
@@ -59,7 +59,7 @@ IPCmonthVariation.ts = ts(IPCmonthVariation[2], frequency = 16)
 table_range = 391:585
 IPCyearVariation = ipcDataRaw[c(6,7),table_range]
 names(IPCyearVariation) = IPCyearVariation[1,]
-IPCyearVariation = IPCyearVariation[-1,] %>% rename(id = 1) %>% melt(., id = "id") %>% rename(date = 2, index = 3) %>% .[,2:3]
+IPCyearVariation = IPCyearVariation[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3]
 IPCyearVariation.ts = ts(IPCyearVariation[2], frequency = 16)
 
 # Variation of IPC index from the begining of the year Transformación
@@ -67,7 +67,7 @@ IPCyearVariation.ts = ts(IPCyearVariation[2], frequency = 16)
 table_range = 586:780
 IPCVariationBegining = ipcDataRaw[c(6,7),table_range]
 names(IPCVariationBegining) = IPCVariationBegining[1,]
-IPCVariationBegining = IPCVariationBegining[-1,] %>% rename(id = 1) %>% melt(., id = "id") %>% rename(date = 2, index = 3) %>% .[,2:3]
+IPCVariationBegining = IPCVariationBegining[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3]
 IPCVariationBegining.ts = ts(IPCVariationBegining[2], frequency = 16)
 
 
@@ -76,8 +76,8 @@ IPCVariationBegining.ts = ts(IPCVariationBegining[2], frequency = 16)
 # ----------------------------------
 plot(ipcIndex.ts, ylab="",main="IPC Index")
 plot(IPCmonthVariation.ts, ylab="",main="Monthly variation of IPC index")
-plot(IPCyearVariation.ts, ylab="",main="Yearly variation of IPC index Transformación")
-plot(IPCVariationBegining.ts, ylab="",main="Variation of IPC index from the begining of the year")
+plot(IPCyearVariation.ts, ylab="",main="Yearly variation of IPC index")
+plot(IPCVariationBegining.ts, ylab="", main="Variation of IPC index from the begining of the year")
 
 plot(ts.union(ipcIndex.ts, IPCmonthVariation.ts, IPCyearVariation.ts, IPCVariationBegining.ts),  ylab="", main = "", las = 1)
 ```
