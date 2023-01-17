@@ -3,9 +3,10 @@ title: "Linear Regression"
 author: "Miguel Albertí Pons &Iker González Cuellar"
 date: "09-01-23"
 output:
-  html_document:
-    df_print: paged
+  html_document: default
+---
 
+```{=html}
 <style type="text/css">
 .main-container {
   max-width: 1500px;
@@ -13,7 +14,9 @@ output:
   margin-right: auto;
 }
 </style>
----
+```
+
+------------------------------------------------------------------------
 
 ```{r message=FALSE}
 library(dplyr)
