@@ -1,7 +1,7 @@
 ---
-title: "Linear Regression"
-author: "Miguel Albertí Pons &Iker González Cuellar"
-date: "09-01-23"
+title: "Time Series Anlaysis. Practice 1. Descriptive statistics "
+author: "Miguel Albertí Pons & Iker González Cuellar"
+date: "18-01-23"
 output:
   html_document: default
 ---
@@ -9,7 +9,7 @@ output:
 ```{=html}
 <style type="text/css">
 .main-container {
-  max-width: 1500px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -28,15 +28,10 @@ library(stringr)
 
 ## Ejercicio 1
 
-**Read the data, create 4 univariate time series (IPC index, Monthly variation of IPC index, Yearly**
-
-**variation of IPC index, Variation of IPC index from the begining of the year) and one 4-dimesional**
-
-**time series as the union of the previous 4 (use ts.union). Plot the 4-dim time series.**
+**Read the data, create 4 univariate time series (IPC index, Monthly variation of IPC index, Yearly variation of IPC index, Variation of IPC index from the begining of the year) and one 4-dimesional time series as the union of the previous 4 (use ts.union). Plot the 4-dim time series.**
 
 ```{r}
 ipcDataRaw = read.csv("_repository/INE_IPC.csv", sep = ",")
-
 
 # IPC INDEX Transformación
 # ----------------------------------
@@ -101,6 +96,7 @@ abline(v=seq(2002,2019,by=2),lty=2, col = 3)
 -   **Which series have a seasonal pattern?**
 
     -   IPC Index
+    -   Yearly variation of IPC index
 
 -   **Which series are stationary?**
 
@@ -108,13 +104,9 @@ abline(v=seq(2002,2019,by=2),lty=2, col = 3)
 
     -   Variation of IPC index from the begining of the year
 
--   **Not seasonal nor stationary**
-
-    -   Yearly variation of IPC index
-
 ## Ejercicio 3
 
-**Compute the lag 12 differences of the IPC time series (using function diff). Then plot the union of 3 time series: IPC, its lag 12 differences, and the series containing yearly variation of IPC index we read from file INE_IPC.csv. Do you think that yearly variation of IPC index is stationary in variance?**
+**Compute the lag 12 differences of the IPC time series (using function diff). Then plot the union of time series: IPC, its lag 12 differences, and the series containing yearly variation of IPC index we read from file INE_IPC.csv. Do you think that yearly variation of IPC index is stationary in variance?**
 
 ```{r}
 
@@ -128,7 +120,7 @@ abline(v=seq(2002,2019,by=2),lty=2, col = 3)
 
 ```
 
-No es estacionaria por que los distinto meses y años no se comportan igual, ya que se observan años con medias positivas y otros con medias negativas (e.g entre 2008 - 2010 y 2012 - 2014 ) en la serie temporal ***ipcLag12.ts*** y por ende con cambios en las varianzas.
+Es estacionaria por que los distintos periodos mantienen una distribucion similar entre sus medias y varianzas y son próximas a cero sin tener incrementos o decrementos significativos.
 
 ## Ejercicio 4
 
@@ -193,15 +185,14 @@ acf(IPCRegular.ts, main = "IPC Regular Series")
 IPCSeasonal.ts =diff(log(ipcIndex.ts),lag=12)
 acf(IPCSeasonal.ts, main = "IPC Seasonal Series")
 
-par(mfrow = c(1,2), mar = c(rep(3,4)))
+par(mfrow = c(1,1), mar = c(rep(3,4)))
+
 
 #Plot this series previously:
 # ----------------------------------
 IPCStationaryEval = diff(diff(ipcIndex.ts,lag=1), lag=12)
-acf(test, main = "ACF Stationarity Evaluation")
+acf(IPCStationaryEval, main = "ACF Stationarity Evaluation")
 
-plot(diff(diff(ipcIndex.ts,lag=1), lag=12), main = "Stationary Evaluation")
-abline(h=0, col=3, lty=2)
 ```
 
-Utilizando la función de autocorrelación ACF sobre la ***diff( diff(IPC,lag=1), lag=12)***, observamos que la variable IPC Index no es estacionaria, ya que no hay correlaciones fuertes mas allá de k=1 distancias entre observaciones.
+Utilizando la función de autocorrelación ACF sobre la ***diff( diff(IPC,lag=1), lag=12)***, observamos que la variable IPC Index es estacionaria, ya que no hay correlaciones fuertes mas allá de k=1 distancias entre observaciones y se aproximan a cero estando la grán mayoría dentro del intervalo de confianza del 95%.
