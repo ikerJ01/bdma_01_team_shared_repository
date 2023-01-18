@@ -130,7 +130,7 @@ Es estacionaria por que los distintos periodos mantienen una distribucion simila
 
 **• Why do you think Inflation is so similar to the yearly variation of IPC index?**
 
-```{r}
+```{r warning=FALSE}
 
 divisor = lag(ipcIndex[,2],k=-12)
 #length(divisor)
