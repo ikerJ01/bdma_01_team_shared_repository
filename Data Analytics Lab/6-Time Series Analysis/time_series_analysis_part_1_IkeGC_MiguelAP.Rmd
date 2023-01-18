@@ -100,11 +100,17 @@ abline(v=seq(2002,2019,by=2),lty=2, col = 3)
 
 -   **Which series have a seasonal pattern?**
 
-    Un patrón estacional se puede encontrar en aquellas series que se ven afectadas por factores como el día de la semana o la estación del año. Por ejemplo, el número de turistas que van a Mallorca, si viésemos una gráfica, veríamos que año tras año en verano se alcanzan los picos más altos y en inviernos los más bajos.
+    -   IPC Index
 
 -   **Which series are stationary?**
 
-    Las series estacionarias son aquellas que no varían con el tiempo, es decir, su **media** **y** **varianza** **no cambian con el tiempo**. Un ejemplo sería la variación de la población de linces, a lo largo de los años el número de linces aumenta hasta el punto donde ya no hay comida suficiente para todos, en este punto, los individuos de linces empiezan a disminuir hasta que vuelve a ver suficiente alimento y la población vuelve a aumentar. Los momentos donde estos cambios ocurrirán son impredecibles, esto hace que sea una serie estacionaria.
+    -   Monthly variation of IPC Index
+
+    -   Variation of IPC index from the begining of the year
+
+-   **Not seasonal nor stationary**
+
+    -   Yearly variation of IPC index
 
 ## Ejercicio 3
 
@@ -113,8 +119,7 @@ abline(v=seq(2002,2019,by=2),lty=2, col = 3)
 ```{r}
 
 ipcLag12.ts = diff(diff(log(ipcIndex.ts),lag=12)) 
-plot(ipcLag12.ts)
-abline(v=seq(2002,2019,by=2), h=0, col=3, lty=2)
+plot(ipcLag12.ts);abline(v=seq(2002,2019,by=2), h=0, col=3, lty=2)
 
 
 plot(ts.union(ipcLag12.ts, ipcIndex.ts, IPCyearVariation.ts),  ylab="", main = "", las = 1)
@@ -132,18 +137,6 @@ No es estacionaria por que los distinto meses y años no se comportan igual, ya 
 **• Is Inflation of class ts?**
 
 **• Why do you think Inflation is so similar to the yearly variation of IPC index?**
-
-```{r}
-
-divisor = lag(ipcIndex,k=-12)
-length(divisor)
-dividendo = 100*diff(ipcIndex.ts,lag=12)
-length(dividendo) 
-
-Inflation <- dividendo/divisor[1:183,2] #esto creo que es una chapuza divisor[1:183,2]
-plot(Inflation, ylab="",main="Inflation")
-
-```
 
 ```{r}
 
