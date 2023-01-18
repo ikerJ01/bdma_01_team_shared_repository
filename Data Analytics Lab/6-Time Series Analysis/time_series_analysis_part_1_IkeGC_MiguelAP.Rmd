@@ -20,8 +20,10 @@ output:
 
 ```{r message=FALSE}
 library(dplyr)
+library(tidyr)
 library(reshape2)
 library(magrittr)
+library(stringr) 
 ```
 
 ## Ejercicio 1
@@ -35,15 +37,13 @@ library(magrittr)
 ```{r}
 ipcDataRaw = read.csv("_repository/INE_IPC.csv", sep = ",")
 
-#ipcFullTable = ipcDataRaw[6:19,]
-#ipcFullTable.ts = ts(ipcFullTable)
 
 # IPC INDEX Transformación
 # ----------------------------------
 table_range = 1:196
 ipcIndex = ipcDataRaw[c(6,7),table_range]
 names(ipcIndex) = ipcIndex[1,]
-ipcIndex = ipcIndex[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date)) %>% transform(., index = as.double(index))
+ipcIndex = ipcIndex[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date)) %>% transform(., index = as.double(index), date = as.Date(date))
 ipcIndex.ts = ts(ipcIndex[2], frequency = 16)
 
 # Monthly variation of IPC index Transformación
@@ -51,7 +51,7 @@ ipcIndex.ts = ts(ipcIndex[2], frequency = 16)
 table_range = 197:390
 IPCmonthVariation = ipcDataRaw[c(6,7),table_range]
 names(IPCmonthVariation) = IPCmonthVariation[1,]
-IPCmonthVariation = IPCmonthVariation[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3]  %>% arrange(., desc(date)) %>% transform(., index = as.double(index))
+IPCmonthVariation = IPCmonthVariation[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3]  %>% arrange(., desc(date)) %>% transform(., index = as.double(index), date = as.Date(date))
 IPCmonthVariation.ts = ts(IPCmonthVariation[2], frequency = 16)
 
 # Yearly variation of IPC index Transformación
@@ -59,7 +59,7 @@ IPCmonthVariation.ts = ts(IPCmonthVariation[2], frequency = 16)
 table_range = 391:585
 IPCyearVariation = ipcDataRaw[c(6,7),table_range]
 names(IPCyearVariation) = IPCyearVariation[1,]
-IPCyearVariation = IPCyearVariation[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date))%>% transform(., index = as.double(index))
+IPCyearVariation = IPCyearVariation[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date))%>% transform(., index = as.double(index), date = as.Date(date))
 IPCyearVariation.ts = ts(IPCyearVariation[2], frequency = 16)
 
 # Variation of IPC index from the begining of the year Transformación
@@ -67,18 +67,18 @@ IPCyearVariation.ts = ts(IPCyearVariation[2], frequency = 16)
 table_range = 586:780
 IPCVariationBegining = ipcDataRaw[c(6,7),table_range]
 names(IPCVariationBegining) = IPCVariationBegining[1,]
-IPCVariationBegining = IPCVariationBegining[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date)) %>% transform(., index = as.double(index))
+IPCVariationBegining = IPCVariationBegining[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date)) %>% transform(., index = as.double(index), date = as.Date(date))
 IPCVariationBegining.ts = ts(IPCVariationBegining[2], frequency = 16)
 
 
-
+par(mfrow = c(2,2), mar = c(rep(3,4)))
 # Plots
 # ----------------------------------
 plot(ipcIndex.ts, ylab="",main="IPC Index")
 plot(IPCmonthVariation.ts, ylab="",main="Monthly variation of IPC index")
 plot(IPCyearVariation.ts, ylab="",main="Yearly variation of IPC index")
 plot(IPCVariationBegining.ts, ylab="", main="Variation of IPC index from the begining of the year")
-
+par(mfrow = c(2,2), mar = c(rep(3,4)))
 
 plot(ts.union(ipcIndex.ts, IPCmonthVariation.ts, IPCyearVariation.ts, IPCVariationBegining.ts),  ylab="", main = "", las = 1)
 
@@ -102,10 +102,16 @@ plot(ts.union(ipcIndex.ts, IPCmonthVariation.ts, IPCyearVariation.ts, IPCVariati
 **Compute the lag 12 differences of the IPC time series (using function diff). Then plot the union of 3 time series: IPC, its lag 12 differences, and the series containing yearly variation of IPC index we read from file INE_IPC.csv. Do you think that yearly variation of IPC index is stationary in variance?**
 
 ```{r}
-ipcLag12.ts = diff(log(ipcIndex.ts),lag=12)
+
+ipcLag12.ts = diff(diff(log(ipcIndex.ts),lag=12))
 
 plot(ts.union(ipcLag12.ts, ipcIndex.ts, IPCyearVariation.ts),  ylab="", main = "", las = 1)
+
+
+acf(ipcLag12.ts, lag =20)
 ```
+
+No es estacionaria por que los distinto meses y años no se comportan igual, ya que se observan años con medias positivas y otros con medias negativas (e.g 2007 (7) y 2009 (9)) en la serie temporal ***ipcLag12.ts** y por ende con cambios en las varianzas*.
 
 ## Ejercicio 4
 
@@ -142,14 +148,32 @@ La inflación es una serie temporal, ya que, son datos recogidos en determinados
 **• The IPC series after having taken consecutively differences with lags 1 (regular difference) and 12 (seasonal difference). Plot this series previously: diff( diff(IPC,lag=1), lag=12). Do you think it is stationary?**
 
 ```{r}
+par(mfrow = c(3,3), mar = c(rep(3,4)))
+
 #4 we read from file INE_IPC
-acf(ipcIndex.ts, lag = 12)
-acf(IPCmonthVariation.ts, lag = 12)
-acf(IPCyearVariation.ts, lag = 12)
-acf(IPCVariationBegining.ts, lag = 12)
+# ----------------------------------
+acf(ipcIndex.ts, main ="IPC Index")
+acf(IPCmonthVariation.ts, main ="IPC Month Var.")
+acf(IPCyearVariation.ts, main ="IPC Year Var")
+acf(IPCVariationBegining.ts, main ="IPC Year from Beg.")
 
 # Inflation 
-acf(na.omit(Inflation), lag = 12, main ="Inflacion")
+# ----------------------------------
+acf(na.omit(Inflation), main ="Inflation")
 
+#IPC Regular series
+# ----------------------------------
+IPCRegular.ts =diff(log(ipcIndex.ts), lag=1)
+acf(IPCRegular.ts, main = "IPC Regular Series")
+
+#IPC Seasonal series
+# ----------------------------------
+IPCSeasonal.ts = diff(log(ipcIndex.ts),lag=12)
+acf(IPCSeasonal.ts, main = "IPC Seasonal Series")
+
+#Plot this series previously:
+# ----------------------------------
+test = diff( diff(ipcIndex.ts,lag=1), lag=12)
+acf(test, main = "test")
 
 ```
