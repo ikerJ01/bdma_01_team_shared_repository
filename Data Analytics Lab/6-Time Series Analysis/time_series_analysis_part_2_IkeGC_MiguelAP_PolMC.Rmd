@@ -1,0 +1,117 @@
+---
+title: "Time Series Anlaysis. Practice 1. Descriptive statistics "
+author: "Miguel Albertí Pons, Iker González Cuellar, Pol Martinez Collado"
+date: "18-01-23"
+output:
+  html_document: default
+---
+
+```{=html}
+<style type="text/css">
+.main-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+```
+
+------------------------------------------------------------------------
+
+```{r message=FALSE}
+library(dplyr)
+library(tidyr)
+library(reshape2)
+library(magrittr)
+library(stringr)
+library(astsa)
+```
+
+# **Ejercicio 1:**
+
+**Read the IPC data as you did in the last homework. Then compute the Inflation as Inflation \<- 100\*diff(IPC,lag=12)/lag(IPC,k=-12) and the regularly and seasonally differentiated IPC time series as IPC.d1.d12 \<- diff( diff(IPC,lag=12), lag=1).**
+
+```{r}
+ipcDataRaw = read.csv("_repository/INE_IPC.csv", sep = ",")
+
+# IPC INDEX Transformación
+# ----------------------------------
+table_range = 1:196
+ipcIndex = ipcDataRaw[c(6,7),table_range]
+names(ipcIndex) = ipcIndex[1,]
+ipcIndex = ipcIndex[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date)) %>% transform(., index = as.double(index), date = as.Date(date))
+ipcIndex.ts = ts(ipcIndex[2], frequency = 12, start=c(2002,01))
+
+# Inflation based on IPC INDEX
+# ----------------------------------
+divisor = lag(ipcIndex[,2],k=-12)
+#length(divisor)
+dividendo = 100*diff(ipcIndex[,2],lag=12)
+#length(dividendo) 
+
+Inflation = ts(dividendo/divisor, frequency = 12, start=c(2002,01))
+
+
+plot(Inflation, ylab="",main="Inflation")
+abline(h=0, v=seq(2002,2019,by=2),lty=2, col = 3)
+```
+
+# **Ejercicio 2:**
+
+**Do the structural decomposition of the following time series:**
+
+**• IPC**
+
+**• Monthly variation of th IPC.**
+
+**• Inflation (100\*diff(IPC,lag=12)/lag(IPC,k=-12)).**
+
+**• The IPC series, differentiated regularly and seasonally: IPC.d1.d12.**
+
+**Use first decompose and stl, plot the obtaind components and do a barplot of the one-year seasonal component.**
+
+**Then use the function HoltWinters from package astsa.**
+
+```{r}
+
+```
+
+# **Ejercicio 3:**
+
+**Using the function window, cut the time series IPC in two parts: a training part until December 2016, and a test part from January 2017. Call them IPC.tr and IPC.te, respectively.**
+
+```{r}
+
+```
+
+# **Ejercio 4:**
+
+**Compute the regular and seasonal difference of IPC.tr and call the resulting series IPC.tr.d1.d12.**
+
+**a. Plot this series, as well as its ACF and its PACF.**
+
+**b. Do you think IPC.tr.d1.d12 is white noise?**
+
+```{r}
+
+```
+
+# **Ejercicio 5:**
+
+**Use the functions HoltWinters (with the default parameters) and predict.HoltWinters to predict the next 15 values of IPC.tr.d1.d12 (these are the forecasting of the values corresponding to the period from January 2017 to March 2018). Plot the forecasted object.**
+
+```{r}
+
+```
+
+# **Ejercicio 6:**
+
+**Use the functions HoltWinters (with the default parameters) and predict.HoltWinters to predict the next 15 values of IPC.tr (these are the forecasting of the values corresponding to the period from January 2017 to March 2018).**
+
+**a. Plot the forecasted object.**
+
+**b. Compare these predictions with the values of of the test values in IPC.te.**
+
+```{r}
+
+```
