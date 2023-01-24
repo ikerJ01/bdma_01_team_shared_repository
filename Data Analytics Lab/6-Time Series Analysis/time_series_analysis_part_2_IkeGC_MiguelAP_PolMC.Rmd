@@ -150,8 +150,8 @@ IPC.tr.d1.d12 = diff(diff(IPC.tr,lag=1), lag=12)
 
 par(mfrow = c(1,1), mar = c(rep(3,4)))
 plot(IPC.tr.d1.d12, main = 'IPC.tr.d1.d12')
-acf(IPC.tr.d1.d12,)
-pacf(IPC.tr.d1.d12)
+acf(IPC.tr.d1.d12, main = 'ACF IPC.tr.d1.d12')
+pacf(IPC.tr.d1.d12, main = 'PACF IPC.tr.d1.d12')
 ```
 
 Observando el gráfico de autocorrelación podríamos concluir que no es White Noise, ya que existe una correlación positiva en por lo menos 1 retardo en el calculo del ACF (lag 1). Para poder considerar que las observaciones son ruidos blancos, todas la observaciones deberían ser próximas a cero para considerarlas independientes e identicamentes distribuidas.
