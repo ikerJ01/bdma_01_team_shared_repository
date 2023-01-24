@@ -45,12 +45,8 @@ ipcIndex.ts = ts(ipcIndex[2], frequency = 12, start=c(2002,01))
 # Inflation based on IPC INDEX
 # ----------------------------------
 divisor = lag(ipcIndex[,2],k=-12)
-#length(divisor)
 dividendo = 100*diff(ipcIndex[,2],lag=12)
-#length(dividendo) 
-
-Inflation = ts(dividendo/divisor, frequency = 12, start=c(2002,01))
-
+Inflation = suppressWarnings(ts(dividendo/divisor, frequency = 12, start=c(2002,01)))
 
 plot(Inflation, ylab="",main="Inflation")
 abline(h=0, v=seq(2002,2019,by=2),lty=2, col = 3)
@@ -73,7 +69,55 @@ abline(h=0, v=seq(2002,2019,by=2),lty=2, col = 3)
 **Then use the function HoltWinters from package astsa.**
 
 ```{r}
+# Monthly variation of IPC index Transformación
+# ----------------------------------
+table_range = 197:390
+IPCmonthVariation = ipcDataRaw[c(6,7),table_range]
+names(IPCmonthVariation) = IPCmonthVariation[1,]
+IPCmonthVariation = IPCmonthVariation[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3]  %>% arrange(., desc(date)) %>% transform(., index = as.double(index), date = as.Date(date))
+IPCmonthVariation.ts = ts(IPCmonthVariation[2], frequency = 12, start=c(2002,01))
 
+# Inflation (100*diff(IPC,lag=12)/lag(IPC,k=-12))
+# ----------------------------------
+divisor = lag(ipcIndex[,2],k=-12)
+dividendo = 100*diff(ipcIndex[,2],lag=12)
+Inflation = suppressWarnings(ts(dividendo/divisor, frequency = 12, start=c(2002,01)))
+Inflation = na.omit(Inflation)
+
+# Variation of IPC index from the begining of the year Transformación
+# ----------------------------------
+table_range = 586:780
+IPCVariationBegining = ipcDataRaw[c(6,7),table_range]
+names(IPCVariationBegining) = IPCVariationBegining[1,]
+IPCVariationBegining = IPCVariationBegining[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date)) %>% transform(., index = as.double(index), date = as.Date(date))
+IPCVariationBegining.ts = ts(IPCVariationBegining[2], frequency = 12, start=c(2002,01))
+
+```
+
+```{r}
+# descompose
+ipc_descompose = decompose(ipcIndex.ts)
+monthly_descompose_ipc = decompose(IPCmonthVariation.ts)
+inflation_descompose = decompose(Inflation)
+
+plot_ipc_descompose = plot(ipc_descompose)
+plot(monthly_descompose_ipc)
+plot(inflation_descompose)
+
+# stl
+ipc_stl = stl(ipcIndex.ts[,1], s.window = "periodic")
+monthly_stl_ipc = stl(IPCmonthVariation.ts[,1], s.window = "periodic")
+inflation_stl = stl(Inflation, s.window = "periodic")
+
+plot_ipc_stl = plot(ipc_stl, main="Ipc stl")
+plot(monthly_stl_ipc, main="Monthly stl")
+plot(inflation_stl, main="Inflation stl")
+
+
+# HoltWinters
+HoltWinters(ipcIndex.ts, beta=FALSE)
+HoltWinters(IPCmonthVariation.ts, beta=FALSE)
+HoltWinters(Inflation, beta=FALSE)
 ```
 
 # **Ejercicio 3:**
