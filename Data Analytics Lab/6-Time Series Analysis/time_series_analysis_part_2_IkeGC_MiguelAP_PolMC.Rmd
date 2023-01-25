@@ -92,6 +92,13 @@ names(IPCVariationBegining) = IPCVariationBegining[1,]
 IPCVariationBegining = IPCVariationBegining[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date)) %>% transform(., index = as.double(index), date = as.Date(date))
 IPCVariationBegining.ts = ts(IPCVariationBegining[2], frequency = 12, start=c(2002,01))
 
+#  IPC.d1.d12.
+# ----------------------------------
+end.tr = c(2016,12)
+IPC.tr = window(ipcIndex.ts, end = end.tr)
+IPC.tr.d1.d12 = diff(diff(IPC.tr,lag=1), lag=12)
+
+
 ```
 
 ```{r}
@@ -99,25 +106,36 @@ IPCVariationBegining.ts = ts(IPCVariationBegining[2], frequency = 12, start=c(20
 ipc_descompose = decompose(ipcIndex.ts)
 monthly_descompose_ipc = decompose(IPCmonthVariation.ts)
 inflation_descompose = decompose(Inflation)
-
-plot_ipc_descompose = plot(ipc_descompose)
-plot(monthly_descompose_ipc)
-plot(inflation_descompose)
+IPC.tr.d1.d12_descompose = decompose(IPC.tr.d1.d12[,1])
 
 # stl
 ipc_stl = stl(ipcIndex.ts[,1], s.window = "periodic")
 monthly_stl_ipc = stl(IPCmonthVariation.ts[,1], s.window = "periodic")
 inflation_stl = stl(Inflation, s.window = "periodic")
-
-plot_ipc_stl = plot(ipc_stl, main="Ipc stl")
-plot(monthly_stl_ipc, main="Monthly stl")
-plot(inflation_stl, main="Inflation stl")
-
+IPC.tr.d1.d12_stl = stl(IPC.tr.d1.d12[,1], s.window = "periodic")
 
 # HoltWinters
 HoltWinters(ipcIndex.ts, beta=FALSE)
 HoltWinters(IPCmonthVariation.ts, beta=FALSE)
 HoltWinters(Inflation, beta=FALSE)
+HoltWinters(IPC.tr.d1.d12, beta=FALSE)
+
+# descompose graficos
+mar = c(rep(3,4))
+par(mfrow = c(2,2), mar = c(rep(3,4)))
+plot(ipc_descompose, sub='Ipc descompose')
+plot(monthly_descompose_ipc, sub='Ipc monthly')
+plot(inflation_descompose, sub='inflation inflation')
+plot(IPC.tr.d1.d12_descompose, sub='IPC.tr.d1.d12 descompose')
+
+# stl graficos
+mar = c(rep(3,4))
+par(mfrow = c(2,2), mar = c(rep(3,4)))
+plot_ipc_stl = plot(ipc_stl, sub="Ipc stl")
+plot(monthly_stl_ipc, main="Monthly stl")
+plot(inflation_stl, main="Inflation stl")
+plot(IPC.tr.d1.d12_stl, main="IPC.tr.d1.d12_stl")
+
 ```
 
 # **Ejercicio 3:**
