@@ -121,16 +121,12 @@ HoltWinters(Inflation, beta=FALSE)
 HoltWinters(IPC.tr.d1.d12, beta=FALSE)
 
 # descompose graficos
-mar = c(rep(3,4))
-par(mfrow = c(2,2), mar = c(rep(3,4)))
 plot(ipc_descompose, sub='Ipc descompose')
 plot(monthly_descompose_ipc, sub='Ipc monthly')
 plot(inflation_descompose, sub='inflation inflation')
 plot(IPC.tr.d1.d12_descompose, sub='IPC.tr.d1.d12 descompose')
 
 # stl graficos
-mar = c(rep(3,4))
-par(mfrow = c(2,2), mar = c(rep(3,4)))
 plot_ipc_stl = plot(ipc_stl, sub="Ipc stl")
 plot(monthly_stl_ipc, main="Monthly stl")
 plot(inflation_stl, main="Inflation stl")
