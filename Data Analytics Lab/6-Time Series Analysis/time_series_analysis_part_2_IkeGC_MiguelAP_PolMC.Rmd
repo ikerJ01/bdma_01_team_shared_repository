@@ -138,7 +138,7 @@ plot(IPC.tr, main="IPC Training")
 plot(IPC.te, main="IPC Test")
 ```
 
-# **Ejercio 4:**
+# **Ejercicio 4:**
 
 **Compute the regular and seasonal difference of IPC.tr and call the resulting series IPC.tr.d1.d12.**
 
