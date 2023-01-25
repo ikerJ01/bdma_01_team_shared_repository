@@ -1,7 +1,7 @@
 ---
-title: "Time Series Anlaysis. Practice 1. Descriptive statistics "
-author: "Miguel Albertí Pons, Iker González Cuellar, Pol Martinez Collado"
-date: "18-01-23"
+title: "Time Series Anlaysis. Practice 2. Descriptive statistics "
+author: "Miguel Albertí Pons, Iker González Cuellar, Pol Martínez Collado"
+date: "25-01-23"
 output:
   html_document: default
 ---
@@ -34,7 +34,7 @@ library(astsa)
 ```{r}
 ipcDataRaw = read.csv("_repository/INE_IPC.csv", sep = ",")
 
-# IPC INDEX Transformación
+# IPC INDEX
 # ----------------------------------
 table_range = 1:196
 ipcIndex = ipcDataRaw[c(6,7),table_range]
@@ -42,14 +42,17 @@ names(ipcIndex) = ipcIndex[1,]
 ipcIndex = ipcIndex[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date)) %>% transform(., index = as.double(index), date = as.Date(date))
 ipcIndex.ts = ts(ipcIndex[2], frequency = 12, start=c(2002,01))
 
-# Inflation based on IPC INDEX
+# Inflation
 # ----------------------------------
 divisor = lag(ipcIndex[,2],k=-12)
 dividendo = 100*diff(ipcIndex[,2],lag=12)
 Inflation = suppressWarnings(ts(dividendo/divisor, frequency = 12, start=c(2002,01)))
+Inflation = na.omit(Inflation)
 
-plot(Inflation, ylab="",main="Inflation")
-abline(h=0, v=seq(2002,2019,by=2),lty=2, col = 3)
+
+# seasonally differentiated IPC TS
+# ----------------------------------
+IPC.d1.d12 = diff(diff(ipcIndex.ts,lag=12), lag=1)
 ```
 
 # **Ejercicio 2:**
@@ -77,60 +80,45 @@ names(IPCmonthVariation) = IPCmonthVariation[1,]
 IPCmonthVariation = IPCmonthVariation[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3]  %>% arrange(., desc(date)) %>% transform(., index = as.double(index), date = as.Date(date))
 IPCmonthVariation.ts = ts(IPCmonthVariation[2], frequency = 12, start=c(2002,01))
 
-# Inflation (100*diff(IPC,lag=12)/lag(IPC,k=-12))
-# ----------------------------------
-divisor = lag(ipcIndex[,2],k=-12)
-dividendo = 100*diff(ipcIndex[,2],lag=12)
-Inflation = suppressWarnings(ts(dividendo/divisor, frequency = 12, start=c(2002,01)))
-Inflation = na.omit(Inflation)
-
-# Variation of IPC index from the begining of the year Transformación
-# ----------------------------------
-table_range = 586:780
-IPCVariationBegining = ipcDataRaw[c(6,7),table_range]
-names(IPCVariationBegining) = IPCVariationBegining[1,]
-IPCVariationBegining = IPCVariationBegining[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date)) %>% transform(., index = as.double(index), date = as.Date(date))
-IPCVariationBegining.ts = ts(IPCVariationBegining[2], frequency = 12, start=c(2002,01))
-
-#  IPC.d1.d12.
-# ----------------------------------
-end.tr = c(2016,12)
-IPC.tr = window(ipcIndex.ts, end = end.tr)
-IPC.tr.d1.d12 = diff(diff(IPC.tr,lag=1), lag=12)
-
-
 ```
 
 ```{r}
-# descompose
-ipc_descompose = decompose(ipcIndex.ts)
-monthly_descompose_ipc = decompose(IPCmonthVariation.ts)
-inflation_descompose = decompose(Inflation)
-IPC.tr.d1.d12_descompose = decompose(IPC.tr.d1.d12[,1])
+# decompose
+ipc_decompose = decompose(ipcIndex.ts)
+monthly_decompose_ipc = decompose(IPCmonthVariation.ts)
+inflation_decompose = decompose(Inflation)
+IPC.d1.d12_decompose = decompose(IPC.d1.d12[,1])
 
 # stl
 ipc_stl = stl(ipcIndex.ts[,1], s.window = "periodic")
 monthly_stl_ipc = stl(IPCmonthVariation.ts[,1], s.window = "periodic")
 inflation_stl = stl(Inflation, s.window = "periodic")
-IPC.tr.d1.d12_stl = stl(IPC.tr.d1.d12[,1], s.window = "periodic")
+IPC.d1.d12_stl = stl(IPC.d1.d12[,1], s.window = "periodic")
 
 # HoltWinters
 HoltWinters(ipcIndex.ts, beta=FALSE)
 HoltWinters(IPCmonthVariation.ts, beta=FALSE)
 HoltWinters(Inflation, beta=FALSE)
-HoltWinters(IPC.tr.d1.d12, beta=FALSE)
+HoltWinters(IPC.d1.d12, beta=FALSE)
 
-# descompose graficos
-plot(ipc_descompose, sub='Ipc descompose')
-plot(monthly_descompose_ipc, sub='Ipc monthly')
-plot(inflation_descompose, sub='inflation inflation')
-plot(IPC.tr.d1.d12_descompose, sub='IPC.tr.d1.d12 descompose')
+# decompose graficos
+plot(ipc_decompose, xlab='Time: IPC decompose')
+plot(monthly_decompose_ipc, xlab='Time: IPC monthly')
+plot(inflation_decompose, xlab='Time: Inflation inflation')
+plot(IPC.d1.d12_decompose, xlab='Time: IPC.d1.d12 decompose')
 
 # stl graficos
-plot_ipc_stl = plot(ipc_stl, sub="Ipc stl")
+plot_ipc_stl = plot(ipc_stl, main="IPC stl")
 plot(monthly_stl_ipc, main="Monthly stl")
 plot(inflation_stl, main="Inflation stl")
-plot(IPC.tr.d1.d12_stl, main="IPC.tr.d1.d12_stl")
+plot(IPC.d1.d12_stl, main="IPC.tr.d1.d12_stl")
+
+
+# Barplot one-year seasonal component
+barplot(ipc_decompose$figure, main="IPC Seasonal component, by decompose")
+barplot(monthly_decompose_ipc$figure, main="IPC Monthly Seasonal component, by decompose")
+barplot(inflation_decompose$figure, main="Inflation Seasonal component, by decompose")
+barplot(IPC.d1.d12_decompose$figure, main="IPC.d1.d12 Seasonal component, by decompose")
 
 ```
 
@@ -144,11 +132,10 @@ end.tr = c(2016,12)
 IPC.tr = window(ipcIndex.ts, end = end.tr)
 
 start.te = c(2017,1)
-end.te = c(2018,3)
 IPC.te = window(ipcIndex.ts, start = start.te)
 
-plot(IPC.tr)
-plot(IPC.te)
+plot(IPC.tr, main="IPC Training")
+plot(IPC.te, main="IPC Test")
 ```
 
 # **Ejercio 4:**
@@ -168,14 +155,20 @@ acf(IPC.tr.d1.d12, main = 'ACF IPC.tr.d1.d12')
 pacf(IPC.tr.d1.d12, main = 'PACF IPC.tr.d1.d12')
 ```
 
-Observando el gráfico de autocorrelación podríamos concluir que no es White Noise, ya que existe una correlación positiva en por lo menos 1 retardo en el calculo del ACF (lag 1). Para poder considerar que las observaciones son ruidos blancos, todas la observaciones deberían ser próximas a cero para considerarlas independientes e identicamentes distribuidas.
+Observando el gráfico de autocorrelación podríamos concluir que no es White Noise, ya que existe una correlación positiva en por lo menos 1 retardo en el calculo del ACF (lag 1). Para poder considerar que las observaciones son ruidos blancos, todas la observaciones en el ACF deberían ser próximas a cero para considerarlas independientes e identicamentes distribuidas.
 
 # **Ejercicio 5:**
 
 **Use the functions HoltWinters (with the default parameters) and predict.HoltWinters to predict the next 15 values of IPC.tr.d1.d12 (these are the forecasting of the values corresponding to the period from January 2017 to March 2018). Plot the forecasted object.**
 
 ```{r}
+#Holt Winters
+IPC.tr.d1.d12.HW = HoltWinters(IPC.tr.d1.d12)
 
+#Holt Winters Prediction
+IPC.tr.d1.d12.HWP = predict(IPC.tr.d1.d12.HW, 15)
+
+plot(IPC.tr.d1.d12.HW, IPC.tr.d1.d12.HWP)
 ```
 
 # **Ejercicio 6:**
@@ -187,5 +180,31 @@ Observando el gráfico de autocorrelación podríamos concluir que no es White N
 **b. Compare these predictions with the values of of the test values in IPC.te.**
 
 ```{r}
+#a.
 
+#Holt Winters
+IPC.tr.HW = HoltWinters(IPC.tr)
+
+#Holt Winters Prediction
+IPC.tr.HWP = predict(IPC.tr.HW, 15)
+plot(IPC.tr.HW, IPC.tr.HWP)
+
+
+#b.
+
+#Comparison
+plot(IPC.te,type="l",col="red")
+lines(IPC.tr.HWP,col="green")
 ```
+
+```{r}
+#Summary difference predicted vs real observations
+IPCpredicted = data.frame(IPC.tr.HWP)
+IPCreal = data.frame(IPC.te)
+
+differencePvsR = IPCpredicted-IPCreal
+
+summary(differencePvsR)
+```
+
+La predicción de Holt Winters (verde) acierta en la tendencia seasonal y en la tendencia general al alza pero es más optimista y da valores mas altos que los reales con una diferencia media de 0.5215 puntos.
