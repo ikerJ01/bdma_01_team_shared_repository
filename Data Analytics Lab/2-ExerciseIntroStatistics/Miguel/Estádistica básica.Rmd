@@ -1,0 +1,220 @@
+---
+title: "Estádistica básica"
+author: "Miguel Albertí Pons"
+date: "05-11-22"
+output:
+  html_document: default
+---
+
+```{r}
+# import de las librerias necesarias 
+
+library(ggplot2)
+library(readr)
+library(vcd)
+library(knitr)
+library("DMwR")
+
+```
+
+------------------------------------------------------------------------
+
+## Ejercicio 1
+
+**Calcular la media, la mediana, la desviación tipo, el primer cuartil, el tercer cuartil, el rango intercuartílico y dibujar el correspondiente boxplot, de la siguiente muestra de precios de pisos (de 3 habitaciones): 7.80, 12.60, 15.96, 13.50, 8.25, 31.29, 16.46** ------------------------------------------------------------------------
+
+```{r}
+precio_pisos = c(7.80, 12.60, 15.96, 13.50, 8.25, 31.29, 16.46 ) 
+
+mean(precio_pisos)
+
+median(precio_pisos)
+
+sd(precio_pisos)
+
+quantile(precio_pisos)
+
+IQR(precio_pisos)
+
+boxplot(precio_pisos, horizontal = TRUE)
+
+```
+
+## Ejercicio 2
+
+**Diga que razones le parecen convincentes para justificar que la media de una muestra escogida al azar es un estimador más fiable que la media de una muestra de expertos.**
+
+Cuando un experto selecciona las muestras se puede producir un error de sesgo, error que al contrario que ocurre al seleccionar muestras aleatorias no se atenúa aumentando el número de muestras sino que aumenta y es difícil de corregir. El problema de depender del criterio de un experto es que puede estar cogiendo un pequeño grupo muy específico que no sea representativo de lo que se quiere estudiar.
+
+------------------------------------------------------------------------
+
+## Ejercicio 3
+
+**Suponga la variable aleatoria "tiempo que tardo en ir de mi casa al trabajo" y diferencie factores sistemáticos y factores aleatorios intervinientes en su medición.**
+
+Yo en mi día a día vuelvo a mi casa en bici desde la universidad y si quiero saber que tardo tendré que tener en cuenta diferentes factores:
+
+-   **Factores aleatorios**: Alguna vez al volviendo a casa me encuentro una calle cortada y tengo que recorrer un camino más largo para llegar. Este factor aleatorio es fácilmente corregible aumentando el número de muestras.
+
+-   **Factores sistemáticos**: De vez en cuando al volver me encuentro que no hay bicis en las estaciones cerca de la universidad y por tanto tardo más en volver a casa, aqui influye el factor de hora de salida. He visto estos meses que si salgo a las 21:10 suelo encontrar menos bicis cerca de la universidad que si salgo a las 20:55.
+
+------------------------------------------------------------------------
+
+## Ejercicio 4
+
+**Cuando podemos asegurar que el mecanismo generador de una variable aleatoria se aproxima a una distribución gaussiana.**
+
+Una vez tienes un número de muestras aleatorias considerables (mínimo 30 muestras) hay que mirar si tienen una distribución simétrica, además de que el centro de la curva se encuentra en la media y mediana.
+
+------------------------------------------------------------------------
+
+## Ejercicio 5
+
+**Lea el fichero "BCN_pisos.txt". Efectúe un summary de las variables leídas. Detecte si en el fichero proporcionado hay registros duplicados y elimínelos. Los datos proporcionados son reales. ¿Porque cree que existen registros duplicados?.**
+
+------------------------------------------------------------------------
+
+```{r}
+
+pisos_bcn = read.delim("bcn_pisos.txt")
+summary(pisos_bcn) 
+duplicated(pisos_bcn) 
+dim(pisos_bcn)
+pisos_bcn_uniques = unique(pisos_bcn)
+dim(pisos_bcn_uniques) 
+names_rows = names(pisos_bcn_uniques)
+
+```
+
+------------------------------------------------------------------------
+
+## Ejercicio 6
+
+**Represente gráficamente la distribución de cada variable del fichero: histograma o función de densidad para las variables continuas o diagrama de barras para las variables categóricas.**
+
+------------------------------------------------------------------------
+
+```{r}
+
+hist(x = pisos_bcn_uniques$Valor) 
+hist(x = pisos_bcn_uniques$Superf)
+hist(x = pisos_bcn_uniques$Dorm) 
+hist(x = pisos_bcn_uniques$Banys)
+hist(x = pisos_bcn_uniques$Edat) 
+hist(x = pisos_bcn_uniques$ValSol)
+
+ggplot(pisos_bcn_uniques, aes(x=pisos_bcn_uniques$Ascens)) + geom_bar()
+ggplot(pisos_bcn_uniques, aes(x=pisos_bcn_uniques$Dist)) + geom_bar()
+ggplot(pisos_bcn_uniques, aes(x=pisos_bcn_uniques$ExtInt)) + geom_bar()
+ggplot(pisos_bcn_uniques, aes(x=pisos_bcn_uniques$Estat)) + geom_bar()
+ggplot(pisos_bcn_uniques, aes(x=pisos_bcn_uniques$Planta)) + geom_bar()
+ggplot(pisos_bcn_uniques, aes(x=pisos_bcn_uniques$Tipus)) + geom_bar()
+ggplot(pisos_bcn_uniques, aes(x=pisos_bcn_uniques$Reforma)) + geom_bar()
+
+
+```
+
+## Ejercicio 7
+
+**Identifique si existe algún piso que podemos considerar "outlier" (para ello solo tenga en cuenta las variables continuas). Elimínelo del data frame.**
+
+Solo hay que coger las variables continuas. Realizar una detección multivariante con el método LOF, max eliminar dos pisos
+
+```{r}
+pisos_bcn_uniques_continuos = data.frame("valor" = pisos_bcn_uniques$Valor, 
+                                         "Superf" = pisos_bcn_uniques$Superf,
+                                         "Dorm" = pisos_bcn_uniques$Dorm,
+                                         "bayns" = pisos_bcn_uniques$Banys,
+                                         "Edat" = pisos_bcn_uniques$Edat,
+                                         "ValSol" = pisos_bcn_uniques$ValSol)
+
+outlier.scores <- lofactor(scale(pisos_bcn_uniques_continuos), k=4)
+plot(density(outlier.scores))
+
+outliers <- order(outlier.scores, decreasing=T)[1:2]
+dim(pisos_bcn_uniques)
+#no se si los indices se mantienen entre df, busco los indices de los outliers en un df de variables continuas y elimino del df que  tiene las variables continuas y categoricas
+pisos_bcn_wihtout_outliers = pisos_bcn_uniques[-c(outliers),] 
+dim(pisos_bcn_wihtout_outliers)
+
+
+```
+
+------------------------------------------------------------------------
+
+## Ejercicio 8
+
+**Efectúe un diagrama bivariante (plot) entre el "Valor de los pisos" y su "Superficie". Calcule la covariancia y la correlación entre ambas variables.**
+
+```{r}
+
+df_valor_super = data.frame("Valor" = pisos_bcn_wihtout_outliers$Valor,
+                            "Superficie" = pisos_bcn_wihtout_outliers$Superf)
+
+cov(df_valor_super)
+cor(df_valor_super)
+
+plot(df_valor_super, col='Blue')
+
+```
+
+------------------------------------------------------------------------
+
+| Explicacion: Eliminar antes de entregar
+
+| - El **coeficiente phi** es el valor de la chi cuadrado entre el número de observaciones, un valor próximo a 0 indica independencia entre los factores, valores próximos o superiores a 1 implican relación entre los factores.
+| - El **coeficiente de contingencia** también es una medida de la intensidad de la relación basado en la chi cuadrado y toma valores entre 0 (independencia) y 1 (dependencia).
+| - La **V de Cramer** es muy habitual para medir la relación entre factores, es menos susceptible a valores muestrales. También 0 implica independencia y 1 una relación perfecta entre los factores. Habitualmente valores superiores a 0,30 ya nos están indicando que hay una posible relación entre las variables. En este caso tenemos valores muy próximos a 0 en todos los estadísticos que nos ofrece, ambos factores son independientes. \|
+
+------------------------------------------------------------------------
+
+## Ejercicio 9
+
+**Calcule la asociación entre el "Valor de los pisos" y el "Distrito".**
+
+```{r}
+
+df_valor_distrito = data.frame("Valor" = pisos_bcn_wihtout_outliers$Valor,
+                               "Distrito" = pisos_bcn_wihtout_outliers$Dist)
+
+# el chisq me da un warning y me dice que seguramente este incorrecto.
+chisq.test(pisos_bcn_wihtout_outliers$Valor, 
+           pisos_bcn_wihtout_outliers$Dist, 
+           correct=TRUE)
+
+table_valor_distrito <- table(pisos_bcn_wihtout_outliers$Valor,
+                               pisos_bcn_wihtout_outliers$Dist,
+                               dnn = c("Valor", "Distrito"))
+
+assocstats(x = table_valor_distrito)
+
+```
+
+Podemos ver que el coficiente **Contingency Coeff** y **Cramer's V** estan cerca del valor de 0. Como en todos los estadístico que tenemos estamos cerca de 0 podemos decir que ambos factores son independientes.
+
+------------------------------------------------------------------------
+
+## Ejercicio 10
+
+**Calcule la asociación entre el "Distrito" y el "Estado de la vivienda".**
+
+```{r}
+
+df_distrito_estado = data.frame("Estat" = pisos_bcn_wihtout_outliers$Estat,
+                               "Distrito" = pisos_bcn_wihtout_outliers$Dist)
+
+# el chisq me da un warning y me dice que seguramente este incorrecto.
+chisq.test(pisos_bcn_wihtout_outliers$Dist, 
+           pisos_bcn_wihtout_outliers$Estat, 
+           correct=TRUE, simulate.p.value = FALSE)
+
+table_estat_distrito <- table(pisos_bcn_wihtout_outliers$Estat, 
+               pisos_bcn_wihtout_outliers$Dist,
+               dnn = c("Estat", "Distrito"))
+
+assocstats(x = table_estat_distrito)
+
+
+```
+
+------------------------------------------------------------------------
