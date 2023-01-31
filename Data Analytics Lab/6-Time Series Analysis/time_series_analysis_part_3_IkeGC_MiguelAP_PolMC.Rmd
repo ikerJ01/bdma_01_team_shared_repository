@@ -6,16 +6,6 @@ output:
   html_document: default
 ---
 
-```{=html}
-<style type="text/css">
-.main-container {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
-```
-
 ------------------------------------------------------------------------
 
 ```{r}
@@ -155,7 +145,7 @@ c\. Escojeria el modelo proporcionado por aurto.arima, ya que tiene una varianza
 **Which is the model suggested by auto.arima for the time series IPC.tr? Plot the residuals of this model and the residuals ACF and PACF.**
 
 ```{r}
-modelo<-auto.arima(IPC.tr, trace=TRUE)
+modelo = auto.arima(IPC.tr, trace=TRUE)
 summary(modelo)
 ```
 
@@ -174,7 +164,7 @@ Tenemos arriba la gráfica de los residuos, la cual no parece tener ningún patr
 **Consider the ARMA model suggested and estimated by auto.arima for the time series IPC.tr.d1.d12.** **Use the function forecast from library forecast to predict the next 15 values of IPC.tr.d1.d12 (these are the forecasting of the values corresponding to the period from January 2017 to March 2018).** **Plot the forecasted object using plot and autoplot.**
 
 ```{r}
-pronos <- forecast(auto.arma.IPC.tr.d1.d12,h=15,level=95)
+pronos = forecast(auto.arma.IPC.tr.d1.d12,h=15,level=95)
 autoplot(pronos) +  theme_light()
 ```
 
@@ -187,7 +177,19 @@ autoplot(pronos) +  theme_light()
 **b. Compare these predictions with the values of of the test values in IPC.te.**
 
 ```{r}
+#A
+best.arima.IPC.tr = auto.arima(IPC.tr)
+print(best.arima.IPC.tr)
 
+plot(forecast(best.arima.IPC.tr, h=15))
+
+autoplot(forecast(best.arima.IPC.tr, h=15))
+```
+
+```{r}
+#B
+#IPC (IPC.te)
+autoplot(IPC.te)
 ```
 
 # **Exercise 9**
@@ -195,5 +197,15 @@ autoplot(pronos) +  theme_light()
 **Compare the predictions obtained by Holt-Winters (last homework) and by the ARIMA model with the true values of IPC (IPC.te).**
 
 ```{r}
+#Holtwinters
+IPC.tr.HW = HoltWinters(IPC.tr)
+
+autoplot(forecast(IPC.tr.HW, h=15))
+
+#ARIMA
+autoplot(forecast(best.arima.IPC.tr, h=15))
+
+#IPC (IPC.te)
+autoplot(IPC.te)
 
 ```
