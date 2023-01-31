@@ -18,7 +18,7 @@ output:
 
 ------------------------------------------------------------------------
 
-```{r message=FALSE}
+```{r}
 library(dplyr)
 library(tidyr)
 library(reshape2)
@@ -26,9 +26,10 @@ library(magrittr)
 library(stringr)
 library(astsa)
 library(forecast)
+library(ggplot2)
 ```
 
-# **Exercise 1:**
+# **Exercise 1**
 
 **Read the IPC data as you did in the last homework. Then compute the Inflation as Inflation \<- 100\*diff(IPC,lag=12)/lag(IPC,k=-12) and the regularly and seasonally differentiated IPC time series as IPC.d1.d12 \<- diff( diff(IPC,lag=12), lag=1).**
 
@@ -56,7 +57,7 @@ Inflation = na.omit(Inflation)
 IPC.d1.d12 = diff(diff(ipcIndex.ts,lag=12), lag=1)
 ```
 
-# **Exercise 2:**
+# **Exercise 2**
 
 **Joint the two previous time series with ts.union and plot the resulting bivariate series.**
 
@@ -67,7 +68,7 @@ inf.union.d1.d12 = ts.union(Inflation, IPC.d1.d12)
 plot(inf.union.d1.d12, main="Inflation vs Seasonally differentiated IPC")
 ```
 
-# **Exercise 3:**
+# **Exercise 3**
 
 **Define Infl.d1 as the regular difference of Inflation. Check that this series is very similar to IPC.d1.d12.**
 
@@ -82,7 +83,7 @@ plot(inf.d1.union.d1.d12, main="Regularly differentiated Inflation vs Seasonally
 
 Las series son muy parecidas. Es curioso el lag que presenta la serie IPC.d1.d12 respecto a Infl.d1 ya que parece que sigue la misma tendencia solo que desplazada hacia la derecha en el eje temporal.
 
-# **Exercise 4:**
+# **Exercise 4**
 
 **Using the function window, cut the time series IPC in two parts: a training part until December 2016, and a test part from January 2017. Call them IPC.tr and IPC.te, respectively. Then compute the** **regular and seasonal difference of IPC.tr and call the resulting series IPC.tr.d1.d12. Plot this series,** **as well as its ACF and its PACF.**
 
@@ -105,7 +106,7 @@ acf(IPC.tr.d1.d12, main = 'ACF IPC.tr.d1.d12')
 pacf(IPC.tr.d1.d12, main = 'PACF IPC.tr.d1.d12')
 ```
 
-# **Exercise 5:**
+# **Exercise 5**
 
 **Based on the ACF and the PACF, propose at least two different ARMA models for IPC.tr.d1.d12.**
 
@@ -149,23 +150,35 @@ plot(auto.arma.IPC.tr.d1.d12$residuals, main = Var)
 
 c\. Escojeria el modelo proporcionado por aurto.arima, ya que tiene una varianza muy baja y el ACF y PACF pintan mejor.
 
-# **Exercise 6:**
+# **Exercise 6**
 
 **Which is the model suggested by auto.arima for the time series IPC.tr? Plot the residuals of this model and the residuals ACF and PACF.**
 
 ```{r}
-
+modelo<-auto.arima(IPC.tr, trace=TRUE)
+summary(modelo)
 ```
 
-# **Exercise 7:**
+El mejor modelo sugerido por auto.arima es:
+
+ARIMA(ar=1, i=1, ma=0)(sar=0, si=1, mar=1)[12]
+
+```{r}
+checkresiduals(modelo)
+```
+
+Tenemos arriba la gráfica de los residuos, la cual no parece tener ningún patrón y se ve un poco aleatoria. Abajo a la Izquierda podemos ver la prueba de autocorrelación en la cual destaca la linea que sobresale un poco. Y abajo a la derecha está un histograma de la distribución de los residuos, en la cual parecen normales.
+
+# **Exercise 7**
 
 **Consider the ARMA model suggested and estimated by auto.arima for the time series IPC.tr.d1.d12.** **Use the function forecast from library forecast to predict the next 15 values of IPC.tr.d1.d12 (these are the forecasting of the values corresponding to the period from January 2017 to March 2018).** **Plot the forecasted object using plot and autoplot.**
 
 ```{r}
-
+pronos <- forecast(auto.arma.IPC.tr.d1.d12,h=15,level=95)
+autoplot(pronos) +  theme_light()
 ```
 
-# **Exercise 8:**
+# **Exercise 8**
 
 **Consider the ARIMA model suggested and estimated by auto.arima for the time series IPC.tr. Use the function forecast from library forecast to predict the next 15 values of IPC.tr (these are the forecasting of the values corresponding to the period from January 2017 to March 2018).**
 
@@ -177,7 +190,7 @@ c\. Escojeria el modelo proporcionado por aurto.arima, ya que tiene una varianza
 
 ```
 
-# **Exercise 9:**
+# **Exercise 9**
 
 **Compare the predictions obtained by Holt-Winters (last homework) and by the ARIMA model with the true values of IPC (IPC.te).**
 
