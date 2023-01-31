@@ -1,31 +1,186 @@
 ---
-title: "Time Series Anlaysis. Practice 2. ARIMA Models"
+title: "Time Series Anlaysis. Practice 3. ARIMA Models "
 author: "Miguel Albertí Pons, Iker González Cuellar, Pol Martínez Collado"
-date: "2023-01-27"
+date: "27-01-23"
 output:
   html_document: default
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{=html}
+<style type="text/css">
+.main-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 ```
 
-## R Markdown
+------------------------------------------------------------------------
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r message=FALSE}
+library(dplyr)
+library(tidyr)
+library(reshape2)
+library(magrittr)
+library(stringr)
+library(astsa)
+library(forecast)
 ```
 
-## Including Plots
+# **Exercise 1:**
 
-You can also embed plots, for example:
+**Read the IPC data as you did in the last homework. Then compute the Inflation as Inflation \<- 100\*diff(IPC,lag=12)/lag(IPC,k=-12) and the regularly and seasonally differentiated IPC time series as IPC.d1.d12 \<- diff( diff(IPC,lag=12), lag=1).**
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+ipcDataRaw = read.csv("_repository/INE_IPC.csv", sep = ",")
+
+# IPC INDEX
+# ----------------------------------
+table_range = 1:196
+ipcIndex = ipcDataRaw[c(6,7),table_range]
+names(ipcIndex) = ipcIndex[1,]
+ipcIndex = ipcIndex[-1,] %>% rename(., id = 1) %>% melt(., id = "id") %>% rename(., date = 2, index = 3) %>% .[,2:3] %>% arrange(., desc(date)) %>% transform(., index = as.double(index), date = as.Date(date))
+ipcIndex.ts = ts(ipcIndex[2], frequency = 12, start=c(2002,01))
+
+# Inflation
+# ----------------------------------
+divisor = lag(ipcIndex[,2],k=-12)
+dividendo = 100*diff(ipcIndex[,2],lag=12)
+Inflation = suppressWarnings(ts(dividendo/divisor, frequency = 12, start=c(2002,01)))
+Inflation = na.omit(Inflation)
+
+
+# seasonally differentiated IPC TS
+# ----------------------------------
+IPC.d1.d12 = diff(diff(ipcIndex.ts,lag=12), lag=1)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+# **Exercise 2:**
+
+**Joint the two previous time series with ts.union and plot the resulting bivariate series.**
+
+```{r}
+
+inf.union.d1.d12 = ts.union(Inflation, IPC.d1.d12)
+
+plot(inf.union.d1.d12, main="Inflation vs Seasonally differentiated IPC")
+```
+
+# **Exercise 3:**
+
+**Define Infl.d1 as the regular difference of Inflation. Check that this series is very similar to IPC.d1.d12.**
+
+```{r}
+
+Infl.d1 = diff(Inflation, lag = 1)
+
+inf.d1.union.d1.d12 = ts.union(Infl.d1, IPC.d1.d12)
+
+plot(inf.d1.union.d1.d12, main="Regularly differentiated Inflation vs Seasonally differentiated IPC")
+```
+
+Las series son muy parecidas. Es curioso el lag que presenta la serie IPC.d1.d12 respecto a Infl.d1 ya que parece que sigue la misma tendencia solo que desplazada hacia la derecha en el eje temporal.
+
+# **Exercise 4:**
+
+**Using the function window, cut the time series IPC in two parts: a training part until December 2016, and a test part from January 2017. Call them IPC.tr and IPC.te, respectively. Then compute the** **regular and seasonal difference of IPC.tr and call the resulting series IPC.tr.d1.d12. Plot this series,** **as well as its ACF and its PACF.**
+
+```{r}
+
+end.tr = c(2016,12)
+IPC.tr = window(ipcIndex.ts, end = end.tr)
+
+start.te = c(2017,1)
+IPC.te = window(ipcIndex.ts, start = start.te)
+
+plot(IPC.tr, main="IPC Training")
+plot(IPC.te, main="IPC Test")
+
+IPC.tr.d1.d12 = diff(diff(IPC.tr,lag=1), lag=12)
+
+par(mfrow = c(1,1), mar = c(rep(3,4)))
+plot(IPC.tr.d1.d12, main = 'IPC.tr.d1.d12')
+acf(IPC.tr.d1.d12, main = 'ACF IPC.tr.d1.d12')
+pacf(IPC.tr.d1.d12, main = 'PACF IPC.tr.d1.d12')
+```
+
+# **Exercise 5:**
+
+**Based on the ACF and the PACF, propose at least two different ARMA models for IPC.tr.d1.d12.**
+
+**a. Estimate the ARMA models you propose. Plot the residuals of them and the residuals ACF and PACF.**
+
+**b. Which is the model suggested by auto.arima? Plot the residuals of this model and the residuals ACF and PACF.**
+
+**c. Which ARMA model do you chose finally for IPC.tr.d1.d12?.**
+
+```{r}
+#a.
+#ARMA model 1
+arma.1.1.IPC.tr.d1.d12 = Arima(IPC.tr.d1.d12, order = c(1, 0, 1))
+
+acf(arma.1.1.IPC.tr.d1.d12$residuals, main = 'ACF arma.1.1.IPC.tr.d1.d12')
+pacf(arma.1.1.IPC.tr.d1.d12$residuals, main = 'PACF arma.1.1.IPC.tr.d1.d12')
+Var = var(arma.1.1.IPC.tr.d1.d12$residuals)
+plot(arma.1.1.IPC.tr.d1.d12$residuals, main = Var)
+```
+
+```{r}
+#ARMA model 2
+arma.12.12.IPC.tr.d1.d12 = Arima(IPC.tr.d1.d12, order = c(12, 0, 12))
+
+acf(arma.12.12.IPC.tr.d1.d12$residuals, main = 'ACF arma.12.12.IPC.tr.d1.d12')
+pacf(arma.12.12.IPC.tr.d1.d12$residuals, main = 'PACF arma.12.12.IPC.tr.d1.d12')
+Var = var(arma.12.12.IPC.tr.d1.d12$residuals)
+plot(arma.12.12.IPC.tr.d1.d12$residuals, main = Var)
+```
+
+```{r}
+#b.
+#auto ARMA
+auto.arma.IPC.tr.d1.d12 = auto.arima(IPC.tr.d1.d12)
+
+acf(auto.arma.IPC.tr.d1.d12$residuals, main = 'ACF auto.arma.IPC.tr.d1.d12')
+pacf(auto.arma.IPC.tr.d1.d12$residuals, main = 'PACF auto.arma.IPC.tr.d1.d12')
+Var = var(auto.arma.IPC.tr.d1.d12$residuals)
+plot(auto.arma.IPC.tr.d1.d12$residuals, main = Var)
+```
+
+c\. Escojeria el modelo proporcionado por aurto.arima, ya que tiene una varianza muy baja y el ACF y PACF pintan mejor.
+
+# **Exercise 6:**
+
+**Which is the model suggested by auto.arima for the time series IPC.tr? Plot the residuals of this model and the residuals ACF and PACF.**
+
+```{r}
+
+```
+
+# **Exercise 7:**
+
+**Consider the ARMA model suggested and estimated by auto.arima for the time series IPC.tr.d1.d12.** **Use the function forecast from library forecast to predict the next 15 values of IPC.tr.d1.d12 (these are the forecasting of the values corresponding to the period from January 2017 to March 2018).** **Plot the forecasted object using plot and autoplot.**
+
+```{r}
+
+```
+
+# **Exercise 8:**
+
+**Consider the ARIMA model suggested and estimated by auto.arima for the time series IPC.tr. Use the function forecast from library forecast to predict the next 15 values of IPC.tr (these are the forecasting of the values corresponding to the period from January 2017 to March 2018).**
+
+**a. Plot the forecasted object using plot and autoplot.**
+
+**b. Compare these predictions with the values of of the test values in IPC.te.**
+
+```{r}
+
+```
+
+# **Exercise 9:**
+
+**Compare the predictions obtained by Holt-Winters (last homework) and by the ARIMA model with the true values of IPC (IPC.te).**
+
+```{r}
+
+```
