@@ -119,7 +119,7 @@ plot(arma.1.1.IPC.tr.d1.d12$residuals, main = Var)
 
 ```{r}
 #ARMA model 2
-arma.12.12.IPC.tr.d1.d12 = Arima(IPC.tr.d1.d12, order = c(12, 0, 12))
+arma.12.12.IPC.tr.d1.d12 = Arima(IPC.tr.d1.d12, order = c(1, 0, 0))
 
 acf(arma.12.12.IPC.tr.d1.d12$residuals, main = 'ACF arma.12.12.IPC.tr.d1.d12')
 pacf(arma.12.12.IPC.tr.d1.d12$residuals, main = 'PACF arma.12.12.IPC.tr.d1.d12')
@@ -130,7 +130,8 @@ plot(arma.12.12.IPC.tr.d1.d12$residuals, main = Var)
 ```{r}
 #b.
 #auto ARMA
-auto.arma.IPC.tr.d1.d12 = auto.arima(IPC.tr.d1.d12)
+auto.arma.IPC.tr.d1.d12 = auto.arima(IPC.tr.d1.d12, trace=TRUE)
+summary(auto.arma.IPC.tr.d1.d12)
 
 acf(auto.arma.IPC.tr.d1.d12$residuals, main = 'ACF auto.arma.IPC.tr.d1.d12')
 pacf(auto.arma.IPC.tr.d1.d12$residuals, main = 'PACF auto.arma.IPC.tr.d1.d12')
@@ -138,7 +139,11 @@ Var = var(auto.arma.IPC.tr.d1.d12$residuals)
 plot(auto.arma.IPC.tr.d1.d12$residuals, main = Var)
 ```
 
-c\. Escojeria el modelo proporcionado por aurto.arima, ya que tiene una varianza muy baja y el ACF y PACF pintan mejor.
+El modelo sugerido por auto.arma es:
+
+ARIMA(1,0,0)(0,0,1) with zero mean
+
+c\. Escojeria el modelo proporcionado por aurto.arima, ya que su autocorrelación sigue una tendencia más orgánica que la de las dos otras ARMAs y su varianza es notablemente menor.
 
 # **Exercise 6**
 
@@ -179,43 +184,33 @@ autoplot(pronos) +  theme_light()
 ```{r}
 #A
 best.arima.IPC.tr = auto.arima(IPC.tr)
+print(best.arima.IPC.tr)
 
 plot(forecast(best.arima.IPC.tr, h=15))
 
 autoplot(forecast(best.arima.IPC.tr, h=15))
-
 ```
 
 ```{r}
 #B
-#IPC.TE
-plot(IPC.te, main = "IPC.te")
-
-#Comparison
-plot(forecast(best.arima.IPC.tr, h=15),col="red", lw=5, main = "ARIMA(1,1,0)(0,1,1)[12] vs IPC.te")
-lines(ipcIndex.ts,col="green", lw=0.1)
+#IPC (IPC.te)
+autoplot(IPC.te)
 ```
-
-Se observa que el modelo ARIMA realizo una predicción acertada en cuanto a la tendencia del gráfico y aproximó los valores a los eventos reales de IPC.te.
-
-En el gráfico comparativo podemos observar que los valores de IPC.te están dentro de las bandas de confianza del 80% del modelo ARIMA, por lo cual podemos concluir que, al ser una predicción a corto plazo, es bastante precisa y aproximada a los eventos reales.
 
 # **Exercise 9**
 
 **Compare the predictions obtained by Holt-Winters (last homework) and by the ARIMA model with the true values of IPC (IPC.te).**
 
 ```{r}
-#Comparison ARIMA vs IPC.te
-plot(forecast(best.arima.IPC.tr, h=15),col="red", lw=5, main = "ARIMA(1,1,0)(0,1,1)[12] vs IPC.te")
-lines(ipcIndex.ts,col="green", lw=0.1)
+#Holtwinters
+IPC.tr.HW = HoltWinters(IPC.tr)
 
-#Comparison Holt-Winters vs IPC.te
-plot(forecast(IPC.tr.HW, h=15),col="blue", lw=5, main = "Holt-Winters vs IPC.te")
-lines(ipcIndex.ts,col="green", lw=0.1)
+autoplot(forecast(IPC.tr.HW, h=15))
+
+#ARIMA
+autoplot(forecast(best.arima.IPC.tr, h=15))
+
+#IPC (IPC.te)
+autoplot(IPC.te)
+
 ```
-
-Tanto ARIMA como Holt-winters realizan predicciones bastante parecidas y precisas acorde a los valores reales observados en IPC.te.
-
-Sin embargo, en HW se puede observar un punto del IPC.te alrededor del mes 2 y 3 que se encuentra dentro de la banda de confianza del 95% cuando en ARIMA, todas las observaciones de IPC.te se encuentran dentro del 80%.
-
-Por otra parte, la predicción de HW suaviza la curva más que el modelo ARIMA, y éste modelo realizó una predicción con mayor precisión de la tendencia y los picos de la curva al seguir el mismo patron que los valores de IPC.te.
