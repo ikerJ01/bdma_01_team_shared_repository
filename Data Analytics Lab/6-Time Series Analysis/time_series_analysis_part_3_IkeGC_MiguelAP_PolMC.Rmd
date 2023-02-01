@@ -1,14 +1,15 @@
 ---
-title: "Time Series Anlaysis. Practice 3. ARIMA Models "
+title: 'Time Series Anlaysis. Practice 3. ARIMA Models '
 author: "Miguel Albertí Pons, Iker González Cuellar, Pol Martínez Collado"
-date: "27-01-23"
+date: "01-02-23"
 output:
   html_document: default
+  pdf_document: default
 ---
 
 ------------------------------------------------------------------------
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(dplyr)
 library(tidyr)
 library(reshape2)
@@ -102,30 +103,39 @@ pacf(IPC.tr.d1.d12, main = 'PACF IPC.tr.d1.d12')
 
 **a. Estimate the ARMA models you propose. Plot the residuals of them and the residuals ACF and PACF.**
 
-**b. Which is the model suggested by auto.arima? Plot the residuals of this model and the residuals ACF and PACF.**
+Propuesta 1: ARMA(1,1) ya que tanto el ACF decrese rápidamente en el lag 1 y PACF decrese rápidamente después del lag 0.
 
-**c. Which ARMA model do you chose finally for IPC.tr.d1.d12?.**
+Propuesta 2: ARMA(0,1) ya que el ACF a después del retardo 1 se aproxima a cero y se podria considerar un MA(1)
 
 ```{r}
+
 #a.
-#ARMA model 1
+#ARMA(1,1) propuesta model 1
 arma.1.1.IPC.tr.d1.d12 = Arima(IPC.tr.d1.d12, order = c(1, 0, 1))
 
+par(mfrow = c(1,1), mar = c(rep(5,4)))
 acf(arma.1.1.IPC.tr.d1.d12$residuals, main = 'ACF arma.1.1.IPC.tr.d1.d12')
 pacf(arma.1.1.IPC.tr.d1.d12$residuals, main = 'PACF arma.1.1.IPC.tr.d1.d12')
 Var = var(arma.1.1.IPC.tr.d1.d12$residuals)
-plot(arma.1.1.IPC.tr.d1.d12$residuals, main = Var)
+plot(arma.1.1.IPC.tr.d1.d12$residuals, main = paste("VAR:",Var));abline(h=0, col=2)
 ```
 
 ```{r}
-#ARMA model 2
-arma.12.12.IPC.tr.d1.d12 = Arima(IPC.tr.d1.d12, order = c(1, 0, 0))
+#ARMA(0,1) propuesta model 2
+arma.12.12.IPC.tr.d1.d12 = Arima(IPC.tr.d1.d12, order = c(0, 0, 1))
 
+par(mfrow = c(1,1), mar = c(rep(5,4)))
 acf(arma.12.12.IPC.tr.d1.d12$residuals, main = 'ACF arma.12.12.IPC.tr.d1.d12')
 pacf(arma.12.12.IPC.tr.d1.d12$residuals, main = 'PACF arma.12.12.IPC.tr.d1.d12')
 Var = var(arma.12.12.IPC.tr.d1.d12$residuals)
-plot(arma.12.12.IPC.tr.d1.d12$residuals, main = Var)
+plot(arma.12.12.IPC.tr.d1.d12$residuals, main = paste("VAR:",Var));abline(h=0, col=2)
 ```
+
+**b. Which is the model suggested by auto.arima? Plot the residuals of this model and the residuals ACF and PACF.**
+
+El modelo sugerido por auto.arima es:
+
+*ARIMA(1,0,0)(0,0,1)[12]*
 
 ```{r}
 #b.
@@ -133,17 +143,16 @@ plot(arma.12.12.IPC.tr.d1.d12$residuals, main = Var)
 auto.arma.IPC.tr.d1.d12 = auto.arima(IPC.tr.d1.d12, trace=TRUE)
 summary(auto.arma.IPC.tr.d1.d12)
 
+par(mfrow = c(1,1), mar = c(rep(5,4)))
 acf(auto.arma.IPC.tr.d1.d12$residuals, main = 'ACF auto.arma.IPC.tr.d1.d12')
 pacf(auto.arma.IPC.tr.d1.d12$residuals, main = 'PACF auto.arma.IPC.tr.d1.d12')
 Var = var(auto.arma.IPC.tr.d1.d12$residuals)
-plot(auto.arma.IPC.tr.d1.d12$residuals, main = Var)
+plot(auto.arma.IPC.tr.d1.d12$residuals, main = paste("VAR:",Var));abline(h=0, col=2)
 ```
 
-El modelo sugerido por auto.arma es:
+**c. Which ARMA model do you chose finally for IPC.tr.d1.d12?.**
 
-ARIMA(1,0,0)(0,0,1) with zero mean
-
-c\. Escojeria el modelo proporcionado por aurto.arima, ya que su autocorrelación sigue una tendencia más orgánica que la de las dos otras ARMAs y su varianza es notablemente menor.
+Escogeríamos el modelo proporcionado por aurto.arima (1,0,0)(0,0,1)[12], ya que su autocorrelación sigue una tendencia más orgánica y estacionaria que la de las dos propuestas ARMA y su varianza es notablemente menor (Var = 0.0669795).
 
 # **Exercise 6**
 
@@ -156,11 +165,15 @@ summary(modelo)
 
 El mejor modelo sugerido por auto.arima es:
 
-ARIMA(ar=1, i=1, ma=0)(sar=0, si=1, mar=1)[12]
+**ARIMA(ar=1, i=1, ma=0)(sar=0, si=1, mar=1)[12]**
 
 ```{r}
-pacf(modelo$residuals)
 checkresiduals(modelo)
+
+par(mfrow = c(1,1), mar = c(rep(5,4)))
+pacf(modelo$residuals, main="PACF modelo$residuals")
+
+acf(modelo$residuals, main="PACF modelo$residuals")
 ```
 
 En los gráficos Rediuals from ARIMA podemos ver arriba la gráfica de los residuos, la cual no parece tener ningún patrón y se ve un poco aleatoria. Abajo a la Izquierda podemos ver la prueba de autocorrelación en la cual destaca la linea que sobresale un poco. Y abajo a la derecha está un histograma de la distribución de los residuos, en la cual parecen normales.
@@ -170,8 +183,11 @@ En los gráficos Rediuals from ARIMA podemos ver arriba la gráfica de los resid
 **Consider the ARMA model suggested and estimated by auto.arima for the time series IPC.tr.d1.d12.** **Use the function forecast from library forecast to predict the next 15 values of IPC.tr.d1.d12 (these are the forecasting of the values corresponding to the period from January 2017 to March 2018).** **Plot the forecasted object using plot and autoplot.**
 
 ```{r}
-pronos = forecast(auto.arma.IPC.tr.d1.d12,h=15,level=95)
+pronos = forecast(auto.arma.IPC.tr.d1.d12,h=15,level=c(80,95))
+#Autoplot
 autoplot(pronos) +  theme_light()
+#Plot
+plot(pronos)
 ```
 
 # **Exercise 8**
@@ -180,38 +196,48 @@ autoplot(pronos) +  theme_light()
 
 **a. Plot the forecasted object using plot and autoplot.**
 
-**b. Compare these predictions with the values of of the test values in IPC.te.**
-
 ```{r}
 #A
 best.arima.IPC.tr = auto.arima(IPC.tr)
-print(best.arima.IPC.tr)
 
 plot(forecast(best.arima.IPC.tr, h=15))
 
 autoplot(forecast(best.arima.IPC.tr, h=15))
 ```
 
+**b. Compare these predictions with the values of of the test values in IPC.te.**
+
 ```{r}
 #B
-#IPC (IPC.te)
-autoplot(IPC.te)
+#IPC.TE
+plot(IPC.te, main = "IPC.te")
+
+#Comparison
+plot(forecast(best.arima.IPC.tr, h=15),col="red", lw=6, main = "ARIMA(1,1,0)(0,1,1)[12] vs IPC.te")
+lines(ipcIndex.ts,col="green", lw=1)
 ```
+
+Se observa que el modelo ARIMA realizo una predicción acertada en cuanto a la tendencia del gráfico y aproximó los valores a los eventos reales de IPC.te.
+
+En el gráfico comparativo podemos observar que los valores de IPC.te están dentro de las bandas de confianza del 80% del modelo ARIMA, por lo cual podemos concluir que, al ser una predicción a corto plazo, es bastante precisa y aproximada a los eventos reales.
 
 # **Exercise 9**
 
 **Compare the predictions obtained by Holt-Winters (last homework) and by the ARIMA model with the true values of IPC (IPC.te).**
 
 ```{r}
-#Holtwinters
+#Comparison ARIMA vs IPC.te
+plot(forecast(best.arima.IPC.tr, h=15),col="red", lw=6, main = "ARIMA(1,1,0)(0,1,1)[12] vs IPC.te")
+lines(ipcIndex.ts,col="green", lw=1)
+
+#Comparison Holt-Winters vs IPC.te
 IPC.tr.HW = HoltWinters(IPC.tr)
-
-autoplot(forecast(IPC.tr.HW, h=15))
-
-#ARIMA
-autoplot(forecast(best.arima.IPC.tr, h=15))
-
-#IPC (IPC.te)
-autoplot(IPC.te)
-
+plot(forecast(IPC.tr.HW, h=15),col="blue", lw=6, main = "Holt-Winters vs IPC.te")
+lines(ipcIndex.ts,col="green", lw=1)
 ```
+
+Tanto ARIMA como Holt-winters realizan predicciones bastante parecidas y precisas acorde a los valores reales observados en IPC.te.
+
+Sin embargo, en HW se puede observar un punto del IPC.te alrededor del mes 2 y 3 que se encuentra dentro de la banda de confianza del 95% cuando en ARIMA, todas las observaciones de IPC.te se encuentran dentro del 80%.
+
+Por otra parte, la predicción de HW suaviza la curva más que el modelo ARIMA, y éste último modelo realizó una predicción con mayor precisión de la tendencia y los picos de la curva al seguir el mismo patron que los valores de IPC.te.
