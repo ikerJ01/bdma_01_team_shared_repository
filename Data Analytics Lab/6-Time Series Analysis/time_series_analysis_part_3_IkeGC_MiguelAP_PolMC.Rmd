@@ -159,10 +159,11 @@ El mejor modelo sugerido por auto.arima es:
 ARIMA(ar=1, i=1, ma=0)(sar=0, si=1, mar=1)[12]
 
 ```{r}
+pacf(modelo$residuals)
 checkresiduals(modelo)
 ```
 
-Tenemos arriba la gráfica de los residuos, la cual no parece tener ningún patrón y se ve un poco aleatoria. Abajo a la Izquierda podemos ver la prueba de autocorrelación en la cual destaca la linea que sobresale un poco. Y abajo a la derecha está un histograma de la distribución de los residuos, en la cual parecen normales.
+En los gráficos Rediuals from ARIMA podemos ver arriba la gráfica de los residuos, la cual no parece tener ningún patrón y se ve un poco aleatoria. Abajo a la Izquierda podemos ver la prueba de autocorrelación en la cual destaca la linea que sobresale un poco. Y abajo a la derecha está un histograma de la distribución de los residuos, en la cual parecen normales.
 
 # **Exercise 7**
 
