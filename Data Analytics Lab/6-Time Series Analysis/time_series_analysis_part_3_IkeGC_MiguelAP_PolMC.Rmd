@@ -216,6 +216,6 @@ lines(ipcIndex.ts,col="green", lw=0.1)
 
 Tanto ARIMA como Holt-winters realizan predicciones bastante parecidas y precisas acorde a los valores reales observados en IPC.te.
 
-Sin embargo, en HW se puede observar un punto del IPC.te alrededor del mes 2 y 3 que se encuentra dentro de la banda de confianza del 95% cuando en ARIMA todas las observaciones de IPC.te se encuentran dentro del 80%.
+Sin embargo, en HW se puede observar un punto del IPC.te alrededor del mes 2 y 3 que se encuentra dentro de la banda de confianza del 95% cuando en ARIMA, todas las observaciones de IPC.te se encuentran dentro del 80%.
 
-Por otra parte, la predicción de HW suaviza la curva más que el modelo ARIMA, y éste modelo realizó una predicción más precisa de la tendencia y los picos de la curva al seguir el mismo patron que los valores de IPC.te.
+Por otra parte, la predicción de HW suaviza la curva más que el modelo ARIMA, y éste modelo realizó una predicción con mayor precisión de la tendencia y los picos de la curva al seguir el mismo patron que los valores de IPC.te.
