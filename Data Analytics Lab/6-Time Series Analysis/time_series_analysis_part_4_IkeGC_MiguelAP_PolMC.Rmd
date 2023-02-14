@@ -106,12 +106,21 @@ ID + -1/totalLen*(1+rho1)/(1-rho1) + c(-1,1)*qnorm(0.975)*sdID
 -   **Maximum likelihood estimation of the Poisson INAR(1) model?**
 
 ```{r}
+#Transition probabilities of Poisson INAR(1) model:
+tppois = function(k,l,lambda,alpha){
+	tp = 0
+	for(j in c(0:min(k,l))){
+		tp = tp + dbinom(j,l,alpha)*dpois(k-j,lambda)
+	}
+tp
+}
+
 #Log-likelihood of Poisson INAR(1) model:
-llpinar1 = function(par,deaths.Sunday.ts){
-  T = length(deaths.Sunday.ts)
-  value = -log(dpois(deaths.Sunday.ts[1], par[1]/(1-par[2])))
+llpinar1 = function(par,data){
+  T = length(data)
+  value = -log(dpois(data[1], par[1]/(1-par[2])))
   for(t in c(2:T)) {
-	  value = value-log(tppois(deaths.Sunday.ts[t], deaths.Sunday.ts[t-1], par[1], par[2]))
+	  value = value-log(tppois(data[t], data[t-1], par[1], par[2]))
   }
 value
 }
@@ -122,8 +131,8 @@ mue = mean*(1-rho1)
 #Poisson INAR1
 estml = suppressWarnings(optim(c(mue,rho1), llpinar1, method="L-BFGS-B", lower=c(0.0001,0.0001), upper=c(9999,0.9999), control=list(ndeps=c(1e-4,1e-4)), data=deaths.Sunday.ts, hessian=TRUE))
 
-lambdaestml = estml$par[[1]]
-alphaestml = estml$par[[2]]
+estml
+
 ofiest = estml$hessian
 neglmax = estml$value
 estcov = solve(ofiest)
@@ -132,9 +141,14 @@ estcov = solve(ofiest)
 -   **Estimates:** λ̂ λ^**,** α̂ α^**?**
 
     ```{r}
-    print("The Estimates are:")
-    c(lambdaestml,alphaestml)
 
+    print("The lambda estimate is:")
+    lambdaestml = estml$par[[1]]
+    lambdaestml
+
+    print("The alpha estimate is:")
+    alphaestml = estml$par[[2]]
+    alphaestml
     ```
 
 -   **Observations\' Poisson parameter?**
