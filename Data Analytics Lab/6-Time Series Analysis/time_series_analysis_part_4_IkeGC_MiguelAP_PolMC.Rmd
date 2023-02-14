@@ -1,0 +1,119 @@
+---
+title: "Time Series Anlaysis. Practice 4. Discrete valued time series "
+author: "Miguel Albertí Pons, Iker González Cuellar, Pol Martínez Collado"
+date: "14-02-23"
+output:
+  html_document: default
+---
+
+```{=html}
+<style type="text/css">
+.main-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+```
+
+------------------------------------------------------------------------
+
+```{r message=FALSE}
+library(dplyr)
+library(tidyr)
+library(reshape2)
+library(magrittr)
+library(stringr)
+library(astsa)
+```
+
+# **Exercise 1:** 
+
+**Plot the time series, its ACF and its PACF**
+
+```{r}
+
+```
+
+# **Exercise 2:**
+
+**Plot the relative frequencies of the marginal distribution of the time series**
+
+```{r}
+
+
+```
+
+# **Exercise 3:**
+
+**Compute the observations\' mean** μ̂ =x¯μ^=x¯ **and the observations\' variance:** σ̂ 2=γ̂ 0σ^2=γ^0**. Assume now that the time series follows an INAR(1) model. Then estimate the mean and the variance of the innovations time series:** μ̂ ε=μ̂ (1−α̂ )μ^ε=μ^(1−α^)**,** σ̂ 2ε=(1−α̂ 2)σ2^−α̂ μ̂ εσ^ε2=(1−α^2)σ2^−α^μ^ε
+
+```{r}
+
+```
+
+# **Exercise 4:**
+
+**To test the equidispersion for the time series, compute the observed Index of Dispersion (ID),** Î =γ̂ 0/X¯I^=γ^0/X¯**, and the 95% confidence interval for the ID. Does 1 belong to this interval? Can we reject the null hypothesis of equidispersion.**
+
+```{r}
+
+```
+
+# **Exercise 5:**
+
+**Fit the INAR(1) model to the time series:**
+
+-   **Maximum likelihood estimation of the Poisson INAR(1) model?**
+
+-   **Estimates:** λ̂ λ^**,** α̂ α^**?**
+
+-   **Observations\' Poisson parameter?**
+
+```{r}
+
+```
+
+# **Exercise 6:** 
+
+**Compare the observed relative frequencies with the corresponding probabilities of a Poisson distribution with parameter equal to the estimated one.**
+
+```{r}
+
+```
+
+# **Exercise 7:** 
+
+**Compute the Pearson residuals:**
+
+et=xt−𝔼(Xt|Xt−1)Var(Xt|Xt−1)‾‾‾‾‾‾‾‾‾‾‾‾√,t=2,…,T.**et=xt−E(Xt\|Xt−1)Var(Xt\|Xt−1),t=2,...,T.**
+
+**Plot the fitted values over the observed time series. In a different graphc, plot the Pearson residuals.**
+
+```{r}
+
+```
+
+# **Exercise 8:** 
+
+**Plot the ACF and the PACF of the Pearson residuals. Plot the Probability integral transform (PIT). Do you think the the INAR(1) model is appropriate for this time series.**
+
+```{r}
+
+```
+
+# **Exercise 9:** 
+
+**Fit a Generalized Linear Models for the time series using the function `tsglm`. Use lags 1 and 52 for the observations and for the mean. Use the logarithm as the link function.**
+
+```{r}
+
+```
+
+# **Exercise 10:** 
+
+**Fit now the log-linear model until the middle of 2017 (`end=c(2017,26)`). Then predict the number of deaths by accidents in Sundays from the middle of 2017 to the end of 2017. Finally, compare the model predictions with the true observed values.**
+
+```{r}
+
+```
