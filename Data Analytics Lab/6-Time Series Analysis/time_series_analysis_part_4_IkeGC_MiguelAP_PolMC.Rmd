@@ -33,6 +33,12 @@ library(astsa)
 
 ```{r}
 
+load("_repository/AccidSunday.Rdata")
+
+par(mfrow = c(1,1), mar = c(rep(3,4)))
+plot(deaths.Sunday.ts, main='Deaths on Sunday')
+acf(deaths.Sunday.ts, main = 'ACF Deaths on Sunday')
+pacf(deaths.Sunday.ts, main = 'PACF Deaths on Sunday')
 ```
 
 # **Exercise 2:**
@@ -40,7 +46,6 @@ library(astsa)
 **Plot the relative frequencies of the marginal distribution of the time series**
 
 ```{r}
-
 
 ```
 
