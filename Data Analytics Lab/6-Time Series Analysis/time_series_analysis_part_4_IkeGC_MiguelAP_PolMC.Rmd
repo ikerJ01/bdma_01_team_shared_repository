@@ -46,7 +46,16 @@ pacf(deaths.Sunday.ts, main = 'PACF Deaths on Sunday')
 **Plot the relative frequencies of the marginal distribution of the time series**
 
 ```{r}
+#Marginal distribution
 
+hist(deaths.Sunday.ts-0.5, main="Marginal distribution of deaths on sunday", xlab = "Number of deaths")
+
+#Relative frequencies
+
+absFreq = tabulate(deaths.Sunday.ts+1)
+maxVal = max(deaths.Sunday.ts)
+totalLen = length(deaths.Sunday.ts)
+plot(0:maxVal, absFreq/totalLen, type="h", xlab = "k", ylab = expression(paste("estimated P(X"[t],"=k)")), lwd=4, ylim=c(0,0.3), main="Relative frequencies of deaths on sunday")
 ```
 
 # **Exercise 3:**
@@ -54,7 +63,17 @@ pacf(deaths.Sunday.ts, main = 'PACF Deaths on Sunday')
 **Compute the observations\' mean** μ̂ =x¯μ^=x¯ **and the observations\' variance:** σ̂ 2=γ̂ 0σ^2=γ^0**. Assume now that the time series follows an INAR(1) model. Then estimate the mean and the variance of the innovations time series:** μ̂ ε=μ̂ (1−α̂ )μ^ε=μ^(1−α^)**,** σ̂ 2ε=(1−α̂ 2)σ2^−α̂ μ̂ εσ^ε2=(1−α^2)σ2^−α^μ^ε
 
 ```{r}
+#Mean
 
+print("The observations' mean is:")
+mean = mean(deaths.Sunday.ts)
+mean
+
+#Variance
+
+print("The observations' variance is:")
+var = var(deaths.Sunday.ts)
+var
 ```
 
 # **Exercise 4:**
@@ -62,8 +81,23 @@ pacf(deaths.Sunday.ts, main = 'PACF Deaths on Sunday')
 **To test the equidispersion for the time series, compute the observed Index of Dispersion (ID),** Î =γ̂ 0/X¯I^=γ^0/X¯**, and the 95% confidence interval for the ID. Does 1 belong to this interval? Can we reject the null hypothesis of equidispersion.**
 
 ```{r}
+#Index of Dispersion
 
+print("The Index of Dispersion is:")
+ID = (totalLen-1)/totalLen*var/mean
+ID
+
+#95% confidence interval for the ID
+
+rho1 = acf(deaths.Sunday.ts, plot=FALSE)[[1]][2]
+
+sdID = sqrt(2/totalLen*(1+rho1^2)/(1-rho1^2))
+
+print("The 95% confidence interval for the ID is:")
+ID + -1/totalLen*(1+rho1)/(1-rho1) + c(-1,1)*qnorm(0.975)*sdID
 ```
+
+1 does belong to the interval between 0.8587609 and 1.2513351, so we can't reject the null hypothesis of equidispersion, meaning the data presents equidispersion.
 
 # **Exercise 5:**
 
@@ -71,13 +105,45 @@ pacf(deaths.Sunday.ts, main = 'PACF Deaths on Sunday')
 
 -   **Maximum likelihood estimation of the Poisson INAR(1) model?**
 
+```{r}
+#Log-likelihood of Poisson INAR(1) model:
+llpinar1 = function(par,deaths.Sunday.ts){
+  T = length(deaths.Sunday.ts)
+  value = -log(dpois(deaths.Sunday.ts[1], par[1]/(1-par[2])))
+  for(t in c(2:T)) {
+	  value = value-log(tppois(deaths.Sunday.ts[t], deaths.Sunday.ts[t-1], par[1], par[2]))
+  }
+value
+}
+
+#Innovations' mean
+mue = mean*(1-rho1)
+
+#Poisson INAR1
+estml = suppressWarnings(optim(c(mue,rho1), llpinar1, method="L-BFGS-B", lower=c(0.0001,0.0001), upper=c(9999,0.9999), control=list(ndeps=c(1e-4,1e-4)), data=deaths.Sunday.ts, hessian=TRUE))
+
+lambdaestml = estml$par[[1]]
+alphaestml = estml$par[[2]]
+ofiest = estml$hessian
+neglmax = estml$value
+estcov = solve(ofiest)
+```
+
 -   **Estimates:** λ̂ λ^**,** α̂ α^**?**
+
+    ```{r}
+    print("The Estimates are:")
+    c(lambdaestml,alphaestml)
+
+    ```
 
 -   **Observations\' Poisson parameter?**
 
-```{r}
-
-```
+    ```{r}
+    print("The Observations’ Poisson parameter is:")
+    muestml = lambdaestml/(1-alphaestml)
+    muestml
+    ```
 
 # **Exercise 6:** 
 
