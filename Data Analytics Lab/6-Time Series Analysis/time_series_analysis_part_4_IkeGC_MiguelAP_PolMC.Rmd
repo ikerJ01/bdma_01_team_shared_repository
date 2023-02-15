@@ -1,7 +1,7 @@
 ---
-title: "Time Series Anlaysis. Practice 4. Discrete valued time series "
+title: "Time Series Anlaysis. Practica 4. Discrete valued time series "
 author: "Miguel Albertí Pons, Iker González Cuellar, Pol Martínez Collado"
-date: "14-02-23"
+date: "15-02-23"
 output:
   html_document: default
 ---
@@ -25,9 +25,10 @@ library(reshape2)
 library(magrittr)
 library(stringr)
 library(astsa)
+library(tscount)
 ```
 
-# **Exercise 1:** 
+# **Exercise 1:**
 
 **Plot the time series, its ACF and its PACF**
 
@@ -60,7 +61,7 @@ plot(0:maxVal, absFreq/totalLen, type="h", xlab = "k", ylab = expression(paste("
 
 # **Exercise 3:**
 
-**Compute the observations\' mean** μ̂ =x¯μ^=x¯ **and the observations\' variance:** σ̂ 2=γ̂ 0σ^2=γ^0**. Assume now that the time series follows an INAR(1) model. Then estimate the mean and the variance of the innovations time series:** μ̂ ε=μ̂ (1−α̂ )μ^ε=μ^(1−α^)**,** σ̂ 2ε=(1−α̂ 2)σ2^−α̂ μ̂ εσ^ε2=(1−α^2)σ2^−α^μ^ε
+**Compute the observations' mean** μ̂ =x¯μ\^=x¯ **and the observations' variance:** σ̂ 2=γ̂ 0σ^2=γ^0**. Assume now that the time series follows an INAR(1) model. Then estimate the mean and the variance of the innovations time series:** μ̂ ε=μ̂ (1−α̂ )μ^ε=μ^(1−α\^)**,** σ̂ 2ε=(1−α̂ 2)σ2^−α̂ μ̂ εσ^ε2=(1−α^2)σ2^−α^μ^ε
 
 ```{r}
 #Mean
@@ -97,7 +98,7 @@ print("The 95% confidence interval for the ID is:")
 ID + -1/totalLen*(1+rho1)/(1-rho1) + c(-1,1)*qnorm(0.975)*sdID
 ```
 
-1 does belong to the interval between 0.8587609 and 1.2513351, so we can't reject the null hypothesis of equidispersion, meaning the data presents equidispersion.
+El valor 1 pertence al intevalo entre 0.8587609 and 1.2513351, así que no podemos rechazar la hipotesis nula de equidispersión, concluyendo que los datos presentan equidispersión.
 
 # **Exercise 5:**
 
@@ -138,7 +139,7 @@ neglmax = estml$value
 estcov = solve(ofiest)
 ```
 
--   **Estimates:** λ̂ λ^**,** α̂ α^**?**
+-   **Estimates:** λ̂ λ\^**,** α̂ α\^**?**
 
     ```{r}
 
@@ -151,7 +152,7 @@ estcov = solve(ofiest)
     alphaestml
     ```
 
--   **Observations\' Poisson parameter?**
+-   **Observations' Poisson parameter?**
 
     ```{r}
     print("The Observations’ Poisson parameter is:")
@@ -159,46 +160,149 @@ estcov = solve(ofiest)
     muestml
     ```
 
-# **Exercise 6:** 
+# **Exercise 6:**
 
 **Compare the observed relative frequencies with the corresponding probabilities of a Poisson distribution with parameter equal to the estimated one.**
 
 ```{r}
 
+plot(0:maxVal,absFreq/totalLen, type="h", xlab = "k", ylab = expression(paste("P(X"[t],")")), lwd=4, ylim=c(0,0.35))
+
+points((0:maxVal)+.25,dpois(0:maxVal,lambda =muestml ), type="h", lwd=4, col=gray(0.5))
+
+abline(h=0,col=8)
+legend("topright",c("Observed frequencies","Estimated marginal distribution"), col=c(1,8),lwd=4,lty=1)
+
 ```
 
-# **Exercise 7:** 
+Las distribuciones son muy parecidas sugiriendo que la suposición de la distribución de Poisson es adecuada.
+
+# **Exercise 7:**
 
 **Compute the Pearson residuals:**
 
-et=xt−𝔼(Xt|Xt−1)Var(Xt|Xt−1)‾‾‾‾‾‾‾‾‾‾‾‾√,t=2,…,T.**et=xt−E(Xt\|Xt−1)Var(Xt\|Xt−1),t=2,...,T.**
+$$
+e_t = \frac{x_t - \mathbb{E}(X_t|X_{t-1})}{\sqrt{\text{Var}(X_t|X_{t-1})}}, \, t=2,\ldots, T.
+$$
 
 **Plot the fitted values over the observed time series. In a different graphc, plot the Pearson residuals.**
 
-```{r}
+```{r,fig.asp=.6}
+cMeanP <- function(l,lambda,alpha){
+	alpha*l+lambda
+}
+
+cVarP <- function(l,lambda,alpha){
+	alpha*(1-alpha)*l+lambda
+}
 
 ```
 
-# **Exercise 8:** 
+```{r}
+
+res = (deaths.Sunday.ts[2:totalLen]-cMeanP(deaths.Sunday.ts[1:(totalLen-1)], lambdaestml,alphaestml)) /
+  sqrt(cVarP(deaths.Sunday.ts[1:(totalLen-1)], lambdaestml,alphaestml))
+
+par(mar=c(3, 3, 0.5, 0.5), mgp=c(1.8, 0.6, 0))
+par(mfrow=c(2,1))
+
+plot(deaths.Sunday, type="l", xlab = "t", ylab = expression("Deaths on Sundays  x "[t]), cex.axis=0.85);points(deaths.Sunday, pch=19, cex=0.5);lines(cMeanP(deaths.Sunday[1:(totalLen-1)], lambdaestml,alphaestml),col=4,lwd=2);legend("topleft",c("Raw data","Fitted values"),col=c(1,4),lwd=c(1,2),pch=c(19,NA),cex=.75)
+
+plot(res, ylab = "Pearson residuals")
+abline(h=0,col=8)
+```
+
+# **Exercise 8:**
 
 **Plot the ACF and the PACF of the Pearson residuals. Plot the Probability integral transform (PIT). Do you think the the INAR(1) model is appropriate for this time series.**
 
 ```{r}
+par(mar=c(3, 3, 0.5, 0.5), mgp=c(1.8, 0.6, 0))
+par(mfrow=c(2,1))
+acf(res, main = 'Pearson residuals')
+pacf(res, main = 'Pearson residuals')
 
 ```
 
-# **Exercise 9:** 
+```{r}
+deaths_sundays_pois_1 = tsglm(deaths.Sunday, 
+                          model = list(past_obs=c(1)),
+                          link="log", distr="poisson")
+pit(deaths_sundays_pois_1)
+```
+
+Tanto ACF com PACF se encuentran dentro del rango considerado como 0 y por tanto se pueden considerar que los ruidos son independientes identicamente distribuidas.
+
+El histograma PIT computado es bastante uniforme aportando más evidencia a que la distribución de Poisson INAR(1) es adecuado.
+
+De igual manera, observando el gráfico de la serie temporal se observa estacinariedad y solo se tiene valores enteros positvos, pudiendo concluir que el modelo INAR(1) es adecuado para esta serie temporal.
+
+# **Exercise 9:**
 
 **Fit a Generalized Linear Models for the time series using the function `tsglm`. Use lags 1 and 52 for the observations and for the mean. Use the logarithm as the link function.**
 
 ```{r}
-
+deaths_sundays_pois <- tsglm(deaths.Sunday.ts, 
+                          model=list(past_obs=c(1,52)), 
+                          link="log", distr="poisson")
+summary(deaths_sundays_pois)
 ```
 
-# **Exercise 10:** 
+# **Exercise 10:**
 
 **Fit now the log-linear model until the middle of 2017 (`end=c(2017,26)`). Then predict the number of deaths by accidents in Sundays from the middle of 2017 to the end of 2017. Finally, compare the model predictions with the true observed values.**
 
 ```{r}
 
+deaths_sundays_to_2017 = window(deaths.Sunday.ts, end = c(2017,26))
+deaths_sundays_from_2017 = window(deaths.Sunday.ts, start = c(2017,27))
+
+deaths_sundays_pois_2017 <- tsglm(deaths_sundays_to_2017, 
+                          model=list(past_obs=c(1,52)), 
+                          link="log", distr="poisson")
+
+
+deaths_sundays_pred_2018 <-predict(deaths_sundays_pois_2017, n.ahead = length(deaths_sundays_from_2017), level = 0.9, global = FALSE, B = 2018)
+
+deaths_sundays_pred_2018_global <-predict(deaths_sundays_pois_2017, n.ahead = length(deaths_sundays_from_2017), level = 0.9, global = TRUE, B = 2018)
 ```
+
+```{r}
+par(mar=c(3, 3, 0.5, 0.5), mgp=c(1.8, 0.6, 0))
+
+plot(deaths.Sunday.ts, ylab="Number of cases") 
+points(deaths.Sunday.ts,pch=19,cex=.5)
+
+lines(fitted(deaths_sundays_pois_2017), col=4, lty = "longdash", lwd=2)
+
+arrows(x0 = time(deaths_sundays_pred_2018_global$interval),
+       y0 = deaths_sundays_pred_2018_global$interval[, "lower"],
+       y1 = deaths_sundays_pred_2018_global$interval[, "upper"],
+       angle = 90, code = 3, length = 0.04, col = "pink", lwd = 1)
+
+arrows(x0 = time(deaths_sundays_pred_2018$interval),
+       y0 = deaths_sundays_pred_2018$interval[, "lower"],
+       y1 = deaths_sundays_pred_2018$interval[, "upper"],
+       angle = 90, code = 3, length = 0.04, col = "darkgrey", lwd = 1)
+
+points(deaths_sundays_from_2017, pch = 19) 
+lines(x = c(time(deaths_sundays_to_2017)[182], time(deaths_sundays_pred_2018$pred)), 
+      c(fitted(deaths_sundays_pois_2017)[182], deaths_sundays_pred_2018$pred), 
+      col = 4, lty = "solid", lwd = 3)
+
+points(deaths_sundays_from_2017, pch = 19) 
+lines(x = c(time(deaths_sundays_to_2017)[182], time(deaths_sundays_pred_2018$pred)), 
+      c(fitted(deaths_sundays_pois_2017)[182], deaths_sundays_pred_2018$pred), 
+      col = 4, lty = "solid", lwd = 3)
+
+legend("topleft",
+       c("Raw data", "Fitted values", "Predicted values", 
+         "90% CI individual coverage", "90% CI global coverage"),
+       col=c(1,4,4,"darkgrey","pink"),
+       lwd=c(1,2,3,2,2),
+       lty=c(1,2,1,1,1),
+       pch=c(19,NA,NA,NA,NA),
+       cex=.75)
+```
+
+La prediccion (en azul), se encuentra dentro de los rangos de confianza, tanto local como global, sin embargo, no coincide del todo con la tendencia del conjunto de datos reales (apartir de mediados del 2017).

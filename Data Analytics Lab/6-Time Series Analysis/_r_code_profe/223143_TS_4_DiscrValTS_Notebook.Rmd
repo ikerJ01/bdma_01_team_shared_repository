@@ -1,0 +1,1256 @@
+---
+title: 'Time Series Analysis'
+subtitle: ' 4.  Time Series for Count Data'
+author: "Pedro Delicado. EIO, UPC"
+date: "February 8th, 2023"
+output:
+  html_document: default
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message=FALSE)
+path.data.0 <- "../_repository/"
+path.data.1 <- "../_repository/Datasets/" #To be replaced by "Time_Series_Datasets/" or the appropriate path directory
+```
+
+# Introduction and examples
+
+------------------------------------------------------------------------
+
+## Introduction to Time Series of Count Data
+
+-   **Count variable**: It is a (random) variable that takes values at
+    $\mathbb{N}_0=\{0,1,2,\ldots.\}$, or in a subset of this set.
+-   Other types of **Discrete-Valued Time Series**:
+    -   Ordinal time series.
+    -   Nominal time series.
+-   A good reference book:
+    -   Weiss, C.H. (2018) *An Introduction to Discrete-Valued Time
+        Series*. John Wiley & Sons, Inc., Chichester.
+    -   [Companion website: datasets and source
+        code](https://www.wiley.com/go/weiss/discrete-valuedtimeseries).
+        (Use `DiscrValTS17`)
+-   [R package `tscount`: An R Package for Analysis of Count Time Series
+    Following Generalized Linear
+    Models](https://CRAN.R-project.org/package=tscount).
+
+------------------------------------------------------------------------
+
+## Examples of count data time series
+
+### Traffic accidents in Spain, 2014-2017
+
+Data source: DGT, Direccion General de Trafico
+
+-   Traffic accidents micro-data file.
+-   Each line in the file corresponds to an accident with victims that
+    occurred on interurban roads or in crossings.
+-   Included variables: province, road and kilometric point in which the
+    accident occurred and the resulting seriousness in those involved
+    are included.
+-   The data does not include accidents that occurred in Catalonia and
+    the Basque Country.
+-   The number of records is 104.542.
+-   Download date: 22/04/2019.
+
+------------------------------------------------------------------------
+
+```{r,warning=FALSE,message=FALSE}
+path.data <- paste0(path.data.0,"accidentes_trafico_2014_2017/")
+library(readxl)
+accidts <- read_xlsx(paste0(path.data,"ACC_CARRETERA_PK_2014_2017_F.xlsx"),
+                     sheet="ACC_CARRETERA_PK_2014_2017_F")
+# names(accidts)
+#  [1] "NUM_ACC"            "ANYO"               "FECHA_ACCIDENTE"   
+#  [4] "HORA_2F"            "PROVINCIA_1F"       "ZONA_2F"           
+#  [7] "CARRETERA"          "PK"                 "SENTIDO_1F"        
+# [10] "TITULARIDAD_VIA_2F" "TIPO_VIA_2F"        "TRAZADO_1F"        
+# [13] "TIPO_ACCIDENTE_3F"  "TOTAL_MU30DF"       "TOTAL_HG30DF"      
+# [16] "TOTAL_HL30DF"      
+
+library(chron) # para usar las funciones month.day.year y day.of.week
+aux <- month.day.year(as.Date(as.character(accidts$FECHA_ACCIDENTE),"%Y-%m-%d"))
+
+accidts$Dia <- aux$day
+accidts$Mes <- aux$month
+accidts$Anyo <- aux$year
+accidts$Dia.semana <- day.of.week(aux$month, aux$day, aux$year) # Sunday is "0"
+accidts$Dia.semana[accidts$Dia.semana==0] <- 7 # Reemplazamos "0" por "7"
+accidts$Fin.semana <- ifelse( (accidts$Dia.semana>5), 1, 0)
+
+accidts$td <- julian(aux$month, aux$day, aux$year, 
+                    origin.=c(month = 12, day = 31, year = 2013))
+
+td.max <-  julian(x=12, d=31, y=2017, 
+                  origin.=c(month = 12, day = 31, year = 2013))
+# [1] 1461
+
+dias <- 1:td.max # variable tiempo en dias, desde el 1-1-2014 hasta el 31-12-2017 
+Year.continuous <- 2014+dias/365 # variable tiempo en anyos, con precision de dias
+
+accidts$tm <- accidts$Anyo+(accidts$Mes-1)/12
+meses <- seq(2014, 2017+11/12, by=1/12) # variable tiempo en meses
+
+df2ts <- function(t, var.t, var=var.t, agg.FUN="length", 
+                  default.value=NA, frequency=1){
+# t: time index 
+# var.t: variable with the time (in the scale of t)
+# var: variable to be aggregated 
+# agg: aggregate function
+# default.value: the value in the time series for instants with no corresponding rows in the data frame
+# frequancy:   
+  len.t <- length(t)
+  time.series <-rep(default.value,len.t)
+  aux <- aggregate(var,by=list(var.t),FUN=agg.FUN)
+  Id <- match(aux[[1]],t)
+  time.series[Id] <- aux[[2]]
+  time.series <- ts(data=time.series, start=t[1],end=t[len.t],frequency=frequency)
+  return(time.series)
+}
+```
+
+```{r,warning=FALSE,message=FALSE}
+# Agregar por dias el numero de accidentes, heridos, heridos graves y leves:
+acc.d <- ts(df2ts(dias, var.t=accidts$td),start=2014,frequency = 365)
+mu.d <- ts(df2ts(dias, var.t=accidts$td, var=accidts$TOTAL_MU30DF,agg.FUN=sum),start=2014,frequency = 365)
+hg.d <- ts(df2ts(dias, var.t=accidts$td, var=accidts$TOTAL_HG30DF,agg.FUN=sum),start=2014,frequency = 365)
+hl.d <- ts(df2ts(dias, var.t=accidts$td, var=accidts$TOTAL_HL30DF,agg.FUN=sum),start=2014,frequency = 365)
+
+plot(ts.union(acc.d,mu.d,hg.d,hl.d), main="Daily accidents, deaths, serious and minor injuries")
+```
+
+------------------------------------------------------------------------
+
+```{r,fig.asp=.6,fig.width=10,fig.height=6}
+plot(mu.d, main="Daily deaths by traffic accidents")
+abline(h=0,col=8)
+abline(v=2014:2018,col=2,lty=2)
+```
+
+------------------------------------------------------------------------
+
+```{r,fig.asp=.6,fig.width=10,fig.height=6}
+plot(mu.d, main="Daily deaths by traffic accidents",type="b",pch=19)
+abline(h=0,col=8)
+abline(v=2014:2018,col=2,lty=2)
+```
+
+------------------------------------------------------------------------
+
+```{r,fig.asp=.6,fig.width=10,fig.height=6}
+plot(mu.d, main="Daily deaths by traffic accidents", type="p",pch=19)
+abline(h=0,col=8)
+abline(v=2014:2018,col=2,lty=2)
+```
+
+------------------------------------------------------------------------
+
+```{r}
+# Agregar por meses el numero de accidentes, heridos, heridos graves y leves:
+acc.m <- df2ts(meses, var.t=accidts$tm, frequency = 12)
+mu.m <- df2ts(meses, var.t=accidts$tm, var=accidts$TOTAL_MU30DF,agg.FUN=sum, frequency = 12)
+hg.m <- df2ts(meses, var.t=accidts$tm, var=accidts$TOTAL_HG30DF,agg.FUN=sum, frequency = 12)
+hl.m <- df2ts(meses, var.t=accidts$tm, var=accidts$TOTAL_HL30DF,agg.FUN=sum, frequency = 12)
+
+plot(cbind(acc.m,mu.m,hg.m,hl.m), main="Monthly accidents, deaths, serious and minor injuries")
+```
+
+------------------------------------------------------------------------
+
+```{r,fig.asp=.6,fig.width=10,fig.height=6}
+plot(mu.m, main="Monthly deaths by traffic accidents",type="b",pch=19)
+abline(h=0,col=8)
+abline(v=2014:2018,col=2,lty=2)
+```
+
+------------------------------------------------------------------------
+
+```{r}
+# Agregar por dias para una provincia
+# el numero de accidentes, heridos, heridos graves y leves:
+prov <- "Albacete"
+Ipr <- which(accidts$PROVINCIA_1F==prov)
+acc.d <- ts(df2ts(dias, var.t=accidts$td[Ipr]),start=2014,frequency = 365)
+mu.d <- ts(df2ts(dias, var.t=accidts$td[Ipr],
+                 var=accidts$TOTAL_MU30DF[Ipr],agg.FUN=sum),start=2014,frequency = 365)
+hg.d <- ts(df2ts(dias, var.t=accidts$td[Ipr],
+                 var=accidts$TOTAL_HG30DF[Ipr],agg.FUN=sum),start=2014,frequency = 365)
+hl.d <- ts(df2ts(dias, var.t=accidts$td[Ipr],
+                 var=accidts$TOTAL_HL30DF[Ipr],agg.FUN=sum),start=2014,frequency = 365)
+
+plot(ts.union(acc.d,mu.d,hg.d,hl.d), main="Daily accidents, deaths, serious and minor injuries in Albacete")
+```
+
+------------------------------------------------------------------------
+
+```{r,fig.asp=.6,fig.width=10,fig.height=6}
+plot(mu.d, main="Daily deaths by traffic accidents in Albacete")
+abline(h=0,col=8)
+abline(v=2014:2018,col=2,lty=2)
+```
+
+------------------------------------------------------------------------
+
+```{r,fig.asp=.6,fig.width=10,fig.height=6}
+plot(mu.d, main="Daily deaths by traffic accidents in Albacete",type="b",pch=19)
+abline(h=0,col=8)
+abline(v=2014:2018,col=2,lty=2)
+```
+
+------------------------------------------------------------------------
+
+```{r,fig.asp=.6,fig.width=10,fig.height=6}
+plot(mu.d, main="Daily deaths by traffic accidents in Albacete", type="p",pch=19)
+abline(h=0,col=8)
+abline(v=2014:2018,col=2,lty=2)
+```
+
+------------------------------------------------------------------------
+
+```{r}
+# Agregar por meses para una provincia
+# el numero de accidentes, heridos, heridos graves y leves:
+prov <- "Albacete"
+Ipr <- which(accidts$PROVINCIA_1F==prov)
+acc.m.pr <- df2ts(meses, var.t=accidts$tm[Ipr], frequency = 12)
+mu.m.pr <- df2ts(meses, var.t=accidts$tm[Ipr], var=accidts$TOTAL_MU30DF[Ipr],agg.FUN=sum, frequency = 12)
+hg.m.pr <- df2ts(meses, var.t=accidts$tm[Ipr], var=accidts$TOTAL_HG30DF[Ipr],agg.FUN=sum, frequency = 12)
+hl.m.pr <- df2ts(meses, var.t=accidts$tm[Ipr], var=accidts$TOTAL_HL30DF[Ipr],agg.FUN=sum, frequency = 12)
+
+plot(cbind(acc.m.pr,mu.m.pr,hg.m.pr,hl.m.pr), main="Monthly accidents, deaths, serious and minor injuries in Albacete")
+```
+
+------------------------------------------------------------------------
+
+```{r,fig.asp=.6,fig.width=10,fig.height=6}
+plot(mu.m.pr, main="Monthly deaths by traffic accidents in Albacete",type="b",pch=19)
+abline(h=0,col=8)
+abline(v=2014:2018,col=2,lty=2)
+```
+
+------------------------------------------------------------------------
+
+*Example from the book of Weiss (2018)*
+
+**Download counts.** Daily number of downloads of a TEX editor for the
+period Jun. 2006 to Feb. 2007
+
+```{r,fig.asp=.6,fig.width=10,fig.height=6}
+Downloads <- ts(read.table(paste0(path.data.1,"Downloads.txt")))
+plot(Downloads,type="b",pch=19,main="Download counts",ylab=expression(X[t]))
+```
+
+------------------------------------------------------------------------
+
+*Example from the book of Weiss (2018)*
+
+**Price stability in the Euro area (**$n=17$ countries). Monthly number
+of countries having inflation rate below 2%, Jan. 2000 - Aug. 2012.
+
+```{r,fig.asp=.6,fig.width=10,fig.height=6}
+PriceStability <- ts(read.table(paste0(path.data.1,"PriceStability.txt")),
+                           start=c(2000,1),frequency=12)
+plot(PriceStability,type="b",pch=19,main="Price stability counts in EA17",ylab=expression(X[t]))
+abline(v=2007,col=2,lty=2)
+abline(h=0,col=8)
+```
+
+------------------------------------------------------------------------
+
+*Example from the R library* `tscount`
+
+**Campylobacter Infections Time Series.** Number of cases in the north
+of the province Quebec (Canada) in four week intervals from January 1990
+to the end of October 2000. It has 13 observations per year and 140
+observations in total. Campylobacterosis is an acute bacterial
+infectious disease attacking the digestive system.
+
+```{r,fig.asp=.6,fig.width=6,fig.height=4}
+library(tscount)
+plot(campy) # campy is a ts object
+abline(h=0,col=8)
+```
+
+````{=html}
+<!---
+***
+*Example from the R library* `tscount`
+
+**E. coli Infections Time Series.**
+Escherichia coli (or E. coli) is a bacterium of the genus Escherichia that is commonly found in the lower intestine of warm-blooded organisms.
+Most E. coli strains are harmless, but some serotypes can cause serious food poisoning in their hosts, and are occasionally responsible for food contamination incidents that prompt product recalls.
+The  most virulent strains cause serious illness or death in the elderly, the very young, or the immunocompromised.
+
+*** 
+
+**E. coli Infections Time Series.**
+Weekly number of reported disease cases caused by Escherichia coli in the state of North Rhine-Westphalia (Germany) from January 2001 to May 2013, excluding cases of EHEC (enterohaemorragic strains) and HUS (hemolytic-uremic syndrome).
+
+```{r,fig.asp=.6,fig.width=6,fig.height=4}
+#library(tscount)
+ecoli.ts <- ts(ecoli$cases, start = c(ecoli$year[1],ecoli$week[1]), frequency = 52)
+plot(ecoli.ts)
+abline(h=0,col=8)
+```
+-->
+````
+
+# Characteristics of count data time series
+
+------------------------------------------------------------------------
+
+## Characteristics of count data time series
+
+-   Let $X_1,\ldots,X_T$ be a count data time series:
+    $X_t\in\mathbb{N}_0$.
+-   **Visual description:** The standard time series plot.
+-   **Numerical description (if stationary):**
+    -   *Marginal characteristics:* Sample mean, sample variance.
+    -   *Serial dependence:* ACF, PACF.
+-   **Models**. ARIMA models are not appropriate because the
+    **multiplication problem**: for a count random variable $X$ and for
+    $\alpha\in \mathbb{R}$, usually
+    $\alpha \cdot X \not\in \mathbb{N}_0$. Therefore,\
+    $$
+    X_t = \alpha X_{t-1} +\varepsilon_t \not\in \mathbb{N}_0
+    $$ even if $X_{t-1}$ and $\varepsilon_t$ are both in $\mathbb{N}_0$.
+
+# The INAR(1) model for count data time series
+
+------------------------------------------------------------------------
+
+## The INAR(1) model for count data time series (I)
+
+-   The *Integer valued AR(1)* (or INAR(1)) model is an adaptation for
+    count data of the real-valued AR(1) model, $$
+    X_t=\alpha X_{t-1} + \varepsilon_t, \text{ where }  X_{t-1},  \varepsilon_t \in \mathbb{R} \text{ for all } t,
+    $$
+-   Another way to state the standard AR(1) model: $$
+    \mathbb{E}(X_t|X_{t-1})= \alpha X_{t-1} 
+    $$ because it is assumend that $\varepsilon_t$ and $X_{t-1}$ are
+    independent and that $\mathbb{E}(\varepsilon_t)=0$.
+-   Additionally, if $\varepsilon_t$ is assumed to be
+    $N(0,\sigma^2_{\varepsilon})$, then the AR(1) model is equivalent to
+    say that $$
+    (X_t|X_{t-1}) \sim  N(\alpha X_{t-1}, \sigma^2_{\varepsilon}).
+    $$
+
+------------------------------------------------------------------------
+
+## The binomial thinning operation
+
+-   Let $k\in \mathbb{N}_0$ and let $\alpha\in (0,1)$, then we define $$
+    \alpha \circ k =\sum_{i=1}^k Z_i
+    $$ where $Z_1,\ldots,Z_k$ are i.i.d. Bernoulli r.v. with
+    $\Pr(Z_i=1)=\alpha$. If $k=0$ then $\alpha \circ k=0$. So
+    $\alpha \circ k \sim \text{Bin}(k,\alpha)$.
+-   Let $X$ be a r.v. with values in $\mathbb{N}_0$, let
+    $\alpha\in (0,1)$, and let $Z_1,\ldots,Z_k,\ldots$ i.i.d. Bernoulli
+    r.v. with $\Pr(Z_i=1)=\alpha$ independent from $X$. Then we say that
+    $$
+    \alpha \circ X =\sum_{i=1}^X Z_i \sim \text{Bin}(X,\alpha)
+    $$ is obtained from $X$ by **binomial thinning**.
+-   **Interpretation:** Number of survivors from a population of size
+    $X$, if individuals die independently of each other, with
+    probability $1-\alpha$.
+
+------------------------------------------------------------------------
+
+## Binomial thinning
+
+-   Observe that $\alpha \circ X\in \mathbb{N}_0$ and that $$
+    \mathbb{E}(\alpha \circ X)=\alpha \mathbb{E}(X)
+    $$ by the Law of Iterated Expectation: $$\mathbb{E}(\alpha \circ X)
+    =\mathbb{E}(\mathbb{E}(\alpha \circ X|X))
+    =\mathbb{E}(\alpha X)
+    =\alpha \mathbb{E}(X).
+    $$
+-   Therefore the binomial thinning operation $\alpha\circ X$ is the
+    integer-valued counterpart of the multiplication $\alpha X$.
+
+------------------------------------------------------------------------
+
+## The INAR(1) model
+
+-   Let $\{\varepsilon_t\}_{t\in\mathbb{Z}}$ be a sequence of i.i.d.
+    random variables with values in $\mathbb{N}_0$.
+-   Let $\mu_{\varepsilon}=\mathbb{E}(\varepsilon_t)$ and
+    $\sigma^2_{\varepsilon}=\text{Var}(\varepsilon_t)$.
+-   Let $\alpha\in (0,1)$.
+-   A stochastic process $\{X_t\}_{t\in\mathbb{Z}}$ which verifies that
+    $$
+    X_t=\alpha \circ X_{t-1} + \varepsilon_t \text{ for all } t \in \mathbb{Z}
+    $$ is said to be an **INAR(1) process** if
+    -   all thinning operations are performed independently of each
+        other and of $\{\varepsilon_t\}_{t\in\mathbb{Z}}$, and
+    -   the thinning at each time $t$, as well as $\varepsilon_t$, are
+        independent of $\{X_s\}_{s<t}$.
+-   **Interpretation:** Survivor process with immigration,
+
+$\underbrace{X_t}_{\textrm{Population at time }t}$
+$=\underbrace{\alpha \circ X_{t-1}}_{\textrm{Survivors of time }t-1}$
+$+ \underbrace{\varepsilon_t}_{\textrm{Immigration}}$.
+
+------------------------------------------------------------------------
+
+## Properties of an INAR(1) process $\{X_t\}_{t\in\mathbb{Z}}$
+
+$$
+X_t=\alpha \circ X_{t-1} + \varepsilon_t 
+$$
+
+-   Markov property: $(X_t|X_{t-1},X_{t-2},\ldots) \sim (X_t|X_{t-1})$.
+-   Transition probabilities: $$
+    p_{k|\ell}=\Pr(X_t=k|X_{t-1}=\ell)=\sum_{j=0}^{\min\{k,\ell\}}\alpha^j(1-\alpha)^{\ell-j}
+    \Pr(\varepsilon_t=k-j).
+    $$
+-   Conditional linear AR(1):
+    $\mathbb{E}(X_{t}|X_{t-1})=\alpha X_{t-1}+\mu_{\varepsilon}$.
+-   $\text{Var}(X_{t}|X_{t-1})=\alpha (1-\alpha)X_{t-1}+\sigma^2_{\varepsilon}$.
+-   For second order stationarity (expectation $\mu$, variance
+    $\sigma^2$ and autocorrelations $\rho(k)$ constant in $t$):
+    -   $\mu=\frac{\mu_{\varepsilon}}{1-\alpha}$,
+    -   $\sigma^2=\frac{\sigma^2_{\varepsilon}+\alpha \mu_{\varepsilon}}{1-\alpha^2}$,
+    -   $\rho(k)=\alpha^k$, $k\ge 1$.
+
+------------------------------------------------------------------------
+
+## The Poisson INAR(1) Model
+
+-   Assume that $\varepsilon_t \sim \text{Poisson}(\lambda)$. Then
+    $\mu_{\varepsilon}=\sigma^2_{\varepsilon}=\lambda$.
+-   It can be proved that there exists a unique **stationary marginal
+    distribution** for $X_t$, and that this distribiution is also
+    Poisson: $$
+    X_t \sim \text{Poisson}\left(\mu=\frac{\lambda}{1-\alpha}\right).
+    $$
+-   That is, if $X_{t} \sim \text{Poisson}(\mu)$ then
+    $X_{t+k} \sim \text{Poisson}(\mu)$ for all $k\ge 1$.
+-   This follows from two properties of the Poisson distribution:
+    -   If $X_1$ and $X_2$ are independent Poisson, the $X_1+X_2$ is
+        also Poisson.
+    -   If $X$ is Poisson, the $\alpha \circ X$ is also Poisson.
+
+------------------------------------------------------------------------
+
+-   For the Poisson INAR(1), the **index of dispersion** is equal to
+    $1$: $$
+    I=\frac{\text{Var}(X_t)}{\mathbb{E}(X_t)}=1.
+    $$
+-   We say that $X_t$ is *equidispersed*.
+-   When *overdispersion* is present ($I>1$) then the **Negative
+    Binomial INAR(1)** model could be more suitable than the Poisson.
+-   Nevertheless, for simplicity here we only introduce the Poisson
+    INAR(1) model.
+
+------------------------------------------------------------------------
+
+## Estimation in the INAR(1) model
+
+-   A time series $x_1,\ldots,x_T$ is assumed to have been observed.
+    from $X_1,\ldots,X_T$
+-   Marginal mean $\mu$: Sample mean $\bar{x}$.
+-   Marginal variance $\sigma^2$: Sample variance
+    $\hat{\gamma}_0=\frac{1}{T}\sum_{t=1}^T(x_t-\bar{x})^2$.
+-   Autocovariance of order $k$:
+    $\hat{\gamma}_k=\frac{1}{T-k}\sum_{t=k+1}^T(x_t-\bar{x})(x_{t-k}-\bar{x})$.
+-   Autocorrelation of order $k$:
+    $\hat{\rho}_k = \hat{\gamma}_k/\hat{\gamma}_0$.
+-   Estimation of $\alpha$ by the method of moments:
+    $\hat{\alpha}_{MM}=\hat{\rho}_1$.
+
+------------------------------------------------------------------------
+
+-   Estimation in the Poisson INAR(1) model
+    -   Model parameters: $\lambda$, $\alpha$.
+    -   Estimation of $\lambda$ by the method of moments:
+        $\hat{\lambda}_{MM}=\bar{x}(1-\hat{\alpha}_{MM})$.
+    -   Other methods of estimation are possible: conditional least
+        squares, maximum likelihood, conditional maximum likelihood.
+
+------------------------------------------------------------------------
+
+## Identification of the INAR(1) model
+
+-   **Serial dependence:** Is the time series really following an
+    INAR(1)?
+    -   The ACF is like that of an AR(1)= $\rho(k)=\alpha^k$.
+    -   The PACF is like that of an AR(1)=
+        $\rho_{\text{part}}(1)=\alpha$ and $\rho_{\text{part}}(k)=0$ for
+        $k>1$.
+-   **Marginal distribution:** Is it a Poisson INAR(1)?
+    -   Estimated dispersion index: $\hat{I}=\hat{\gamma}_0/\bar{X}$
+    -   Reject the Poisson INAR(1) model at $0.05\%$ significance level
+        when $$
+          1\not \in \left(\hat{I} + \frac{1}{T}\frac{1+\hat{\alpha}_{MM}}{1-\hat{\alpha}_{MM}}
+        \mp 1.96\sqrt{\frac{2}{T}\frac{1+\hat{\alpha}_{MM}^2}{1-\hat{\alpha}_{MM}^2}}\right).
+          $$
+
+------------------------------------------------------------------------
+
+## Probability integral transform (PIT)
+
+-   A more general identification tool: The **probability integral
+    transform (PIT)**.
+    -   It is defined from the assumed marginal model, combined with the
+        observed data.
+    -   It allows to plot the *PIT histogram*: It is expected to look
+        like that of a uniform distribution when the assumed marginal
+        model is correct.
+    -   Otherwise, U shaped or inverse-U shaped histograms are observed.
+-   Define
+    $f_{k|\ell}=\Pr(X_t\le k|X_{t-1}=\ell)=\sum_{j=0}^k p_{j|\ell}$,
+    where $p_{j|\ell}=\Pr(X_t=k|X_{t-1}=\ell)$ is computed assuming that
+    the proposed marginal model is correct.
+
+------------------------------------------------------------------------
+
+-   For $u\in[0,1]$ define $$
+    F_{t}(u)=\left\{
+    \begin{array}{ll}
+    0 & \text{if } u\le f_{x_t-1|x_{t-1}},  \\ 
+    \frac{u-f_{x_t|x_{t-1}}}{f_{x_t|x_{t-1}}-f_{x_t-1|x_{t-1}}} & 
+    \text{if } f_{x_t-1|x_{t-1}} < u < f_{x_t|x_{t-1}}, \\
+    1 & \text{if } f_{x_t|x_{t-1}} \le u.
+    \end{array}
+    \right. 
+    $$
+-   Then define the *mean PIT* as $$
+    \overline{F}(u)=\frac{1}{T-1}\sum_{t=2}^T F_t(u) \text{ for } u\in[0,1].
+    $$ If the proposed marginal model is correct, then $\overline{F}(u)$
+    should be close to the cumulative distribution function (c.d.f.) of
+    a uniform distribution.
+-   To check whether $\overline{F}(u)$ is the c.d.f. of a uniform
+    distribution a histogram with $H$ bins is plotted (a value of $H=10$
+    is usually appropriate), where bin $h$ has the height
+    $\overline{F}(h/H)-\overline{F}((h-1)/H)$, $h=1,\dots,H$.
+
+------------------------------------------------------------------------
+
+## Forecasting in the INAR(1) model
+
+-   We have observed $x_1,\ldots,x_T$ and we want to predict $X_{T+h}$,
+    for some $h\ge 1$.
+-   *Point forecast:* To predict the value of $X_{T+h}$. Minimizing the
+    PMSE, the best prediction is $$
+    \mathbb{E}(X_{T+h}|X_T=x_T) = \alpha^h x_T + \mu(1-\alpha^h).
+    $$
+-   *Conditional distribution forecasting:* To predict the complete
+    conditional distribution of $(X_{T+h}|X_T=x_T)$, that is, $$
+    p_{k|\ell}^{(h)}=\Pr(X_{T+h}=k|X_T=\ell), \text{ for all }k , \ell \in \mathbb{N}_0.
+    $$
+-   *Condtional variance* in the Poisson case: $$
+    \text{Var}(X_{T+h}|X_T=x_T) = \alpha^h (1-\alpha^h) x_T + \mu(1-\alpha^h).
+    $$
+
+# Example 1: Download counts.
+
+------------------------------------------------------------------------
+
+*Download counts: Example from the book of Weiss (2018)*
+
+Daily number of downloads of a TEX editor for the period Jun. 2006 to
+Feb. 2007.
+
+```{r}
+#Fitting INAR(1) models to a given time series
+
+nmax <- 50 #upper limit later used for approximate computations
+
+#Transition probabilities of Poisson INAR(1) model:
+tppois <- function(k,l,lambda,alpha){
+	tp <- 0
+	for(j in c(0:min(k,l))){
+		tp <- tp + dbinom(j,l,alpha)*dpois(k-j,lambda)
+	}
+	#Alternatively, compute tp directly as
+	#tp <- convolve(dbinom(0:k,l,alpha), rev(dpois(0:k,lambda)), type="open")[k+1]
+tp
+}
+
+
+#Log-likelihood of Poisson INAR(1) model:
+llpinar1 <- function(par,data){
+#par is vector (lambda,alpha)
+T <- length(data)
+value <- -log(dpois(data[1], par[1]/(1-par[2]))) #full likelihood, otherwise use 0 here
+
+for(t in c(2:T)) {
+	value <- value-log(tppois(data[t], data[t-1], par[1], par[2]))
+}
+value
+}
+
+
+#i.i.d. Poisson model (par[1] is mean parameter):
+llpiid <- function(par,data){
+T <- length(data)
+value <- 0
+
+for(t in c(1:T)) {
+	value <- value-log(dpois(data[t], par[1]))
+}
+value
+}
+```
+
+```{r,fig.asp=.6,fig.height=6}
+data <- read.table(paste0(path.data.1,"Downloads.txt"))[[1]]
+Tlen <- length(data)
+#Tlen #267
+
+maxval <- max(data)
+#maxval #14
+
+plot(data, type="b", pch=19, cex=0.5, xlab = "t", ylab = expression("Download counts  x "[t]), cex.axis=0.85,
+     main=paste(Tlen,"data"))
+```
+
+------------------------------------------------------------------------
+
+```{r,fig.asp=.5,fig.width=10}
+rho1 <- acf(data, plot=FALSE)[[1]][2]
+#rho1 #0.2447806
+op <- par(mfrow=c(1,2))
+acf(data, lag.max=10, lwd=2, ci.col=gray(0.5))
+legend("topright",paste("hat(alpha)=hat{rho}_1=",round(rho1,4)))
+
+pacf(data, lag.max=10, lwd=2, ci.col=gray(0.5))
+#AR(1)-like dependence structure
+par(op)
+```
+
+------------------------------------------------------------------------
+
+Analysis of marginal distribution
+
+```{r}
+hist(data-0.5, main="Histrogram of data")
+```
+
+------------------------------------------------------------------------
+
+Relative frequencies
+
+```{r}
+absfreq <- tabulate(data+1) #+1 to include 0
+plot(0:maxval, absfreq/Tlen, type="h", xlab = "k", ylab = expression(paste("estimated P(X"[t],"=k)")), lwd=4, ylim=c(0,0.3))
+abline(h=0,col=8)
+```
+
+------------------------------------------------------------------------
+
+Observations' mean: $\hat{\mu}=\bar{x}$
+
+```{r}
+barX <- mean(data)
+barX
+#2.400749
+```
+
+Innovations' mean: $\hat{\mu}_{\varepsilon}=\hat{\mu}(1-\hat{\alpha})$
+
+```{r}
+mue <- barX*(1-rho1)
+mue
+#1.813092
+```
+
+Observations' variance: $\hat{\sigma}^2=\hat{\gamma}_0$
+
+```{r}
+sX <- var(data)
+#sX
+#7.534285
+
+(Tlen-1)/Tlen*sX
+#7.506067
+```
+
+Innovations' variance:
+$\hat{\sigma}^2_{\varepsilon}=(1-\hat{\alpha}^2)\hat{\sigma^2}-\hat{\alpha}\hat{\mu}_{\varepsilon}$
+
+```{r}
+se <- (1-rho1^2)*sX-rho1*mue
+se
+#6.639039
+```
+
+------------------------------------------------------------------------
+
+## Testing for equidispersion:
+
+Observed Index of Dispersion (ID): $\hat{I}=\hat{\gamma}_0/\bar{X}$
+
+```{r}
+ID <- (Tlen-1)/Tlen*sX/barX
+ID #3.126552
+```
+
+```{r}
+meanID <- 1-1/Tlen*(1+rho1)/(1-rho1)
+#meanID #0.9938268
+
+sdID <- sqrt(2/Tlen*(1+rho1^2)/(1-rho1^2))
+#sdID #0.09189935
+```
+
+95% confidence interval for the ID:
+
+```{r}
+ID + -1/Tlen*(1+rho1)/(1-rho1) + c(-1,1)*qnorm(0.975)*sdID
+```
+
+If 1 does not belong to this interval then we can reject the null
+hypothesis of equidispersion.
+
+```{r}
+IDe <- ID*(1+rho1)-rho1
+#IDe #3.647091
+
+#Zero frequency:
+# p0 <- length(data[data==0])/Tlen
+p0 <- absfreq[1]/Tlen
+#p0 #0.2771536
+
+#exp(-barX)
+#0.09065003
+```
+
+```{r}
+#i.i.d. Poisson
+#Here, ML estimate of mu identical to mean, i.e., to barX
+estml <- suppressWarnings(optim(c(barX), llpiid, method="L-BFGS-B", lower=c(0.0001), upper=c(9999), control=list(ndeps=c(1e-4)), data=data, hessian=TRUE))
+
+muestml <- estml$par[[1]]
+ofiest <- estml$hessian #inverse covariance
+neglmax <- estml$value
+estcov <- solve(ofiest)
+
+#Estimates:
+#c(muestml)
+#2.400749
+
+#Estimated standard errors:
+#c(sqrt(diag(estcov)))
+#0.09482389
+
+#AIC and BIC:
+AIC <- 2*neglmax+2*1
+BIC <- 2*neglmax+log(Tlen)*1
+#c(neglmax, AIC, BIC)
+#660.4577 1322.9153 1326.5026
+```
+
+------------------------------------------------------------------------
+
+Maximum likelihood estimation of the Poisson INAR(1) model
+
+```{r}
+#Poisson INAR1
+estml <- suppressWarnings(optim(c(mue,rho1), llpinar1, method="L-BFGS-B", lower=c(0.0001,0.0001), upper=c(9999,0.9999), control=list(ndeps=c(1e-4,1e-4)), data=data, hessian=TRUE))
+
+lambdaestml <- estml$par[[1]]
+alphaestml <- estml$par[[2]]
+ofiest <- estml$hessian #inverse covariance
+neglmax <- estml$value
+estcov <- solve(ofiest)
+```
+
+Estimates: $\hat{\lambda}$, $\hat{\alpha}$
+
+```{r}
+c(lambdaestml,alphaestml)
+#1.9909829 0.1742646
+```
+
+Observations' Poisson parameter:
+
+```{r}
+muestml <- lambdaestml/(1-alphaestml)
+muestml #2.411163
+```
+
+````{=html}
+<!---
+Estimated probability of $X_t$ being equal to $0$:
+```{r}
+exp(-muestml) #0.08971088
+```
+--->
+````
+
+------------------------------------------------------------------------
+
+Comparing the observed relative frequencies with the corresponding
+probabilities of a Poisson distribution with parameter equal to the
+estimated one.
+
+```{r}
+plot(0:maxval,absfreq/Tlen, type="h", xlab = "k", ylab = expression(paste("P(X"[t],")")), lwd=4, ylim=c(0,0.35))
+points((0:maxval)+.25,dpois(0:maxval,lambda =muestml ), type="h", lwd=4, col=gray(0.5))
+abline(h=0,col=8)
+legend("topright",c("Observed frequencies","Estimated marginal distribution"), col=c(1,8),lwd=4,lty=1)
+```
+
+```{r}
+#Estimated standard errors:
+#c(sqrt(diag(estcov)))
+#0.10996153 0.03269754
+
+#AIC and BIC:
+AIC <- 2*neglmax+2*2
+BIC <- 2*neglmax+log(Tlen)*2
+#c(neglmax, AIC, BIC)
+#644.4243 1292.8485 1300.0230
+```
+
+------------------------------------------------------------------------
+
+Pearson residuals: $$
+e_t = \frac{x_t - \mathbb{E}(X_t|X_{t-1})}{\sqrt{\text{Var}(X_t|X_{t-1})}}, \, t=2,\ldots, T.
+$$
+
+```{r}
+cMeanP <- function(l,lambda,alpha){
+	alpha*l+lambda
+}
+
+cVarP <- function(l,lambda,alpha){
+	alpha*(1-alpha)*l+lambda
+}
+
+
+res <- (data[2:Tlen]-cMeanP(data[1:(Tlen-1)], lambdaestml,alphaestml)) /
+  sqrt(cVarP(data[1:(Tlen-1)], lambdaestml,alphaestml))
+```
+
+```{r,fig.asp=.6}
+par(mar=c(3, 3, 0.5, 0.5), mgp=c(1.8, 0.6, 0))
+par(mfrow=c(2,1))
+plot(data, type="l", xlab = "t", ylab = expression("Download counts  x "[t]), cex.axis=0.85)
+points(data, pch=19, cex=0.5)
+lines(cMeanP(data[1:(Tlen-1)], lambdaestml,alphaestml),col=4,lwd=2)
+legend("topleft",c("Raw data","Fitted values"),col=c(1,4),lwd=c(1,2),pch=c(19,NA),cex=.75)
+
+plot(res, ylab = "Pearson residuals")
+abline(h=0,col=8)
+```
+
+------------------------------------------------------------------------
+
+ACF and PACF of the Pearson residuals
+
+```{r}
+op<-par(mfrow=c(1,2))
+acf(res)
+pacf(res)
+#mean(res)
+#-0.03693506
+#var(res)
+#2.871406
+#min(res)
+#-2.117143
+#max(res)
+#6.730956
+par(op)
+```
+
+------------------------------------------------------------------------
+
+Probability integral transform (PIT)
+
+```{r}
+#Matrix of all CDFs:
+allcdfs <- array(0, c(maxval+2,maxval+1)) #additional zero row corresponding to F(-1)
+
+for(l in c(0:maxval)){
+	cpmf <- rep(0, (maxval+1))
+	for(k in c(0:maxval)){
+		cpmf[k+1] <- tppois(k,l,lambdaestml,alphaestml)
+	}
+	allcdfs[(2:(maxval+2)),l+1] <- cumsum(cpmf)
+}
+
+nobins <- 10
+PIT <- array(0, c(2,nobins+1))
+
+for(j in c(1:nobins)){
+	u <- j/nobins
+	pitval <- 0
+	
+	for(t in c(2:Tlen)){
+		if(allcdfs[(data[t]+1), (data[t-1]+1)]<u){
+			if(allcdfs[(data[t]+2), (data[t-1]+1)]<u){
+				pitval <- pitval+1
+			}else{
+				pitval <- pitval+ (u-allcdfs[(data[t]+1), (data[t-1]+1)])/(allcdfs[(data[t]+2), (data[t-1]+1)]-allcdfs[(data[t]+1), (data[t-1]+1)])
+			}
+		}
+	}
+	PIT[1,j+1] <- pitval/(Tlen-1)
+	PIT[2,j+1] <- PIT[1,j+1]-PIT[1,j]
+}
+#PIT
+     # [,1]      [,2]      [,3]      [,4]       [,5]       [,6]       [,7]
+# [1,]    0 0.2603143 0.3804455 0.4724656 0.55379076 0.61407046 0.67272706
+# [2,]    0 0.2603143 0.1201312 0.0920201 0.08132514 0.06027969 0.05865661
+           # [,8]       [,9]      [,10]     [,11]
+# [1,] 0.72488214 0.77343326 0.83164187 1.0000000
+# [2,] 0.05215508 0.04855111 0.05820862 0.1683581
+
+PIT.freq= as.vector(rep(((1:nobins)-0.5)/nobins, PIT[2,2:(nobins+1)]*1000))
+PIT.hist <- hist(PIT.freq, plot=FALSE, breaks=nobins)
+PIT.hist$counts <- PIT.hist$counts/1000
+plot(PIT.hist, freq=TRUE, main="PIT histogram", ylab="PIT histogram", xlab="u", col="gray")
+```
+
+------------------------------------------------------------------------
+
+## Forecasting based on the fitted model:
+
+Last observation: $X_T=$ `r data[Tlen]`
+
+The h-step-ahead forecasting distribution is obtained from the
+transition probabilities.
+
+```{r,fig.asp=.6,fig.height=4}
+hmax <- 5
+forecasts <- array(0, c(hmax+1,maxval+1))
+for(h in c(1:hmax)){
+	for(k in c(0:maxval)){
+		forecasts[h,k+1] <- tppois(k,data[Tlen],muestml*(1-alphaestml^h),alphaestml^h)
+	}
+	}
+#Stationary marginal distribution:
+forecasts[hmax+1,] <- dpois(c(0:maxval),muestml)
+
+par(mfrow=c(1,2))
+
+plot(0:maxval,forecasts[1,], type="h", xlab = "k", 
+     ylab = expression(paste("P(X"[T+h],"=k | X"[T],"=7)")), 
+     lwd=4, ylim=c(0,0.35))
+points((0:maxval)+.25,forecasts[hmax+1,], type="h", lwd=4, col=gray(0.5))
+abline(h=0,col=8)
+legend("topright",c(paste("h =",1,"step ahead"), "Marginal distribution"), col=c(1,8),lwd=4,lty=1)
+
+plot(0:maxval,forecasts[hmax,], type="h", xlab = "k", 
+     ylab = expression(paste("P(X"[T+h],"=k | X"[T],"=7)")), 
+     lwd=4, ylim=c(0,0.35))
+points((0:maxval)+.25,forecasts[hmax+1,], type="h", lwd=4, col=gray(0.5))
+abline(h=0,col=8)
+legend("topright",c(paste("h =",hmax,"step ahead"), "Marginal distribution"), col=c(1,8),lwd=4,lty=1, cex=.75)
+```
+
+------------------------------------------------------------------------
+
+### Point predictions
+
+$\mathbb{E}(X_{T+h}|X_T=x_T) = \alpha^h x_T + \mu(1-\alpha^h)$,
+$\text{Var}(X_{T+h}|X_T=x_T) = \alpha^h (1-\alpha^h) x_T + \mu(1-\alpha^h)$.
+
+```{r}
+hmax <- 5 
+h <- 1:hmax
+xT <- data[Tlen]
+cond.mean.h <- alphaestml^h*xT + muestml*(1-alphaestml^h)
+cond.var.h <- alphaestml^h*(1-alphaestml^h)*xT + muestml*(1-alphaestml^h)
+#Stationary marginal mean: muestml
+```
+
+```{r,fig.asp=.6}
+par(mar=c(3, 3, 0.5, 0.5), mgp=c(1.8, 0.6, 0))
+plot(data, type="l", xlab = "t", ylab = expression("Download counts  x "[t]), 
+     cex.axis=0.85, xlim=c(1,Tlen+hmax))
+points(data, pch=19, cex=0.5)
+abline(h=muestml,col=2)
+abline(v=Tlen,col=3,lty=2)
+fitted.values <-cMeanP(data[1:(Tlen-1)], lambdaestml,alphaestml)
+lines(2:Tlen,fitted.values,col=4,lwd=2)
+
+arrows(x0 = Tlen+h,
+       y0 = cond.mean.h - 1.96* sqrt(cond.var.h),
+       y1 = cond.mean.h + 1.96* sqrt(cond.var.h),
+       angle = 90, code = 3, length = 0.04, col = "darkgrey", lwd = 2)
+
+lines(Tlen+c(0,h), c(fitted.values[Tlen-1],cond.mean.h), col=6, lwd=2)
+
+legend("topleft",
+       c("Raw data","Fitted values","Predicted values","Estimated marginal mean",
+         "Approx. 95% CI"),
+       col=c(1,4,6,2,8),
+       lwd=c(1,2,2,1,2),
+       pch=c(19,NA,NA,NA,NA),
+       cex=.75)
+```
+
+------------------------------------------------------------------------
+
+```{r,fig.asp=.6}
+par(mar=c(3, 3, 0.5, 0.5), mgp=c(1.8, 0.6, 0))
+plot(data, type="l", xlab = "t", ylab = expression("Download counts  x "[t]), 
+     cex.axis=0.85, xlim=c(180,Tlen+hmax))
+points(data, pch=19, cex=0.5)
+abline(h=muestml,col=2)
+abline(v=Tlen,col=3,lty=2)
+fitted.values <-cMeanP(data[1:(Tlen-1)], lambdaestml,alphaestml)
+lines(2:Tlen,fitted.values,col=4,lwd=2)
+
+arrows(x0 = Tlen+h,
+       y0 = cond.mean.h - 1.96* sqrt(cond.var.h),
+       y1 = cond.mean.h + 1.96* sqrt(cond.var.h),
+       angle = 90, code = 3, length = 0.04, col = "darkgrey", lwd = 2)
+
+lines(Tlen+c(0,h), c(fitted.values[Tlen-1],cond.mean.h), col=6, lwd=2)
+
+legend("topleft",
+       c("Raw data","Fitted values","Predicted values","Estimated marginal mean",
+         "Approx. 95% CI"),
+       col=c(1,4,6,2,8),
+       lwd=c(1,2,2,1,2),
+       pch=c(19,NA,NA,NA,NA),
+       cex=.75)
+```
+
+# Count Time Series Following Generalized Linear Models
+
+------------------------------------------------------------------------
+
+-   The R package `tscount` provides likelihood-based estimation methods
+    for analysis and modeling of *count time series* following
+    *generalized linear models*.
+-   Let $\{X_t:t\in\mathbb{Z}\}$ be a count time series.
+-   Let $\{\boldsymbol{Z}_t:t\in\mathbb{N}\}$ be a time-varying
+    $r$-dimensional covariate vector, say
+    $\boldsymbol{Z}_t=(Z_{t,1},\dots,Z_{t,r})^\top$.
+-   Let ${\cal F}_t$ be the history of the joint process
+    $\{X_t,\boldsymbol{Z}_{t+1}:t\in\mathbb{Z}\}$ up to time $t$
+    including the covariate information at time $t+1$.
+-   For $t\in \mathbb{Z}$, let
+    $\lambda_t=\mathbb{E}\left(X_{t}|{\cal F}_{t-1}\right)$ be the
+    conditional mean of $X_t$ given the previous history.
+
+------------------------------------------------------------------------
+
+-   The general form of the model is $$
+    g(\lambda_t) = \beta_0
+      + \sum_{k=1}^p \beta_k \,\widetilde{g}(X_{t-k})
+      + \sum_{\ell=1}^q \alpha_{\ell} g(\lambda_{t-{\ell}})
+      + \boldsymbol{\eta}^\top \boldsymbol{Z}_t,
+    $$ where $g:\mathbb{R}^+\rightarrow\mathbb{R}$ is a link function
+    and $\widetilde{g}:\mathbb{N}_0\rightarrow\mathbb{R}$ is a
+    transformation function.
+-   The parameter vector $\boldsymbol{\eta}=(\eta_1,\dots,\eta_r)^\top$
+    corresponds to the effects of covariates.
+-   In the terminology of GLMs we call $\nu_t=g(\lambda_t)$ the linear
+    predictor.
+-   The distribution of $X_t$ given ${\cal F}_{t-1}$ is usually assumed
+    to be Poisson or Negative Binomial.
+
+------------------------------------------------------------------------
+
+## The log-linear model of order $p$ and $q$ with covariates
+
+-   Consider the general model with the logarithmic link function
+    $g(x)=\log(x)$, $\widetilde{g}(x)=\log(x+1)$.
+-   Using $\nu_t=\log(\lambda_t)$, we obtain that $$
+    \nu_t = \beta_0
+      + \sum_{k=1}^p \beta_k \,\log(X_{t-k}+1)
+      + \sum_{\ell=1}^q \alpha_{\ell} \nu_{t-{\ell}}
+      + \boldsymbol{\eta}^\top \boldsymbol{Z}_t.
+    $$
+-   Here we assume that the conditional distribution of $X_t$ given
+    ${\cal F}_{t-1}$ is Poisson.
+
+------------------------------------------------------------------------
+
+### Estimation in the log-linear model
+
+-   To ensure stationarity and ergodicity, the parameter space is taken
+    to be $$
+    \Theta = \Biggl\{
+    \boldsymbol{\theta}\in\mathbb{R}^{p+q+r+1}:\ 
+    |\beta_1|,\dots,|\beta_p|, |\alpha_1|,\dots,|\alpha_q|<1,
+    \Biggr.
+    $$ $$
+    \Biggl.
+    \left|\sum\limits_{k=1}^p \beta_k + \sum\limits_{\ell=1}^q \alpha_{\ell} \right| < 1
+    \Biggr\}.
+    $$
+-   The estimation in `tscount` is done by *conditional maximum
+    likelihood* estimation.\
+-   In practice, the function `tscount::tsglm` implements the estimation
+    process.
+-   The output of this function is an object of class `tsglm`, for which
+    there are several implemented methods:
+    -   `print`, `summary`, `plot`,\
+    -   `fitted`, `residuals`, `predict`,
+    -   `coef`, `se`,
+    -   `pit` (probability integral transform, PIT), among other.
+
+# Example 2. Campylobacter Infections
+
+------------------------------------------------------------------------
+
+-   Campylobacterosis is an acute bacterial infectious disease attacking
+    the digestive system.
+-   Number of cases in the north of the province Quebec (Canada) in four
+    week intervals from January 1990 to the end of October 2000.
+-   It has 13 observations per year and 140 observations in total.
+
+```{r,fig.width=6,fig.height=3}
+library(tscount)
+par(mar=c(3, 3, 0.5, 0.5), mgp=c(1.8, 0.6, 0))
+plot(campy, ylab="Number of cases") # campy is a ts object
+points(campy,pch=19,cex=.5)
+abline(h=0,col=8)
+abline(v=seq(1990,2001),col=2,lty=2)
+```
+
+------------------------------------------------------------------------
+
+-   We fit a log-linear model to this time series using the function
+    `tsglm`.
+-   We select the logarithm link function, using the argument `link`.
+-   For taking into account serial dependence we include a regression on
+    the previous observation (an AR(1) term).
+-   Seasonality is captured by regressing on $X_{t-13}$, the observed
+    data 13 time units (which is about one year) back in time.
+-   The aforementioned specification of the model for the linear
+    predictor is assigned by the argument `model`.
+-   We fit a Poisson conditional distribution, specifying it by the
+    argument `distr`.
+
+```{r, echo=TRUE}
+campyfit_pois <- tsglm(campy, 
+                       model=list(past_obs=c(1,13)), 
+                       link="log", distr="poisson")
+```
+
+------------------------------------------------------------------------
+
+```{r}
+summary(campyfit_pois)
+```
+
+------------------------------------------------------------------------
+
+Accordingly, the fitted model for the number of new infections $X_t$ in
+time period $t$ is given by
+$X_t|{\cal F}_{t-1} \sim \text{Poisson}(\lambda_t)$ with $$
+\log(\lambda_t) = `r round(coef(campyfit_pois)[1],2)` + 
+`r round(coef(campyfit_pois)[2],2)` X_{t-1} + 
+`r round(coef(campyfit_pois)[3],2)` X_{t-13}, 
+\quad t=1,\dots,`r campyfit_pois$n_obs`.
+$$
+
+------------------------------------------------------------------------
+
+```{r}
+par(mfrow=c(2,1))
+par(mar=c(3, 3, 0.5, 0.5), mgp=c(1.8, 0.6, 0))
+plot(campy, ylab="Number of cases") # campy is a ts object
+points(campy,pch=19,cex=.5)
+abline(h=0,col=8)
+abline(v=seq(1990,2001),col=2,lty=2)
+lines(fitted(campyfit_pois),col=4,lwd=2)
+legend("topleft",c("Raw data","Fitted values"),col=c(1,4),lwd=c(1,2),pch=c(19,NA),cex=.75)
+
+plot(residuals(campyfit_pois), ylab = "Response residuals")
+abline(h=0,col=8)
+```
+
+------------------------------------------------------------------------
+
+```{r}
+par(mfrow=c(2,2))
+acf(residuals(campyfit_pois), main ="")# "ACF of response residuals")
+pacf(residuals(campyfit_pois), main ="")#  "PACF of response residuals")
+pit(campyfit_pois, main = "PIT Poisson")
+```
+
+------------------------------------------------------------------------
+
+**Predicting campylobacter infections**
+
+-   We fit now the log-linear model until December 1998.
+-   Then we predict the number of campylobacter infections from January
+    1999 to October 2000.
+-   We finally compare the model predictions with the true observed
+    values.
+
+```{r, echo=TRUE}
+campy_until_1998 <- window(campy, end = c(1998,13))
+campy_from_1999 <- window(campy, start = c(1999,1), 
+                          end = end(campy))
+campyfit_pois_98 <- tsglm(campy_until_1998, 
+                          model=list(past_obs=c(1,13)), 
+                          link="log", distr="poisson")
+```
+
+------------------------------------------------------------------------
+
+```{r}
+summary(campyfit_pois_98)
+```
+
+------------------------------------------------------------------------
+
+```{r, echo=TRUE}
+campy_pred_99<-predict(campyfit_pois_98, 
+                  n.ahead = length(campy_from_1999), 
+                  level = 0.9, global = FALSE, B = 2000)
+campy_pred_99_global <- predict(campyfit_pois_98, 
+                  n.ahead = length(campy_from_1999), 
+                  level = 0.9, global = TRUE, B = 2000)
+```
+
+------------------------------------------------------------------------
+
+```{r, fig.height=3, fig.width=7}
+par(mar=c(3, 3, 0.5, 0.5), mgp=c(1.8, 0.6, 0))
+plot(campy, ylab="Number of cases") # campy is a ts object
+points(campy,pch=19,cex=.5)
+
+lines(fitted(campyfit_pois_98), col=4, lty = "longdash", lwd=2)
+
+arrows(x0 = time(campy_pred_99_global$interval),
+       y0 = campy_pred_99_global$interval[, "lower"],
+       y1 = campy_pred_99_global$interval[, "upper"],
+       angle = 90, code = 3, length = 0.04, col = "pink", lwd = 2)
+
+arrows(x0 = time(campy_pred_99$interval),
+       y0 = campy_pred_99$interval[, "lower"],
+       y1 = campy_pred_99$interval[, "upper"],
+       angle = 90, code = 3, length = 0.04, col = "darkgrey", lwd = 2)
+
+points(campy_from_1999, pch = 19) 
+lines(x = c(time(campy_until_1998)[117], time(campy_pred_99$pred)), 
+      c(fitted(campyfit_pois_98)[117], campy_pred_99$pred), 
+      col = 4, lty = "solid", lwd = 3)
+
+legend("topleft",
+       c("Raw data", "Fitted values", "Predicted values", 
+         "90% CI individual coverage", "90% CI global coverage"),
+       col=c(1,4,4,"darkgrey","pink"),
+       lwd=c(1,2,3,2,2),
+       lty=c(1,2,1,1,1),
+       pch=c(19,NA,NA,NA,NA),
+       cex=.75)
+
+```
+
+------------------------------------------------------------------------
+
+## References and links
+
+-   Shumway, R.H. and D.S. Stoffer (2017) *Time Series Analysis and Its
+    Applications. With R Examples* Fourth Edition. Springer. [Companion
+    website: datasets and source
+    code](https://www.wiley.com/go/weiss/discrete-valuedtimeseries).
+-   [R package `tscount`: An R Package for Analysis of Count Time Series
+    Following Generalized Linear
+    Models](https://CRAN.R-project.org/package=tscount).
