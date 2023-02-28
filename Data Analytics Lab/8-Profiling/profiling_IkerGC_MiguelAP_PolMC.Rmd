@@ -16,6 +16,10 @@ summary(dd)
 
 #Libraries
 library(FactoMineR)
+library(ggplot2)
+library(reshape2)
+library(tidyr)
+library(dplyr)
 ```
 
 #### 1. Lea el fichero "churn.txt" y efectúe un "summary" de los datos. ¿Detecta algún error o inconsistencia?. Si es así, corríjalo.
@@ -33,7 +37,7 @@ En cuanto al tipo tenemos:
 
 -   Variables contínuas: antig, Total_activo, Total_Plazo, Total_Inversion, Total_Seguros, Total_Vista, oper_caj_Libreta, oper_ven_Libreta, dif_CC, dif_Libreta, dif_Plazo, dif_Ahorro, dif_Largo_plazo, dif_Fondos_inv, dif_Seguros, dif_Planes_pension, dif_Hipoteca y dif_Prest_personales.
 
--    Variables categóricas: Baja, edatcat, sexo, Nomina, Pension, Debito_normal, Debito_aff, VISA, VISA_aff, MCard, Amex y dif_resid.
+-   Variables categóricas: Baja, edatcat, sexo, Nomina, Pension, Debito_normal, Debito_aff, VISA, VISA_aff, MCard, Amex y dif_resid.
 
 #### 3. Efectúe una gráfica de los datos: un diagrama de barras para las variables categóricas y un histograma para las variables continuas.
 
@@ -86,12 +90,242 @@ profiling
 #### 5. Represente visualmente la relación de las variables explicativas con la variable de respuesta; para ello discretize las variables continuas (esto es, recodifíquelas según un cierto número de intervalos; tenga en cuenta el significado especial del valor 0 a la hora de establecer los intervalos de recodificación) y represente mediante barplots el porcentaje de baja de las modalidades de las variables categóricas (tanto las categóricas originales como las continuas recodificadas).
 
 ```{r}
+data2 = data
 
+data2$Rec_tot_plazo = cut(data$Total_Plazo, breaks=c(0,0.0001,700,2000,4000,8000,99000),include.lowest=T)
+data2$Rec_tot_inversion = cut(data$Total_Inversion, breaks=c(0,0.0001,700,2000,4000,8000,99000),include.lowest=T)
+data2$Rec_tot_seguros = cut(data$Total_Seguros, breaks=c(0,0.0001,150,400,1000,3000,99000),include.lowest=T)
+data2$Rec_tot_vista = cut(data$Total_Vista, breaks=c(0,0.0001,50,150,400,1000,99000),include.lowest=T)
+data2$Rec_oper_caj_Libreta = cut(data$oper_caj_Libreta, breaks=c(-9000,-100,-20,-0.0001,0,20,100,9000))
+data2$Rec_oper_ven_Libreta = cut(data$oper_ven_Libreta, breaks=c(-9000,-100,-20,-0.0001,0,20,100,9000))
+data2$Rec_dif_CC= cut(data$dif_CC, breaks=c(-99000,-100,-0.0001,0,20,200,1000,99000))
+data2$Rec_dif_Libreta= cut(data$dif_Libreta, breaks=c(-99000,-100,-0.0001,0,20,200,1000,99000))
+data2$Rec_dif_Plazo= cut(data$dif_Plazo, breaks=c(-99000,-100,-0.0001,0,20,200,1000,99000))
+data2$Rec_dif_Ahorro= cut(data$dif_Ahorro, breaks=c(-99000,-100,-0.0001,0,20,200,1000,99000))
+data2$Rec_dif_Largo_plazo= cut(data$dif_Largo_plazo, breaks=c(-99000,-100,-0.0001,0,20,200,1000,99000))
+data2$Rec_dif_Fondos_inv= cut(data$dif_Fondos_inv, breaks=c(-99000,-100,-0.0001,0,20,200,1000,99000))
+data2$Rec_dif_Seguros= cut(data$dif_Seguros, breaks=c(-99000,-100,-0.0001,0,20,200,1000,99000))
+data2$Rec_dif_Planes_pension= cut(data$dif_Planes_pension, breaks=c(-99000,-100,-0.0001,0,20,200,1000,99000))
+data2$Rec_dif_Hipoteca= cut(data$dif_Hipoteca, breaks=c(-99000,-100,-0.0001,0,20,200,1000,99000))
+data2$Rec_dif_Prest_personales= cut(data$dif_Prest_personales, breaks=c(-99000,-100,-0.0001,0,20,200,1000,99000))
 ```
 
-#### 6. Suponga que quiere analizar la compra de un producto a partir del barrio de residencia (en clase alta o baja, indicador del poder adquisitivo del cliente). En un primer análisis se obtiene la siguiente tabla. 
+```{r}
+colorPalett = c("#99E47E", "#48BF84", "#439775", "#3C7A80", "#D65F65")
 
-#### En su opinión, ¿el poder adquisitivo del cliente, tiene alguna influencia sobre la compra o no del producto? (Responda sólo calculando las probabilidades, sin realizar la prueba de hipótesis de igualdad entre ambas probabilidades).  Un empleado senior de la compañía nos sugiere profundizar más en el análisis y tener en cuenta la edad de los clientes. Cruzando por edad (adulto o joven) los dos tipos de barrio mencionados, obtenemos las siguientes tablas:
+
+total_observations = nrow(data2)
+filter_criteria = 'Baja SI'
+
+# -------------------------
+# Variable 1:
+# -------------------------
+
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_tot_plazo) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos del Total Plazos"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart1 = ggplot(dt_transformation, aes(x = Rec_tot_plazo, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart1)
+
+# -------------------------
+# Variable 2:
+# -------------------------
+
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_tot_inversion) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos del Total Inversión"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_tot_inversion, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+# -------------------------
+# Variable 3:
+# -------------------------
+
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_tot_seguros) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos del Total Seguros"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_tot_seguros, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+# -------------------------
+# Variable 4:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_tot_vista) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos del Total Vista"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_tot_vista, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+
+# -------------------------
+# Variable 5:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_oper_caj_Libreta) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos del Oper Caja Libreta"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_oper_caj_Libreta, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+
+# -------------------------
+# Variable 6:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_oper_ven_Libreta) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos de Oper Ven Libreta"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_oper_ven_Libreta, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+# -------------------------
+# Variable 7:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_dif_CC) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos Differencia CC"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_dif_CC, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+
+
+# -------------------------
+# Variable 8:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_dif_Libreta) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos Differencia Libreta"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_dif_Libreta, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+
+# -------------------------
+# Variable 9:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_dif_Plazo) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos Differencia Plazos"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_dif_Plazo, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+# -------------------------
+# Variable 10:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_dif_Ahorro) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos Differencia Ahorro"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_dif_Ahorro, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+
+# -------------------------
+# Variable 11:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_dif_Largo_plazo) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos Differencia Largo Plazo"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_dif_Largo_plazo, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+
+
+# -------------------------
+# Variable 12:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_dif_Fondos_inv) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos Differencia Fondos de Inversión"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_dif_Fondos_inv, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+
+# -------------------------
+# Variable 13:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_dif_Seguros) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos Differencia Seguros"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_dif_Seguros, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+# -------------------------
+# Variable 14:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_dif_Planes_pension) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos Differencia Planes de Pensión"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_dif_Planes_pension, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+
+# -------------------------
+# Variable 15:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_dif_Hipoteca) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos Differencia Hipoteca"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_dif_Hipoteca, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+
+# -------------------------
+# Variable 16:
+# -------------------------
+dt_transformation = data2 %>% filter(., Baja == filter_criteria) %>% group_by(Rec_dif_Prest_personales) %>% summarise(variable_pcnt = length(Baja)/total_observations)
+
+x_label = "Intervalos Differencia Prestamos Personales"
+title = paste("Proporcion de Bajas por",x_label)
+
+chart2 = ggplot(dt_transformation, aes(x = Rec_dif_Prest_personales, y = variable_pcnt, group = 1)) + geom_bar(position = "stack", stat='identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle(title) + labs(y = "% Bajas", x = x_label) + scale_fill_manual(values=colorPalett)
+
+print(chart2)
+```
+
+#### 6. Suponga que quiere analizar la compra de un producto a partir del barrio de residencia (en clase alta o baja, indicador del poder adquisitivo del cliente). En un primer análisis se obtiene la siguiente tabla.
+
+#### En su opinión, ¿el poder adquisitivo del cliente, tiene alguna influencia sobre la compra o no del producto? (Responda sólo calculando las probabilidades, sin realizar la prueba de hipótesis de igualdad entre ambas probabilidades). Un empleado senior de la compañía nos sugiere profundizar más en el análisis y tener en cuenta la edad de los clientes. Cruzando por edad (adulto o joven) los dos tipos de barrio mencionados, obtenemos las siguientes tablas:
 
 #### ¿Tenía razón el empleado de que era conveniente tener en cuenta la edad?. ¿Cuál de los dos factores, el barrio de residencia o la edad, es el determinante en la compra del producto en cuestión?
 
