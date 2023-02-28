@@ -7,11 +7,8 @@ output:
 ---
 
 ```{r}
-# Setting the working path
-setwd('/Users/pol-lisardmartinezcollado/Desktop/MASTER/Master R/Data Analytics Lab/8-Profiling')
-
 #  Reading credsco2.txt
-dd = read.table("credsco2.txt",header=T)
+dd = read.table("_repository/credsco2.txt",header=T, check.names = F)
 
 # Dimensions and summary of data
 dim(dd)
@@ -21,22 +18,27 @@ summary(dd)
 library(FactoMineR)
 ```
 
-#### 1. Lea este fichero y efectúe un "summary" de los datos. ¿Detecta algún error o inconsistencia?. Si es así, corríjalo.
+#### 1. Lea el fichero "churn.txt" y efectúe un "summary" de los datos. ¿Detecta algún error o inconsistencia?. Si es así, corríjalo.
 
 ```{r}
-
+data = read.table("_repository/churn.txt",header=T, check.names = F)
+summary(data)
 ```
 
 #### 2. Especifique cuál es la variable de respuesta y cuáles son las explicativas y el tipo de todas ellas.
 
-```{r}
+La variable de respuesta es "Baja", ya que es el factor que queremos analizar y poder predecir con el resto de variables, que serian entonces las variables explicativas.
 
-```
+En cuanto al tipo tenemos:
+
+-   Variables contínuas: antig, Total_activo, Total_Plazo, Total_Inversion, Total_Seguros, Total_Vista, oper_caj_Libreta, oper_ven_Libreta, dif_CC, dif_Libreta, dif_Plazo, dif_Ahorro, dif_Largo_plazo, dif_Fondos_inv, dif_Seguros, dif_Planes_pension, dif_Hipoteca y dif_Prest_personales.
+
+-    Variables categóricas: Baja, edatcat, sexo, Nomina, Pension, Debito_normal, Debito_aff, VISA, VISA_aff, MCard, Amex y dif_resid.
 
 #### 3. Efectúe una gráfica de los datos: un diagrama de barras para las variables categóricas y un histograma para las variables continuas.
 
 ```{r}
-
+#Variables categóricas
 ```
 
 #### 4. Efectúe el "profiling" de las bajas (con la función catdes de la librería "FactoMineR"). Interprete el resultado.

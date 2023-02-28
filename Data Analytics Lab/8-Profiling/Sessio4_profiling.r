@@ -1,10 +1,10 @@
 
 ##############################################################
 # SETTING THE WORKING PATH 
-setwd("D:/docent/Curs Big Data/2019-2020/Sessio4 Prof/R/")
+setwd("/Users/pol-lisardmartinezcollado/Desktop/MASTER/Master R/Data Analytics Lab/8-Profiling")
 
 #  READING CREDSCO.TXT
-dd <- read.table("credsco2.txt",header=T)
+dd <- read.table("_repository/credsco2.txt",header=T, check.names = F)
 
 # DIMENSIONS AND SUMMARY OF DATA
 dim(dd)
