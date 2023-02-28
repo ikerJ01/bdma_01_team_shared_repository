@@ -21,7 +21,7 @@ library(FactoMineR)
 #### 1. Lea el fichero "churn.txt" y efectúe un "summary" de los datos. ¿Detecta algún error o inconsistencia?. Si es así, corríjalo.
 
 ```{r}
-data = read.table("_repository/churn.txt",header=T, check.names = F)
+data = read.table("_repository/churn.txt",header=T)
 summary(data)
 ```
 
@@ -39,11 +39,49 @@ En cuanto al tipo tenemos:
 
 ```{r}
 #Variables categóricas
+barplot(table(data$Baja), main = "Baja")
+barplot(table(data$edatcat), main = "Edad")
+barplot(table(data$sexo), main = "Sexo")
+barplot(table(data$Nomina), main = "Nómina")
+barplot(table(data$Pension), main = "Pensión")
+barplot(table(data$Debito_normal), main = "Débito normal")
+barplot(table(data$Debito_aff), main = "Debito aff")
+barplot(table(data$VISA), main = "VISA")
+barplot(table(data$VISA_aff), main = "VISA aff")
+barplot(table(data$MCard), main = "MCard")
+barplot(table(data$Amex), main = "Amex")
+barplot(table(data$dif_resid), main = "Cambio de residencia")
+
+#Variables contínuas
+hist(data$antig)
+hist(data$Total_activo)
+hist(data$Total_Plazo)
+hist(data$Total_Inversion)
+hist(data$Total_Seguros)
+hist(data$Total_Vista)
+hist(data$oper_caj_Libreta)
+hist(data$oper_ven_Libreta)
+hist(data$dif_CC)
+hist(data$dif_Libreta)
+hist(data$dif_Plazo)
+hist(data$dif_Ahorro)
+hist(data$dif_Largo_plazo)
+hist(data$dif_Fondos_inv)
+hist(data$dif_Seguros)
+hist(data$dif_Planes_pension)
+hist(data$dif_Hipoteca)
+hist(data$dif_Seguros)
+hist(data$dif_Prest_personales)
 ```
 
 #### 4. Efectúe el "profiling" de las bajas (con la función catdes de la librería "FactoMineR"). Interprete el resultado.
 
 ```{r}
+profiling = catdes(data,num.var=1,proba = 0.01)
+profiling
+
+
+plot(profiling, barplot=T)
 
 ```
 
