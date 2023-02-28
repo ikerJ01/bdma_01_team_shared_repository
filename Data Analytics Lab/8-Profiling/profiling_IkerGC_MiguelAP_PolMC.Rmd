@@ -1,0 +1,62 @@
+---
+title: "Profiling"
+author: "Miguel Albertí Pons, Iker González Cuellar, Pol Martínez Collado"
+date: "28-02-22"
+output:
+  html_document: default
+---
+
+```{r}
+# Setting the working path
+setwd('/Users/pol-lisardmartinezcollado/Desktop/MASTER/Master R/Data Analytics Lab/8-Profiling')
+
+#  Reading credsco2.txt
+dd = read.table("credsco2.txt",header=T)
+
+# Dimensions and summary of data
+dim(dd)
+summary(dd)
+
+#Libraries
+library(FactoMineR)
+```
+
+#### 1. Lea este fichero y efectúe un "summary" de los datos. ¿Detecta algún error o inconsistencia?. Si es así, corríjalo.
+
+```{r}
+
+```
+
+#### 2. Especifique cuál es la variable de respuesta y cuáles son las explicativas y el tipo de todas ellas.
+
+```{r}
+
+```
+
+#### 3. Efectúe una gráfica de los datos: un diagrama de barras para las variables categóricas y un histograma para las variables continuas.
+
+```{r}
+
+```
+
+#### 4. Efectúe el "profiling" de las bajas (con la función catdes de la librería "FactoMineR"). Interprete el resultado.
+
+```{r}
+
+```
+
+#### 5. Represente visualmente la relación de las variables explicativas con la variable de respuesta; para ello discretize las variables continuas (esto es, recodifíquelas según un cierto número de intervalos; tenga en cuenta el significado especial del valor 0 a la hora de establecer los intervalos de recodificación) y represente mediante barplots el porcentaje de baja de las modalidades de las variables categóricas (tanto las categóricas originales como las continuas recodificadas).
+
+```{r}
+
+```
+
+#### 6. Suponga que quiere analizar la compra de un producto a partir del barrio de residencia (en clase alta o baja, indicador del poder adquisitivo del cliente). En un primer análisis se obtiene la siguiente tabla. 
+
+#### En su opinión, ¿el poder adquisitivo del cliente, tiene alguna influencia sobre la compra o no del producto? (Responda sólo calculando las probabilidades, sin realizar la prueba de hipótesis de igualdad entre ambas probabilidades).  Un empleado senior de la compañía nos sugiere profundizar más en el análisis y tener en cuenta la edad de los clientes. Cruzando por edad (adulto o joven) los dos tipos de barrio mencionados, obtenemos las siguientes tablas:
+
+#### ¿Tenía razón el empleado de que era conveniente tener en cuenta la edad?. ¿Cuál de los dos factores, el barrio de residencia o la edad, es el determinante en la compra del producto en cuestión?
+
+```{r}
+
+```
