@@ -53,35 +53,33 @@ barplot(table(data$Amex), main = "Amex")
 barplot(table(data$dif_resid), main = "Cambio de residencia")
 
 #Variables contínuas
-hist(data$antig)
-hist(data$Total_activo)
-hist(data$Total_Plazo)
-hist(data$Total_Inversion)
-hist(data$Total_Seguros)
-hist(data$Total_Vista)
-hist(data$oper_caj_Libreta)
-hist(data$oper_ven_Libreta)
-hist(data$dif_CC)
-hist(data$dif_Libreta)
-hist(data$dif_Plazo)
-hist(data$dif_Ahorro)
-hist(data$dif_Largo_plazo)
-hist(data$dif_Fondos_inv)
-hist(data$dif_Seguros)
-hist(data$dif_Planes_pension)
-hist(data$dif_Hipoteca)
-hist(data$dif_Seguros)
-hist(data$dif_Prest_personales)
+hist(data$antig, main = "Antiguedad")
+hist(data$Total_activo, main = "Activo total")
+hist(data$Total_Plazo, main = "Plazo total")
+hist(data$Total_Inversion, main = "Inversión total")
+hist(data$Total_Seguros, main = "Seguros total")
+hist(data$Total_Vista, main = "Vista total")
+hist(data$oper_caj_Libreta, main = "Operaciones en cajero")
+hist(data$oper_ven_Libreta, main = "Operaciones en ventanilla")
+hist(data$dif_CC, main = "Diff Cuenta Corriente")
+hist(data$dif_Libreta, main = "Diff Libreta")
+hist(data$dif_Plazo, main = "Diff Plazo")
+hist(data$dif_Ahorro, main = "Diff Ahorro")
+hist(data$dif_Largo_plazo, main = "Diff largo Plazo")
+hist(data$dif_Fondos_inv, main = "Diff Fondos de inversión")
+hist(data$dif_Seguros, main = "Diff Seguros")
+hist(data$dif_Planes_pension, main = "Diff Planes de pensión")
+hist(data$dif_Hipoteca, main = "Diff Hipoteca")
+hist(data$dif_Seguros, main = "Diff Seguros")
+hist(data$dif_Prest_personales, main = "Diff Préstamos personales")
 ```
 
 #### 4. Efectúe el "profiling" de las bajas (con la función catdes de la librería "FactoMineR"). Interprete el resultado.
 
 ```{r}
-profiling = catdes(data,num.var=1,proba = 0.01)
+profiling = catdes(data, num.var=1, proba = 0.01)
 profiling
-
-
-plot(profiling, barplot=T)
+#plot(profiling, barplot=T)
 
 ```
 
