@@ -83,9 +83,14 @@ hist(data$dif_Prest_personales, main = "Diff Préstamos personales")
 ```{r}
 profiling = catdes(data, num.var=1, proba = 0.01)
 profiling
-#plot(profiling, barplot=T)
+
+plot(profiling, barplot=T)
 
 ```
+
+El profiling efectuado con la función catdes nos revela las variables más relevantes para determinar si va a haber una baja son Total_Vista, Total_Plazo, dif_Libreta y Total_activo. La primera y más relevante es Total_Vista, que es 10 variaciones estandar mayor que la media en los casos en los que se acaba produciendo una baja, la segunda es Total_Plazo que es 8 variaciones estandar mayor, la tercera es dif_Libreta, que es casi 8 variaciones estandar menor y la cuarta más relevante es Total_activo que es 6 variaciones estandar mayor.
+
+En general lo que podemos ver es que los valores de diferencia de 6 meses antes son menores que la media, por lo que un indicador claro es cuando se empieza a sacar dinero de las cuentas. Otro marcador que se puede observar es que los valores totales de dinero son mayores en los perfiles que se dan de baja, por lo que son esos los que tienen mas tendencia a darse de baja frente a los perfiles con menos dinero ahorrado.
 
 #### 5. Represente visualmente la relación de las variables explicativas con la variable de respuesta; para ello discretize las variables continuas (esto es, recodifíquelas según un cierto número de intervalos; tenga en cuenta el significado especial del valor 0 a la hora de establecer los intervalos de recodificación) y represente mediante barplots el porcentaje de baja de las modalidades de las variables categóricas (tanto las categóricas originales como las continuas recodificadas).
 
@@ -323,38 +328,83 @@ chart2 = ggplot(dt_transformation, aes(x = Rec_dif_Prest_personales, y = variabl
 print(chart2)
 ```
 
+Podemos concluir que el empleado tenía razón, es decir, la edad influye. Se puede ver que los jóvenes tienden a comprar más este producto frente a los adultos sin importar del barrio del que provengan, ya que, la diferencia entre los jóvenes de clase alta y los jóvenes de la clase baja no es significativa.
+
 #### 6. Suponga que quiere analizar la compra de un producto a partir del barrio de residencia (en clase alta o baja, indicador del poder adquisitivo del cliente). En un primer análisis se obtiene la siguiente tabla.
+
+```{r}
+#Tabla 1
+tab1 = matrix(c(20,373,393,6,316,322), nrow=2, byrow = TRUE)
+colnames(tab1) = c('Compra SI', 'Compra NO', 'Total')
+rownames(tab1) = c('Classe Alta', 'Classe Baixa')
+tab1 = as.table(tab1)
+tab1
+
+
+```
 
 #### En su opinión, ¿el poder adquisitivo del cliente, tiene alguna influencia sobre la compra o no del producto? (Responda sólo calculando las probabilidades, sin realizar la prueba de hipótesis de igualdad entre ambas probabilidades).
 
 ```{r}
-# Probabilidad de comprar clase alta
-20 / 393 * 100 
+#% de compra según clase
 
-# Probabilidad de comprar clase baja
-6 / 322 * 100
+percentCA = (20/393)*100
+percentCB = (6/322)*100
+
+percentCA
+percentCB
+
 ```
 
-Podemos observar que las dos probabilidades son muy bajas, aunque, los de clase alta tiene un 4% más de opciones de comprar.\
-\
-No son unos datos muy fiables, ya que, se podría dar por hecho que los individuos de clase alta tienden a comprar más productos y ser más consumistas que los de clase baja y, por tanto, de ahí esa diferencia de probabilidad sin importar de que producto se trate.
+El porcentaje de clientes que compran el producto es más alto en el barrio de clase alta (5.1% vs 1.9%). Aparentemente se podría considerar que el poder adquisitivo del cliente influencia la compra del producto, sin embargo se trata de un sample relativamente pequeño y con pocos matices, por lo que no me atrevería a asegurarlo.
 
 #### Un empleado senior de la compañía nos sugiere profundizar más en el análisis y tener en cuenta la edad de los clientes. Cruzando por edad (adulto o joven) los dos tipos de barrio mencionados, obtenemos las siguientes tablas:
+
+```{r}
+#Tabla 2
+tab2 = matrix(c(3,176,179,4,293,297), nrow=2, byrow = TRUE)
+colnames(tab2) = c('Compra SI', 'Compra NO', 'Total')
+rownames(tab2) = c('Classe Alta', 'Classe Baixa')
+tab2 = as.table(tab2)
+tab2
+
+#Tabla 3
+tab3 = matrix(c(17,197,214,2,23,25), nrow=2, byrow = TRUE)
+colnames(tab3) = c('Compra SI', 'Compra NO', 'Total')
+rownames(tab3) = c('Classe Alta', 'Classe Baixa')
+tab3 = as.table(tab3)
+tab3
+
+
+
+```
 
 #### ¿Tenía razón el empleado de que era conveniente tener en cuenta la edad?. ¿Cuál de los dos factores, el barrio de residencia o la edad, es el determinante en la compra del producto en cuestión?
 
 ```{r}
-# Probabilidad de comprar clase alta jovens
-3 / 179 * 100 
-# Probabilidad de comprar clase alta adultos
-17 / 214 * 100 
 
+#% de compra según clase y edad
 
-# Probabilidad de comprar clase baja jovens
-4 / 297 * 100 
-# Probabilidad de comprar clase baja adultos
-2 / 25 * 100 
+percentAdultCA = (3/179)*100
+percentAdultCB = (4/297)*100
+percentYoungCA = (17/197)*100
+percentYoungCB = (2/25)*100
+
+percentAdultCA
+percentAdultCB
+percentYoungCA
+percentYoungCB
+
+#% de compra según edad
+
+percentAdult = ((17+2)/(197+25))*100
+percentYoung = ((3+4)/(179+297))*100
+
+percentAdult
+percentYoung
 
 ```
 
-Podemos concluir que el empleado tenía razón, es decir, la edad influye. Se puede ver que los jóvenes tienden a comprar más este producto frente a los adultos sin importar del barrio del que provengan, ya que, la diferencia entre los jóvenes de clase alta y los jóvenes de la clase baja no es significativa. Habría que tener en cuenta que los cálculos sobre los jóvenes de clase baja es sobre un conjunto de 25 jóvenes frente a los jóvenes de clase alta, donde hay un total de 214, siendo esta muestra más representativa sobre la población de gente joven de clase alta.
+Al expandir el análisis a rangos de edad podemos ver como la influencia principal en la compra o no del producto es la edad del cliente. Los porcentajes de compra por edades se asemejan mucho entre los dos barrios, cosa que demuestra que la diferencia de resultados en el primer análisis se debe a la diferencia de edad media de los dos barrios, no a la diferencia de poder adquisitivo de su población.
+
+Habría que tener también en cuenta que los cálculos sobre los jóvenes de clase baja se ha hecho sobre un conjunto de 25 jóvenes frente a los jóvenes de clase alta, donde hay un total de 214, siendo esta muestra más representativa sobre la población de gente joven de clase alta.
