@@ -325,10 +325,36 @@ print(chart2)
 
 #### 6. Suponga que quiere analizar la compra de un producto a partir del barrio de residencia (en clase alta o baja, indicador del poder adquisitivo del cliente). En un primer análisis se obtiene la siguiente tabla.
 
-#### En su opinión, ¿el poder adquisitivo del cliente, tiene alguna influencia sobre la compra o no del producto? (Responda sólo calculando las probabilidades, sin realizar la prueba de hipótesis de igualdad entre ambas probabilidades). Un empleado senior de la compañía nos sugiere profundizar más en el análisis y tener en cuenta la edad de los clientes. Cruzando por edad (adulto o joven) los dos tipos de barrio mencionados, obtenemos las siguientes tablas:
+#### En su opinión, ¿el poder adquisitivo del cliente, tiene alguna influencia sobre la compra o no del producto? (Responda sólo calculando las probabilidades, sin realizar la prueba de hipótesis de igualdad entre ambas probabilidades).
+
+```{r}
+# Probabilidad de comprar clase alta
+20 / 393 * 100 
+
+# Probabilidad de comprar clase baja
+6 / 322 * 100
+```
+
+Podemos observar que las dos probabilidades son muy bajas, aunque, los de clase alta tiene un 4% más de opciones de comprar.\
+\
+No son unos datos muy fiables, ya que, se podría dar por hecho que los individuos de clase alta tienden a comprar más productos y ser más consumistas que los de clase baja y, por tanto, de ahí esa diferencia de probabilidad sin importar de que producto se trate.
+
+#### Un empleado senior de la compañía nos sugiere profundizar más en el análisis y tener en cuenta la edad de los clientes. Cruzando por edad (adulto o joven) los dos tipos de barrio mencionados, obtenemos las siguientes tablas:
 
 #### ¿Tenía razón el empleado de que era conveniente tener en cuenta la edad?. ¿Cuál de los dos factores, el barrio de residencia o la edad, es el determinante en la compra del producto en cuestión?
 
 ```{r}
+# Probabilidad de comprar clase alta jovens
+3 / 179 * 100 
+# Probabilidad de comprar clase alta adultos
+17 / 214 * 100 
+
+
+# Probabilidad de comprar clase baja jovens
+4 / 297 * 100 
+# Probabilidad de comprar clase baja adultos
+2 / 25 * 100 
 
 ```
+
+Podemos concluir que el empleado tenía razón, es decir, la edad influye. Se puede ver que los jóvenes tienden a comprar más este producto frente a los adultos sin importar del barrio del que provengan, ya que, la diferencia entre los jóvenes de clase alta y los jóvenes de la clase baja no es significativa. Habría que tener en cuenta que los cálculos sobre los jóvenes de clase baja es sobre un conjunto de 25 jóvenes frente a los jóvenes de clase alta, donde hay un total de 214, siendo esta muestra más representativa sobre la población de gente joven de clase alta.
