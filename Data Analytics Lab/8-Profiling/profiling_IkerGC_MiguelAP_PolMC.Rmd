@@ -29,6 +29,8 @@ data = read.table("_repository/churn.txt",header=T)
 summary(data)
 ```
 
+La variable "sexo" tiene como valores "Hombre" y "No informado". Nos ha parecido estraña la ausencia de mujeres y la cantidad de "No informado"s pero no tenemos la seguridad suficiente de que se trate de un error como para corregirlo.
+
 #### 2. Especifique cuál es la variable de respuesta y cuáles son las explicativas y el tipo de todas ellas.
 
 La variable de respuesta es "Baja", ya que es el factor que queremos analizar y poder predecir con el resto de variables, que serian entonces las variables explicativas.
