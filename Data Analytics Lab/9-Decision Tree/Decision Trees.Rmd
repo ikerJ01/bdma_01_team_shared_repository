@@ -40,8 +40,9 @@ R(T) = 60/100 \* 0.032 + 40/100 \* 0.0475 = **0.0382**
 
 ```{r}
 library('rpart')
+library('rpart.plot')
 df = read.table("../8-Profiling/_repository/churn.txt",header=T, check.names = F)
-modelo <- rpart(df$Baja ~ ., data=df, control = rpart.control(cp = 0.0001), xval = 10)
+modelo = rpart(df$Baja ~ ., data=df, control = rpart.control(cp = 0.0001, xval = 10))
 plot(modelo)
 
 ```
@@ -51,13 +52,26 @@ plot(modelo)
 **Determine ahora el árbol óptimo y su valor del complexity parameter (cp). Diga cuales son las variables más importantes en la definición del árbol óptimo.**
 
 ```{r}
+printcp(modelo)
 ```
+
+Al no tener datos de validación, se procede a realizar un ten-fold cross validation test, en el cual se calculan las medias (xerror) y sus respectivas desviaciones tipo (xstd). Una vez obtenido los resultados, se procede a buscar la medía mínima (xerror) sumando 1 desviación tipo para obtener un threshold de posibilidades de árboles óptimos y siguiendo un criterio de parsimonia, se elige el árbol más simple ya que es parte del criterio de selección es que los árboles deben ser interpretables.
+
+Valor xerror mínimo: 0.385
+
+Desviación tipo: 0.017632
+
+Threshold: 0.402632
+
+***En este caso, el árbol óptimo es cualquiera cuya media esté por debajo de los 0.402632, y por el criterio de parsimonia se elige el árbol con index 18, con un CP 0.00266667 y 31 Splits.***
 
 ## Ejercicio 5
 
 **Represente gráficamente el árbol óptimo y liste sus reglas de decisión.**
 
 ```{r}
+modelo_optimo = prune(modelo, cp = 0.00266667)
+rpart.plot(modelo_optimo)
 ```
 
 ## Ejercicio 6
