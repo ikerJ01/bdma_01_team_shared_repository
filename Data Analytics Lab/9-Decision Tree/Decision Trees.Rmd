@@ -78,12 +78,32 @@ rpart.plot(modelo_optimo)
 
 **A partir de la tabla de datos ponderados, decida un umbral de decisión para la predicción de "baja" y obtenga el "error_rate", la precisión en la predicción positiva y el Recall asociado al umbral escogido**
 
-```{r}
-```
+Definiendo el umbral de decisión en el 75% obtenemos un error_rate del 25.15%, una precisión en la predicción positiva del 82.28% y un recall del 82.84%.
 
 ## Ejercicio 7
 
 **A partir de la tabla de datos ponderados, obtenga la curva ROC correspondiente.**
 
 ```{r}
+n = nrow(df)
+
+set.seed(7)
+learn = sample(1:n, round(0.67*n))
+
+(nlearn = length(learn))
+(ntest = n - nlearn)
+
+pred_learn = as.data.frame(predict(modelo_optimo, data=df[learn,],type="prob"))
+pred_test = as.data.frame(predict(modelo_optimo, newdata=df[-learn,],type="prob"))
+
+library(ROCR)
+
+pred = prediction(c(pred_learn$positiu,pred_test$positiu), c(df$Dictamen[learn],df$Dictamen[-learn]))
+roc = performance(pred,measure="tpr",x.measure="fpr")
+plot(roc, main="ROC curve")
+abline(0,1,col="blue")
+
+auc.tmp = performance(pred,"auc")
+auc = as.numeric(auc.tmp@y.values)
+auc
 ```
