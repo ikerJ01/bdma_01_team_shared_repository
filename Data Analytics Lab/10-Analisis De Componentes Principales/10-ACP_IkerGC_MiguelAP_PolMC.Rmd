@@ -1,0 +1,51 @@
+---
+title: "Analisis De Componentes Principales "
+author: "Miguel Albertí Pons, Iker González Cuellar, Pol Martínez Collado"
+date: "15-03-23"
+output:
+  html_document: default
+---
+
+```{r message=FALSE}
+library(ggplot2)
+library(reshape2)
+library(tidyr)
+library(dplyr)
+library(GGally)
+library(FactoMineR)
+
+```
+
+#### 1.	Lea el fichero "churn.txt". Efectúe las correcciones del fichero de datos ya realizadas para el ejercicio de "Profiling". Razone lo que significa realizar un ACP con datos estandarizados o sin estandarizar. 
+
+```{r}
+data = read.table("_repository/churn.txt",header=T)
+
+data$sexo[data$sexo == 'No informado'] = 'MUJER'
+data$Nomina = replace(data$Nomina, is.na(data$Nomina), 'Nomina NO')
+data$Pension = replace(data$Pension, is.na(data$Pension), 'Pension NO')
+data$Debito_aff = replace(data$Debito_aff, is.na(data$Debito_aff), 'Debito aff. NO')
+data$VISA = replace(data$VISA, is.na(data$VISA), 'VISA NO')
+data$MCard = replace(data$MCard, is.na(data$MCard), 'MCard NO')
+dim(data)
+```
+
+Al estandarizar los datos, signfica que las variables se normalizan las variables, centrandolas y con una desviación tipo igual a1, de esta forma los valores se ponen en una misma escala para ser comparables y evitar cualquier sesgo por valores atípicos muy elevados. Por el otro lado, el no estandarizar los datos, el análisis se podrá ver afectado en caso de que las valores no esten en una misma escala ya que los valores atípicos podrán sesgar el análisis.
+
+```{r}
+ggpairs(data, columns = 30)
+
+```
+
+#### 2.	Efectúe un Análisis de Componentes Principales estandarizado, tomando como variables activas los productos bancarios antes especificados. Declare como ilustrativos los clientes que se dieron de baja (de esta forma la configuración obtenida reflejará la de los clientes "normales").  
+
+```{r}
+data_solo_NoBaja = filter(data, Baja == 'Baja NO')
+cp = PCA(data_solo_NoBaja, quanti.sup = c(13:17), quali.sup = c(1:3,5:12,18))
+```
+
+#### 3.	Obtenga la representación gráfica del "Screeplot" (diagrama de los "eigenvalues") y a la vista de las correlaciones entre las variables originales y las componentes principales, decida el número de dimensiones significativas. ¿Cuál es el porcentaje de variancia retenido?.
+
+```{r}
+plot(cp$eig[,1], type='l', main = 'Screeplot')
+```
