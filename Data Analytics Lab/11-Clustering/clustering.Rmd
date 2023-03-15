@@ -1,7 +1,7 @@
 ---
-title: 'Analisis De Componentes Principales '
+title: 'Clustering'
 author: "Miguel Albertí Pons, Iker González Cuellar, Pol Martínez Collado"
-date: "15-03-23"
+date: "22-03-23"
 output:
   html_document: default
   pdf_document: default
@@ -13,13 +13,14 @@ library(reshape2)
 library(tidyr)
 library(dplyr)
 library(GGally)
+library(stats)
+library(cluster)
 ```
 
 # Componentes principales
 
 ```{r}
 data = read.table("_repository/churn.txt",header=T)
-
 data$sexo[data$sexo == 'No informado'] = 'MUJER'
 data$Nomina = replace(data$Nomina, is.na(data$Nomina), 'Nomina NO')
 data$Pension = replace(data$Pension, is.na(data$Pension), 'Pension NO')
@@ -27,16 +28,22 @@ data$Debito_aff = replace(data$Debito_aff, is.na(data$Debito_aff), 'Debito aff. 
 data$VISA = replace(data$VISA, is.na(data$VISA), 'VISA NO')
 data$MCard = replace(data$MCard, is.na(data$MCard), 'MCard NO')
 index_NoBaja = which(data$Baja == 'Baja NO')
-cp = PCA(data, quanti.sup = c(13:17), quali.sup = c(1:3,5:12,18), ind.sup = index_NoBaja)
+```
 
+```{r}
+cp = PCA(data, quanti.sup = c(13:17), quali.sup = c(1:3,5:12,18), ind.sup = index_NoBaja)
 ```
 
 # Ejercicio 1
 
-Con las componentes principales halladas significativas, efectúe una Clasificación Ascendente Jerárquica por el método de Ward. Explique en qué consiste el método de agregación de Ward?. Represente el dendrograma (o árbol jerárquico) obtenido.
+**Con las componentes principales halladas significativas, efectúe una Clasificación Ascendente Jerárquica por el método de Ward. Explique en qué consiste el método de agregación de Ward?. Represente el dendrograma (o árbol jerárquico) obtenido.**
 
 ```{r}
+CAJ <- hclust(dist(CP_significativas), method = "ward.D2")
+plot(CAJ, main = "Dendrograma de la CAJ por Ward", xlab = "Observaciones", ylab = "Distancia")
 ```
+
+El método de agregación de ward consiste en conseguir grupos los mas homogenos posibles, esto lo hace reduciendo la varianza total dentro de cada grupo
 
 # Ejercicio 2
 
