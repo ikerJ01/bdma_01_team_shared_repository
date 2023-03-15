@@ -1,0 +1,88 @@
+---
+title: 'Analisis De Componentes Principales '
+author: "Miguel Albertí Pons, Iker González Cuellar, Pol Martínez Collado"
+date: "15-03-23"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r message=FALSE}
+library(ggplot2)
+library(reshape2)
+library(tidyr)
+library(dplyr)
+library(GGally)
+```
+
+# Componentes principales
+
+```{r}
+data = read.table("_repository/churn.txt",header=T)
+
+data$sexo[data$sexo == 'No informado'] = 'MUJER'
+data$Nomina = replace(data$Nomina, is.na(data$Nomina), 'Nomina NO')
+data$Pension = replace(data$Pension, is.na(data$Pension), 'Pension NO')
+data$Debito_aff = replace(data$Debito_aff, is.na(data$Debito_aff), 'Debito aff. NO')
+data$VISA = replace(data$VISA, is.na(data$VISA), 'VISA NO')
+data$MCard = replace(data$MCard, is.na(data$MCard), 'MCard NO')
+index_NoBaja = which(data$Baja == 'Baja NO')
+cp = PCA(data, quanti.sup = c(13:17), quali.sup = c(1:3,5:12,18), ind.sup = index_NoBaja)
+
+```
+
+# Ejercicio 1
+
+Con las componentes principales halladas significativas, efectúe una Clasificación Ascendente Jerárquica por el método de Ward. Explique en qué consiste el método de agregación de Ward?. Represente el dendrograma (o árbol jerárquico) obtenido.
+
+```{r}
+```
+
+# Ejercicio 2
+
+A la vista del diagrama de barras del índice de nivel de las últimas agregaciones efectuadas, decida el número de clases de clientes diferentes que existen en los datos analizados.
+
+```{r}
+```
+
+# Ejercicio 3
+
+Obtenga la partición del árbol jerárquico en el número de clases finales deseado. Diga el número de clientes por "cluster", y calcule el centro de gravedad de los clusters obtenidos.
+
+```{r}
+```
+
+# Ejercicio 4
+
+En qué consiste la operación de consolidación de una partición obtenida por corte del árbol jerárquico. Efectúe esta operación en la partición obtenida en el apartado 3 anterior. Diga el número de clientes en las clases finales obtenidas.
+
+```{r}
+```
+
+# Ejercicio 5
+
+Represente la partición final obtenida en el primer gráfico factorial, distinguiendo con colores diferentes cada una de las clases de clientes detectados.
+
+```{r}
+```
+
+# Ejercicio 6
+
+Interpretamos las clases finales obtenidas. Para ello utilizamos la función "catdes" de R. Interprete y de un nombre a cada una de los tipos de cliente identificados.
+
+```{r}
+```
+
+# Ejercicio 7
+
+Asigne ahora los clientes que SI han sido baja en la tipología de clientes anterior (tome para ello la proyección de los individuos suplementarios obtenidos en el PCA y utilice la función knn1 de la librería class).
+
+```{r}
+```
+
+# Ejercicio 8
+
+Represente gráficamente (con la función barplot de R) la proporción de clientes en cada una de las clases de ambos conjuntos de clientes ("normales" y los que han sido baja). Diga qué clusters tienen un riesgo mayor que el cliente se de de baja.
+
+```{r}
+```
