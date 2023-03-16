@@ -15,6 +15,7 @@ library(dplyr)
 library(GGally)
 library(stats)
 library(cluster)
+library(FactoMineR)
 ```
 
 # Componentes principales
@@ -27,11 +28,11 @@ data$Pension = replace(data$Pension, is.na(data$Pension), 'Pension NO')
 data$Debito_aff = replace(data$Debito_aff, is.na(data$Debito_aff), 'Debito aff. NO')
 data$VISA = replace(data$VISA, is.na(data$VISA), 'VISA NO')
 data$MCard = replace(data$MCard, is.na(data$MCard), 'MCard NO')
-index_NoBaja = which(data$Baja == 'Baja NO')
+index_SiBaja = which(data$Baja == 'Baja SI')
 ```
 
 ```{r}
-cp = PCA(data, quanti.sup = c(13:17), quali.sup = c(1:3,5:12,18), ind.sup = index_NoBaja)
+cp = PCA(data, quanti.sup = c(13:17), quali.sup = c(1:3,5:12,18), ind.sup = index_SiBaja)
 ```
 
 # Ejercicio 1
