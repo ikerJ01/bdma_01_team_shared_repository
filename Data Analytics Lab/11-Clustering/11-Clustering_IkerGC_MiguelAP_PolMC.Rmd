@@ -169,5 +169,10 @@ pred_sup
 **Represente gráficamente (con la función barplot de R) la proporción de clientes en cada una de las clases de ambos conjuntos de clientes ("normales" y los que han sido baja). Diga qué clusters tienen un riesgo mayor que el cliente se de de baja.**
 
 ```{r}
+for (k in 1:6) {
+   print(paste("Cluster",k))
+   print(row.names(cp.hclust$)[cut==k])}
+
+cp.hclust
 
 ```
