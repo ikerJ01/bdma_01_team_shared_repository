@@ -38,7 +38,6 @@ cp = PCA(data,ncp=nd , quanti.sup = c(4,19:30), quali.sup = c(1:3,5:12,18), ind.
 
 cpsig = cp$ind$coord
 
-
 ```
 
 # Ejercicio 1
@@ -50,7 +49,7 @@ cpsig = cp$ind$coord
 dist.cpsig = dist(cpsig)
 
 cp.hclust = hclust(dist.cpsig, method = "ward.D2")
-plot(CAJ, main = "Dendrograma de la CAJ por Ward", xlab = "Observaciones", ylab = "Distancia", cex = 0.001)
+  plot(cp.hclust, main = "Dendrograma de la CAJ por Ward", xlab = "Observaciones", ylab = "Distancia", cex = 0.001)
 ```
 
 ```{r}
@@ -64,7 +63,7 @@ plot(h2)
 barplot(h2$height[(n1-30):(n1-1)])
 ```
 
-El método de agregación de ward consiste en conseguir grupos los mas homogenos posibles, esto lo hace reduciendo la varianza total dentro de cada grupo. De igual forma, se calcula una nube de puntos en base a los centroides y al agregar los dos puntos, se busca perder el la inersia mínima en función de los pesos de los centroides, ya que la densidad de la nube de puntos determina la masa interviniente. Es importante que la nube de puntos estén en un espacio euclideo para poder utilizar el método de ward.
+El método de agregación de ward consiste en conseguir grupos lo mas homogeneos posible, esto se hace reduciendo la varianza total dentro de cada grupo. De igual forma, se calcula una nube de puntos en base a los centroides y al agregar los dos puntos, se busca perder el la inercia mínima en función de los pesos de los centroides, ya que la densidad de la nube de puntos determina la masa interviniente. Es importante que la nube de puntos esté en un espacio euclideo para poder utilizar el método de ward.
 
 # Ejercicio 2
 
@@ -138,13 +137,31 @@ abline(h=0, v=0, col='gray')
 **Interpretamos las clases finales obtenidas. Para ello utilizamos la función "catdes" de R. Interprete y de un nombre a cada una de los tipos de cliente identificados.**
 
 ```{r}
+catdes(cbind(as.factor(k6$cluster),data),num.var=1,proba=0.001)
 ```
+El cluster #1 lo conforman jóvenes de entre 18 y 35 años sin plan de pensiones. Éste cluster se caracteriza por tener valores totales de activo, inversión, plazo y vista muy menores a la media y valores diferenciales negativos, por lo que tienen menor capacidad economica que la media y acumulan dinero en vez de retirarlo. Se podria etiquetar como "Jóvenes con menos poder adquisitivo".
+
+El segudo cluster lo conforman las personas de mediana edad (de 36 a 45 años) con más diferencial en hipoteca y más total activo. Se trata de personas que estan pagando hipotecas y que tienen un poder adqiusitivo mucho mayor a la media. Se les podria llamar "Adultos con poder adquisitivo".
+
+El cluster #3 lo conforman personas de más de 66 años con pensiones, por tanto se les podria categorizar como "Jubilados".
+
+El cluster #4 no corresponde a ningun rango de edad concreto pero si que se caracteriza por haber sacado más dinero que el resto como se puede observar de los campos dif_Libreta, dif_CC y dif_Plazo. Los llamaremos "Clientes que hyan retirado mucho dinero".
+
+El quinto cluster corresponde a los clientes que tenian muchos activos en inversiones independientemente de la edad. Los llamaremos "Inversores".
+
+El sexto y último cluster lo conforman aquellos clientes con seguros contratados. Se podrian denominar "Asegurados".
 
 # Ejercicio 7
 
 **Asigne ahora los clientes que SI han sido baja en la tipología de clientes anterior (tome para ello la proyección de los individuos suplementarios obtenidos en el PCA y utilice la función knn1 de la librería class).**
 
 ```{r}
+dataTot =  rbind(data,datNo)
+pc = PCA(dataTot,ncp=nd , quanti.sup = c(4,19:30), quali.sup = c(1:3,5:12,18), ind.sup = index_SiBaja)
+library(class)
+pred_sup = knn1(k6$centers, pc$ind.sup$coord, cl=c("c1","c2","c3","c4","c5","c6"))
+pred_sup
+
 ```
 
 # Ejercicio 8
@@ -152,4 +169,5 @@ abline(h=0, v=0, col='gray')
 **Represente gráficamente (con la función barplot de R) la proporción de clientes en cada una de las clases de ambos conjuntos de clientes ("normales" y los que han sido baja). Diga qué clusters tienen un riesgo mayor que el cliente se de de baja.**
 
 ```{r}
+
 ```
