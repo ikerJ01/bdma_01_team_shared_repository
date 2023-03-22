@@ -52,17 +52,6 @@ cp.hclust = hclust(dist.cpsig, method = "ward.D2")
   plot(cp.hclust, main = "Dendrograma de la CAJ por Ward", xlab = "Observaciones", ylab = "Distancia", cex = 0.001)
 ```
 
-```{r}
-n1 = 200
-k1 = kmeans(cpsig, n1)
-freq = k1$size
-d2 = dist(k1$centers)
-h2 = hclust(d2, method = 'ward.D2', members = freq)
-
-plot(h2)
-barplot(h2$height[(n1-30):(n1-1)])
-```
-
 El método de agregación de ward consiste en conseguir grupos lo mas homogeneos posible, esto se hace reduciendo la varianza total dentro de cada grupo. De igual forma, se calcula una nube de puntos en base a los centroides y al agregar los dos puntos, se busca perder el la inercia mínima en función de los pesos de los centroides, ya que la densidad de la nube de puntos determina la masa interviniente. Es importante que la nube de puntos esté en un espacio euclideo para poder utilizar el método de ward.
 
 # Ejercicio 2
@@ -139,6 +128,7 @@ abline(h=0, v=0, col='gray')
 ```{r}
 catdes(cbind(as.factor(k6$cluster),data),num.var=1,proba=0.001)
 ```
+
 El cluster #1 lo conforman jóvenes de entre 18 y 35 años sin plan de pensiones. Éste cluster se caracteriza por tener valores totales de activo, inversión, plazo y vista muy menores a la media y valores diferenciales negativos, por lo que tienen menor capacidad economica que la media y acumulan dinero en vez de retirarlo. Se podria etiquetar como "Jóvenes con menos poder adquisitivo".
 
 El segudo cluster lo conforman las personas de mediana edad (de 36 a 45 años) con más diferencial en hipoteca y más total activo. Se trata de personas que estan pagando hipotecas y que tienen un poder adqiusitivo mucho mayor a la media. Se les podria llamar "Adultos con poder adquisitivo".
